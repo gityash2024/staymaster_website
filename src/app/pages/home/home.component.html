@@ -1,0 +1,567 @@
+<ng-container>
+    <div class="d-flex" fxHide.lt-sm>
+        <img class="home-bg-img" src="../../../assets/images/home-bg.png" alt="img" />
+    </div>
+    <div class="d-flex" fxHide.gt-sm>
+        <img class="home-bg-img" src="../../../assets/images/about-background-xs.png" alt="img" />
+    </div>
+    <div class="bg-color justify-content-center">
+        <div fxLayout="row" fxLayoutAlign="space-between" class="menu-icon">
+            <img src="../../../assets/images/menu-icon.png" alt="" (click)="toggleMenu()">
+        </div>
+
+        <div class="logo-img">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <img class="logo-size" src="../../../assets/images/logo.png" alt="img" />
+                </div>
+                <div class="justify-content-center">
+                    <div class="app-name">Staymaster</div>
+                </div>
+                <div class="justify-content-center">
+                    <img src="../../../assets/images/HLine.png" alt="img" />
+                </div>
+                <div class="justify-content-center">
+                    <img class="align-middle" src="../../../assets/images/Vline.png" alt="img" />
+                </div>
+                <div class="justify-content-center">
+                    <div class="p-content align-middle">Master the new way to stay !</div>
+                </div>
+                <div class="justify-content-center">
+                    <img class="align-middle" src="../../../assets/images/Vline.png" alt="img" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-container class="container" ngClass.xs="container-xs">
+        <div class="justify-content-center" ngClass.lt-sm="search-form-xs">
+            <div class="card card-border" ngClass.lt-sm="card-border-xs">
+                <div class="card-body justify-content-center card-align-xs" ngClass.gt-sm="card-align">
+                    <div class="flex-display" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center">
+                        <!-- <div class="menu-align-xs" ngClass.gt-sm="menu-align">
+                            <img class="card-icon" src="../../../assets/images/location.png" alt="img" />
+                            <span class="card-attribute">Destination</span>
+                        </div>
+                        <div class="dot-icon" fxHide.lt-sm>
+                            <img src="../../../assets/images/dot.png" alt="img" />
+                        </div>
+                        <div class="menu-align-xs" ngClass.gt-sm="menu-align">
+                            <img class="card-icon" src="../../../assets/images/calendar.png" alt="img" />
+                            <span class="card-attribute">Check in</span>
+                            <img class="card-icon checkout-arrow" src="../../../assets/images/rightArrow.png"
+                                alt="img" />
+                            <span class="card-attribute">Check out</span>
+                        </div>
+                        <div class="dot-icon" fxHide.lt-sm>
+                            <img src="../../../assets/images/dot.png" alt="img" />
+                        </div>
+                        <div class="menu-align-xs" ngClass.gt-sm="menu-align">
+                            <img class="card-icon" src="../../../assets/images/people.png" alt="img" />
+                            <span class="card-attribute">Guests</span>
+                        </div>
+                        <div ngClass.lt-sm="search-button">
+                            <button class="search-btn search-btn-home" ngClass.lt-sm="search-btn-xs">Search</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" ngxSplit="row" fxLayout.lt-sm="column" class="flower-bg">
+            <div fxFlex="100%" ngxSplitArea>
+                <img class="flower-img" src="../../../assets/images/flower.png" alt="img" />
+            </div>
+        </div>
+        <div class="container">
+            <div fxLayout="row" class="explore-item" ngxSplit="row" fxLayout.lt-sm="column">
+                <div fxFlex="30%" class="align-explore" ngxSplitArea>
+                    <div class="page-header">Explore the best <br>stays!</div>
+                    <div class="ph-border bottom-br"></div>
+                    <div fxLayout="column" fxLayoutGap="30px">
+                        <div class="explore-desc">Discover luxury vacation rentals across India's most beautiful destinations. From beachfront villas 
+                            to mountain retreats, experience premium hospitality with StayMaster's curated collection of exceptional properties.</div>
+                        <div class="d-flex" fxLayout="column" fxLayout.gt-sm="row">
+                            <div class="justify-content-start location-list list-active"
+                                ngClass.lt-sm="location-list-xs list-active-xs" fxLayoutGap="25px">
+                                <img src="../../../assets/images/Group 758.png" alt="img" />
+                                <span class="location-name">Goa</span>
+                            </div>
+                            <div class="justify-content-center location-list"
+                                ngClass.lt-sm="location-list-xs list-active-xs" fxLayoutGap="25px">
+                                <img src="../../../assets/images/location-bler.png" alt="img" /><span
+                                    class="location-name1">Maharashtra</span>
+                            </div>
+                            <div class="justify-content-center location-list"
+                                ngClass.lt-sm="location-list-xs list-active-xs" fxLayoutGap="25px">
+                                <img src="../../../assets/images/location-bler.png" alt="img" /><span
+                                    class="location-name1">Uttarakhand</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div fxFlex="70%" ngxSplitArea>
+                    <div class="pillars" fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="10px">
+                        <div class="transition pillar-item" fxLayout="column" fxLayoutAlign="center center"
+                            fxLayoutGap="22px">
+                            <img class="pillar transition" src="../../../assets/images/image 1.png" alt="">
+                        </div>
+                        <div class="transition pillar-item" fxLayout="column" fxLayoutAlign="center center"
+                            fxLayoutGap="22px">
+                            <img class="pillar transition" src="../../../assets/images/image 1.png" alt="">
+                        </div>
+                        <div class="transition pillar-item" fxLayout="column" fxLayoutAlign="center center"
+                            fxLayoutGap="22px">
+                            <img class="pillar transition" src="../../../assets/images/image 1.png" alt="">
+                        </div>
+                        <img class="right-nav" src="../../../assets/images/rightNav.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <div fxLayout="row" ngxSplit="row">
+        <div fxFlex="50">
+            <img class="wave-img" src="../../../assets/images/Frame1.png" alt="" />
+        </div>
+        <div fxFlex="50">
+            <img class="wave-img" src="../../../assets/images/promise-bg.png" alt="" />
+        </div>
+    </div>
+    <div fxLayout="row" class="about-bg">
+        <div class="container" flexLayout="column" fxLayout.gt-xs="row" fxLayoutGap="30px">
+            <div fxFlex="60" fxFlex.xs="100" class="pl-8 about-desc" flexLayout="column">
+                <div class="page-header">About Us</div>
+                <div class="ph-border bottom-br"></div>
+                        <div class="explore-desc pb-50">Whether you're seeking a weekend getaway or planning an extended vacation, 
+            StayMaster offers exceptional stays with personalized services.</div>
+                <div flexLayout="row" fxLayout.gt-xs="column" fxLayoutGap="40px">
+                    <div class="pt-8" fxLayout="row" ngxSplit="row" fxLayout.lt-sm="column" fxLayoutGap="50px">
+                        <div fxLayout="row" fxLayoutGap="20px" fxFlex>
+                            <div fxFlex="25" ngxSplitArea>
+                                <img src="../../../assets/images/Mask group 1.png" alt="" class="about-card-icon" />
+                            </div>
+                            <div fxFlex="75" ngxSplitArea>
+                                <span class="explore-desc">Curated luxury properties with premium amenities</span>
+                            </div>
+                        </div>
+                        <div fxLayout="row" fxLayoutGap="20px" fxFlex>
+                            <div fxFlex="25" ngxSplitArea>
+                                <img src="../../../assets/images/Mask group 2.png" alt="" class="about-card-icon" />
+                            </div>
+                            <div fxFlex="75" ngxSplitArea>
+                                <span class="explore-desc">24/7 concierge and guest services</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-8" fxLayout="row" ngxSplit="row" fxLayout.lt-sm="column" fxLayoutGap="50px">
+                        <div fxLayout="row" fxLayoutGap="20px" fxFlex>
+                            <div fxFlex="25" ngxSplitArea>
+                                <img src="../../../assets/images/Mask group 3.png" alt="" class="about-card-icon" />
+                            </div>
+                            <div fxFlex="75" ngxSplitArea>
+                                <span class="explore-desc">Professional property management services</span>
+                            </div>
+                        </div>
+                        <div fxLayout="row" fxLayoutGap="20px" fxFlex>
+                            <div fxFlex="25" ngxSplitArea>
+                                <img src="../../../assets/images/Mask group 4.png" alt="" class="about-card-icon" />
+                            </div>
+                            <div fxFlex="75" ngxSplitArea>
+                                <span class="explore-desc">Investment opportunities with guaranteed returns</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div fxLayout="row" class="know-btn-align" ngxSplit="row">
+                        <button class="about-btn" routerLink="/about">Know More</button>
+                    </div>
+                </div>
+            </div>
+            <div fxFlex="40" fxFlex.xs="100" ngxSplitArea fxLayout.lt-sm="column">
+                <div fxLayout="column" class="align-mobile-img" fxLayout.gt-sm="row" fxLayoutGap="20px">
+                    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="22px">
+                        <div class="about-pillar justify-content-center" fxLayoutAlign="center end">
+                            <img class="mobile-img" src="../../../assets/images/mobile-view.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-container>
+        <div class="comment">
+            <div class="container" fxLayoutAlign="center center" fxLayout="row">
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="25px">
+                    <div class="start"><img src="../../../assets/images/Group 766.png" alt="" /></div>
+                    <div class="comment-desc" fxLayout="column" fxLayoutAlign="center center">
+                        <div class="quote-center">“</div>
+                        <div>
+                            StayMaster has transformed how we experience<br> vacation rentals in India
+                        </div>
+                    </div>
+                    <div class="end"><img src="../../../assets/images/right-tree.png" alt="" /></div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container>
+        <div flex class="header-nav" fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="20px" ngxSplitArea
+            fxLayout.lt-sm="column">
+            <div class="container" fxLayout="row">
+                <div fxFlex class="nav-title">Collections</div>
+                <div fxFlex="75" fxLayout="row" fxLayoutAlign="space-between center">
+                    <div fxFlex="" class="nav-menu">
+                        <div class="" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+                            <img src="../../../assets/images/fire.png" alt="" />
+                            <div class="nav-menu-text">Trending</div>
+                        </div>
+                    </div>
+                    <div fxFlex="" class="nav-menu active">
+                        <div class="" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+                            <img src="../../../assets/images/pool.png" alt="" />
+                            <div class="nav-menu-text nav-menu-text-active">Pool</div>
+                        </div>
+                    </div>
+                    <div fxFlex="" class="nav-menu">
+                        <div class="" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+                            <img src="../../../assets/images/beaches.png" alt="" />
+                            <div class="nav-menu-text">Beaches</div>
+                        </div>
+                    </div>
+                    <div fxFlex="" class="nav-menu">
+                        <div class="" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+                            <img src="../../../assets/images/country-side.png" alt="" />
+                            <div class="nav-menu-text">Country side</div>
+                        </div>
+                    </div>
+                    <div fxFlex="" class="nav-menu">
+                        <div class="" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+                            <img src="../../../assets/images/luxe.png" alt="" />
+                            <div class="nav-menu-text">Luxe</div>
+                        </div>
+                    </div>
+                    <div fxFlex="" class="nav-menu">
+                        <div class="" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+                            <img src="../../../assets/images/beaches2.png" alt="" />
+                            <div class="nav-menu-text">Beaches</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container>
+        <div class="pt-12 area-bg-color">
+            <div class="container">
+                <div flexLayout="column" fxLayout.gt-xs="row" fxLayoutGap="15px"></div>
+                <!-- <div fxFlex="10"></div> -->
+                <div fxFlex="" fxLayoutAlign="center center">
+                    <div class="area-view transition">
+                        <img src="../../../assets/images/Frame 65.png" class="img img-responsive" alt="" />
+                    </div>
+                </div>
+                <div fxFlex="" fxLayoutAlign="center center">
+                    <div class="area-view transition">
+                        <img src="../../../assets/images/Frame 68.png" class="img img-responsive" alt="" />
+                    </div>
+                </div>
+                <div fxFlex="" fxLayoutAlign="center center">
+                    <div class="area-view transition">
+                        <img src="../../../assets/images/Frame 64.png" class="img img-responsive" alt="" />
+                    </div>
+                </div>
+                <div fxFlex="" fxLayoutAlign="center center">
+                    <img class="right-nav-arrow" src="../../../assets/images/rightNav.png" alt="">
+                    <div class="area-view transition" fxLayoutAlign="center center">
+                        <img src="../../../assets/images/Frame 66.png" class="img img-responsive" alt="" />
+                    </div>
+                </div>
+                <!-- <div fxFlex="10"></div> -->
+            </div>
+        </div>
+    </ng-container>
+    <ng-container>
+        <div fxLayout="" ngxSplit="row" fxLayout.lt-sm="column" class="about-bg">
+            <div class="">
+                <img class="wave-line" fxFlex="100%" src="../../../assets/images/Frame-wave.png" alt="" />
+            </div>
+        </div>
+    </ng-container>
+    <ng-container>
+        <div class="pt-6rem" fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="50px" ngxSplitArea
+            fxLayout.lt-sm="column">
+            <div fxFlex="10" fxLayout.lt-sm="column"></div>
+            <div fxFlex="20" fxLayout.lt-sm="column">
+                <div fxLayoutAlign="center center">
+                    <img class="range-bg" src="../../../assets/images/Mask group.png" alt="" />
+                </div>
+            </div>
+            <div fxFlex="20" fxLayout.lt-sm="column">
+                <div fxLayoutAlign="center center">
+                    <img class="range-bg" src="../../../assets/images/key-lock.png" alt="" />
+                </div>
+            </div>
+            <div fxFlex="20" fxLayout.lt-sm="column">
+                <div fxLayoutAlign="center center">
+                    <img class="range-bg" src="../../../assets/images/Mask group.png" alt="" />
+                </div>
+            </div>
+            <div fxFlex="20" fxLayout.lt-sm="column">
+                <div fxLayoutAlign="center center">
+                    <img class="range-bg" src="../../../assets/images/key-lock.png" alt="" />
+                </div>
+            </div>
+            <div fxFlex="10" fxLayout.lt-sm="column"></div>
+        </div>
+        <div fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="50px" ngxSplitArea fxLayout.lt-sm="column">
+            <div fxFlex="10" fxLayout.lt-sm="column"></div>
+            <div fxFlex="20" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+                <span class="vertical-line"></span>
+            </div>
+            <div fxFlex="20" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+                <span class="vertical-line"></span>
+            </div>
+            <div fxFlex="20" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+                <span class="vertical-line"></span>
+            </div>
+            <div fxFlex="20" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+                <span class="vertical-line"></span>
+            </div>
+            <div fxFlex="10" fxLayout.lt-sm="column"></div>
+        </div>
+        <div fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="50px" ngxSplitArea fxLayout.lt-sm="column">
+            <div fxFlex="10"></div>
+            <div class="h-line" fxFlex="80"></div>
+            <div fxFlex="10"></div>
+        </div>
+        <div fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="50px" ngxSplitArea fxLayout.lt-sm="column">
+            <div fxFlex="10" fxLayout.lt-sm="column"></div>
+            <div fxFlex="20" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+                <span class="range-per">30+</span>
+            </div>
+            <div fxFlex="20" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+                <span class="range-per">100K</span>
+            </div>
+            <div fxFlex="20" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+                <span class="range-per">12+</span>
+            </div>
+            <div fxFlex="20" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+                <span class="range-per">50+</span>
+            </div>
+            <div fxFlex="10" fxLayout.lt-sm="column"></div>
+        </div>
+        <div fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="50px" ngxSplitArea fxLayout.lt-sm="column">
+            <div fxFlex="10"></div>
+            <div class="h-line" fxFlex="80"></div>
+            <div fxFlex="10"></div>
+        </div>
+        <br>
+        <div fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="50px" ngxSplitArea fxLayout.lt-sm="column">
+            <div fxFlex="10" fxLayout.lt-sm="column"></div>
+            <div fxFlex="20" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+                <p class="range-p">Premium properties across India's top vacation destinations</p>
+            </div>
+            <div fxFlex="20" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+                <p class="range-p">Happy guests experiencing luxury hospitality services</p>
+            </div>
+            <div fxFlex="20" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+                <p class="range-p">Cities covered with professional property management</p>
+            </div>
+            <div fxFlex="20" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+                <p class="range-p">Expert team members providing 24/7 guest support</p>
+            </div>
+            <div fxFlex="10" fxLayout.lt-sm="column"></div>
+        </div>
+    </ng-container>
+    <ng-container>
+        <div class="dont-take-section">
+            <div class="container">
+                <div class="" fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="30px" ngxSplitArea
+                    fxLayout.lt-sm="column">
+                    <div fxFlex="30" fxLayout.lt-sm="column">
+                        <div class="page-header">Don’t take our word for it...</div>
+                        <div class="ph-border bottom-br"></div>
+                        <div class="explore-desc">Discover what makes StayMaster the preferred choice for luxury vacation rentals. 
+                            Our guests and property owners share their experiences of exceptional service, premium amenities, 
+                            and profitable investments. <br /><br /> Join thousands of satisfied customers who have experienced 
+                            the StayMaster difference in hospitality and property management.</div>
+                    </div>
+                    <div fxFlex="30" fxLayout.lt-sm="column">
+                        <div class="dont-take" fxLayoutAlign="center center">
+                            <div class="curve-img">
+                                <img src="../../../assets/images/Frame 71.png" alt="" />
+                            </div>
+                            <div class="card-header">What our Users say</div>
+                            <div class="card-content">StayMaster exceeded our expectations with their luxury villa in Goa. 
+                                The concierge service and attention to detail made our vacation truly memorable. 
+                                Highly recommend for premium stays!</div>
+                            <div class="created-by" fxLayout="row" fxLayoutAlign="space-between start">
+                                <Span>Raj Mittal, Mumbai</Span>
+                                <img class="arrow" src="../../../assets/images/Group 761.png" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div fxFlex="30" fxLayout.lt-sm="column">
+                        <div class="dont-take" fxLayoutAlign="center center">
+                            <div class="curve-img">
+                                <img src="../../../assets/images/Frame 72.png" alt="" />
+                            </div>
+                            <div class="card-header">What the Press say</div>
+                            <div class="card-content">StayMaster is revolutionizing India's vacation rental market with their 
+                                professional management and luxury hospitality standards. A game-changer for both 
+                                travelers and property investors.</div>
+                            <div class="created-by" fxLayout="row" fxLayoutAlign="space-between start">
+                                <span>Rhea Gupta, 2019</span>
+                                <img class="arrow" src="../../../assets/images/Group 761.png" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div fxLayoutAlign="start" fxLayout="row" fxLayoutGap="50px" ngxSplitArea fxLayout.lt-sm="column">
+                <img class="" src="../../../assets/images/Frame.png" alt="" />
+            </div> -->
+    </ng-container>
+    <ng-container>
+        <div class="customer-service" fxLayoutAlign="start start" fxLayout="row" ngxSplitArea fxLayout.lt-sm="column">
+            <div fxFlex="" fxLayout.lt-sm="column" class="custom-service">
+                <div class="title-head">Customer Service</div>
+                <div class="custom-content">Need assistance with your booking or have questions about our properties? 
+                    Our dedicated customer service team is here to help you 24/7. Whether you're planning a vacation, 
+                    looking to invest, or want to list your property, we're committed to providing exceptional support. 
+                    <br /><br />Get in touch with us for personalized assistance, property recommendations, or any 
+                    inquiries about StayMaster services. <br /><br />Experience the difference of having a dedicated 
+                    support team that truly cares about your needs and satisfaction.</div>
+            </div>
+            <div fxFlex="" fxLayout="column" class="form-field">
+                <form fxLayout="column" fxLayoutGap="1px">
+                    <div class="form-group">
+                        <input type="text" class="form-input form-control sm-text" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input form-control sm-text" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input form-control sm-text" placeholder="Purpose">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-input" placeholder="Details sm-text"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="submit-btn">Submit</button>
+                    </div>
+                </form>
+                <div fxLayoutAlign="start" fxLayout="row" fxLayoutGap="50px" ngxSplitArea fxLayout.lt-sm="column">
+                    <br>
+                    <br>
+                    <img class="" src="../../../assets/images/clock.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container>
+        <div fxLayoutAlign="start start" fxLayout="row" ngxSplitArea fxLayout.lt-sm="column">
+            <div fxFlex="50" fxLayout.lt-sm="column" class="know-more">
+                <div class="title-head">Become a Host</div>
+                <!-- <div class="ph-border bottom-br"></div> -->
+
+                <div class="pt-4" fxLayout="50">
+                    <img class="icon" src="../../../assets/images/pillar-home.png" alt="" />
+                    <p class="paragraph">Transform your property into a profitable vacation rental with StayMaster's complete 
+                        management services and guaranteed bookings</p>
+                </div>
+                <br />
+                <div fxLayout="50">
+                    <img class="icon" src="../../../assets/images/pillar-key.png" alt="" />
+                    <p class="paragraph">Enjoy passive income while we handle marketing, guest services, housekeeping, 
+                        and maintenance with our professional team</p>
+                </div>
+                <br />
+                <div fxLayout="50">
+                    <img class="icon" src="../../../assets/images/pillar-home.png" alt="" />
+                    <p class="paragraph">Join our network of successful property owners earning premium returns through 
+                        StayMaster's proven hospitality platform</p>
+                </div>
+                <br />
+                <div fxLayout="row" class="submit-btn-align" fxLayoutAlign="space-between center">
+                    <button class="submit-btn">Know More</button>
+                    <div class="kit-align" fxLayoutAlign="end end">
+                        <img src="../../../assets/images/kit.png" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div fxFlex="50">
+                <div class="become-host-side-img"></div>
+                <img class="store-img" src="../../../assets/images/store.jpg" alt="" />
+            </div>
+        </div>
+    </ng-container>
+    <!-- <ng-container>
+            <app-footer></app-footer>
+        </ng-container> -->
+    <!-- <ng-container>
+            <div fxLayoutAlign="center center" fxLayout="row" ngxSplitArea fxLayout.lt-sm="column" class="footer-view">
+                <div fxFlex="40" fxLayoutAlign="center center" fxLayout.lt-sm="column">
+                    <div fxLayout="column" fxLayoutAlign="space-evenly center">
+                        <img src="../../../assets/images/Group 721.png" alt="" />
+                        <div class="title">staymaster</div>
+                        <div class="sub-title">Stay your way!</div>
+                        <div class="footer-content">Welcome to the brand that helps you <br /> master the new way to stay
+                        </div>
+                    </div>
+                </div>
+                <div fxFlex="20" fxLayoutAlign="start" fxLayout.lt-sm="column">
+                    <div fxLayout="column" fxLayoutAlign="space-evenly start">
+                        <div class="footer-menu">Home</div>
+                        <div class="footer-menu">About us</div>
+                        <div class="footer-menu">Invest</div>
+                        <div class="footer-menu">Host</div>
+                        <div class="footer-menu">Contact us</div>
+                    </div>
+                </div>
+                <div fxFlex="20" fxLayoutAlign="start start" fxLayout.lt-sm="column">
+                    <div fxLayout="column" fxLayoutAlign="space-evenly start">
+                        <div class="footer-menu">Stays</div>
+                        <div class="footer-menu">Stays in Goa</div>
+                        <div class="footer-menu">Stays in Maharashtra</div>
+                        <div class="footer-menu">Stays in Uttarakhand</div>
+                    </div>
+                </div>
+                <div fxFlex="20" fxLayoutAlign="start start" fxLayout.lt-sm="column">
+                    <div fxLayout="column" fxLayoutAlign="space-evenly start">
+                        <div class="footer-menu">Collections</div>
+                        <div class="footer-menu">Stays with Pool</div>
+                        <div class="footer-menu">Stays near Beach</div>
+                        <div class="footer-menu">Romantic stays</div>
+                        <div class="footer-menu">Luxurious stays</div>
+                        <div class="footer-menu">Kid friendly stays</div>
+                    </div>
+                </div>
+            </div>
+            <div fxLayoutAlign="start start" fxLayout="row" ngxSplitArea fxLayout.lt-sm="column"
+                class="footer-social-media">
+                <div fxFlex="37" fxLayoutAlign="center" fxLayout.lt-sm="column">
+                    <img class="social-icon pl-8" src="../../../assets/images/Group 649.png" alt="" />
+                </div>
+                <div class="footer-content" fxFlex="38" fxLayoutAlign="start" fxLayout.lt-sm="column">
+                    Copyright @ All rights reserved Staymaster Pvt. Ltd.
+                </div>
+                <div class="footer-content" fxFlex="25" fxLayoutAlign="start" fxLayout.lt-sm="column">
+                    Privacy . Terms and Conditions
+                </div>
+            </div>
+        </div>
+        <div fxLayoutAlign="start start" fxLayout="row" ngxSplitArea fxLayout.lt-sm="column"
+            class="footer-social-media">
+            <div fxFlex="37" fxLayoutAlign="center" fxLayout.lt-sm="column">
+                <img class="social-icon pl-8" src="../../../assets/images/Group 649.png" alt="" />
+            </div>
+            <div class="footer-content" fxFlex="38" fxLayoutAlign="start" fxLayout.lt-sm="column">
+                Copyright @ All rights reserved Staymaster Pvt. Ltd.
+            </div>
+            <div class="footer-content" fxFlex="25" fxLayoutAlign="start" fxLayout.lt-sm="column">
+                Privacy . Terms and Conditions
+            </div>
+        </div>
+    </ng-container> -->
+    <app-footer></app-footer>
+</ng-container>

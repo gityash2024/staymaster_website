@@ -1,0 +1,406 @@
+.page {
+
+}
+
+.thank-you {
+    margin-top: 42px;
+    background: rgba(0, 130, 129, 0.12);
+    border-radius: 8px;
+    min-height: 194px;
+    padding: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 768px) {
+        min-height: 100% !important;
+    }
+    .check {
+        background: #008281;
+        border-radius: 50px;
+        height: 62px;
+        width: 62px;
+        color: #FFFFFF;
+
+        @media (max-width: 768px) {
+            height: 34px !important;
+            width: 34px !important;
+        }
+    }
+
+    .check-gt-xs {
+
+    }
+
+    .title {
+        font-family: 'Caudex';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 36px;
+        color: #008281;
+        @media (max-width: 768px) {
+            font-size: 16px !important;
+            line-height: 120% !important;
+        }
+    }
+
+    .desc {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height:23px;
+        color: #2E2E2E;
+        width: 76%;
+    }
+} 
+
+.thank-you-lt-sm { 
+    padding: 15px;
+}
+.confirmation{
+    gap: 20px;
+    @media (max-width: 992px) {
+        flex-direction: row !important;
+        justify-content: center !important;
+    }
+    @media (max-width: 768px) {
+        justify-content: space-between !important;
+        width: 100% !important;
+        gap: 10px !important;
+    }
+}
+
+.confirmed-booking {
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 60px;
+
+    .title {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .tranzaction-no {
+        font-size: 24px;
+        line-height: 30px;
+        color: #2E2E2E;
+        margin-top: 22px;
+        @media (max-width: 992px) {
+            font-family: 'Akkurat';
+            font-size: 22px !important;
+            line-height: 100% !important;
+        }
+    }
+
+    .sm-btn, .sm-btn-reminder {
+        width: 195px;
+        height: 60px;
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 25px;
+        color: #F9F5F3;
+        background: #008281;
+        box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+        border-radius: 46px;
+        cursor: pointer;
+    }
+
+    .mt-50 {
+        margin-top: 50px;
+    }
+
+    .property-photo > img{
+        width: 90%;
+    }
+
+    .property-detail {
+        padding-left: 3.4rem;
+        margin-top: 20px;
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 23px;
+        color: #2E2E2E;
+
+        @media (max-width: 992px) {
+            font-size: 16px !important;
+        }
+        .ptitle {
+            font-family: "Akkurat";
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 100%;
+            @media (max-width: 992px) {
+                font-size: 18px !important;
+            }
+        }
+
+    }
+
+    .property-detail-lt-sm {
+        padding-left: 2rem;
+    }
+}
+
+.devider-line {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: rgb(196,179,133);
+    background: linear-gradient(90deg, rgba(196,179,133,1) 0%, rgba(255,255,255,1) 100%);
+    height: 1px;
+    
+}
+
+.booking-details {
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+.label-light {
+    color: #9A9A9A;
+    font-family: "Akkurat";
+    font-weight: 400;
+    font-size: 18px;
+    @media (max-width: 992px) {
+        font-size: 16px !important;
+    }
+}
+
+.label-dark {
+    color: #2E2E2E;
+    word-wrap: break-word;
+    font-family: "Akkurat";
+    font-weight: 400;
+    font-size: 18px;
+    @media (max-width: 992px) {
+        font-size: 16px !important;
+    }
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+.mt-8 {
+    margin-top: 8px;
+}
+
+.sm-btn {
+    width: 256px;
+}
+
+.sm-btn-bordered {
+    width: 195px;
+    height: 60px;
+    border: 1.2px solid #008281;
+    box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+    border-radius: 46px;
+    color: #008281;
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #008281;
+}
+
+.bottom-btns {
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #2E2E2E;
+    padding-bottom: 120px;
+    .sbtn {
+        padding: 18px 24px;
+        cursor: pointer;
+        width: 280px;
+        height: 60px;
+        border-radius: 8px;
+        background: #FFFFFF;
+        border: 1px solid #C4B385;
+    }
+
+    .sbtn-slt-sm {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    // .sm-btn, .detailed-property, .scanner {
+    //     display: none !important;
+    // } 
+
+    .booking-details{
+        max-width: 100% !important;
+        max-height: 100% !important;
+    }
+
+    .mobile-booking-details{
+        max-width: 100% !important;
+        max-height: 100% !important;
+        margin: 0 !important;
+    }
+
+    .mobile-booking{
+        display: flex;
+        flex-direction: column !important;
+        gap: 30px;
+    }
+
+    .detailed-property{
+        // display: flex;
+        // flex-direction: row !important;
+        max-width: 100% !important;
+        @media (max-width: 600px) {
+            flex-direction: column !important;
+        }
+    }
+    
+    .booking-qr-code{
+        max-width: 100% !important;
+        width: 100%;
+    }
+
+    .sm-btn{
+        width: 100% !important;
+        margin: 10px 0 0 0 !important;
+    }
+
+    .mobile-booking-info{
+        display: block !important;
+        margin-top: 60px;
+    }
+
+    .booking-info{
+        display: none !important;
+    }
+    
+    .property-detail{
+        padding: 0 !important;
+    }
+
+    .property-photo > img{
+        width: 100% !important;
+    }
+
+    .name-guests{
+        flex-direction: column !important;
+        font-family: "Akkurat";
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 100%;
+        // margin: 0 !important;
+        @media (max-width: 992px) {
+            font-size: 16px !important;
+        }
+    }
+}
+
+.sub-title{
+    font-family: "Akkurat";
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+
+    @media (max-width: 992px) {
+        font-size: 16px !important;
+    }
+}
+
+.check-content{
+    margin: 0 !important;
+}
+
+.reminder-service{
+    // @media (min-width: 768px) {
+    //     display: none !important;
+    // }
+    .reminder-text-mobile{
+        display: none;
+    }
+    @media (max-width: 768px) {
+        display: flex !important;
+        .sm-btn-bordered, .sm-btn-reminder{
+            width: 169px;
+            height: 54px;
+        }
+        .reminder-text{
+            display: none !important;
+        }
+        .reminder-text-mobile{
+            display: block !important;
+        }
+    }
+}
+@media (max-width: 450px) {
+    .sm-btn-reminder, .sm-btn-bordered{
+        width: 100% !important;
+        margin: 0 !important;
+    }
+}
+
+.mobile-only{
+    display: none;
+    @media (max-width: 992px) {
+        display: block !important;
+    }
+}
+
+.skeleton{
+    width: 100%;
+    background: #e0e0e038;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-name{
+    background: #e0e0e0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+.skeleton-name::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150px;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: loading 1.5s infinite;
+}
+
+.skeleton-sm {
+    max-width: 200px;
+}
+  
+.skeleton-md {
+    max-width: 300px;
+}
+  
+@media (max-width: 768px) {
+    .skeleton-sm,
+    .skeleton-md {
+      max-width: 100%;
+    }
+    .image-section{
+        min-width: 100% !important;
+    }
+}

@@ -1,0 +1,709 @@
+.page {
+    background-color: #ffffff;
+}
+
+.my-container {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    // padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    // margin-right: auto;
+    margin-left: auto;
+}
+
+.my-container-xs {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    // padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: 0px;
+    // margin-right: auto;
+    margin-left: auto;
+}
+.pt-5 {
+    padding-top: 5px;
+}
+.pt-10 {
+    padding-top: 10px;
+}
+.mt-5 {
+    margin-top: 5px;
+}
+.mt-10 {
+    margin-top: 10px;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+
+.confirm-booking {
+    font-family: "Caudex";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #008281;
+    // padding-left: 6rem;
+    // padding-right: 3rem;
+
+    .title {
+        margin-top: 38px;
+        font-size: 26px;
+        line-height: 31px;
+        width: 100%;
+        .icon {
+            padding-top: 4px;
+        }
+    }
+
+    .subtitle {
+        font-size: 20px;
+        line-height: 25px;
+        color: #2e2e2e;
+        margin-top: 25px;
+    }
+
+    .my-form {
+        @media (min-width: 991px) {
+            padding-right: 100px;
+        }
+    }
+    .cb-text {
+        border: 0.8px solid rgba(161, 129, 128, 0.9);
+        border-radius: 8px;
+        color: #2e2e2e;
+        font-size: 18px;
+        line-height: 23px;
+        height: 54px;
+        font-family: "Akkurat";
+    }
+
+    .otp-text {
+        text-align: center;
+        margin: 22px;
+    }
+
+    .guest-form {
+        .details {
+            font-size: 18px;
+            line-height: 23px;
+            color: #2e2e2e;
+        }
+        .small-detail {
+            font-size: 14px;
+            color: #2e2e2e;
+        }
+        .add-guest {
+            font-size: 18px;
+            line-height: 23px;
+            text-decoration-line: underline;
+            color: #008281;
+            cursor: pointer;
+        }
+
+        .guest-no {
+            font-size: 18px;
+            line-height: 23px;
+            color: #616161;
+            margin-top: 25px;
+        }
+
+        .remove-guest {
+            font-size: 13px;
+            padding-top: 15px;
+            color: #9a9a9a;
+            cursor: pointer;
+        }
+    }
+
+    .login-logout-title {
+        font-size: 20px;
+        line-height: 25px;
+        color: #2e2e2e;
+        margin-bottom: 22px;
+        font-family: "Akkurat";
+    }
+
+    .login-logout {
+        padding-top: 40px;
+        padding-right: 100px;
+
+        .btn-confirm {
+            height: 60px;
+            width: 100%;
+            background: #008281;
+            box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+            border-radius: 46px;
+            font-family: "Akkurat";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 25px;
+            color: #ffffff;
+            cursor: pointer;
+            margin-top: 44px;
+        }
+    }
+
+    .coupon {
+        font-size: 16px;
+        line-height: 20px;
+        text-decoration-line: underline;
+        color: #2e2e2e;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+
+    .devider-line {
+        margin-top: 10px;
+        background: rgb(196, 179, 133);
+        background: linear-gradient(90deg, rgba(196, 179, 133, 1) 0%, rgba(255, 255, 255, 1) 100%);
+        height: 1px;
+    }
+    .t-and-c {
+        font-size: 18px;
+        line-height: 23px;
+        color: #2e2e2e;
+        .small {
+            font-size: 16px;
+            line-height: 20px;
+            color: #595959;
+        }
+    }
+
+    .rules {
+        font-size: 14px;
+        line-height: 18px;
+        color: #252525;
+        .link {
+            text-decoration: underline;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    }
+}
+
+.confirm-booking-xs {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 29px;
+    color: #008281;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .title {
+        margin-top: 38px;
+        font-size: 20px;
+        line-height: 31px;
+        width: 100%;
+        .icon {
+            padding-top: 4px;
+        }
+    }
+
+    .subtitle {
+        font-size: 16px;
+        line-height: 25px;
+        color: #2e2e2e;
+        margin-top: 25px;
+    }
+
+    .my-form {
+        padding-right: 0px;
+    }
+    .cb-text {
+        border: 0.8px solid rgba(161, 129, 128, 0.9);
+        border-radius: 50px;
+        color: #2e2e2e;
+        font-size: 16px;
+        line-height: 23px;
+        height: 54px;
+    }
+
+    .otp-text {
+        text-align: center;
+        margin: 22px;
+    }
+
+    .guest-form {
+        .details {
+            font-size: 16px;
+            line-height: 23px;
+            color: #2e2e2e;
+        }
+        .small-detail {
+            font-size: 14px;
+            color: #2e2e2e;
+        }
+        .add-guest {
+            font-size: 15px;
+            line-height: 23px;
+            text-decoration-line: underline;
+            color: #008281;
+            cursor: pointer;
+        }
+
+        .guest-no {
+            font-size: 16px;
+            line-height: 23px;
+            color: #616161;
+            margin-top: 25px;
+        }
+
+        .remove-guest {
+            font-size: 13px;
+            padding-top: 15px;
+            color: #9a9a9a;
+            cursor: pointer;
+        }
+    }
+
+    .login-logout-title {
+        font-size: 18px;
+        line-height: 25px;
+        color: #008281;
+        margin-bottom: 22px;
+    }
+
+    .verify-number{
+        font-size: 18px;
+        line-height: 25px;
+        color: black !important;
+    }
+
+    .verify-number-title{
+        font-size: 16px;
+        line-height: 25px;
+        margin-bottom: 22px;
+        color: black !important;
+    }
+
+    .login-logout {
+        padding-top: 40px;
+        padding-right: 100px;
+
+        .btn-confirm {
+            height: 60px;
+            width: 100%;
+            background: #008281;
+            box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+            border-radius: 46px;
+            font-family: "Akkurat";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 25px;
+            color: #ffffff;
+            cursor: pointer;
+            margin-top: 44px;
+        }
+    }
+
+    .coupon {
+        font-size: 14px;
+        line-height: 20px;
+        text-decoration-line: underline;
+        color: #2e2e2e;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+
+    .devider-line {
+        margin-top: 10px;
+        background: rgb(196, 179, 133);
+        background: linear-gradient(90deg, rgba(196, 179, 133, 1) 0%, rgba(255, 255, 255, 1) 100%);
+        height: 1px;
+    }
+    .t-and-c {
+        font-size: 16px;
+        line-height: 23px;
+        color: #2e2e2e;
+        .small {
+            font-size: 14px;
+            line-height: 20px;
+            color: #595959;
+        }
+    }
+
+    .rules {
+        font-size: 14px;
+        line-height: 18px;
+        color: #252525;
+        .link {
+            text-decoration: underline;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    }
+}
+
+.pricing-summary-xs,
+.pricing-summary {
+    background: #008281;
+    box-shadow: -3px 4px 16px rgba(34, 34, 34, 0.23);
+    border-radius: 5px;
+    padding: 60px 50px;
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    color: #ffffff;
+
+    .title {
+        margin-top: 20px;
+        font-size: 26px;
+        line-height: 31px;
+        font-family: "Caudex";
+        color: #008281;
+        @media (max-width: 992px) {
+            font-size: 14px !important;
+        }
+        .icon {
+            padding-top: 4px;
+        }
+    }
+
+    .sub-title {
+        font-size: 20px;
+        line-height: 25px;
+        @media (max-width: 992px) {
+            font-weight: 400;
+            font-size: 14px !important;
+            line-height: 100%;
+        }
+    }
+
+    .booking-summary-desc {
+        gap: 15px;
+    }
+
+    .booking-summary-photo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25px;
+    }
+
+    .booking-summary-photo > img {
+        // max-width: 135px;
+        max-height: 121px;
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+        
+
+        @media (max-width: 992px) {
+            // width: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .property-type {
+        font-size: 14px;
+        line-height: 20px;
+        color: #e2e2e2;
+        margin-top: 20px;
+    }
+
+    .aminities {
+        font-size: 16px;
+        line-height: 20px;
+        color: #ffffff;
+        @media (max-width: 992px) {
+            font-size: 14px !important;
+        }
+    }
+
+    .line {
+        margin-top: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .details-subtitle {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 23px;
+        color: #ffffff;
+        @media (max-width: 992px) {
+            font-size: 14px !important;
+        }
+    }
+
+    .ul {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .desc {
+        font-size: 15px;
+        line-height: 19px;
+        color: #f0f0f0;
+        padding-top: 32px;
+    }
+
+    .confirm-and-pay-btn {
+        margin-top: 40px;
+        height: 60px;
+        background: rgba(249, 245, 243, 0.8);
+        box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+        border-radius: 46px;
+        font-size: 20px;
+        line-height: 25px;
+        color: #008281;
+        width: 100% !important;
+    }
+
+    @media (max-width: 992px) {
+        background: none !important;
+        box-shadow: none !important;
+        color: black !important;
+        padding: 20px !important;
+    }
+}
+
+.gold {
+    color: #c4b385;
+}
+
+.bottom-circle {
+    height: 60px;
+    width: 60px;
+    background: #ffffff;
+    position: relative;
+    top: -25px;
+    border-radius: 40px;
+    @media (max-width: 992px) {
+        display: none !important;
+    }
+}
+
+.top-circle {
+    height: 60px;
+    width: 60px;
+    background: #ffffff;
+    position: relative;
+    bottom: -25px;
+    border-radius: 40px;
+    @media (max-width: 992px) {
+        display: none !important;
+    }
+}
+
+.booking-for {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .booking-for-btn {
+        width: 250px;
+        height: 54px;
+        border-radius: 8px;
+        background: #ffffff;
+        border: 1px solid #c4b385;
+        cursor: pointer;
+    }
+
+    .active {
+        background: #008281;
+        color: #ffffff;
+        border: 1px solid #008281;
+    }
+}
+
+.booking-for-xs {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+
+    .booking-for-btn {
+        width: 169px;
+        height: 54px;
+        border-radius: 50px;
+        background: #ffffff;
+        border: 1px solid #c4b385;
+        cursor: pointer;
+    }
+
+    .active {
+        background: #008281;
+        color: #ffffff;
+        border: 1px solid #008281;
+    }
+}
+
+.Confbooking-for-btn {
+    width: 100%;
+    height: 54px;
+    border-radius: 50px;
+    background: #008281;
+    color: white;
+    border: 1px solid #c4b385;
+    cursor: pointer;
+}
+
+.error-message {
+    font-size: 14px;
+    color: red;
+}
+@media (max-width: 767px) {
+    .login-logout {
+        padding-right: 0px !important;
+    }
+    .confirm-booking-xs {
+        .otp-text {
+            text-align: center;
+            width: 50px !important;
+            height: 50px !important;
+            margin: 0 !important;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .confirm-booking-xs {
+        .otp-text {
+            text-align: center;
+            width: 30px !important;
+            height: 30px !important;
+            padding: 0;
+            margin: 0 !important;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .confirmation-booking-content{
+        flex-direction: column !important;
+    }
+    
+    .confirmation{
+        max-width: 100% !important;
+    }
+
+    .confirmation-form{
+        display: none !important;
+    }
+
+    .confirmation-desc{
+        max-width: 100%;
+    }
+
+    app-header, app-footer, .confirmation-form{
+        display: none !important;
+    }
+
+    .details-subtitle, .property-type, .aminities{
+        color: black !important;
+    }
+    
+    .confirm-and-pay-btn{
+        background: #008281 !important;
+        color: rgba(249, 245, 243, 0.8) !important;
+    }
+}
+
+.divider-line {
+    height: 2px;
+    width: 100%;
+    margin: 10px 0;
+    background: linear-gradient(to right, rgba(196, 179, 133, 0) 0%, rgba(196, 179, 133, 0.8) 50%, rgba(196, 179, 133, 0) 100%);
+    &.mobile-only {
+      display: none;
+  
+      @media (max-width: 992px) {
+        display: block;
+      }
+    }
+}
+
+@media (max-width: 992px) {
+    .line{
+        display: none !important;
+    }
+}
+
+@media (max-width: 550px) {
+    .login-or-sign-up{
+        flex-direction: column !important;
+        gap: 10px;
+        padding: 20px 20px 0 20px;
+    }
+
+    .login-confirm-btn{
+        flex-direction: column !important;
+        gap: 10px;
+        padding: 0 20px;
+    }
+
+    .login-mobile, .login-code{
+        max-width: 100% !important;
+        margin-right: 0 !important;
+    }
+}
+
+.resend-code{
+    font-size: 15px;
+}
+
+@media (max-width: 600px) {
+    .phone-select{
+        max-width: 40% !important;
+    }
+}
+
+.skeleton{
+    width: 100%;
+    background: #e0e0e038;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-name{
+    background: #e0e0e0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+.skeleton-name::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150px;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: loading 1.5s infinite;
+}
+
+.skeleton-sm {
+    max-width: 200px;
+}
+  
+.skeleton-md {
+    max-width: 300px;
+}
+  
+@media (max-width: 768px) {
+    .skeleton-sm,
+    .skeleton-md {
+      max-width: 100%;
+    }
+    .image-section{
+        min-width: 100% !important;
+    }
+}

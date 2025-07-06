@@ -1,0 +1,98 @@
+.top-buttons {
+    display: table-cell;
+    max-width: 600px;
+  }
+
+  .bookings{
+    padding: 20px;
+
+    .title{
+      font-size: var(--admin-maintitlesiz);
+    }
+
+    .bookingDetailsCard{
+      width: 87vw;
+      height: 498px;
+      overflow:scroll;
+      border-radius: 10px;
+      margin-top: 20px;
+
+      .decline{
+        width: 81px;
+        height: 36px;
+        border: 0.9px solid #99CDCD;
+        color: #99CDCD;
+        font-size: 14px;
+        margin-right: 10px;
+      }
+
+      .accept{
+        width: 81px;
+        height: 36px;
+        border: 0.9px solid #008281;
+        color: #008281;
+        font-size: 14px;
+      }
+
+      .applybtn{
+        width: 30px;
+        height: 30px;
+        border-radius: 2px;
+        background-color: var(--admin-active);
+      }
+
+      .inptfm{
+        width: 99px;
+        height: 26px;
+        border: 0.5px solid #787878;
+        color: #787878;
+        margin-right: 10px;
+        text-align: -webkit-center;
+      }
+
+      .inptfm1{
+        width: 99px;
+        height: 26px;
+        border: 0.5px solid #787878;
+        color: #787878;
+        margin-right: 40px;
+        text-align: -webkit-center;
+      }
+
+      .thresholdtitle{
+        font-size: 16px;
+        color: black;
+        margin-bottom: -10px;
+      }
+
+      .titlegrey{
+        color:#787878;
+        font-size: 14px;
+      }
+
+      .titleinbetween{
+        color: black;
+        font: 16px;
+        position: relative;
+        top: 59px;
+        right: 370px;
+        position: relative;
+        z-index: 99;
+        align-self: end;
+        font-weight: bold;
+      }
+
+
+  
+      .viewDetails{
+        width: 94px;
+        height: 38px;
+        border: 0.8px solid var(--admin-active);
+        color: var(--admin-active);
+        font-size: var(--admin-subtitlesiz);
+      }
+  
+    }
+
+
+  }

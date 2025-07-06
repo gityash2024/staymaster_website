@@ -1,0 +1,455 @@
+<div class="page">
+    <div [ngClass]="{'d-none': isMobileView}">
+        <app-header [headerName]="headerName"></app-header>
+    </div>
+    <ng-container>
+        <div class="confirm-booking container" ngClass.lt-sm="confirm-booking-xs">
+            <div class="my-container" ngClass.lt-sm="my-container-xs">
+                <div class="confirmation-booking-content" fxLayout="column" fxLayout.gt-xs="row">
+                    <div class="confirmation confirmation-form" fxFlex="60">
+                        <form [formGroup]="bookingForm" fxLayout="column" fxLayoutGap="14px" (ngSubmit)="proceed()">
+                            <ng-container *ngIf="userLoggedIn">
+                                <div class="skeleton container py-5 my-form my-5" *ngIf="loading">
+                                    <div class="flex-grow-1 image-section" style="min-width: 180px;">
+                                        <div class="d-flex gap-3 justify-content-between flex-wrap">
+                                            <div class="d-flex flex-row justify-content-between gap-4" style="width: 100%;">
+                                                <div class="skeleton-name skeleton-sm w-100" style="height: 50px; width: 50px !important;"></div>
+                                                <div class="skeleton-name skeleton-sm w-100" style="height: 50px; width: 160px !important;"></div>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="flex-grow-1 w-100 image-section mt-4" style="min-width: 150px;">
+                                        <div class="skeleton-name w-100" style="height: 300px;"></div>
+                                        <div class="skeleton-name mt-3 w-100" style="height: 200px;"></div>
+                                        <div class="skeleton-name mt-3 w-100" style="height: 140px;"></div>
+                                        <div class="skeleton-name mt-3 w-100" style="height: 450px;"></div>
+                                        <div class="skeleton-name mt-3 w-100" style="height: 160px;"></div>
+                                    </div>
+                                </div>
+                                <div class="my-form" *ngIf="!loading">
+                                    <div class="title" fxLayout="row">
+                                        <div class="icon" (click)="isMobileView ? resetDesc() : ''"><mat-icon>navigate_before</mat-icon></div>
+                                        <div class="w-100 d-flex justify-content-center">Confirm Booking</div>
+                                    </div>
+                                    <div fxLayout="column" fxLayoutGap="14px">
+                                        <div *ngIf="userLoginSuccess">
+                                            <div class="subtitle">{{userLoginSuccess}}</div>
+                                            <br>
+                                            <div class="devider-line"></div>
+                                        </div>
+                                        <div class="subtitle">Personal Details</div>
+                                        <div fxLayout="row" fxLayoutGap="12px">
+                                            <div fxFlex>
+                                                <input type="text" class="form-control cb-text" placeholder="First Name"
+                                                    formControlName="firstname">
+                                                <div *ngIf="bookingForm.controls['firstname'].invalid && bookingForm.controls['firstname'].touched"
+                                                    class="error-message">
+                                                    First Name is required
+                                                </div>
+
+                                            </div>
+                                            <div fxFlex>
+                                                <input type="text" class="form-control cb-text" placeholder="Last Name"
+                                                    formControlName="lastname">
+                                                <div *ngIf="bookingForm.controls['lastname'].invalid && bookingForm.controls['lastname'].touched"
+                                                    class="error-message">
+                                                    Last Name is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="12px">
+                                            <div fxFlex="30" class="phone-select">
+                                                <!-- <input type="text" class="form-control cb-text" placeholder="IND(+91)"> -->
+                                          
+                                                <select class="form-select cb-text" [(ngModel)]="selectedISD" [ngModelOptions]="{standalone: true}">
+                                                <option *ngFor="let code of isdCodes" [value]="code.value">{{ code.label }}</option>
+                                                </select>
+                                            </div>
+                                            <div fxFlex>
+                                                <input type="text" class="form-control cb-text" placeholder="Mobile"
+                                                    formControlName="phone">
+                                                <div *ngIf="bookingForm.controls['phone'].invalid && bookingForm.controls['phone'].touched"
+                                                    class="error-message">
+                                                    Mobile number is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div fxLayout="row">
+                                            <div fxFlex>
+                                                <input type="email" class="form-control cb-text" placeholder="Email"
+                                                    formControlName="email">
+                                                <div *ngIf="bookingForm.controls['email'].invalid && bookingForm.controls['email'].touched"
+                                                    class="error-message">
+                                                    Valid email is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="subtitle">Booking for</div>
+                                        <div fxLayout="row">
+                                            <div fxLayout="row">
+                                                <div fxLayout="row" fxLayoutGap="50px" fxLayoutGap.lt-sm="5px"
+                                                    class="booking-for" ngClass.lt-sm="booking-for-xs">
+                                                    <div class="booking-for-btn" [ngClass]="{'active': selfBooking }"
+                                                        fxLayout="row" fxLayoutAlign="center center"
+                                                        (click)="bokkingForSelect(true)">Self</div>
+                                                    <div class="booking-for-btn" [ngClass]="{'active': !selfBooking }"
+                                                        fxLayout="row" fxLayoutAlign="center center"
+                                                        (click)="bokkingForSelect(false)">Guest</div>
+                                                </div>
+                                                <!-- <mat-radio-group fxLayout="row" fxLayoutGap="50px">
+                                                <mat-radio-button value="value1"
+                                                    class="booking-for-rdo">Self</mat-radio-button>
+                                                <mat-radio-button value="value2"
+                                                    class="booking-for-rdo">Guest</mat-radio-button>
+                                            </mat-radio-group> -->
+                                            </div>
+                                        </div>
+                                        <ng-container *ngIf="!selfBooking">
+                                            <div class="guest-form" fxLayout="column">
+                                                <div fxLayout="row" fxLayoutAlign="space-between">
+                                                    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="5px">
+                                                        <div class="details">Guests Details</div>
+                                                        <div class="small-detail">(You can add up to 8 guests)</div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="add-guest" (click)="addGuest()"
+                                                            *ngIf="guests?.length<8">Add Guest</div>
+                                                    </div>
+                                                </div>
+                                                <div *ngFor="let item of guests; let i = index;" fxLayout="column"
+                                                    fxLayoutGap="14px">
+                                                    <div fxLayout="row" fxLayoutAlign="space-between">
+                                                        <div class="guest-no">Guest {{item?.no}}</div>
+                                                        <div class="remove-guest"><span
+                                                                (click)="removeGuest(i)">Delete</span> </div>
+                                                    </div>
+                                                    <div fxLayout="row" fxLayoutGap="12px">
+                                                        <div fxFlex>
+                                                            <input type="text" class="form-control cb-text"
+                                                                placeholder="First Name">
+                                                        </div>
+                                                        <div fxFlex>
+                                                            <input type="text" class="form-control cb-text"
+                                                                placeholder="Last Name">
+                                                        </div>
+                                                    </div>
+                                                    <div fxLayout="row" fxLayoutGap="12px">
+                                                        <div fxFlex="30">
+                                                            <!-- <input type="text" class="form-control cb-text" placeholder="IND(+91)"> -->
+                                                            <select name="" id="" class="form-select cb-text"
+                                                                placeholder="IND(+91)">
+                                                                <option value="">IND(+91)</option>
+                                                            </select>
+                                                        </div>
+                                                        <div fxFlex>
+                                                            <input type="text" class="form-control cb-text"
+                                                                placeholder="Mobile">
+                                                        </div>
+                                                    </div>
+                                                    <div fxLayout="row">
+                                                        <div fxFlex><input type="text" class="form-control cb-text"
+                                                                placeholder="Email"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+
+                                        <div class="devider-line"></div>
+                                        <div class="subtitle">Booking Type</div>
+                                        <div fxLayout="row">
+                                            <div fxLayout="row" fxFlex>
+                                                <select name="" id="" class="form-select cb-text"
+                                                    placeholder="IND(+91)">
+                                                    <option value="">Family Stay</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="devider-line"></div>
+                                        <!-- <div class="subtitle">Pay With</div>
+                                    <div fxLayout="row">
+                                        <div fxLayout="row" fxFlex>
+                                            <select name="" id="" class="form-select cb-text" placeholder="IND(+91)">
+                                                <option value="">Credit or Debit Card</option>
+                                            </select>
+                                        </div>
+                                    </div> -->
+                                        <!-- <div class="coupon">Enter Coupon</div>
+                                    <div class="devider-line"></div> -->
+                                        <br>
+                                        <div class="t-and-c">
+                                            <div fxLayout="row" fxFlex fxLayoutGap="0px">
+                                                <div fxFlex="10">
+                                                    <mat-checkbox class="example-margin" id="cancellationPolicy"
+                                                        #cancellationPolicy (change)="validateCheckboxes()"
+                                                        formControlName="cancellationPolicyChecked"></mat-checkbox>
+                                                </div>
+                                                <div fxFlex fxLayout="column" fxLayoutGap="10px">
+                                                    <div>Cancellation Policy</div>
+                                                    <div class="small">
+                                                        {{bookingDetails?.cancellation_policy}}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div *ngIf="bookingForm.controls['cancellationPolicyChecked'].invalid && bookingForm.controls['cancellationPolicyChecked'].touched"
+                                            class="error-message">
+                                            You must agree to the cancellation policy
+                                        </div>
+
+                                        <div class="t-and-c">
+                                            <div fxLayout="row" fxFlex fxLayoutGap="0px">
+                                                <div fxFlex="10">
+                                                    <mat-checkbox class="example-margin" id="houseRules" #houseRules
+                                                        (change)="validateCheckboxes()"
+                                                        formControlName="houseRulesChecked"></mat-checkbox>
+                                                </div>
+                                                <div fxFlex fxLayout="column" fxLayoutGap="10px">
+                                                    <div>House Rules and Policies</div>
+                                                    <div class="small">
+                                                        {{bookingDetails?.house_rules}}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div *ngIf="bookingForm.controls['houseRulesChecked'].invalid && bookingForm.controls['houseRulesChecked'].touched"
+                                            class="error-message">
+                                            You must agree to the house rules
+                                        </div>
+                                        <div class="devider-line"></div>
+                                        <div class="rules">
+                                            <!--<div fxFlex>
+                                                Review your booking details and complete payment to secure your premium StayMaster accommodation
+                                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                quis
+                                                nostrud exercitation <span class="link">ullamco laboris nisi</span>
+                                                <br>
+                                                -- <span class="link" (click)="ifNotLoggedIn()">If not logged in</span> --
+                                            </div>-->
+                                        </div>
+                                        <br>
+                                        <div fxLayout="row" class="Confbooking-for-btn" fxLayoutAlign="center center">
+                                            <button class="Confbooking-for-btn">Confirm and Pay</button>
+                                        </div>
+                                        <!-- <div class="Confbooking-for-btn"
+                                        [ngClass]="{'active': allChecked, 'disabled': !allChecked}" fxLayout="row"
+                                        fxLayoutAlign="center center" (click)="proceed()"
+                                        [attr.disabled]="!allChecked ? true : null">Confirm and Pay</div> -->
+                                        <!-- <div class="Cofnbooking-for-btn" ngClass='active' fxLayout="row"
+                                        fxLayoutAlign="center center"  (click)="proceed()">Confirm and Pay</div> -->
+                                        <!-- (click)="confirmAndPay()" -->
+                                        <!-- [disabled]="!allChecked" -->
+
+                                        <!-- <div class="Confbooking-for-btn" ngClass='active' fxLayout="row"
+                                        fxLayoutAlign="center center" (click)="proceed()">Confirm and Pay test</div> -->
+                                        <br>
+                                        <br>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </form>
+                        <ng-container *ngIf="!userLoggedIn">
+                            <div fxLayout="column" class="login-logout" *ngIf="!otpSent">
+                                <div class="login-logout-title" [ngClass]="isMobileView ? 'd-flex': ''">
+                                    <div class="icon" *ngIf="isMobileView" (click)="resetDesc()"><mat-icon>navigate_before</mat-icon></div>
+                                    <div [ngClass]="{'w-100 d-flex justify-content-center' : isMobileView}">
+                                        {{isMobileView ? 'Login or Sign up' : 'Login or Sign up to continue booking'}}
+                                    </div>
+                                </div>
+                                <div class="login-or-sign-up" fxLayout="row" fxLayoutGap="12px">
+                                    <div fxFlex="30" class="login-code">
+                                        <!-- <input type="text" class="form-control cb-text" placeholder="IND(+91)"> -->
+                                   
+                                        <select class="form-select cb-text" [(ngModel)]="selectedISD" [ngModelOptions]="{standalone: true}">
+                                            <option *ngFor="let code of isdCodes" [value]="code.value">{{ code.label }}</option>
+                                        </select>
+                                    </div>
+                                    <div fxFlex class="login-mobile">
+                                        <input type="text" class="form-control cb-text" placeholder="Mobile"
+                                            [(ngModel)]="phoneNumber">
+                                    </div>
+                                </div>
+                                <div fxFlex class="login-confirm-btn">
+                                    <button mat-raised-button class="btn-confirm"
+                                        (click)="confirmMobile()">Confirm</button>
+                                    <!-- <div class="btn-confirm" fxLayout="row" fxLayoutAlign="center center">Confirm</div> -->
+                                </div>
+                            </div>
+                            <div fxLayout="column" class="login-logout mx-3" *ngIf="otpSent">
+                                <div *ngIf="isMobileView" class="d-flex" style="color: #008281;">
+                                    <div class="icon" *ngIf="isMobileView" (click)="resetDesc();"><mat-icon>navigate_before</mat-icon></div>
+                                    <div [ngClass]="{'w-100 d-flex justify-content-center' : isMobileView}">
+                                        Login or Sign up
+                                    </div>
+                                </div>
+                                <div class="verify-number mt-4" *ngIf="isMobileView">Verify Number</div>
+                                <div class="verify-number-title" [ngClass]="isMobileView ? 'mt-4' : ''">
+                                    {{ isMobileView 
+                                        ? "We’ve sent the code via SMS to +" + selectedISD + " " + phoneNumber 
+                                        : "Enter the code sent to +" + selectedISD + " " + phoneNumber
+                                    }}
+                                    
+                                </div>
+                                <div fxLayout="row" fxLayoutGap="12px" [ngClass]="isMobileView ? 'mt-4' : ''">
+                                    <div fxFlex>
+                                        <input type="text" class="form-control cb-text otp-text" [(ngModel)]="otp[0]" (keydown)="onKeydown($event, 0)" maxlength="1" (input)="onOtpInput($event, 0)" inputmode="numeric" pattern="[0-9]*">
+                                    </div>
+                                    <div fxFlex.gt-sm="">
+                                        <input type="text" class="form-control cb-text otp-text" [(ngModel)]="otp[1]" (keydown)="onKeydown($event, 1)" maxlength="1" (input)="onOtpInput($event, 1)" inputmode="numeric" pattern="[0-9]*">
+                                    </div>
+                                    <div fxFlex>
+                                        <input type="text" class="form-control cb-text otp-text" [(ngModel)]="otp[2]" (keydown)="onKeydown($event, 2)" maxlength="1" (input)="onOtpInput($event, 2)" inputmode="numeric" pattern="[0-9]*">
+                                    </div>
+                                    <div fxFlex>
+                                        <input type="text" class="form-control cb-text otp-text" [(ngModel)]="otp[3]" (keydown)="onKeydown($event, 3)" maxlength="1" (input)="onOtpInput($event, 3)" inputmode="numeric" pattern="[0-9]*">
+                                    </div>
+                                    <div fxFlex>
+                                        <input type="text" class="form-control cb-text otp-text" [(ngModel)]="otp[4]" (keydown)="onKeydown($event, 4)" maxlength="1" (input)="onOtpInput($event, 4)" inputmode="numeric" pattern="[0-9]*">
+                                    </div>
+                                    <div fxFlex>
+                                        <input type="text" class="form-control cb-text otp-text" [(ngModel)]="otp[5]" (keydown)="onKeydown($event, 5)" maxlength="1" (input)="onOtpInput($event, 5)" inputmode="numeric" pattern="[0-9]*">
+                                    </div>
+                                    <div fxFlex="50"></div>
+                                </div>
+                                <div fxFlex>
+                                    <button mat-raised-button class="btn-confirm"
+                                        (click)="otpConfirm()">Continue</button>
+                                    <!-- <div class="btn-confirm" fxLayout="row" fxLayoutAlign="center center">Confirm</div> -->
+                                </div>
+                                <div class="resend-code" style="padding-top:26px; cursor: pointer; color: #464342;" >
+                                    Didn’t receive the code ? <span style="text-decoration: underline;" (click)="confirmMobile()">Resend</span>
+                                </div>
+                            </div>
+
+
+                        </ng-container>
+
+                    </div>
+                    <div class="confirmation confirmation-desc" fxFlex="40">
+                        <div fxLayout="row" fxLayoutAlign="center center">
+                            <div class="top-circle"></div>
+                        </div>
+                        <div class="skeleton container py-5" *ngIf="loading">
+                            <div class="flex-grow-1 image-section" style="min-width: 180px;">
+                                <div class="d-flex gap-3 justify-content-between flex-wrap">
+                                    <div class="d-flex flex-row justify-content-between gap-4" style="width: 100%;">
+                                    <div class="skeleton-name skeleton-sm w-100" style="height: 50px; width: 50px !important;"></div>
+                                    <div class="skeleton-name skeleton-sm w-100" style="height: 50px; width: 160px !important;"></div>
+                                    <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="flex-grow-1 w-100 image-section mt-4" style="min-width: 150px;">
+                                <div class="skeleton-name w-100" style="height: 600px;"></div>
+                                <div class="skeleton-name mt-3 w-100" style="height: 80px;"></div>
+                            </div>
+                        </div>
+                        <div fxLayout="column" fxLayoutGap="15px" class="pricing-summary" *ngIf="!loading">
+                            <div class="title" [ngClass]="isMobileView ? 'd-flex': 'd-none'">
+                                <div class="icon" *ngIf="isMobileView" (click)="goBack()"><mat-icon>navigate_before</mat-icon></div>
+                                <div class="w-100 d-flex justify-content-center">Booking Summary</div>
+                            </div>
+                            <div [ngClass]="isMobileView ? 'd-none': 'd-flex'" class="w-100 d-flex justify-content-center">Booking Summary</div>
+                            <div fxLayout="row" fxLayoutAlign="space-between center" class="booking-summary-desc">
+                                <div>
+                                    <div class="sub-title mt-10">Property Details</div>
+                                    <div fxLayout="column" fxLayoutGap="6px">
+                                        <div class="property-type">{{bookingDetails?.internal_name}}</div>
+                                        <div class="sub-title">{{bookingDetails?.city+' '+bookingDetails?.state}}</div>
+                                        <!-- <div class="aminities">Pool, River view</div> -->
+                                    </div>
+                                </div>
+                                <div class="booking-summary-photo">
+                                    <img [src]="bookingDetails?.display_image" alt="">
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="divider-line mobile-only"></div>
+                            <div>
+                                <div class="sub-title mt-10" fxLayout="row" fxLayoutAlign="space-between">
+                                    <div>Trip Details</div>
+                                    <!-- <div class="aminities ul">Edit</div> -->
+                                </div>
+                                <div fxLayout="column" fxLayoutGap="6px">
+                                    <div class="details-subtitle mt-10">{{checkInDate}} - {{checkOutDate}}</div>
+                                    <div class="aminities">{{totalSelectedGuest}} Guests</div>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="divider-line mobile-only"></div>
+                            <div>
+                                <div class="sub-title mt-10" fxLayout="row" fxLayoutAlign="space-between">
+                                    <div>Price Details</div>
+                                    <div fxLayout="row" fxLayoutGap="5px">
+                                        <!-- <div>Rs. {{bookingDetails?.room_rates_info}} </div>
+                                        <div class="small"> / guest</div> -->
+                                    </div>
+                                </div>
+                                <div fxLayout="column" fxLayoutGap="6px">
+                                    <div class="details-subtitle mt-10" fxLayout="row" fxLayoutAlign="space-between">
+                                        <div>Rs. {{calculateFinalPrice() | number:'1.0-0'}} x
+                                            {{bookingDetails?.number_of_nights}}
+                                            nights</div>
+                                        <div>Rs. {{ calculateFinalPrice() * bookingDetails?.number_of_nights | number:'1.0-0' }}</div>
+                                    </div>
+                                </div>
+                                <div fxLayout="column" fxLayoutGap="6px">
+                                    <div class="item details-subtitle mt-10" fxLayout="row" fxLayoutAlign="space-between start" *ngIf="bookingDetails.extra_person_charges_per_night">
+                                        <div>
+                                          <span class="underline"> Extra Guests </span>
+                                            ( Rs. {{bookingDetails.extra_person_charges_per_night}} x {{ bookingDetails?.number_of_nights }} nights )
+                                        </div>
+                                        <div> Rs. {{ bookingDetails.extra_person_charges_per_night * bookingDetails?.number_of_nights | number : "1.0-0" }} </div>
+                                      </div>
+                                </div>
+                                <div fxLayout="column" fxLayoutGap="6px">
+                                    <div class="details-subtitle mt-10" fxLayout="row" fxLayoutAlign="space-between">
+                                        <div>Taxes</div>
+                                        <div>Rs. {{bookingDetails?.total_taxes | number:'1.0-0'}}</div>
+                                    </div>
+                                </div>
+                                <div fxLayout="column" fxLayoutGap="6px">
+                                    <div class="details-subtitle mt-10" fxLayout="row" fxLayoutAlign="space-between">
+                                        <div class="ul gold">Service Fee</div>
+                                        <div class="gold">Rs. 0</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="line"></div>
+                            <div class="divider-line mobile-only"></div>
+                            <div fxLayout="column" fxLayoutGap="6px">
+                                <div class="details-subtitle mt-10" fxLayout="row" fxLayoutAlign="space-between">
+                                    <div class="gold">Total (INR)</div>
+                                    <div class="gold">Rs. {{ bookingDetails?.totalprice_inclusive_all |
+                                        number:'1.0-0' }}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="desc">
+                                Security Deposit of <span class="aminities">Rs. 12,000</span> to be paid separately
+                                while check in
+                            </div> -->
+                            <div fxLayout="row" fxLayoutAlign="center center">
+                                <button mat-button class="confirm-and-pay-btn" [disabled]="!isMobileView && !userLoggedIn"
+                                    (click)="isMobileView ? showDesc() : proceed()">Confirm and
+                                    Pay</button>
+                                <!-- [disabled]="!allChecked" -->
+                            </div>
+                            <br>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="center center">
+                            <div class="bottom-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <app-footer [ngClass]="{'d-none': isMobileView}"></app-footer>
+</div>

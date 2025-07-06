@@ -1,0 +1,698 @@
+<ng-container>
+  <div class="about-header" ngClass.xs="about-header-xs" fxLayout="column">
+    <div class="header-box">
+      <app-header [headerName]="headerName"></app-header>
+      <div class="content" fxLayout="column" fxLayoutAlign="center center">
+        <div>Stays That Stay In Your <br />Memories !</div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container>
+  <div class="container-xs py-100 relative why-choose-section" ngClass.gt-xs="container-xs relative">
+    <img src="../../../assets/images/About-frame.png" alt="" class="why-choose-bg">
+    <div class="container">
+      <div class="page-header" ngClass.xs="page-header">Why Choose Staymaster?</div>
+      <div class="ph-border"></div>
+      <div class="section-desc" ngClass.xs="section-desc-xs">
+        Staymaster goes beyond a traditional vacation rental hospitality ecosystem. Whether you're seeking an
+        exceptional stay or a rewarding investment, our rent, host or invest model always keeps you a step ahead!
+      </div>
+      <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-between">
+        <div class="section-types" ngClass.xs="section-types-xs" *ngFor="let item of whyChooseStayMaster">
+          <div class="type" fxLayout="column" fxLayout.xs="row" fxLayoutAlign="space-between"
+            fxLayoutAlign.xs="flex-start center">
+            <div class="img">
+              <img [src]="item.image" alt="">
+            </div>
+            <div class="desc">
+              <strong>{{item.title}}</strong>
+              <div class="pt-lg-3 pt-2">{{item.desc}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<!--  -->
+<ng-container>
+  <div class="container " ngClass.xs="container-xs">
+    <div class="what-we-offer">
+      <div class="page-header">Types Of Private Accommodations</div>
+      <div class="ph-border"></div>
+      <div class="section-desc" ngClass.xs="section-desc-xs">
+        Multiple ways to indulge in a stay. One promise of an exceptional guest experience.
+      </div>
+      <!--  -->
+      <div class="" ngClass.lt-sm="display-none">
+        <div class="cards" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-between" fxLayoutGap="25px">
+          <div class="offer-card offer-card-villas" ngClass.xs="offer-card-xs" fxLayout="column"
+            fxLayoutAlign="end center">
+            <div class="title-box" fxFlexAlign="end">
+              <div class="card-title">Pool Villas</div>
+            </div>
+            <div class="offer-card-hover">
+              <div class="card-title-hover">Pool Villas</div>
+              <div class="card-info-hover">Handpicked for perfection and equipped for pampering, our private pool villas
+                serve an entryway to indulgence. Within personalised hospitality and spaces that inspire, book a villa
+                for friends and family today.</div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="offer-card offer-card-villas1" ngClass.xs="offer-card-xs" fxLayout="column"
+            fxLayoutAlign="end center">
+            <div class="title-box" fxFlexAlign="end">
+              <div class="card-title">Serviced Apartments</div>
+            </div>
+            <div class="offer-card-hover">
+              <div class="card-title-hover">Serviced Apartments</div>
+              <div class="card-info-hover">
+                Experience a slice of home away from home in fully-serviced apartments for rent. Ideal for small
+                families, couples or solo travellers, they double as best workation homes.
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="offer-card offer-card-villas2" ngClass.xs="offer-card-xs" fxLayout="column"
+            fxLayoutAlign="end center">
+            <div class="title-box" fxFlexAlign="end">
+              <div class="card-title">Handpicked Retreats</div>
+            </div>
+            <div class="offer-card-hover">
+              <div class="card-title-hover">Handpicked Retreats</div>
+              <div class="card-info-hover">
+                Our cluster of apartments to expansive villas are the perfect venues for hosting events, corporate
+                retreats, or large gatherings. We can handle all arrangements; you can focus on celebrating in style.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="" ngClass.gt-xs="display-none">
+        <div class="cards" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-between" fxLayoutGap="25px">
+          <div class="slider">
+            <div class="slides">
+              <div class="slide">
+                <div class="offer-card offer-card-villas" ngClass.xs="offer-card-xs" fxLayout="column"
+                  fxLayoutAlign="end center">
+                  <div class="title-box" fxFlexAlign="end">
+                    <div class="card-title">Villas</div>
+                  </div>
+                  <div class="offer-card-hover">
+                    <div class="card-title-hover">Villas</div>
+                    <div class="card-info-hover">Exquisite, handpicked fully serviced private pool luxury villas Spaces
+                      that inspire and delight with highly curated, personalized and unparalleled hospitality. Perfect
+                      for larger families or groups of up to 14 travelers looking to indulge in the grandeur and privacy
+                      of a luxury villa</div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="offer-card offer-card-villas1" ngClass.xs="offer-card-xs" fxLayout="column"
+                  fxLayoutAlign="end center">
+                  <div class="title-box" fxFlexAlign="end">
+                    <div class="card-title">Apartments & Condos</div>
+                  </div>
+                  <div class="offer-card-hover">
+                    <div class="card-title-hover">Apartments & Condos</div>
+                    <div class="card-info-hover">Exquisite, handpicked fully serviced private pool luxury villas Spaces
+                      that inspire and delight with highly curated, personalized and unparalleled hospitality. Perfect
+                      for larger families or groups of up to 14 travelers looking to indulge in the grandeur and privacy
+                      of a luxury villa</div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="offer-card offer-card-villas2" ngClass.xs="offer-card-xs" fxLayout="column"
+                  fxLayoutAlign="end center">
+                  <div class="title-box" fxFlexAlign="end">
+                    <div class="card-title">Boutique Stays</div>
+                  </div>
+                  <div class="offer-card-hover">
+                    <div class="card-title-hover">Boutique Stays</div>
+                    <div class="card-info-hover">Exquisite, handpicked fully serviced private pool luxury villas Spaces
+                      that inspire and delight with highly curated, personalized and unparalleled hospitality. Perfect
+                      for larger families or groups of up to 14 travelers looking to indulge in the grandeur and privacy
+                      of a luxury villa</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ng-container>
+<!--  -->
+<ng-container>
+  <div class="promise-bg" ngClass.xs="promise-bg-xs"></div>
+  <div class="container wwp-sec" ngClass.xs="container-xs">
+    <img src="../../../assets/images/Frame-bg-right.png" alt="" class="wwp-sec-bg">
+    <div class=" offers-section">
+      <div class="page-header">What We Promise</div>
+      <div class="offers" fxLayout="column" fxLayoutGap="0px" fxLayoutGap.lt-sm="32" fxLayoutGap.gt-sm="76px">
+        <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="0px" fxLayoutGap.lt-sm="32" fxLayoutGap.gt-xs="32px">
+          <div class="offer" fxLayout="row" fxLayoutGap="25px" fxFlex="50">
+            <div class="offer-number">&nbsp;1.</div>
+            <div fxLayout="column" fxLayoutGap="15px">
+              <div class="offer-title">Verified and Trustworthy Stays:</div>
+              <div class="offer-desc">
+                You entrust us with the responsibility of your holiday stay, we promise to give you only the best. We
+                team up with homeowners who share the same
+                passion of delivering unforgettable guest experiences. You deserve a
+                vacation rental service worth bragging about. ;)
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="offer" fxLayout="row" fxLayoutGap="25px" fxFlex="50">
+            <div class="offer-number">2.</div>
+            <div fxLayout="column" fxLayoutGap="15px">
+              <div class="offer-title">24x7 Support:</div>
+              <div class="offer-desc">
+                May you always get sound sleep, hot breakfast and chilled ice cubes for your drink! That's the kind of
+                round-the-clock support we offer throughout your stay
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="0px" fxLayoutGap.lt-sm="32" fxLayoutGap.gt-xs="32px">
+          <div class="offer" fxLayout="row" fxLayoutGap="25px" fxFlex="50">
+            <div class="offer-number">3.</div>
+            <div fxLayout="column" fxLayoutGap="15px">
+              <div class="offer-title">Local Expertise and Recommendations:</div>
+              <div class="offer-desc">
+                From getting around a hidden gem to choosing the best place to eat at, explore like a local. Our
+                concierge service can curate a complete vacation itinerary if you'd like us to
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="offer" fxLayout="row" fxLayoutGap="25px" fxFlex="50">
+            <div class="offer-number">4.</div>
+            <div fxLayout="column" fxLayoutGap="15px">
+              <div class="offer-title">
+                Design-led Private Homes:
+              </div>
+              <div class="offer-desc">
+                With private pools, open terraces, pruned gardens and sophisticated interiors, these
+                aesthetically-designed stays reflect beauty inside out.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<!--  -->
+<ng-container>
+  <div class="section section-devider">
+    <div class="container container-desc" ngClass.xs="container-xs" fxLayoutAlign="center" fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap.lt-md="0px">
+      <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="15px" fxFlex.lt-sm="100"
+        fxLayoutAlign="space-around flex-start" fxLayoutAlign.lt-sm="space-between flex-start">
+        <div class="devider-card" fxLayout="row" fxLayoutGap="15px">
+          <div class="card-img" fxLayoutAlign.gt-xs="center center" ngClass.xs="display-none">
+            <img src="../../../assets/images/home.png" alt="">
+          </div>
+          <div fxLayout="column" fxLayoutGap="10px">
+            <div class="card-title">150+</div>
+            <div class="card-desc">Handpicked Homes</div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="devider-card" fxLayout="row" fxLayoutGap="15px">
+          <div class="card-img" fxLayoutAlign.gt-xs="center center" ngClass.xs="display-none">
+            <img src="../../../assets/images/key.png" alt="">
+          </div>
+          <div fxLayout="column" fxLayoutGap="10px">
+            <div class="card-title">60K+</div>
+            <div class="card-desc">Nights Booked</div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <div fxHide.gt-xs class="ph-border"></div>
+      <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="50px" fxFlex.lt-sm="100"
+        fxLayoutAlign="space-around center" fxLayoutAlign.lt-sm="space-between flex-start">
+        <div class="devider-card" fxLayout="row" fxLayoutGap="15px">
+          <div class="card-img" fxLayoutAlign.gt-xs="center center" ngClass.xs="display-none">
+            <img src="../../../assets/images/troffee.png" alt="">
+          </div>
+          <div fxLayout="column" fxLayoutGap="10px">
+            <div class="card-title">
+              100K+
+            </div>
+            <div class="card-desc">Happy Guests</div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="devider-card" fxLayout="row" fxLayoutGap="15px">
+          <div class="card-img" fxLayoutAlign.gt-xs="center center" ngClass.xs="display-none">
+            <img src="../../../assets/images/batch.png" alt="">
+          </div>
+          <div fxLayout="column" fxLayoutGap="10px">
+            <div class="card-title">5+</div>
+            <div class="card-desc">Destinations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<!--  -->
+<ng-container>
+  <div class="section-process">
+    <img src="../../../assets/images/kit.png" alt="" fxHide.gt-md fxShow class="mob-kit-img">
+    <img src="../../../assets/images/Frame.png" alt="" class="section-process-bg">
+    <div fxLayout="column" fxLayout.gt-sm="row" class="relative">
+      <div fxFlex="100" fxFlex.gt-sm="50" class="left-side" ngClass.lt-md="left-side-xs">
+        <div class="container " ngClass.xs="container-xs" fxLayout="column" fxLayoutGap="10px">
+          <div class="page-header" ngClass.xs="page-header-xs">Property Curation Process</div>
+          <div class="section-desc" ngClass.xs="section-desc-xs">
+            Just like our folks, our homes too go through an interview process. No kidding! Personality, quality and
+            comfort are the values we look for in every home before we have it on our portfolio.
+            <br>
+            <br>
+            Each property undergoes a rigorous 200+ point inspection to ensure safety, comfort, and unparalleled
+            quality.
+          </div>
+        </div>
+      </div>
+      <div class="container-xs se-contain" ngClass.gt-md="display-none">
+        <div class="slider">
+          <div class="slides">
+            <div class="slide">
+              <div class="pillar" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="22px">
+                <div class="pillar-img">
+                  <img src="../../../assets/images/pillar-home.png" alt="">
+                </div>
+                <div class="random-title">The First Impressions</div>
+                <!--<div class="pillar-devider"></div>-->
+                <div class="pillar-desc">
+                  We assess the potential of any home considering its location, neighbourhoodand amenities. We don't
+                  stop at homes,we rather start looking for unique experiences it could offer to guests.
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="slide">
+              <div class="pillar" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="22px">
+                <div class="pillar-img">
+                  <img src="../../../assets/images/pillar-key.png" alt="">
+                </div>
+                <!--<div class="pillar-devider"></div>-->
+                <div class="random-title">Thorough Evaluation</div>
+                <div class="pillar-desc">
+                  The spotlight's brighter to see if comfort, aesthetics and functionality seamlessly converge at a
+                  home. Elegant spaces, eye-catching artwork or thoughtful touches that transform a home to haven, we
+                  love it!
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="slide">
+              <div class="pillar" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="22px">
+                <div class="pillar-img">
+                  <img src="../../../assets/images/pillar-home.png" alt="">
+                </div>
+                <!--<div class="pillar-devider"></div>-->
+                <div class="random-title">Safety & Security</div>
+                <div class="pillar-desc">
+                  An extensive review of safety and security measures to assure privacy and comfortable guest
+                  experiences. Fire safety to secure entry points, a home must offer peace of mind to unwind unbothered.
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="slide">
+              <div class="pillar" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="22px">
+                <div class="pillar-img">
+                  <img src="../../../assets/images/pillar-key.png" alt="">
+                </div>
+                <!--<div class="pillar-devider"></div>-->
+                <div class="random-title">Staymaster Seal of Approval</div>
+                <div class="pillar-desc">
+                  If the home ticks all the boxes and brings a little extra magic to the Staymaster experience, it's a
+                  deal. Welcome to the family, home sweet home!
+                </div>
+              </div>
+            </div>
+            <!-- <div class="slide" #slide1>
+                    <div class="client" fxLayout="column" fxLayout.gt-sm="row">
+                        <div fxFlex="100" class="" fxLayoutAlign="center">
+                            <div>
+                                <img src="../../../assets/images/investor-bg.png" alt="">
+                            </div>
+                        </div>
+                        <div class="about-card">
+                            <div class="card-title">Aryan</div>
+                            <div class="card-location">Mumbai</div>
+                            <div class="card-desc">Guests loved the personalised concierge and pristine villa maintained by StayMaster. A truly memorable stay!</div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="slide" #slide1>
+                    <div class="client" fxLayout="column" fxLayout.gt-sm="row">
+                        <div fxFlex="100" class="" fxLayoutAlign="center">
+                            <div>
+                                <img src="../../../assets/images/investor-bg.png" alt="">
+                            </div>
+                        </div>
+                        <div class="about-card">
+                            <div class="card-title">Aryan</div>
+                            <div class="card-location">Mumbai</div>
+                            <div class="card-desc">Our vacation with StayMaster was flawless—from effortless check-in to world-class amenities and support.</div>
+                            
+                        </div>
+                    </div>
+                </div> -->
+          </div>
+          <br>
+          <br>
+        </div>
+      </div>
+      <!-- <div class="container-xs">
+      </div> -->
+      <div fxFlex="100" fxFlex.gt-sm="50" class="side-img" ngClass.xs="side-img-xs">
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container>
+  <div class="pt-110" ngClass.lt-md="display-none">
+    <div class="container">
+      <div class="pillars" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-between center">
+        <div class="pillar" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="22px">
+          <div class="pillar-img">
+            <img src="../../../assets/images/pillar-home.png" alt="">
+          </div>
+          <div class="random-title">The First Impressions</div>
+          <!--<div class="pillar-devider"></div>-->
+          <div class="pillar-desc">
+            We assess the potential of any home considering its location, neighbourhoodand amenities. We don't stop at
+            homes,we rather start looking for unique experiences it could offer to guests.
+          </div>
+        </div>
+        <!--  -->
+        <div class="pillar" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="22px">
+          <div class="pillar-img">
+            <img src="../../../assets/images/pillar-key.png" alt="">
+          </div>
+          <!--<div class="pillar-devider"></div>-->
+          <div class="random-title">Thorough Evaluation</div>
+          <div class="pillar-desc">
+            The spotlight's brighter to see if comfort, aesthetics and functionality seamlessly converge at a home.
+            Elegant spaces, eye-catching artwork or thoughtful touches that transform a home to haven, we love it!
+          </div>
+        </div>
+        <!--  -->
+        <div class="pillar" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="22px">
+          <div class="pillar-img">
+            <img src="../../../assets/images/pillar-home.png" alt="">
+          </div>
+          <!--<div class="pillar-devider"></div>-->
+          <div class="random-title">Safety & Security</div>
+          <div class="pillar-desc">
+            An extensive review of safety and security measures to assure privacy and comfortable guest experiences.
+            Fire safety to secure entry points, a home must offer peace of mind to unwind unbothered.
+          </div>
+        </div>
+        <!--  -->
+        <div class="pillar" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="22px">
+          <div class="pillar-img">
+            <img src="../../../assets/images/pillar-key.png" alt="">
+          </div>
+          <!--<div class="pillar-devider"></div>-->
+          <div class="random-title">Staymaster Seal of Approval</div>
+          <div class="pillar-desc">
+            If the home ticks all the boxes and brings a little extra magic to the Staymaster experience, it's a deal.
+            Welcome to the family, home sweet home!
+            <br><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<!--  -->
+<ng-container>
+  <div class="how-started-future-goals section-s" ngClass.lt-md="display-none">
+    <div class="airoplane-illustration">
+      <img src="../../../assets/images/airplane-illustration1.png" alt="">
+    </div>
+    <div class="how-started">
+      <div class="how-it-started" fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="20px">
+        <div class="left-side" ngClass.xs="left-side-xs">
+          <img src="../../../assets/images/How_it_started.png" alt="" class="left-side-img"
+            ngClass.xs="left-side-img-xs">
+        </div>
+        <div class="right-side" ngClass.xs="right-side-xs" fxLayout="column" fxLayoutGap="34px">
+          <div class="page-header">How it Started?</div>
+          <div class="page-desc">
+            Having a spare room transitioned into a business idea for Ankur Mathur and Rishi Modi. Both seasoned
+            travellers with a passion for hosting had opened the doors of their homes to several visitors. Sharing
+            stories and learning about cultures turned into perfecting the art of hosting and offering guest
+            experiences. Having worked with Airbnb, they saw firsthand the joys and challenges of creating exceptional
+            stays and thus the idea of mastering the smarter way to stay was born in 2021.
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="future-goals">
+      <div class="how-it-started" fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="20px">
+        <div class="left-side" ngClass.xs="left-side-xs" fxLayout="column" fxLayoutGap="34px">
+          <div class="page-header">Future Goals</div>
+          <div class="page-desc">As the lines between travel and living blur among new-age travellers, Staymaster aims
+            to be the bridge. We present homes where travellers don't just stay—they live and truly belong. Setting a
+            strong base from Goa to steadily moving across the major travel destinations in the country, we envision a
+            world where life inspired by wanderlust finds solace in just belonging to a certain place.
+            <br><br>
+            In our future, every traveller finds a haven away from home, and every homeowner gains a partner they can
+            trust their abode with
+          </div>
+        </div>
+        <div class="right-side" ngClass.xs="right-side-xs">
+          <img src="../../../assets/images/future-goals.png" alt="" class="right-side-img"
+            ngClass.xs="right-side-img-xs">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-xs how-started-future-goals" ngClass.gt-md="display-none">
+    <div class="how-started-xs">
+      <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="20px">
+        <div class="right-side" ngClass.xs="right-side-xs" fxLayout="column" fxLayoutGap="34px">
+          <div class="page-header">How it started ?</div>
+          <div class="page-desc">Having a spare room transitioned into a business idea for Ankur Mathur and Rishi Modi.
+            Both seasoned travellers with a passion for hosting had opened the doors of their homes to several visitors.
+            Sharing stories and learning about cultures turned into perfecting the art of hosting and offering guest
+            experiences. Having worked with Airbnb, they saw firsthand the joys and challenges of creating exceptional
+            stays and thus the idea of mastering the smarter way to stay was born in 2021. </div>
+        </div>
+        <div class="left-side" ngClass.xs="left-side-xs">
+          <img src="../../../assets/images/How_it_started.png" alt="" class="left-side-img"
+            ngClass.xs="left-side-img-xs">
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="future-goals">
+      <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="20px">
+
+        <div class="right-side" ngClass.xs="right-side-xs">
+          <img src="../../../assets/images/future-goals.png" alt="" class="right-side-img"
+            ngClass.xs="right-side-img-xs">
+        </div>
+        <div class="left-side" ngClass.xs="left-side-xs" fxLayout="column" fxLayoutGap="34px">
+          <div class="page-header">Future Goals</div>
+          <div class="page-desc">As the lines between travel and living blur among new-age travellers, Staymaster aims
+            to be the bridge. We present homes where travellers don't just stay—they live and truly belong. Setting a
+            strong base from Goa to steadily moving across the major travel destinations in the country, we envision a
+            world where life inspired by wanderlust finds solace in just belonging to a certain place.
+            <br><br>
+            In our future, every traveller finds a haven away from home, and every homeowner gains a partner they can
+            trust their abode with
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<!--  -->
+<ng-container>
+  <div class="abt-founder-section">
+    <img src="../../../assets/images/coconut-tree-bg.png" class="founder-bg-img">
+    <div class="our-founders " ngClass.xs="our-founders-xs">
+      <div class="side-img- our-founders-bg">
+        <div class="container " ngClass.xs="container-xs" fxLayout="column" fxLayoutGap="20px">
+          <div class="page-header">Our Founders</div>
+          <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="40px">
+            <div class="founder-card" fxLayout="row" fxLayout.gt-xs="row" fxLayoutGap="28px" fxFlex="50">
+              <div fxLayoutAlign="end start" class="founder-bg" ngClass.xs="founder-bg-xs" fxFlex.lt-md="30">
+                <img src="../../../assets/images/ankur_mathur.png" alt="" class="founder-photo"
+                  ngClass.xs="founder-photo-xs">
+              </div>
+              <div class="founder-info" fxLayout="column" fxLayoutGap="0px" fxLayoutAlign="end start" fxFlex.lt-md="70">
+                <div class="founder-name">Ankur Mathur</div>
+                <div class="founder-designation">Co-Founder</div>
+                <div class="about-founder">
+                  With his bounty of experience in property acquisition, real estate consulting and sales growth
+                  marketing with Airbnb, Ankur's the force behind improving customer-centric hospitality.
+                </div>
+                <div class="founder-social-media">
+                  <img src="../../../assets/images/linkedin-icon.svg" alt=""
+                    (click)="openSocialMedia('https://www.linkedin.com/in/ankurmathur7/')">
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="founder-card" fxLayout="row" fxLayout.gt-xs="row" fxLayoutGap="28px" fxFlex="50">
+              <div fxLayoutAlign="end start" class="founder-bg" ngClass.xs="founder-bg-xs" fxFlex.lt-md="30">
+                <img src="../../../assets/images/rishi_modi.png" alt="" class="founder-photo"
+                  ngClass.xs="founder-photo-xs">
+              </div>
+              <div class="founder-info" fxLayout="column" fxLayoutGap="0px" fxLayoutAlign="end start" fxFlex.lt-md="70">
+                <div class="founder-name">Rishi Modi</div>
+                <div class="founder-designation">Co-Founder</div>
+                <div class="about-founder">
+                  His knack of outreach, understanding of Indian market potential and stellar business relationships
+                  bind the strategy to grow into a premier vacation rental in the country.
+                </div>
+                <div class="founder-social-media">
+                  <img src="../../../assets/images/linkedin-icon.svg" alt=""
+                    (click)="openSocialMedia('https://www.linkedin.com/in/rishi-modi-40099a15/')">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<!--  -->
+<ng-container>
+  <div class="comment">
+    <img src="../../../assets/images/clock.png" alt="" class="mob-clock-img">
+    <div class="container" fxLayoutAlign="center center" fxLayout="row">
+      <div class="" fxLayout="row" fxLayoutGap="10px">
+        <div class="start d-lg-block d-none">"</div>
+        <div class="comment-content">A team that brews like coffee, keeping everyone strong, warm and motivated</div>
+        <div class="last d-lg-block d-none">"</div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<!--  -->
+<ng-container>
+  <div class="people-first">
+    <div class="content-xs" ngClass.gt-xs="content-gt-xs" fxLayout="column" fxLayoutGap="20px">
+      <div class="content-staymaster" fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap.gt-md="60px">
+        <div class="people-content" fxFlex="100" fxFlex.gt-xs="24">
+          <div class="page-header">Staymaster Squad - People First</div>
+          <div class="section-desc" ngClass.xs="section-desc-xs">
+            Without our people, we'd just be a fancy logo and a tagline, you know? It takes real people on ground to
+            offer everything we promise. Our squad's a master at what we do.
+          </div>
+        </div>
+        <div class="people-photos" fxFlex="100" fxFlex.gt-xs="76">
+          <div class="profiles relative" ngClass.xs="profiles-xs" fxLayout="row wrap" fxLayoutGap="12px"
+            fxLayoutAlign.lt-md="center" fxLayoutAlign.lt-sm="space-around">
+            <div *ngFor="let team of teamProfile" class="profile">
+              <div class="profile" [ngStyle]="{
+                'background-image': 'url(' + team.profileImage + ')',
+                'background-repeat': 'no-repeat',
+                'background-size': 'contain'
+              }">
+                <div class="profile-hover">
+                  <div class="name">{{team.name}}</div>
+                  <div class="designation">{{team.designation}}</div>
+                </div>
+              </div>
+              <div class="mobile-view-profile">
+                <div class="name">{{team.name}}</div>
+                <div class="designation">{{team.designation}}</div>
+              </div>
+            </div>
+            <!-- <div class="profile-carousel">
+              <div class="profiles-container">
+                <div *ngFor="let team of chunkedProfiles[activeIndex]" class="profile"
+                  [ngStyle]="{
+                    'background-image': 'url(' + team.profileImage + ')',
+                    'background-repeat': 'no-repeat',
+                    'background-size': 'contain'
+                  }">
+                  <div class="profile-hover">
+                    <div class="name">{{team.name}}</div>
+                    <div class="designation">{{team.designation}}</div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container>
+  <div class="stay-host-invest">
+    <div class="host-sections" fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="0px">
+      <div class="stay" ngClass.xs="stay-xs">
+        <div class="bg-box">
+          <div class="stay-card" fxLayout="column" fxLayoutGap="20px">
+            <div class="stay-title">Stay</div>
+            <div class="stay-desc">Come for a vacation, stay for the vibe. Indulge in the amenities and experience the
+              warmth of our hospitality. We won't be surprised if you feel like extending your short stay.</div>
+            <div class="stay-link" fxLayout="row" fxLayoutGap="15px">
+              <span>Explore Stays</span>
+              <div><img src="../../../assets/images/right-arrow.png" class="cursor-pointer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <div class="host" ngClass.xs="host-xs">
+        <div class="bg-box">
+          <div class="stay-card" fxLayout="column" fxLayoutGap="20px">
+            <div class="stay-title">Live</div>
+            <div class="stay-desc">We have homes as flexible as your lifestyle, whether you shift from an apartment to a
+              villa or vice versa. Immerse and experience a place, at your will. When you feel like staying longer with
+              us, we know we've succeeded.</div>
+            <div class="stay-link" fxLayout="row" fxLayoutGap="15px">
+              <span>Explore Live</span>
+              <div><img src="../../../assets/images/right-arrow.png" class="cursor-pointer" alt=""></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <div class="invest" ngClass.xs="invest-xs">
+        <div class="bg-box">
+          <div class="invest-card" fxLayout="column" fxLayoutGap="20px">
+            <div class="stay-title">Belong</div>
+            <div class="stay-desc">Has a place enticed you so much that you feel like you belong there? That's where we
+              meet you once again! Discover the choice of owning a home at a remote location, live in it or rent it out.
+            </div>
+            <div class="stay-link" fxLayout="row" fxLayoutGap="15px">
+              <span>Explore Belong</span>
+              <div><img src="../../../assets/images/right-arrow.png" class="cursor-pointer" alt=""></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+</ng-container>
+<ng-container>
+  <app-footer></app-footer>
+</ng-container>

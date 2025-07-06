@@ -1,0 +1,196 @@
+<div class="position-relative">
+    <ng-container>
+        <div class="sticky-header">
+            <app-header fxShow.gt-md fxHide.lt-md
+                (notifyParent)="getDestination($event)"
+                (checkInOut)="getCheckInOut($event)"
+                (checkAvailability)="searchProperity($event)"
+                [menuName]="menuName"
+                [headerName]="headerName">
+            </app-header>
+          
+            <app-header fxShow.lt-md fxHide.gt-xs
+                (notifyParent)="getDestination($event)"
+                (checkInOut)="getCheckInOut($event)"
+                (checkAvailability)="searchProperity($event)"
+                [menuName]="menuName"
+                [headerName]="'menus-xs'">
+            </app-header>
+          </div>
+    </ng-container>
+    
+    <ng-container>
+        <div class="filter">
+            <div class="container">
+                <div>
+                    <div>
+                        <div>
+                            <div fxFlex="100" fxLayoutGap="30" fxLayoutAlign="center center">
+                                <div class="collection-datas">
+                                    <div class="aminities" fxLayout="column" fxLayoutAlign="center center"
+                                        *ngFor="let item of aminitiesList; let i = index;" (click)="onSelectAminities(i)"
+                                        [ngClass]="{ 'active' : item.active }">
+                                        <img [src]="item.img" alt="">
+                                        <div class="aminities-name">{{item.name}}</div>
+                                    </div>
+                                </div>
+                                <div class="filter-icon" fxHide.lt-md>
+                                    <div class="btn-filters" (click)="toggleFilter()" fxLayout="row" fxLayoutGap="10px"
+                                        fxLayoutAlign="space-between center">
+                                        <div>Filters</div>
+                                        <img src="../../../assets/images/filter-icon.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- <div class="collection-datas">
+                                <div fxFlex="" class="nav-menu"
+                                    *ngFor="let collection of aminitiesList">
+                                    <div class="item" fxLayout="column" fxLayoutAlign="center center"
+                                        fxLayoutGap="10px">
+                                        <img [src]="collection.icon" alt="" />
+                                        <div class="nav-menu-text"
+                                            [ngClass]="{ 'nav-menu-text-active': collections === collection.name}">
+                                            {{collection.name}}</div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                        <!-- <div fxHide.lt-md="" fxShow.gt-md="" fxLayoutAlign="center center">
+                            <div class="more-aminities" fxLayoutAlign="center center">
+                                <img src="../../../assets/images/right-arrow-icon.png" alt="">
+                            </div>
+                        </div> -->
+    
+                    </div>
+    
+                </div>
+    
+                <div fxLayout="row" *ngIf="hasLoading">
+                    <div class="property-cards" fxLayout="column" fxLayout.gt-sm="row wrap" fxLayoutGap="0px"
+                        fxLayoutAlign="space-between center" fxFlex="100%">
+                        <div class="skeleton-item property-card" fxFlex="100%" *ngFor="let item of skeletonObject"></div>
+                    </div>
+                </div>
+    
+                <div fxLayout="row" *ngIf="hotelLists && hotelLists.length > 0">
+                    <div class="property-cards" fxLayout="column" fxLayout.gt-sm="row wrap"
+                        fxLayoutAlign="start center" fxFlex="100%">
+                        <ng-container *ngFor="let collection of aminitiesList">
+                            <ng-container *ngIf="collection.active">
+                                <div class="property-card" *ngFor="let hotel of collection.properties" fxFlex="100%">
+                                    <div class="property-img" ngClass.lt-sm="property-img-lt-sm">
+                                        <img [src]="hotel.display_image" alt="" (click)="viewHotelDetails(hotel.slug)">
+                                    </div>
+                                    <!-- <div class="title" [routerLink]="['/stay-description', hotel.slug]"
+                                        [title]="hotel.listing_name">
+                                        {{
+                                        hotel.listing_name }}</div> -->
+                                        <a class="title" [href]="'/stay-description/' + hotel.slug"
+                                        [title]="hotel.listing_name" 
+                                        target="_blank">
+                                        {{ hotel.listing_name }}
+                                     </a>
+                                    <div class="location"></div>
+                                    <div class="top-aminities" fxLayout="row" fxLayoutAlign="space-between">
+                                        <div fxLayout="row" fxLayoutGap="5px">
+                                            <div class="aminities-icon">
+                                                <img src="../../../assets/images/bed-icon.png" alt="">
+                                            </div>
+                                            <div class="no-of-aminities">{{hotel.bedrooms}}</div>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="5px">
+                                            <div class="aminities-icon">
+                                                <img src="../../../assets/images/swimming_pool_light.png" alt="">
+                                            </div>
+                                            <div class="no-of-aminities">{{hotel.pool?'Yes':'No'}}</div>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="5px">
+                                            <div class="aminities-icon">
+                                                <img src="../../../assets/images/people-icon.png" alt="">
+                                            </div>
+                                            <div class="no-of-aminities">{{hotel.max_capacity}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="rate" fxLayout="row" fxLayoutAlign="space-between">
+                                        <div fxLayout="row" fxLayoutGap="3px">
+                                            <div class="price">Rs. {{hotel.price_per_night | number : '4.2-2'}}</div>
+                                            <div class="daynight">/ night</div>
+                                        </div>
+                                        <!-- <div class="whishlist">
+                                    <img src="../../../assets/images/wishlist-icon.png" alt="">
+                                </div> -->
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                </div>
+                <!-- <div fxLayout="row" fxShow.lt-sm="" fxHide.gt-xs="" *ngIf="hotelLists && hotelLists.length > 0"
+                    fxLayout.lt-md="column" fxLayoutAlign.lt-md="center center">
+                    <div class="property-cards" fxFlex="50%" fxFlex.lt-md="100%" fxLayout="row wrap" fxLayoutGap="20px"
+                        fxLayoutAlign.lt-md="center center">
+                        <ng-container *ngFor="let collection of aminitiesList">
+                            <ng-container *ngIf="collection.active">
+                                <div class="property-card" *ngFor="let hotel of collection.properties">
+                                    <div class="property-img">
+                                        <img [src]="hotel.display_image" alt=""
+                                            [routerLink]="['/stay-description', hotel.id]">
+                                    </div>
+                                    <div class="title" [routerLink]="['/stay-description', hotel.id]">{{hotel.listing_name}}
+                                    </div>
+    
+                                    <div class="top-aminities" fxLayout="row" fxLayoutAlign="space-between">
+                                        <div fxLayout="row" fxLayoutGap="5px">
+                                            <div class="aminities-icon">
+                                                <img src="../../../assets/images/bed-icon.png" alt="">
+                                            </div>
+                                            <div class="no-of-aminities">{{hotel.bedrooms}}</div>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="5px">
+                                            <div class="aminities-icon">
+                                                <img src="../../../assets/images/swimming_pool.png" alt="">
+                                            </div>
+                                            <div class="no-of-aminities">{{hotel.pool?'Yes':'No'}}</div>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="5px">
+                                            <div class="aminities-icon">
+                                                <img src="../../../assets/images/people-icon.png" alt="">
+                                            </div>
+                                            <div class="no-of-aminities">{{hotel.max_capacity}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="rate" fxLayout="row" fxLayoutAlign="space-between">
+                                        <div fxLayout="row" fxLayoutGap="3px">
+                                            <div class="price">Rs. {{hotel.price_per_night | number : '4.2-2'}}</div>
+                                            <div class="daynight">/ night</div>
+                                        </div>
+                                        <div class="whishlist">
+                                                <img src="../../../assets/images/wishlist-icon.png" alt="">
+                                            </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                    <div fxHide.lt-md="" fxShow.gt-md="" class="property-cards" fxFlex="50%" fxFlex.lt-md="100%"
+                        fxLayout="row wrap">
+                        <div>
+                            <img ngClass.gt-sm="stay-map" ngClass.lt-md="stay-map-xs"
+                                src="../../../assets/images/stayMap.png" alt="">
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row mt-4 pt-2 text-center mb-lg-0 mb-3" *ngIf="!hasLoading">
+                    <div *ngIf="(hotelLists && hotelLists.length === 0) || !aminitiesList.length">
+                        <span>These properties best suit your requirement but are unavailable for these dates</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <app-dont-warry-section></app-dont-warry-section>
+    <ng-container>
+        <app-footer></app-footer>
+    </ng-container>
+</div>

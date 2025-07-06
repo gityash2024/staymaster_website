@@ -1,0 +1,484 @@
+<div fxLayout="row" class="todayoverview">
+  <div fxFlex="40" fxLayout="row wrap" fxLayoutAlign="start start" class="section1">
+    <div *ngFor="let i of cardData" fxFlex="30%" class="cards">
+      <mat-card class="example-card" style="margin: 0; padding: 0;">
+        <mat-card-header>
+          <mat-card-title-group>
+            <img mat-card-xs-image src="../../../../assets/admin/icons/Mask group.png" style="cursor:pointer;"  [title]="i.Info">
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content fxFlex fxLayoutAlign="column center" fxLayout="column" fxLayoutGap="5px">
+          <span class="title">{{i.data}}</span>
+          <span class="subtitle">{{i.title}}</span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <span class="sectionttl">Bestselling Bookings</span>
+    
+   
+      <div *ngFor="let i of bestSelling" class="bestseller" fxFlex="45%" fxLayout="row wrap" fxLayoutAlign="start start">
+        <mat-card class="bestsellercard" >
+          <mat-card-header>
+            <mat-card-title-group>
+              <img mat-card-xs-image src="../../../../assets/admin/icons/Mask group.png" style="cursor:pointer;"  [title]="i.info">
+            </mat-card-title-group>
+          </mat-card-header>
+          <mat-card-content fxFlex fxLayoutAlign="column start" fxLayout="column" fxLayoutGap="5px">
+            <span class="title">{{i.title}}</span>
+            <span class="subtitle">{{i.data}}</span>
+          </mat-card-content>
+        </mat-card>
+    </div>
+  </div>
+  <div fxFlex="60">
+    <mat-card class="example">
+      <mat-card-content class="card-content">
+        <!-- <mat-tab-group style="height: calc(100% - 100px); min-height: calc(100% - 100px); min-width: 100%; width: 100%; margin: 0px;">
+          <mat-tab label="Recent 10 Bookings">
+            <ng-template matTabContent>
+              <div *ngFor="let i of random_bookings">
+                <div fxFlex fxLayout="row" fxLayoutGap="10px" class="bookings">
+                  <div fxFlex="4%" class="date" fxLayout="column" fxLayoutAlign="center center">
+                    <div fxFlex fxLayout="column">
+                      <span class="mnt">{{months[i.fromMonth]}}</span>
+                      <span class="dt">{{i.fromDay}}</span>
+                      <span  ><hr class="dtline"></span>
+
+                    </div>
+                    <div fxFlex fxLayout="column">
+                      <span class="mnt">{{months[i.toMonth]}}</span>
+                      <span class="dt">{{i.toDay}}</span>
+
+                    </div>
+                  </div>
+                  <div fxFlex="40%" fxLayout="column">
+                    <div fxFlex fxLayout="column">
+                      <span class="guest">{{i.guestName}}</span>
+                      <span class="guestdesc">{{i.guestQty}} Guest | {{i.guestNights}} Nights</span>
+                    </div>
+                    <div fxFlex fxLayout="column">
+                      <span class="ttl">Room</span>
+                      <span class="details">{{i.room}}</span>
+                    </div>
+                  </div>
+                  <div fxFlex="40%" fxLayout="column">
+                    <div fxFlex fxLayout="column">
+                      <span class="ttl">Voucher No</span>
+                      <span class="details">{{i.voucherNo}}</span>
+                    </div>
+                    <div fxFlex fxLayout="column">
+                      <span class="ttl">Rate Type</span>
+                      <span class="details">{{i.rateType}}</span>
+                    </div>
+                  </div>
+                  <div fxFlex="10%" fxLayout="column">
+                    <div fxFlex fxLayout="column">
+                      <span class="ttl">ADR</span>
+                      <span class="details">{{i.adr}}</span>
+                    </div>
+                    <div fxFlex fxLayout="column">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+
+                </div>
+                <br>
+                <hr>
+              </div>
+
+            </ng-template>
+          </mat-tab>
+          <mat-tab label="Arrivals">     <ng-template matTabContent>
+            <div *ngFor="let i of random_bookings">
+              <div fxFlex fxLayout="row" fxLayoutGap="10px" class="bookings">
+                <div fxFlex="4%" class="date" fxLayout="column" fxLayoutAlign="center center">
+                  <div fxFlex fxLayout="column">
+                    <span class="mnt">{{months[i.fromMonth]}}</span>
+                    <span class="dt">{{i.fromDay}}</span>
+                    <span  ><hr class="dtline"></span>
+
+                  </div>
+                  <div fxFlex fxLayout="column">
+                    <span class="mnt">{{months[i.toMonth]}}</span>
+                    <span class="dt">{{i.toDay}}</span>
+
+                  </div>
+                </div>
+                <div fxFlex="40%" fxLayout="column">
+                  <div fxFlex fxLayout="column">
+                    <span class="guest">{{i.guestName}}</span>
+                    <span class="guestdesc">{{i.guestQty}} Guest | {{i.guestNights}} Nights</span>
+                  </div>
+                  <div fxFlex fxLayout="column">
+                    <span class="ttl">Room</span>
+                    <span class="details">{{i.room}}</span>
+                  </div>
+                </div>
+                <div fxFlex="40%" fxLayout="column">
+                  <div fxFlex fxLayout="column">
+                    <span class="ttl">Voucher No</span>
+                    <span class="details">{{i.voucherNo}}</span>
+                  </div>
+                  <div fxFlex fxLayout="column">
+                    <span class="ttl">Rate Type</span>
+                    <span class="details">{{i.rateType}}</span>
+                  </div>
+                </div>
+                <div fxFlex="10%" fxLayout="column">
+                  <div fxFlex fxLayout="column">
+                    <span class="ttl">ADR</span>
+                    <span class="details">{{i.adr}}</span>
+                  </div>
+                  <div fxFlex fxLayout="column">
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+
+              </div>
+              <br>
+              <hr>
+            </div>
+
+          </ng-template> </mat-tab>
+          <mat-tab label="Departure">     <ng-template matTabContent>
+            <div *ngFor="let i of random_bookings">
+              <div fxFlex fxLayout="row" fxLayoutGap="10px" class="bookings">
+                <div fxFlex="4%" class="date" fxLayout="column" fxLayoutAlign="center center">
+                  <div fxFlex fxLayout="column">
+                    <span class="mnt">{{months[i.fromMonth]}}</span>
+                    <span class="dt">{{i.fromDay}}</span>
+                    <span  ><hr class="dtline"></span>
+
+                  </div>
+                  <div fxFlex fxLayout="column">
+                    <span class="mnt">{{months[i.toMonth]}}</span>
+                    <span class="dt">{{i.toDay}}</span>
+
+                  </div>
+                </div>
+                <div fxFlex="40%" fxLayout="column">
+                  <div fxFlex fxLayout="column">
+                    <span class="guest">{{i.guestName}}</span>
+                    <span class="guestdesc">{{i.guestQty}} Guest | {{i.guestNights}} Nights</span>
+                  </div>
+                  <div fxFlex fxLayout="column">
+                    <span class="ttl">Room</span>
+                    <span class="details">{{i.room}}</span>
+                  </div>
+                </div>
+                <div fxFlex="40%" fxLayout="column">
+                  <div fxFlex fxLayout="column">
+                    <span class="ttl">Voucher No</span>
+                    <span class="details">{{i.voucherNo}}</span>
+                  </div>
+                  <div fxFlex fxLayout="column">
+                    <span class="ttl">Rate Type</span>
+                    <span class="details">{{i.rateType}}</span>
+                  </div>
+                </div>
+                <div fxFlex="10%" fxLayout="column">
+                  <div fxFlex fxLayout="column">
+                    <span class="ttl">ADR</span>
+                    <span class="details">{{i.adr}}</span>
+                  </div>
+                  <div fxFlex fxLayout="column">
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+
+              </div>
+              <br>
+              <hr>
+            </div>
+
+          </ng-template></mat-tab>
+          <mat-tab label="Cancellation">    <ng-template matTabContent>
+            <div *ngFor="let i of random_bookings">
+              <div fxFlex fxLayout="row" fxLayoutGap="10px" class="bookings">
+                <div fxFlex="4%" class="date" fxLayout="column" fxLayoutAlign="center center">
+                  <div fxFlex fxLayout="column">
+                    <span class="mnt">{{months[i.fromMonth]}}</span>
+                    <span class="dt">{{i.fromDay}}</span>
+                    <span  ><hr class="dtline"></span>
+
+                  </div>
+                  <div fxFlex fxLayout="column">
+                    <span class="mnt">{{months[i.toMonth]}}</span>
+                    <span class="dt">{{i.toDay}}</span>
+
+                  </div>
+                </div>
+                <div fxFlex="40%" fxLayout="column">
+                  <div fxFlex fxLayout="column">
+                    <span class="guest">{{i.guestName}}</span>
+                    <span class="guestdesc">{{i.guestQty}} Guest | {{i.guestNights}} Nights</span>
+                  </div>
+                  <div fxFlex fxLayout="column">
+                    <span class="ttl">Room</span>
+                    <span class="details">{{i.room}}</span>
+                  </div>
+                </div>
+                <div fxFlex="40%" fxLayout="column">
+                  <div fxFlex fxLayout="column">
+                    <span class="ttl">Voucher No</span>
+                    <span class="details">{{i.voucherNo}}</span>
+                  </div>
+                  <div fxFlex fxLayout="column">
+                    <span class="ttl">Rate Type</span>
+                    <span class="details">{{i.rateType}}</span>
+                  </div>
+                </div>
+                <div fxFlex="10%" fxLayout="column">
+                  <div fxFlex fxLayout="column">
+                    <span class="ttl">ADR</span>
+                    <span class="details">{{i.adr}}</span>
+                  </div>
+                  <div fxFlex fxLayout="column">
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+
+              </div>
+              <br>
+              <hr>
+            </div>
+
+          </ng-template></mat-tab>
+        </mat-tab-group> -->
+
+        <div fxFlex fxLayout="column">
+          <div  fxLayout="row" fxLayoutGap="5px" style=" padding-top: 20px;padding-bottom: 10px;" fxLayoutAlign="start start" >
+              <button [ngClass]="{'inactivebtn':current == 1,'activebtn':current == 1}" (click)="navigate(1)" mat-raised-button 
+               >Recent 10 Bookings</button>
+              <button [ngClass]="{'inactivebtn':current == 2,'activebtn':current == 2}" (click)="navigate(2)" mat-raised-button 
+               >Arrival</button>
+              <button [ngClass]="{'inactivebtn':current == 3,'activebtn':current == 3}" (click)="navigate(3)" mat-raised-button
+               >Departure</button>
+              <button [ngClass]="{'inactivebtn':current == 4,'activebtn':current == 4}" (click)="navigate(4)" mat-raised-button 
+               >Cancelled</button>
+            </div>
+            <hr>
+            
+         <div *ngIf="current==1" class="bookingdetails">
+          <div *ngFor="let i of random_bookings">
+            <div fxFlex fxLayout="row" fxLayoutGap="10px" class="bookings">
+              <div fxFlex="4%" class="date" fxLayout="column" fxLayoutAlign="center center">
+                <div fxFlex fxLayout="column">
+                  <span class="mnt">{{months[i.fromMonth]}}</span>
+                  <span class="dt">{{i.fromDay}}</span>
+                  <span  ><hr class="dtline"></span>
+
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span class="mnt">{{months[i.toMonth]}}</span>
+                  <span class="dt">{{i.toDay}}</span>
+
+                </div>
+              </div>
+              <div fxFlex="40%" fxLayout="column">
+                <div fxFlex fxLayout="column">
+                  <span class="guest">{{i.guestName}}</span>
+                  <span class="guestdesc">{{i.guestQty}} Guest | {{i.guestNights}} Nights</span>
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">Room</span>
+                  <span class="details">{{i.room}}</span>
+                </div>
+              </div>
+              <div fxFlex="40%" fxLayout="column">
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">Voucher No</span>
+                  <span class="details">{{i.voucherNo}}</span>
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">Rate Type</span>
+                  <span class="details">{{i.rateType}}</span>
+                </div>
+              </div>
+              <div fxFlex="10%" fxLayout="column">
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">ADR</span>
+                  <span class="details">{{i.adr}}</span>
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+            </div>
+            <br>
+            <hr>
+          </div>
+         </div>
+
+         <div *ngIf="current==2" class="bookingdetails">
+          <div *ngFor="let i of random_bookings">
+            <div fxFlex fxLayout="row" fxLayoutGap="10px" class="bookings">
+              <div fxFlex="4%" class="date" fxLayout="column" fxLayoutAlign="center center">
+                <div fxFlex fxLayout="column">
+                  <span class="mnt">{{months[i.fromMonth]}}</span>
+                  <span class="dt">{{i.fromDay}}</span>
+                  <span  ><hr class="dtline"></span>
+
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span class="mnt">{{months[i.toMonth]}}</span>
+                  <span class="dt">{{i.toDay}}</span>
+
+                </div>
+              </div>
+              <div fxFlex="40%" fxLayout="column">
+                <div fxFlex fxLayout="column">
+                  <span class="guest">{{i.guestName}}</span>
+                  <span class="guestdesc">{{i.guestQty}} Guest | {{i.guestNights}} Nights</span>
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">Room</span>
+                  <span class="details">{{i.room}}</span>
+                </div>
+              </div>
+              <div fxFlex="40%" fxLayout="column">
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">Voucher No</span>
+                  <span class="details">{{i.voucherNo}}</span>
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">Rate Type</span>
+                  <span class="details">{{i.rateType}}</span>
+                </div>
+              </div>
+              <div fxFlex="10%" fxLayout="column">
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">ADR</span>
+                  <span class="details">{{i.adr}}</span>
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+            </div>
+            <br>
+            <hr>
+          </div>
+         </div>
+
+         <div *ngIf="current==3" class="bookingdetails">
+          <div *ngFor="let i of random_bookings">
+            <div fxFlex fxLayout="row" fxLayoutGap="10px" class="bookings">
+              <div fxFlex="4%" class="date" fxLayout="column" fxLayoutAlign="center center">
+                <div fxFlex fxLayout="column">
+                  <span class="mnt">{{months[i.fromMonth]}}</span>
+                  <span class="dt">{{i.fromDay}}</span>
+                  <span  ><hr class="dtline"></span>
+
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span class="mnt">{{months[i.toMonth]}}</span>
+                  <span class="dt">{{i.toDay}}</span>
+
+                </div>
+              </div>
+              <div fxFlex="40%" fxLayout="column">
+                <div fxFlex fxLayout="column">
+                  <span class="guest">{{i.guestName}}</span>
+                  <span class="guestdesc">{{i.guestQty}} Guest | {{i.guestNights}} Nights</span>
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">Room</span>
+                  <span class="details">{{i.room}}</span>
+                </div>
+              </div>
+              <div fxFlex="40%" fxLayout="column">
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">Voucher No</span>
+                  <span class="details">{{i.voucherNo}}</span>
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">Rate Type</span>
+                  <span class="details">{{i.rateType}}</span>
+                </div>
+              </div>
+              <div fxFlex="10%" fxLayout="column">
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">ADR</span>
+                  <span class="details">{{i.adr}}</span>
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+            </div>
+            <br>
+            <hr>
+          </div>
+         </div>
+
+
+         <div *ngIf="current==4" class="bookingdetails">
+          <div *ngFor="let i of random_bookings">
+            <div fxFlex fxLayout="row" fxLayoutGap="10px" class="bookings">
+              <div fxFlex="4%" class="date" fxLayout="column" fxLayoutAlign="center center">
+                <div fxFlex fxLayout="column">
+                  <span class="mnt">{{months[i.fromMonth]}}</span>
+                  <span class="dt">{{i.fromDay}}</span>
+                  <span  ><hr class="dtline"></span>
+
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span class="mnt">{{months[i.toMonth]}}</span>
+                  <span class="dt">{{i.toDay}}</span>
+
+                </div>
+              </div>
+              <div fxFlex="40%" fxLayout="column">
+                <div fxFlex fxLayout="column">
+                  <span class="guest">{{i.guestName}}</span>
+                  <span class="guestdesc">{{i.guestQty}} Guest | {{i.guestNights}} Nights</span>
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">Room</span>
+                  <span class="details">{{i.room}}</span>
+                </div>
+              </div>
+              <div fxFlex="40%" fxLayout="column">
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">Voucher No</span>
+                  <span class="details">{{i.voucherNo}}</span>
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">Rate Type</span>
+                  <span class="details">{{i.rateType}}</span>
+                </div>
+              </div>
+              <div fxFlex="10%" fxLayout="column">
+                <div fxFlex fxLayout="column">
+                  <span class="ttl">ADR</span>
+                  <span class="details">{{i.adr}}</span>
+                </div>
+                <div fxFlex fxLayout="column">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+            </div>
+            <br>
+            <hr>
+          </div>
+         </div>
+          
+      
+      </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

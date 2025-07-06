@@ -1,0 +1,345 @@
+.trips {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+
+    .title {
+        font-size: 40px;
+        line-height: 48px;
+        color: #008281;
+    }
+
+    .tab {
+        font-size: 20px;
+        line-height: 25px;
+        color: rgba(46, 46, 46, 0.5);
+        border-bottom: 1.3px solid rgba(46, 46, 46, 0.2);
+        cursor: pointer;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        margin-top: 20px;
+    }
+
+    .active-tab {
+        border-bottom: 3px solid #595959;
+        color: #2E2E2E;
+    }
+
+    .mdc-tab__text-label {
+        font-size: 20px;
+        line-height: 25px;
+        color: rgba(46, 46, 46, 0.5);
+    }
+}
+
+
+.comment {
+    font-family: 'Caudex';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 41px;
+    color: #C4B385;
+    text-shadow: 0px 0.5px 0.5px rgba(88, 65, 57, 0.2);
+
+}
+
+.sm-btn {
+    min-width: 195px;
+    height: 60px;
+    background: #008281;
+    box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+    border-radius: 46px;
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #F9F5F3;
+    border: none;
+    margin-top: 20px;
+}
+
+.booking-empty {
+    padding: 50px 30px;
+
+    
+
+    .booking-empty-title {
+        font-family: 'Caudex';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 120%;
+        /* identical to box height, or 36px */
+
+
+        color: #008281;
+    }
+
+    .message {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 132%;
+        /* identical to box height, or 24px */
+        margin-top: 30px;
+
+        color: #2E2E2E;
+    }
+}
+
+.property-cards {
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(261px, 1fr)) ;
+    grid-gap: 20px;
+    margin-top: 20px;
+
+    .property-card {
+        // width: 290px;
+        background: #FFFFFF;
+        box-shadow: 2px 2px 15px 1px rgba(83, 83, 83, 0.25);
+        border-radius: 8px;
+        padding: 12px;
+        color: #2E2E2E;
+
+        .property-img>img {
+            height: 200px;
+            border-radius: 8px 8px 0px 0px;
+            cursor: pointer;
+        }
+
+        .title {
+            padding-top: 9px;
+            font-size: 20px;
+            line-height: 25px;
+            cursor: pointer;
+            color: #2E2E2E;
+        }
+
+        .location {
+            font-size: 13px;
+            line-height: 16px;
+            padding-top: 4px;
+            color: #2E2E2E;
+        }
+
+        .top-aminities {
+            padding-top: 10px;
+            font-size: 14px;
+            line-height: 18px;
+            color: #B6B6B6;
+        }
+
+        .smbtn {
+            background: #008281;
+            border-radius: 29px;
+            width: 100%;
+            height: 37px;
+            font-size: 18px;
+            line-height: 23px;
+            color: rgba(255, 255, 255, 0.95);
+            border: none;
+            margin-top: 18px;
+            margin-bottom: 18px;
+        }
+
+        .bottom-btn {
+            font-size: 15px;
+            line-height: 19px;
+            text-decoration-line: underline;
+            color: #008281;
+        }
+
+        .rate {
+            padding-top: 11px;
+
+            .price {
+                font-size: 20px;
+                line-height: 25px;
+            }
+
+            .daynight {
+                padding-top: 5px;
+                font-size: 13px;
+            }
+
+            .whishlist {
+                cursor: pointer;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 768px) {
+    .explore-stays{
+        display: none;
+    }
+    .explore-stays-mobile-view{
+        display: flex !important;
+        flex-direction: column;
+    }
+}
+.explore-stays-mobile-view {
+    display: none;
+    margin-top: 50px;
+}
+
+.explore-stay-content{
+    font-family: Milyuna;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    color: #C4B385;
+}
+
+.explore-stays-button{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    padding-top: 40px;
+    color: #008281;
+}
+
+.mobile-dropdown select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-width: 0.8px;
+    border-radius: 29px;
+    font-family: Akkurat;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    height: 50px;
+}
+  
+@media (max-width: 570px) {
+    mat-tab-group{
+        display: none;
+    }
+}
+
+.full-width {
+    width: 100%;
+    overflow: hidden;
+}
+
+::ng-deep .cdk-overlay-pane {
+    border-radius: 29px !important;
+}
+  
+
+// ::ng-deep .custom-dropdown .mat-form-field-wrapper {
+//     padding: 0px 12px; /* Adjust padding */
+//   }
+  
+//   ::ng-deep .custom-dropdown .mat-form-field-flex {
+//     background: white;
+//     border-radius: 29px;
+//     border: 1px solid #ccc; /* light border */
+//     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* slight shadow */
+//     height: 48px; /* or whatever you like */
+//     align-items: center;
+//   }
+  
+//   /* Remove default line */
+//   ::ng-deep .custom-dropdown .mat-form-field-outline {
+//     border-radius: 29px;
+//   }
+  
+//   /* Dropdown panel (opened) */
+//   ::ng-deep .custom-select-panel {
+//     border-radius: 15px;
+//   }
+
+
+
+
+
+
+//   .custom-mat-select {
+//     width: 100%;
+//   }
+  
+//   ::ng-deep .custom-mat-select .mat-form-field-flex {
+//     border-radius: 29px;
+//     border: 1px solid #D3D3D3; /* light gray border */
+//     background: white;
+//     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+//     padding: 0 12px;
+//     height: 48px;
+//     align-items: center;
+//   }
+  
+//   ::ng-deep .custom-mat-select .mat-form-field-outline {
+//     border-radius: 29px;
+//   }
+  
+//   ::ng-deep .custom-select-panel {
+//     border-radius: 12px !important; /* dropdown panel itself */
+//   }
+  
+.select-wrapper {
+    position: relative;
+  }
+  
+  .select-wrapper select {
+    width: 100%;
+    padding-right: 30px; /* <-- This will create space inside */
+  }
+  
+  .select-wrapper::after {
+    content: '▼'; /* or you can use a background image */
+    position: absolute;
+    top: 50%;
+    right: 10px; /* <-- Distance from right */
+    transform: translateY(-50%);
+    pointer-events: none; /* Makes sure clicking still works on select */
+    font-size: 12px;
+    color: black; /* Adjust color if needed */
+  }
+  
+  .location-content{
+    font-family: "Akkurat";
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 0%;
+    color: #008281;
+    cursor: pointer;
+}
+
+.trip-button{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    padding: 12px;
+    background: #008281;
+    color: white;
+    border-radius: 29px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+
+    @media (max-width: 991px) {
+        font-family: "Akkurat";
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 100%;
+    }
+}

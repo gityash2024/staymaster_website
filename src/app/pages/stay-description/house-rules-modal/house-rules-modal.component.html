@@ -1,0 +1,27 @@
+<div mat-dialog-content class="modal-body">
+    <div class="house-rules" fxLayout="column" fxLayoutGap="15px">
+        <div class="house-riles-head" fxLayout="row" fxLayoutAlign="space-between start">
+            <div class="title">House Rules</div>             
+            <mat-icon (click)="onNoClick()">close</mat-icon>            
+        </div>
+        <div class="" fxLayout="column">
+            <div class="rule" fxLayout="row" fxLayoutGap="16px">
+                <div class="icon"><img src="../../../../assets/images/time-icon.png" alt=""></div>
+                <div>Check in after {{formatTimeString(check_in) | date:'h:mm a'}}</div>
+            </div>
+            <div class="rule" fxLayout="row" fxLayoutGap="16px">
+                <div class="icon"><img src="../../../../assets/images/time-icon.png" alt=""></div>
+                <div>Check out before {{formatTimeString(check_out) | date:'h:mm a'}}</div>
+            </div>
+            <!-- <div class="rule" fxLayout="row" fxLayoutGap="16px">
+                <div class="icon"><img src="../../../../assets/images/smoking-icon.png" alt=""></div>
+                <div>Smoking is allowed</div>
+            </div> -->
+        </div>
+        <div class="list">
+            <ul>
+                <li>{{house_rules}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,519 @@
+<div class="page">
+  <ng-container>
+    <div class="about-header about-header-bg" ngClass.lt-md="about-header-bg-xs" fxLayout="column">
+      <div class="header-box">
+        <app-header [headerName]="headerName"></app-header>
+        <div class="container" fxLayout="row" fxLayoutGap="15px" ngClass.lt-md="px-4">
+          <div class="" fxLayout="column" fxLayout.gt-xs="row">
+            <div class="left-section" fxFlex.gt-xs="50" fxFlex="100">
+              <div class="title">Invest in Premium Vacation Rentals</div>
+              <div class="desc">Generate passive income through our expertly managed vacation rental properties. StayMaster offers professionally curated investment opportunities with proven returns and complete property management services.</div>
+              <div fxLayoutAlign="start" fxLayoutAlign.lt-md="start">
+                <div class="btn-rounded" [routerLink]="[ '/all-properties']">Browse Properties</div>
+              </div>
+            </div>
+            <div class="right-section" fxHide.lt-md="" fxShow.gt-md="" fxFlex.gt-xs="50" fxFlex="100" fxLayout="column"
+              fxLayoutAlign="center center">
+              <div class="card">
+                <div class="card-img">
+                  <img src="../../../assets/images/property-ex-1.png" alt="">
+                </div>
+                <div class="card-title">Rs. 1,50,00,000</div>
+                <div class="card-sub-title">Anjuna, North Goa</div>
+                <div class="card-desc">Luxurious 4BHK villa with private pool and beach access, professionally managed with guaranteed bookings</div>
+                <div class="card-item-list">
+                  <div class="card-item" fxLayout="row" fxLayoutAlign="space-between center">
+                    <div class="card-item-name">Net Yield Potential</div>
+                    <div class="card-item-value">12%</div>
+                  </div>
+                  <div class="card-item" fxLayout="row" fxLayoutAlign="space-between center">
+                    <div class="card-item-name">Cash Flow Potential</div>
+                    <div class="card-item-value">Rs. 18L /yr</div>
+                  </div>
+                  <div class="card-item" fxLayout="row" fxLayoutAlign="space-between center">
+                    <div class="card-item-name">Net Yield Potential</div>
+                    <div class="card-item-value">18%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container>
+    <div class="investment-work-xs" ngClass.gt-xs="investment-work">
+      <div class="container">
+        <div class="section-title">How Investment Works ?</div>
+        <div class="work-cards" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="70px">
+          <div class="work-card" fxLayout="column" fxLayout.lt-md="row" fxLayoutGap.lt-md="20px" fxFlex="0 1 calc(25% - 0.5%)"     
+           fxFlex.lt-md="0 1 calc(50% - 0.5%)"     fxFlex.lt-sm="100%">            
+            <div class="card-no">1.</div>
+            <div class="card-desc">
+              <div fxHide.gt-md class="title">Choose Your Property</div>
+              Browse our curated selection of premium vacation rental properties in prime locations with high rental demand and excellent growth potential
+            </div>
+          </div>
+          <div class="work-card" fxLayout="column" fxLayout.lt-md="row" fxLayoutGap.lt-md="20px" fxFlex="0 1 calc(25% - 0.5%)"     
+           fxFlex.lt-md="0 1 calc(50% - 0.5%)"     fxFlex.lt-sm="100%">
+            <div class="card-no">2.</div>
+            <div class="card-desc">
+              <div fxHide.gt-md class="title">Secure Your Investment</div>Complete your investment with our transparent legal process and documentation. All properties are verified and come with clear ownership titles
+            </div>
+          </div>
+          <div class="work-card" fxLayout="column" fxLayout.lt-md="row" fxLayoutGap.lt-md="20px" fxFlex="0 1 calc(25% - 0.5%)"     
+          fxFlex.lt-md="0 1 calc(50% - 0.5%)"     fxFlex.lt-sm="100%">
+            <div class="card-no">3.</div>
+            <div class="card-desc">
+              <div fxHide.gt-md class="title">Professional Management</div>Our expert team handles everything from guest bookings to property maintenance, ensuring maximum occupancy and optimal rental rates
+            </div>
+          </div>
+          <div class="work-card" fxLayout="column" fxLayout.lt-md="row" fxLayoutGap.lt-md="20px" fxFlex="0 1 calc(25% - 0.5%)"     
+          fxFlex.lt-md="0 1 calc(50% - 0.5%)"     fxFlex.lt-sm="100%">
+            <div class="card-no">4.</div>
+            <div class="card-desc">
+              <div fxHide.gt-md class="title">Enjoy Returns</div>Receive regular rental income and benefit from property appreciation while we handle all operational aspects of your investment
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container>
+    <div class="top-properties">
+      <div class="container section" fxLayout="column">
+        <div class="section-title">Top Properties to Invest</div>
+        <div class="property-cards" fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="32px">
+          <!-- <div class="left-slide"></div> -->
+          <div class="property-card" *ngFor="let item of [1,2,3,4]" fxFlex="100%" fxFlex.gt-sm="50%">
+            <div>
+              <img src="../../../assets/images/property-ex-3.png" alt="" class="property-card-img img-fluid"
+                ngClass.xs="property-card-img-xs">
+            </div>
+            <div class="card-title">Rs. 1,50,00,000</div>
+            <div class="card-sub-title">Anjuna, North Goa</div>
+            <div class="card-item-list">
+              <div class="card-item" fxLayout="row" fxLayoutAlign="space-between center">
+                <div class="card-item-name">Net Yield Potential</div>
+                <div class="card-item-value">12%</div>
+              </div>
+              <div class="card-item" fxLayout="row" fxLayoutAlign="space-between center">
+                <div class="card-item-name">Cash Flow Potential</div>
+                <div class="card-item-value">Rs. 18L /yr</div>
+              </div>
+              <div class="card-item" fxLayout="row" fxLayoutAlign="space-between center">
+                <div class="card-item-name">Net Yield Potential</div>
+                <div class="card-item-value">18%</div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="right-slide"></div> -->
+        </div>
+        <div class="action-btn" fxLayout="column" fxLayoutAlign="start end" [routerLink]="'/all-properties'">
+          <div class="btn-view-all">View All</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container>
+    <div class="know-more" fxHide.lt-sm="" fxShow.gt-xs="">
+      <div class="box">
+        <div class="container" fxLayout="row">
+          <div class="section" fxFlex="100" fxFlex.gt-xs="50">
+            <div class="title">Start Your Investment Journey Today</div>
+            <div class="desc">Join hundreds of successful investors who trust StayMaster for their vacation rental investments. Get expert guidance, professional management, and transparent returns in India's growing hospitality market</div>
+            <div class="btn-view-all">Know More</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="know-more-sm" fxHide.gt-xs="" fxShow.lt-sm="">
+      <div class="box">
+        <div class="container" fxLayout="row">
+          <div class="section" fxFlex="100" fxFlex.gt-xs="50">
+            <div class="title">Start Your Investment Journey Today</div>
+            <div class="desc">Join hundreds of successful investors who trust StayMaster for their vacation rental investments. Get expert guidance, professional management, and transparent returns in India's growing hospitality market</div>
+            <div class="btn-view-all" style="margin: auto;">Know More</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <!--  -->
+  <ng-container>
+    <div class="section-devider" fxShow.gt-sm="" fxHide.lt-md="">
+      <div class="container " ngClass.xs="container-xs" fxLayoutAlign="space-between center" fxLayout="column"
+        fxLayout.sm="row wrap" fxLayoutAlign.sm="space-between center" fxLayout.gt-sm="row" fxLayoutGap="15px">
+        <div class="devider-card" fxLayout="row" fxLayoutGap="15px">
+          <div class="card-img" fxLayoutAlign="center center">
+            <img src="../../../assets/images/home.png" alt="">
+          </div>
+          <div fxLayout="column" fxLayoutGap="10px">
+            <div class="card-title">30+</div>
+            <div class="card-desc">Premium Properties</div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="devider-card" fxLayout="row" fxLayoutGap="15px">
+          <div class="card-img" fxLayoutAlign="center center">
+            <img src="../../../assets/images/key.png" alt="">
+          </div>
+          <div fxLayout="column" fxLayoutGap="10px">
+            <div class="card-title">10K+</div>
+            <div class="card-desc">Happy Guests</div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="devider-card" fxLayout="row" fxLayoutGap="15px">
+          <div class="card-img" fxLayoutAlign="center center">
+            <img src="../../../assets/images/troffee.png" alt="">
+          </div>
+          <div fxLayout="column" fxLayoutGap="10px">
+            <div class="card-title">12</div>
+            <div class="card-desc">Cities Covered</div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="devider-card" fxLayout="row" fxLayoutGap="15px">
+          <div class="card-img" fxLayoutAlign="center center">
+            <img src="../../../assets/images/batch.png" alt="">
+          </div>
+          <div fxLayout="column" fxLayoutGap="10px">
+            <div class="card-title">40</div>
+            <div class="card-desc">Expert Team</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-devider-sm" fxShow.lt-md="" fxHide.gt-sm="">
+      <div class="container " ngClass.xs="container-xs" fxLayoutAlign="space-between center" fxLayout="column"
+        fxLayout.sm="row wrap" fxLayoutAlign.sm="center center" fxLayout.gt-sm="row" fxLayoutGap="15px">
+        <div class="devider-card" fxLayout="row" fxLayoutGap="15px">
+
+          <div fxLayout="column" fxLayoutGap="10px">
+            <div class="card-title">30+</div>
+            <div class="card-desc">Premium Properties</div>
+          </div>
+          <div fxLayout="column" fxLayoutGap="10px">
+            <div class="card-title">10K+</div>
+            <div class="card-desc">Happy Guests</div>
+          </div>
+        </div>
+        <!--  -->
+
+        <!--  -->
+        <div class="devider-card" fxLayout="row" fxLayoutGap="15px">
+
+          <div fxLayout="column" fxLayoutGap="10px">
+            <div class="card-title">12</div>
+            <div class="card-desc">Cities Covered</div>
+          </div>
+          <div fxLayout="column" fxLayoutGap="10px">
+            <div class="card-title">40</div>
+            <div class="card-desc">Expert Team</div>
+          </div>
+        </div>
+        <!--  -->
+
+      </div>
+    </div>
+  </ng-container>
+  <!--  -->
+  <ng-container>
+    <div class="why-choose-staymaster">
+      <div class="container">
+        <div fxLayout="column">
+          <div fxLayout="column" fxFlex="100" fxFlex.gt-xs="60">
+            <div class="section-title" ngClass.lt-md="section-title-sm">Why choose Staymaster ?</div>
+            <div class="section-desc col-md-8 col-sm-12">
+              StayMaster revolutionizes vacation rental investments with professional property management, guaranteed returns, 
+              and complete operational support. Our expert team handles everything from guest services to property maintenance, 
+              ensuring consistent income for investors.
+            </div>
+          </div>
+
+          <div>
+            <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-between">
+              <div class="section-types">
+                <div class="type" fxLayout.gt-sm="column" fxLayout.lt-md="row" fxLayoutAlign.lt-md="center center"
+                  fxLayoutGap.lt-md="15px">
+                  <div class="img">
+                    <img src="../../../assets/images/Mask group 1.png" alt="">
+                  </div>
+                  <div class="desc">
+                    Professional property management with guaranteed rental income, guest services, and complete operational support
+                  </div>
+                </div>
+
+              </div>
+              <div class="section-types">
+                <div class="type" fxLayout.gt-sm="column" fxLayout.lt-md="row" fxLayoutAlign.lt-md="center center"
+                  fxLayoutGap.lt-md="15px">
+                  <div class="img">
+                    <img src="../../../assets/images/Mask group 2.png" alt="">
+                  </div>
+                  <div class="desc">
+                    Strategic investment opportunities in prime vacation rental locations with projected 12-15% annual returns
+                  </div>
+                </div>
+
+              </div>
+              <div class="section-types">
+                <div class="type" fxLayout.gt-sm="column" fxLayout.lt-md="row" fxLayoutAlign.lt-md="center center"
+                  fxLayoutGap.lt-md="15px">
+                  <div class="img">
+                    <img src="../../../assets/images/Mask group 3.png" alt="">
+                  </div>
+                  <div class="desc">
+                    Expert marketing, pricing optimization, and revenue management to maximize your property's earning potential
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-between">
+              <div class="section-types">
+                <div class="type" fxLayout.gt-sm="column" fxLayout.lt-md="row" fxLayoutAlign.lt-md="center center"
+                  fxLayoutGap.lt-md="15px">
+                  <div class="img">
+                    <img src="../../../assets/images/Mask group 4.png" alt="">
+                  </div>
+                  <div class="desc">
+                    24/7 guest support, housekeeping services, and maintenance ensuring exceptional guest experiences
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+              <div class="section-types">
+                <div class="type" fxLayout.gt-sm="column" fxLayout.lt-md="row" fxLayoutAlign.lt-md="center center"
+                  fxLayoutGap.lt-md="15px">
+                  <div class="img">
+                    <img src="../../../assets/images/Mask group 4.png" alt="">
+                  </div>
+                  <div class="desc">
+                    Comprehensive legal compliance, insurance coverage, and documentation for secure property investments
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+              <div class="section-types">
+                <div class="type" fxLayout.gt-sm="column" fxLayout.lt-md="row" fxLayoutAlign.lt-md="center center"
+                  fxLayoutGap.lt-md="15px">
+                  <div class="img">
+                    <img src="../../../assets/images/Mask group 4.png" alt="">
+                  </div>
+                  <div class="desc">
+                    Technology-driven analytics, market insights, and performance tracking for informed investment decisions
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <!-- -->
+  <ng-container>
+    <div class="happy-investors" ngClass.xs="happy-investors-xs">
+      <div [ngClass]="isSmallScreen ? 'mx-5' : 'container'">
+        <div>
+          <div fxLayout="column" fxFlex="100" fxFlex.gt-xs="50">
+            <div class="section-title">Happy Investors</div>
+            <div class="section-desc">Hear from our successful investors who have achieved exceptional returns through StayMaster's 
+              professional property management and investment guidance platform.</div>
+          </div>
+          <!-- -->
+        </div>
+        <!-- <div class="product-slider">
+          <div class="container-fluid">
+            <div class="slider-wrap">
+              <div class="slider-main">
+                <div class="text">1</div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- https://www.youtube.com/watch?v=tihuf0iuUhI -->
+        <div class="carousel-inner">
+          <div class="investor-cards" fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="20px">
+            <div class="investor-card" ngClass.xs="investor-card-xs" fxLayout="column" fxLayout.gt-xs="row"
+              *ngFor="let item of investors">
+              <div class="">
+                <img [src]="item.image" alt="" class="investor-card-img ">
+              </div>
+              <div class="about-card">
+                <div class="card-title">{{item.title}}</div>
+                <div class="card-desc">{{item.desc}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-dots-section" ngClass.lt-md="slider-dots-section-xs">
+          <div class="slider-dots" fxLayout="row" fxLayoutGap="9px" fxLayoutAlign="center center" fxHide.lt-md="">
+            <div class="slider-dot" *ngFor="let item of investors" [ngClass]="{'dot-active': item.active }"
+              (click)="onSelectSlider(item.id)"></div>
+          </div>
+          <div class="slider-dots mb-3" fxLayout="row" fxLayoutGap="9px" fxLayoutAlign="center center" fxHide.gt-xs="">
+            <div class="slider-dot-xs" *ngFor="let item of investors" [ngClass]="{'dot-active-xs': item.active }"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <!--  -->
+  <ng-container *ngIf="propertiesForm">
+    <div ngClass.gt-xs="invest-in-properties" ngClass.xs="invest-in-properties-xs">
+      <div class="container get-in-touch">
+        <ng-container>
+          <div>
+            <div fxLayout="column" fxLayout.gt-sm="row">
+              <div class="about-properties" ngClass.md="about-properties-xs" fxLayout="column" fxLayoutGap="26px"
+                fxFlex="100" fxFlex.gt-xs="50">
+                <div class="title">Get in Touch</div>
+                <div class="desc">
+                  Planning your next getaway? Have a question or a special request?
+                  We're here; just drop a message and we will get back to you
+                  soonest.
+                </div>
+              </div>
+              <div class="enquiry-form" ngClass.md="enquiry-form-xs" fxFlex="100" fxLayout="column" fxLayoutGap="26px"
+                fxFlex.gt-xs="50">
+                <div fxLayout="column" fxLayoutGap="15px">
+                  <div>
+                    <input type="text" class="form-control sm-text" placeholder="Email">
+                  </div>
+  
+                  <div>
+                    <input type="text" class="form-control sm-text" placeholder="Phone">
+                  </div>
+  
+                  <div>
+                    <select name="location" id="location" class="form-control sm-text form-select">
+                      <option>Select Location</option>
+                    </select>
+                  </div>
+  
+                  <div>
+                    <select name="budget" id="budget" class="form-control sm-text form-select">
+                      <option>Select Budget</option>
+                    </select>
+                  </div>
+  
+                  <div>
+                    <select name="property" id="property" class="form-control sm-text form-select">
+                      <option>Select Type Of Property</option>
+                    </select>
+                  </div>
+  
+                  <div>
+                    <select name="aminities" id="aminities" class="form-control sm-text form-select">
+                      <option>Select Aminities</option>
+                    </select>
+                  </div>
+  
+                  <div style="margin: auto;" >
+                    <button class="submit-btn mt-20" ngClass.lt-md="w100 mt-50" style="margin: auto;" (click)="submit()">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div fxLayout="column" fxLayout.gt-sm="row">
+            <div class="about-properties" ngClass.xs="about-properties-xs" fxLayout="column" fxLayoutGap="26px"
+              fxLayoutGap.xs="70px" fxFlex="100" fxFlex.gt-xs="50">
+              <div class="title">Invest in properties of your choice</div>
+              <div class="desc">Invest in carefully curated vacation homes managed by StayMaster, providing predictable rental income and full-service property care.</div>
+            </div>
+            <div class="enquiry-form" ngClass.xs="enquiry-form-xs" fxFlex="100" fxLayout="column" fxLayoutGap="26px"
+              fxFlex.gt-xs="50">
+              <div fxLayout="column" fxLayoutGap="15px">
+                <div>
+                  <input type="text" class="form-control sm-text" placeholder="Email">
+                </div>
+
+                <div>
+                  <input type="text" class="form-control sm-text" placeholder="Phone">
+                </div>
+
+                <div>
+                  <select name="location" id="location" class="form-control sm-text form-select">
+                    <option>Select Location</option>
+                  </select>
+                </div>
+
+                <div>
+                  <select name="budget" id="budget" class="form-control sm-text form-select">
+                    <option>Select Budget</option>
+                  </select>
+                </div>
+
+                <div>
+                  <select name="property" id="property" class="form-control sm-text form-select">
+                    <option>Select Type Of Property</option>
+                  </select>
+                </div>
+
+                <div>
+                  <select name="aminities" id="aminities" class="form-control sm-text form-select">
+                    <option>Select Aminities</option>
+                  </select>
+                </div>
+
+                <div style="margin: auto;" >
+                  <button class="submit-btn mt-20" ngClass.lt-md="w100 mt-50" style="margin: auto;" (click)="submit()">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!propertiesForm">
+    <div class="invest-in-properties-success" ngClass.xs="invest-in-properties-success-xs" fxLayout="column"
+      fxLayout.gt-sm="row">
+      <div class="left-side" ngClass.xs="left-side-xs">
+        <div class="about-properties" ngClass.xs="about-properties-success-xs" fxLayout="column" fxLayoutGap="26px">
+          <div class="close" fxLayoutAlign="end"><img src="../../../assets/images/close-success-property.png" alt=""
+              (click)="close()"></div>
+          <div class="title">Thank you for connecting with us !</div>
+          <div class="desc">Our team will contact you soon regarding all your queries</div>
+        </div>
+      </div>
+      <div class="right-side" ngClass.xs="right-side-xs" ngClass.lt-md="w100">
+        <img src="../../../assets/images/store.jpg" width="100%" height="100%">
+      </div>
+    </div>
+  </ng-container>
+
+  <!--  -->
+  <ng-container>
+    <div class="frxn">
+      <div class="container">
+        <div fxLayout="column" fxLayout.gt-sm="row">
+          <div class="left-side" fxFlex="100" fxFlex.gt-xs="40">
+            <div class="header-frxn">FRXN</div>
+            <div class="company-name">by Staymaster</div>
+          </div>
+          <div class="right-side" fxFlex="100" fxFlex.gt-xs="60">
+            <div class="title">Fractional Real Estate Investment</div>
+            <div class="desc">Discover affordable entry into premium vacation rental properties through fractional ownership. 
+              Start your real estate investment journey with minimal capital and professional management support.</div>
+            <div class="join-now" fxLayout="row">
+              <input type="text" class="textbox" ngClass.lt-sm="textbox-sm" placeholder="Email">
+              <div class="join-now-btn btn-view-all" ngClass.lt-sm="btn-view-all-sm"
+                (click)="joinNow()">Join Now</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+</div>
+<ng-container>
+  <app-footer></app-footer>
+</ng-container>

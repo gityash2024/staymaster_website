@@ -1,0 +1,37 @@
+<div class="header">
+    Aminities Master
+</div>
+<div class="wrapper" fxLayout="column" fxLayoutGap="20px">  
+    <div class="top-buttons">
+        <button mat-raised-button color="primary" (click)="addAminities()"><mat-icon>add</mat-icon> Add New Aminities</button>
+    </div> 
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Aminities Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="options">
+            <th mat-header-cell *matHeaderCellDef> Options </th>
+            <td mat-cell *matCellDef="let element"> 
+                <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+      
+</div>

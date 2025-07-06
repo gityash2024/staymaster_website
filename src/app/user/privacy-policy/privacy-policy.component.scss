@@ -1,0 +1,73 @@
+.privacy-policy {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+
+    .title {
+        font-family: 'Caudex';
+        margin-top: 30px;
+        font-size: 40px;
+        line-height: 48px;
+        color: #008281;
+    }
+
+
+    .sub-title {
+        font-family: 'Caudex';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 120%;
+        /* identical to box height, or 36px */
+        margin-bottom: 8px;
+        margin-top: 10px;
+
+        color: #008281;
+    }
+
+    .message {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 132%;
+        /* identical to box height, or 24px */
+        margin-top: 30px;
+
+        color: #2E2E2E;
+    }
+
+    li, p {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 23px;
+        color: rgba(46, 46, 46, 0.95);
+        margin-bottom: 10px;
+    }
+
+    .please-note {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 145%;
+        /* or 26px */
+        margin-top: 30px;
+
+        color: #008281;
+    }
+}
+
+.bg-yellow {
+    background-color: yellow;
+    color: blue;
+    text-decoration: none;
+}
+
+.sr-nos {
+    cursor: pointer;
+}

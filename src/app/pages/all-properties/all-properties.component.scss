@@ -1,0 +1,159 @@
+.all-properties {
+    background: #FFFFFF;
+}
+
+.filters {
+    margin-top: 44px;
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;    
+    color: #584139;
+
+    .clear-all {
+        text-decoration-line: underline;
+        padding-top: 10px;
+    }
+
+    .sm-control {
+        box-shadow: 2px 4px 30px 2px rgba(88, 65, 57, 0.165);
+        border-radius: 8px;
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 23px;
+        color: #584139;
+    }
+    
+}
+.filters > select {
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #C4B385, #A18180) 1;  
+}
+
+.properties-list {
+    margin-top: 54px;  
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) ;
+    grid-gap: 20px;
+    .card {
+        // width: 253px;
+        min-height: 380px;
+        background: #FFFFFF;
+        box-shadow: 2px 2px 15px 1px rgba(83, 83, 83, 0.25);
+        border-radius: 8px;
+        padding: 12px;
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        color: #2E2E2E;
+        border: none;
+        margin-bottom: 25px;
+
+        .card-img {
+            cursor: pointer;
+            width: 100%;
+            // height: 258px;
+            border-radius: 8px 8px 0px 0px;
+        }
+
+        .card-img > img {
+            width: 100%;
+        }
+
+        .card-title {
+            margin-top: 12px;
+            font-size: 20px;
+            line-height: 25px;
+        }
+
+        .card-sub-title {
+            margin-top: 4px;
+            font-size: 13px;
+            line-height: 16px;
+        }
+
+        .card-desc {
+            margin-top: 12px;
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        .card-item-list {
+            margin-top: 16px;
+        }
+
+        .card-item-name {
+            color: #B6B6B6;
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        .card-item-value {
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+}
+.always-here {
+    padding-top: 110px;
+    padding-bottom: 100px;
+    background: #F9F5F3;
+    background-image: url('../../../assets/images/Frame.png');
+    background-position: left 0px bottom -10px;
+    background-repeat: no-repeat;
+
+    .title {
+        font-family: 'Caudex';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 58px;
+        color: #008281;
+    }
+
+    .panel-title {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 25px;
+        color: rgba(88, 65, 57, 0.95);
+    }
+
+    .mat-expansion-panel {
+        box-shadow: none;
+        background-color: #F9F5F3;
+        border-bottom: 1px solid rgba(88, 65, 57, 0.3);
+        padding-bottom: 10px;
+    }
+}
+
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+}
+
+
+.aminities-control {
+    cursor: pointer;
+    height: 56px;
+}
+
+.wSet{
+    width: 100%;
+    justify-content: center;
+}
+
+.filter{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    @media (max-width: 768px) {
+        flex-direction: column  !important;
+        gap: 15px;
+    }
+}

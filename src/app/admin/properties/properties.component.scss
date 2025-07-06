@@ -1,0 +1,39 @@
+.top-buttons {
+    display: table-cell;
+    max-width: 600px;
+  }
+
+  .Properties{
+    padding: 20px;
+
+    .title{
+      font-size: var(--admin-maintitlesiz);
+    }
+
+    // .cardProp{
+    //   padding-top: 20px;
+    // }
+
+    .addProp{
+      width: 220px;
+      height: 48px;
+      background-color: var(--admin-active);
+      color: var(--admin-activetxt);
+    }
+
+    .PropertyDetailsCard{
+      width: 86vw;
+      height: 498px;
+      overflow:scroll;
+      border-radius: 10px;
+
+      .vne{
+        width: 94px;
+        height: 38px;
+        border: 0.8px solid var(--admin-active);
+        color: var(--admin-active);
+        font-size: var(--admin-subtitlesiz);
+      }
+    }
+
+  }

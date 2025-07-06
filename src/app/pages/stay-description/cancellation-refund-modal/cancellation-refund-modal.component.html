@@ -1,0 +1,131 @@
+<div mat-dialog-content class="modal-body">
+    <div class="house-rules" fxLayout="column" fxLayoutGap="15px">
+        <div class="cancellation-policy-head" fxLayout="row" fxLayoutAlign="space-between start">
+            <div class="title">Cancellation and Refund Policy</div>             
+            <mat-icon (click)="onNoClick()">close</mat-icon>   
+            
+        </div>
+        <div class="sub-title">Cancellation Policy</div>
+        <p>At Staymaster, we understand that plans can change unexpectedly. To ensure clarity and fairness for all our guests, we have established a cancellation policy that balances your flexibility with the needs of our service providers.</p>
+        <p>This policy outlines the terms and conditions related to cancellations, refunds, and credit note requests. It is designed to:</p>
+        <div>
+            <ul>
+                <!--<li>{{cancellation_policy}}</li>-->
+                <li>Provide you with peace of mind when booking.</li>
+                <li>Allow us to maintain the high-quality services you expect.</li>
+                <li>Ensure fair compensation for our partners who prepare for your arrival.</li>
+            </ul>
+        </div>
+        <p>Please take a moment to review our policy to understand the options available to you.</p>
+        <p>Cancellation policy for all Standard Dates if 100% booking deposit is paid at the time of booking</p>
+        <ul>
+            <li>0-14 days prior to check in date : No refund</li>
+            <li>14 days prior to check in date : 100% refund (minus processing fee)</li>
+        </ul>
+        <p><strong>Cancellation policy for all Standard Dates if 50% booking deposit is made (partial payment)</strong></p>
+        <ul><li>All reservations where a partial payment has been made to confirm the reservation - No refund.</li></ul>
+        <p>Cancellation Policy applicable on Black Out Dates</p>
+        <p>These are periods of high demand when travel activity is at its peak due to public holidays, gazetted holidays, restricted holidays, long weekends, and popular festivals. Bookings during these dates may have special pricing and policies. </p>
+        <ul>
+            <li>0-30 days prior to check in date: No refund</li>
+            <li>30 days prior to check in date: 100% refund (minus processing fee)</li>
+        </ul>
+        <p>
+            This policy covers any booking which contains at least 1 black out day during your stay . Examples include but not limited to - Christmas & New Year, Diwali, Gandhi Jayanti, Republic Day, Holi Maha Shivratri Id-Ul-Fitr, Good Friday, Independence Day, Ganesh Chaturthi, Durga Ashtami, May Day etc.
+        </p>
+        <p>Staymaster reserves the rights to cancel your  booking in the event of reasons beyond our control or unforeseen circumstances.</p>
+        <div class="sub-title">Refund Policy</div>
+        <p>In the event of a successful claim for refund, Staymaster will process your refund under the following terms and conditions: </p>
+        <div class="sub-title">Eligibility</div>
+        <ul>
+            <li>Cancellation applies only to bookings where 100% of the booking amount has been paid</li>
+            <li>Partial payments are non refundable</li>
+            <li>Refunds are applicable only for cancellations made in accordance with our cancellation policy.</li>
+            <li>Refund requests must be submitted through the official communication channels (email, phone, or designated booking platform).</li>
+        </ul>
+        <div class="sub-title">Non-Refundable Payments</div>
+        <ul>
+            <li>Payments for certain services or bookings (e.g., promotional rates, last-minute bookings, add-ons) may be non-refundable. These will be explicitly stated at the time of booking.</li>
+        </ul>
+        <div class="sub-title">Processing Time & Beneficiary of the refund</div>
+        <ul>
+            <li>Approved refunds will be processed within 7 business days after the cancellation request is confirmed. Processing times may vary depending on the payment method or bank policies.</li>
+            <li>The refund will be processed to the original bank account of the guest through which the booking deposit was made.</li>
+        </ul>
+        <div class="sub-title">Deductions and Charges</div>
+        <ul>
+            <li>Any transaction fees, processing charges, or applicable taxes may be deducted from the refund amount.</li>
+        </ul>
+        <div class="sub-title">Force Majeure</div>
+        <ul>
+            <li>Refunds may not apply in cases where cancellations are due to unforeseeable events (e.g., natural disasters, government restrictions) unless otherwise stated.</li>
+        </ul>
+        <div class="sub-title">Credit Note Policy</div>
+        <div class="sub-title">Eligibility</div>
+        <ul>
+            <li>At Staymaster, we prioritise delivering exceptional hospitality and ensuring guest satisfaction. However, we understand that certain situations which are beyond your control may disrupt travel plans. In such cases, we offer credit notes. Such cases require valid documentation. Cases include: </li>
+            <li>
+                <div class="sub-title">Medical Issues</div>
+                <ul>
+                    <li>Sudden illness or injury of the guest or an immediate family member.</li>
+                    <li>Hospitalisation or surgery.</li>
+                    <li>Contagious diseases requiring isolation</li>
+                </ul>
+            </li>
+            <li>
+                <div class="sub-title">Family Emergencies</div>
+                <ul>
+                    <li>Death or critical illness of a close family member.</li>
+                    <li>Urgent situations requiring immediate family support (e.g., accidents, legal matters).</li>
+                </ul>
+            </li>
+            <li>
+                <div class="sub-title">Travel-Related Issues</div>
+                <ul>
+                    <li>Missed or cancelled flights, trains, or buses due to unforeseen circumstances.</li>
+                    <li>Loss or theft of essential travel documents like a passport or visa.</li>
+                    <li>Government issued travel bans or lockdown restrictions.</li>
+                </ul>
+            </li>
+            <li>
+                <div class="sub-title">Personal Safety Concerns</div>
+                <ul>
+                    <li>Accidents en route to the destination.</li>
+                    <li>Security issues or sudden advisories affecting travel routes.</li>
+                </ul>
+            </li>
+            <li>
+                <div class="sub-title">Significant Life Events</div>
+                <ul>
+                    <li>Birth of a child or complications in pregnancy.</li>
+                    <li>Sudden changes in personal circumstances, such as a separation or divorce.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="sub-title">Terms & Conditions</div>
+        <ul>
+            <li>In case of any changes made to a reservation wherein the updated booking value exceeds the original amount, the difference must be borne by the guest. </li>
+            <li>The validation period of a Future Credit Note will be specified on it and cannot be extended. If a booking is made using credit, the check-in date must be within the validity period.</li>
+            <li>In most cases, a Future Credit Note expires three months from its date of issue, unless explicitly stated otherwise at the time of issue.</li>
+            <li>A Future Credit Note cannot be combined with another credit note.</li>
+            <li>Credit can be transferred by dropping an email to book@thestaymaster.com</li>
+            <li>If a booking has been made using credit and subsequently cancelled, the credit note will be forfeited and cannot be used again.</li>
+        </ul>
+        <div class="sub-title">Processing Time</div>
+        <ul>
+            <li>Approved Credit Notes will be processed within 7 business days after the credit note request is confirmed. </li>
+        </ul>
+        <div class="sub-title">Third-Party Bookings</div>
+        <ul>
+            <li>Bookings made via third-party platforms, including but not limited toAirbnb, GoMMT, Goibibo, Agoda, Travel Guru, Marriott are subject to the respective channel’s cancellation and refund policies. Guests are advised to review the Cancellation Policy on the platform where the booking was originally made, as it may differ from Staymaster’s policies.</li>
+            <li>Our refund policy applies exclusively to bookings made directly through Staymaster platforms, including our website and all official communication channels.</li>
+        </ul>
+        <div class="sub-title">Amendments to Policy</div>
+        <ul>
+            <li>Staymaster reserves the right to amend the refund policy at any time. Guests will be informed of significant changes prior to their effective date.</li>
+        </ul>
+        <br>
+       
+        
+    </div>
+</div>

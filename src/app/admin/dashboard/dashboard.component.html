@@ -1,0 +1,95 @@
+
+<!-- <mat-tab-group class="dashboard" style="height: 90svh; min-height: 90svh; min-width: 100%; width: 100%; margin: 0px;">
+    <mat-tab label="Todays Overview">
+        <ng-template matTabContent>
+            <app-todays-overview></app-todays-overview>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Revenue">
+        <ng-template matTabContent>
+            <app-revenue></app-revenue>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Booking Engine Statistics">
+        <ng-template matTabContent>
+            <app-booking-engine-statistics></app-booking-engine-statistics>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Booking Statistics">Booking Statistics</mat-tab>
+</mat-tab-group> -->
+
+<div fxFlex fxLayout="column">
+    <div fxFlex="100" fxLayout="row" fxLayoutGap="5px" style="height: 10svh; padding-top: 20px; padding-left: 20px;">
+        <button mat-raised-button [routerLink]="['/admin', { outlets: { contentOutlet: ['toc'] } }]"
+          routerLinkActive="active-link">Todays Overview</button>
+        <button mat-raised-button [routerLink]="['/admin', { outlets: { contentOutlet: ['rc'] } }]"
+          routerLinkActive="active-link">Revenue</button>
+        <button mat-raised-button [routerLink]="['/admin', { outlets: { contentOutlet: ['besc'] } }]"
+          routerLinkActive="active-link">Booking Engine Statistics</button>
+        <button mat-raised-button [routerLink]="['/admin', { outlets: { contentOutlet: ['booking-statistics'] } }]"
+          routerLinkActive="active-link">Booking Statistics</button>
+      </div>
+      <hr>
+      
+    <div style="width: 88.5svw;">
+        <router-outlet name="contentOutlet"></router-outlet>
+    </div>
+   
+    
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="header">
+    Dashboard
+</div>
+<div class="wrapper" fxLayout="column" fxLayoutGap="20px">
+    <ng-container *ngIf="accessGroup === 'A' || accessGroup === '' || !(accessGroup)">
+        <div fxLayout="column" fxLayoutGap="15px">            
+            <div>
+                <div fxLayout="row wrap" fxLayoutGap="20px"> 
+                    <mat-card *ngFor="let card of DashboardCardsData" class="dashboard-card" 
+                    [ngStyle]="{'backgroundColor': card.bgcolor != '' ? card.bgcolor : 'green'}" 
+                    [ngStyle]="{ 'color': (card.color ? card.color : '#011875') }"             
+                    [routerLink]="[card.url ? card.url : '#']" [queryParams]="{ source: card.param }"
+                    fxFlex=23 fxLayout="row" fxLayoutGap="15px">
+                        <div fxFlex="40" fxLayoutAlign="center center">
+                            <mat-icon>currency_rupee</mat-icon>
+                            <img src="{{card.img}}" alt="" class="card-img" >
+                            <img src="../../../assets/images/monthly sale.avif" alt="">
+                        </div>
+                        <div fxLayout="column" fxFlex="60" fxLayoutAlign="center center">
+                            <div class="title" fxLayoutAlign="center center">{{card.title}}</div>
+                            <div class="count" fxLayoutAlign="center center">{{card.count}}</div>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+            
+        </div>
+    </ng-container>
+</div> -->

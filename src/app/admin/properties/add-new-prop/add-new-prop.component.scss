@@ -1,0 +1,394 @@
+.addnewprop{
+    padding: 20px;
+    
+
+    .savebtn{
+        width: 92px;
+        height: 38px;
+        border: 0.9px solid var(--admin-active);
+        background-color: var(--admin-active);
+        color: var(--admin-activetxt);
+        
+    }
+    .deletebtn{
+        width: 92px;
+        height: 38px;
+        border: 0.9px solid  var(--admin-active);
+        color: var(--admin-active);
+    }
+
+    .matFormFMetric{
+        height: 70px !important;
+        font-size: 14px;
+    }
+
+    .title{
+        font-size: var(--admin-maintitlesiz);
+      }
+
+      .subtitle{
+        font-size: var(--admin-subsubtitlesiz);
+      }
+
+
+      .propertyDetailsCard{
+        width: 87svw;
+        height: 1500px;
+        border-radius: 10px;
+
+        .title{
+            color: var(--admin-active); 
+            font-size: var(--admin-maintitlesiz);
+        }
+
+        .subtitle{
+            color: var(--admin-active); 
+            font-size: var(--admin-subsubtitlesiz);
+        }
+
+        .mandatoryFields{
+            font-size: var(--admin-subsubtitlesiz);
+            color: var(--admin-active); 
+        }
+
+        .formstart{
+            margin-top: 5px;
+            width: 100%;
+
+            .matFormFMetric{
+                height: 70px !important;
+                font-size: 14px;
+            }
+
+            /* Target the mat-select-trigger class for the selected option */
+            .mat-select-trigger {
+                font-size: 16px; /* Set your desired font size */
+            }
+            
+            /* Target the mat-option class for the dropdown options */
+            .mat-option {
+                font-size: 14px; /* Set your desired font size */
+  }
+            
+        }
+         
+
+    
+
+      }
+
+      .userdetails{
+        width: 87svw;
+        height: 500px;
+        border-radius: 10px;
+        
+        .mandatoryFields{
+            font-size: var(--admin-subsubtitlesiz);
+            color: var(--admin-active); 
+        }
+
+        .title{
+            color: var(--admin-active); 
+        }
+
+        .pdrow{
+            margin-top: 20px;
+            width: 80svw;
+            .pdTitle{
+                color:var(--admin-inactivetxt);
+                font-size: var(--admin-subtitlesiz);
+            }
+            .pdDesc{
+                width: 100%;
+                // height: 83px;
+                height: 70px;
+                border-radius: 2px;
+                // border: 0.7px solid #C3C3C3;
+    
+            }
+        }
+
+      }
+      .essentialinfo{
+        width: 87svw;
+        height: 700px;
+        border-radius: 10px;
+
+        .title{
+            color: var(--admin-active); 
+        }
+
+        .mandatoryFields{
+            font-size: var(--admin-subsubtitlesiz);
+            color: var(--admin-active); 
+        }
+
+        .pdrow{
+            margin-top: 20px;
+            width: 80svw;
+            .pdTitle{
+                color:var(--admin-inactivetxt);
+                font-size: var(--admin-subtitlesiz);
+            }
+            .pdDesc{
+                width: 100%;
+                // height: 83px;
+                height: 70px;
+                border-radius: 2px;
+                // border: 0.7px solid #C3C3C3;
+    
+            }
+        }
+
+        .pdDesc{
+            width: 100%;
+
+        }
+
+      }
+      .meals{
+        width: 87svw;
+        height: 500px;
+        border-radius: 10px;
+        // overflow-y: scroll;
+
+        .title{
+            color: var(--admin-active); 
+        }
+
+        .mandatoryFields{
+            font-size: var(--admin-subsubtitlesiz);
+            color: var(--admin-active); 
+        }
+
+        .description{
+            width: 100%;
+        }
+
+        .uploadbtn{
+            border: 0.7px dotted #A2A2A2;
+            width: 202px;
+            height: 38px;
+            border-radius: 2px;
+            background: transparent;
+
+        }
+
+        .bfastFee{
+            margin-top: 20px;
+
+        }
+
+      }
+      .locations{
+        width: 87svw;
+        height: 700px;
+        border-radius: 10px;
+        // overflow-y: scroll;
+       
+        .title{
+            color: var(--admin-active); 
+        }
+
+        .mandatoryFields{
+            font-size: var(--admin-subsubtitlesiz);
+            color: var(--admin-active); 
+        }
+
+        .matFormFMetric{
+            height: 70px;
+        }
+
+        .locationTitle{
+            font-size: (--admin-subsubtitlesiz);
+            color: var(--admin-inactivetxt);
+            margin-top: 15px;
+        }
+
+        .locationBtn1{
+            // width: 189px
+            height: 38px;
+            border-radius: 2px;
+            color: var(--admin-inactivetxt);
+            border: 0.7px solid var(--admin-active);
+            
+        }
+        .locationBtn2{
+            margin-top: 15px;
+            height: 38px;
+            border-radius: 2px;
+            border: 0.7px solid var(--admin-active);
+            background-color: var(--admin-active);
+            color: var(--admin-activetxt);
+        }
+
+        .pdrow{
+            margin-top: 20px;
+            width: 80svw;
+            .pdTitle{
+                color:var(--admin-inactivetxt);
+                font-size: var(--admin-subtitlesiz);
+            }
+            .pdDesc{
+                width: 100%;
+                // height: 83px;
+                border-radius: 2px;
+                // border: 0.7px solid #C3C3C3;
+    
+            }
+        }
+
+      }
+      .aminites{
+        width: 87svw;
+        height: 2800px;
+        border-radius: 10px;
+        // overflow-y: scroll;
+
+        .title{
+            color: var(--admin-active); 
+        }
+
+        .mandatoryFields{
+            font-size: var(--admin-subsubtitlesiz);
+            color: var(--admin-active); 
+        }
+
+        .AminitySection{
+            padding-top: 20px;
+            width: 100%;
+
+            .AmTitle{
+                font-size: var(--admin-subtitlesiz);
+                color:var(--admin-inactivetxt);
+                font-weight: 500;                
+            }
+
+            .AmInput{
+                height: 36px;
+                border-radius: 2px;
+                border:0.7px solid #C3C3C3;
+                width: 230px;
+                font-size: var(--admin-subtitlesiz);
+                color:var(--admin-inactivetxt)
+            }
+
+            .AmCheckbox{
+                width: 24px;
+                height: 24px;
+                background: var(--admin-active);
+            }
+
+
+        }
+
+      }
+      .propertydescription{
+        width: 87svw;
+        height: 1000px;
+        border-radius: 10px;
+        // overflow-y: scroll;
+
+        .title{
+            color: var(--admin-active); 
+        }
+
+        .mandatoryFields{
+            font-size: var(--admin-subsubtitlesiz);
+            color: var(--admin-active); 
+        }
+
+        .pdrow{
+            width: 86svw;
+            .pdTitle{
+                color:var(--admin-inactivetxt);
+                font-size: var(--admin-subtitlesiz);
+            }
+            .pdDesc{
+                width: 100%;
+                // height: 90px;
+                border-radius: 2px;
+                // border: 0.7px solid #C3C3C3;
+    
+            }
+        }
+
+      
+
+      }
+      .propertyphotos{
+        width: 87svw;
+        height: 1179px;
+        border-radius: 10px;
+        // overflow-y: scroll;
+
+        .mandatoryFields{
+            font-size: var(--admin-subsubtitlesiz);
+            color: var(--admin-active); 
+        }
+
+        .uploadbtns{
+
+            width: 70%;
+
+            .title{
+                color: var(--admin-active); 
+                font-size: var(--admin-subtitlesiz);
+            }
+    
+            .subtitle{
+                color:var(--admin-inactive) ;
+                font-size: var(--admin-subsubtitlesiz);
+            }
+    
+            .upload{
+                width: 151px;
+                height: 32px;
+                border: 4px solid #D9D9D9;
+                background: #D9D9D9;
+                color:var(--admin-inactivetxt)
+            }
+        }
+
+       
+
+   
+
+            .matFormFMetric{
+                height: 70px !important;
+                width: -webkit-fill-available !important;
+                font-size: 14px;
+        }
+
+        .imageUploaded{
+            height: 228px;
+            width: 360px;
+
+            .uploadedImg{
+                width:-webkit-fill-available;
+                height: 258px;
+                border-radius: 2px;
+
+            }
+
+        }
+
+      }
+}
+
+
+
+
+// --admin-mainfont:"Akkurat";
+
+// --admin-active: #008281;
+// --admin-inactive: rgb(66, 77, 79);
+
+// --admin-activetxt: #ffff;
+// --admin-inactivetxt:#222222;
+// #808080
+
+// --admin-titlesiz:16px;
+// --admin-titlesmall:15px;
+// --admin-subtitlesiz:14px;
+// --admin-subsubtitlesiz:12px;

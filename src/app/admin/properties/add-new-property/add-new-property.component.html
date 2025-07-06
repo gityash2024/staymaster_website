@@ -1,0 +1,228 @@
+<div mat-dialog-title class="dialog-title formHeader">
+    Add New Property
+</div>
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+<div mat-dialog-content class="modal-body">
+    <div fxLayout="column" fxLayoutGap="0px">
+        <div class="head_title">Property Details:</div>
+        <br>
+        <div fxLayout="row">
+            <div fxFlex>
+                <mat-form-field class="" appearance="fill">
+                    <mat-label>Property ID</mat-label>
+                    <input matInput type="text" placeholder="Enter property id" formControlName="id"
+                        autocomplete="off">
+                </mat-form-field>
+            </div>
+            <div fxFlex>
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Property Name</mat-label>
+                    <input matInput type="text" placeholder="Enter property name" formControlName="name"
+                        autocomplete="off">
+                </mat-form-field>
+            </div>
+            <div fxFlex>
+                
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex>
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Property description</mat-label>
+                    <textarea matInput placeholder="Property description" formControlName="desc"></textarea>                   
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex>
+                <mat-form-field class="" appearance="fill">
+                    <mat-label>Property Address</mat-label>
+                    <input matInput type="text" placeholder="Enter property address" formControlName="location"
+                        autocomplete="off">
+                </mat-form-field>
+            </div>
+            <div fxFlex>
+                <mat-form-field class="" appearance="fill">
+                    <mat-label>Property Price</mat-label>
+                    <input matInput type="text" placeholder="Enter property price" formControlName="price"
+                        autocomplete="off">
+                </mat-form-field>
+            </div>
+            <div fxFlex>
+                <mat-form-field class="" appearance="fill">
+                    <mat-label>Day/Night</mat-label>
+                    <mat-select formControlName="daynight">
+                        <mat-option *ngFor="let item of dayNight" [value]="item.id">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex>
+                <mat-form-field class="" appearance="fill">
+                    <mat-label>Bedrooms</mat-label>
+                    <mat-select formControlName="bedrooms">
+                        <mat-option *ngFor="let item of bedroomsArr" [value]="item.id">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxFlex>
+                <mat-form-field class="" appearance="fill">
+                    <mat-label>Type Of Place</mat-label>                    
+                    <mat-select formControlName="typeOfPlace">
+                        <mat-option *ngFor="let item of typeOfPlace" [value]="item.id">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxFlex>
+                <mat-form-field class="" appearance="fill">
+                    <mat-label>Meal Type</mat-label>
+                    <mat-select formControlName="mealType" multiple="true">
+                        <mat-option *ngFor="let item of mealType" [value]="item.id">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="head_title">Aminities:</div>
+        <br>
+        <div fxLayout="row">
+            <section class="example-section" fxLayout="row wrap">
+                <div *ngFor="let item of aminities" fxFlex="20">
+                    <mat-checkbox class="example-margin" >{{item.name}}</mat-checkbox>
+                </div>
+            </section>
+        </div>
+        <br>
+        <div class="head_title">Features:</div>
+        <br>
+        <div fxLayout="row ">
+            <section class="example-section"  fxLayout="row wrap">
+                <div *ngFor="let item of features" fxFlex="20">
+                    <mat-checkbox class="example-margin" >{{item.name}}</mat-checkbox>
+                </div>
+            </section>
+        </div>
+        <br>
+        <div fxLayout="row ">
+            
+            <div fxFlex>
+                <!-- <mat-form-field class="" appearance="fill"> -->
+                    <mat-label>Location</mat-label>
+                    <section class="example-section" >
+                        <mat-checkbox class="example-margin" >Beachfront</mat-checkbox>
+                        <mat-checkbox class="example-margin" >Waterfront</mat-checkbox>
+                    </section>
+                <!-- </mat-form-field> -->
+            </div>
+            <div fxFlex>
+                <!-- <mat-form-field class="" appearance="fill"> -->
+                    <mat-label>Staymaster Select</mat-label>
+                    <section class="example-section" >
+                        <mat-checkbox class="example-margin" >Select</mat-checkbox>
+                    </section>
+                <!-- </mat-form-field> -->
+            </div>
+            <div fxFlex>
+                <!-- <mat-form-field class="" appearance="fill">
+                    <mat-label>Location</mat-label>
+                    <section class="example-section" formControlName="loc">
+                        <mat-checkbox class="example-margin" >Beachfront</mat-checkbox>
+                    </section>
+                </mat-form-field> -->
+            </div>
+        </div>
+        <div class="head_title">Property Photos:</div>
+        <br>
+        <div fxLayout="row ">            
+            <div fxFlex fxLayout="column" fxLayoutGap="20px">
+                <div fxLayout="row " fxLayoutGap="20px">
+                    <mat-label>Property Profile Photo</mat-label>
+                    <input type="file">
+                </div>
+                <div>
+                    <img class="property-profile-img rounded  img-thumbnail" src="../../../../assets/images/property-ex-1.png" alt="">
+                </div>
+            </div>
+            <div fxFlex fxLayout="column" fxLayoutGap="20px">
+                <div fxLayout="row " fxLayoutGap="20px">
+                    <mat-label>Property Photos</mat-label>
+                    <input type="file">
+                </div>
+                <div fxLayout="row wrap" fxLayoutGap="15px">
+                    <img class="property-photos rounded img-thumbnail" src="../../../../assets/images/property-ex-1.png" alt="">
+                    <img class="property-photos rounded img-thumbnail" src="../../../../assets/images/property-ex-2.png" alt="">
+                    <img class="property-photos rounded img-thumbnail" src="../../../../assets/images/property-ex-3.png" alt="">
+                    <img class="property-photos rounded img-thumbnail" src="../../../../assets/images/property-ex-2.png" alt="">
+                    <img class="property-photos rounded img-thumbnail" src="../../../../assets/images/property-ex-3.png" alt="">
+                    <img class="property-photos rounded img-thumbnail" src="../../../../assets/images/property-ex-1.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="head_title">Staff Details:</div>
+        <br>
+        <div class="top-buttons">
+            <button mat-raised-button color="primary" ><mat-icon>add</mat-icon> Add Staff</button>
+        </div>
+        <br>
+        <div fxLayout="row "> 
+            <table class="table table-bordered">
+                <tr>
+                    <th>Designation</th>
+                    <th>Staff Name</th>
+                    <th>Mobile No</th>
+                </tr>
+                <tr>
+                    <td>Manager</td>
+                    <td>ABC K</td>
+                    <td>9090909090</td>
+                </tr>
+                <tr>
+                    <td>Care taker</td>
+                    <td>ABC K</td>
+                    <td>9090909090</td>
+                </tr>
+                <tr>
+                    <td>House keeping</td>
+                    <td>ABC K</td>
+                    <td>9090909090</td>
+                </tr>
+                <tr>
+                    <td>Cook</td>
+                    <td>ABC K</td>
+                    <td>9090909090</td>
+                </tr>
+                <tr>
+                    <td>Booking Staff</td>
+                    <td>ABC K</td>
+                    <td>9090909090</td>
+                </tr>
+                <tr>
+                    <td>Local Staff</td>
+                    <td>ABC K</td>
+                    <td>9090909090</td>
+                </tr>
+                <tr>
+                    <td>Security</td>
+                    <td>ABC K</td>
+                    <td>9090909090</td>
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button type="button" (click)="onNoClick()">Cancel</button>
+    <button mat-raised-button type="submit" color="primary"  cdkFocusInitial>Save</button>
+    <!-- [mat-dialog-close]="data" -->
+</div>
+</form>

@@ -1,0 +1,41 @@
+<ng-container>
+    <app-header [headerName]="headerName"></app-header>
+</ng-container>
+<ng-container>
+    <div class="notifications">
+        <div class="container px-4">
+            <div class="title">Notifications</div>
+            <br>
+            <div *ngFor="let item of notifications" fxLayout="column" fxLayoutGap="10px">
+                <div class="notification align-items-center" fxLayout="row" [ngClass.xs]="'gap-3'" [ngClass.gt-xs]="'gap-5'">
+                    <div>
+                        <img class="notification-img" ngClass.xs="notification-img-xs" [src]="item.image" alt="">
+                    </div>
+                    <div class="align-items-center w-100" fxLayoutAlign="space-between">
+                        <div fxLayout="column">
+                            <div class="desc" fxHide.gt-xs>{{ item.content | slice:0:40 }} </div>
+                            <div class="desc" fxHide.xs>{{ item.content | slice:0:100 }} </div>
+                            <div class="date">{{ item.date }}</div>
+                        </div>
+                        <div>
+                            <img src="../../../assets/images/close-success-property.png" class="close-btn" alt="" width="18px" height="18px">
+                        </div>
+                    </div>                    
+                </div>
+                <div class="divider-line"></div>
+            </div>
+            <div *ngIf="!notifications.length">
+                <div class="my-5">
+                    <div class="sub-title">No Messages Yet !</div>
+                    <div class="message">Your booking confirmation and check-in details for your upcoming stay at StayMaster Select property</div>
+                </div>
+                <div class="">
+                    <button type="button" class="sm-btn" fxLayout="row" fxLayoutAlign="center center">Explore Stays</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-container>
+    <app-footer></app-footer>
+</ng-container>

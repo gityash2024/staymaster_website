@@ -1,0 +1,487 @@
+<div class="page">
+    <ng-container>
+      <div class="property-header" ngClass="property-header-xs" fxLayout="column">
+        <div class="header-box">
+          <app-header [headerName]="headerName"></app-header>
+          <div class="container"  fxLayout="column" fxLayoutAlign="space-between ">
+                <div fxFlex></div>
+                <div class="header-info" fxFlex >
+                <div class="" fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="15px" >
+                    <div class="property-info"  fxFlexAlign="end">
+                        <div class="price">Rs. 1,45,00,000</div>
+                        <div class="address">Anjuna, North Goa</div>
+                        <div class="aminities" fxLayout="row" fxLayoutGap="15px">
+                            <div class="bedrooms">4 Bedrooms</div>
+                            <div class="aminities-dot"></div>
+                            <div class="capacity">Upto 12 Guests</div>
+                            <div class="aminities-dot"></div>
+                            <div class="aminitites">Private Pool</div>
+                        </div>
+                    </div>
+                    <div class="share-btn" ngClass.lt-md="display-none">
+                        <img src="../../../../assets/images/share-icon.png" alt="">
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <!--  -->
+    <ng-container>
+        <div class="menus" fxLayout="row" fxLayoutAlign="center center" ngClass.lt-md="display-none">
+            <div class="container">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div class="menu" [ngClass]="item.active ? 'menu-active' : ''" *ngFor="let item of propertyHeads; let i = index"
+                        (click)="setActiveItem(i)">
+                        {{item.title}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container>
+        <div class="property-details" ngClass.xs="property-details-xs">
+            <div class="container">
+                <div>
+                    <div class="property-title">Investment Calculator</div>
+                    <div class="calculator" id="calculator">
+                        <div fxLayoutAlign.gt-sm="space-around center" fxLayout="row wrap" fxLayout.gt-sm="row" fxLayoutGap.gt-sm="20px" 
+                            class="invest-calculator-mobile col-lg-8">
+                            <div fxFlex.lt-sm="100">
+                                <div class="title">Purchase Price</div>
+                                <input class="form-control mt-2" value="Rs. 1,45,00,000"> 
+                            </div>
+                            <div class="d-flex justify-content-between w-100 mt-3 gap-2">
+                                <div>
+                                    <div class="title">Days Rented</div>
+                                    <input class="form-control mt-2" value="280"> 
+                                </div>
+                                <div>
+                                    <div class="title">Avg Daily Rent</div>
+                                    <input class="form-control mt-2" value="280"> 
+                                </div>
+                            </div>
+                        </div>
+
+                         <div fxLayoutAlign.gt-sm="space-around center" fxLayout="row wrap" fxLayout.gt-sm="row" fxLayoutGap.gt-sm="20px" 
+                            class="invest-calculator col-lg-8">
+                            <div fxFlex.lt-sm="100">
+                                <div class="title">Purchase Price</div>
+                                <div class="sub-title">Rs. 1,45,00,000</div>
+                            </div>
+                            <div class="vertical-line" fxHide.xs></div>
+                            <div fxFlex.lt-sm="48">
+                                <div class="title">Days Rented</div>
+                                <div class="sub-title">280</div>
+                            </div>
+                            <div class="vertical-line" fxHide.xs></div>
+                            <div fxFlex.lt-sm="48">
+                                <div class="title">Avg Daily Rent</div>
+                                <div class="sub-title">Rs. 12,000</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 col-lg-4 d-flex justify-content-lg-end" fxFlex.xs="100">
+                            <button type="button" class="st-btn" fxFlex.xs="100">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-line"></div>
+                <div class="about-the-property" ngClass.xs="about-the-property-xs">
+                    <div fxLayout="column" fxLayout.gt-xs="row">
+                        <div fxFlexOrder.xs='2' class="st-cardgp d-flex"  fxLayout="row wrap" fxFlex="100" fxFlex.gt-xs="60" fxLayoutAlign.lt-md="space-around center" fxLayoutGap.xs="5px"  fxLayoutGap.gt-xs="20px">
+                            <div class="st-card" fxLayout="column" fxLayoutAlign="center center">
+                                <div class="card-title">12 %</div>
+                                <div class="card-subtitle">Net Yield Potential</div>
+                            </div>
+                            <div class="st-card" fxLayout="column" fxLayoutAlign="center center">
+                                <div class="card-title">18 %</div>
+                                <div class="card-subtitle">10Y Return Potential</div>
+                            </div>
+                            <div class="st-card" fxLayout="column" fxLayoutAlign="center center">
+                                <div class="card-title">Rs. 18L/ yr</div>
+                                <div class="card-subtitle">Cash Flow Potential</div>
+                            </div>
+                            <div class="st-card" fxLayout="column" fxLayoutAlign="center center">
+                                <div class="card-title">30 %</div>
+                                <div class="card-subtitle">Down Payment</div>
+                            </div> 
+                            <div class="about-btn mt-4" fxHide.gt-xs>
+                                <button type="button" class="st-btn" fxFlex.xs="100">Schedule a Call</button>
+                            </div>
+                        </div>
+                        <div fxFlexOrder.xs='1' class="about" fxFlex="100" fxFlex.gt-xs="40" fxLayout="column" fxLayoutGap="22px">
+                            <div class="title">About the Property</div>
+                            <div class="desc">This premium beachfront villa offers exceptional investment potential with its prime location, luxury amenities, and professional management by StayMaster. Featuring modern design, private pool, and stunning ocean views, it attracts high-end guests year-round.liquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</div>
+                            <div class="read-more mb-2"><a >Read More</a></div>
+                            <div class="about-btn mt-4" fxHide.xs>
+                                <button type="button" class="st-btn" fxFlex.xs="100">Schedule a Call</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="bottom-line"></div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container>
+        <div class="container property-insights" id="insights">
+            <div class="property-title">Property Insights</div>
+            <div class="insights-cards" fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="space-around center">
+                <div class="insights-card" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+                    <div class="insights-card-circle" fxLayout="column" fxLayoutAlign="center center">
+                        <img src="../../../../assets/images/market-size.png" alt="">
+                    </div>
+                    <div class="vertical-line"></div>
+                    <div class="top-line"></div>
+                    <div class="card-title">18 Cr.</div>
+                    <div class="bottom-line"></div>
+                    <div class="card-name">Market Size</div>
+                </div>
+                <div class="insights-card" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+                    <div class="insights-card-circle" fxLayout="column" fxLayoutAlign="center center">
+                        <img src="../../../../assets/images/appreciation.png" alt="">
+                    </div>
+                    <div class="vertical-line"></div>
+                    <div class="top-line"></div>
+                    <div class="card-title">42 %</div>
+                    <div class="bottom-line"></div>
+                    <div class="card-name">Market Size</div>
+                </div>
+                <div class="insights-card" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+                    <div class="insights-card-circle" fxLayout="column" fxLayoutAlign="center center">
+                        <img src="../../../../assets/images/neighbourhood.png" alt=""> 
+                    </div>
+                    <div class="vertical-line"></div>
+                    <div class="top-line"></div>
+                    <div class="card-title">5</div>
+                    <div class="bottom-line"></div>
+                    <div class="card-name">Market Size</div>
+                </div>
+                <div class="insights-card" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+                    <div class="insights-card-circle" fxLayout="column" fxLayoutAlign="center center">
+                        <img src="../../../../assets/images/benchmark.png" alt="">
+                    </div>
+                    <div class="vertical-line"></div>
+                    <div class="top-line"></div>
+                    <div class="card-title">58 %</div>
+                    <div class="bottom-line"></div>
+                    <div class="card-name">Market Size</div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="property-insights-xs" fxHide>
+            <div class="property-title">Property Insights</div>
+            <div class="insights-cards" fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="space-around center">
+                <div class="slider">
+                    <div class="slides">
+                        <div class="slide">
+                            <div class="insights-card" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+                                <div class="insights-card-circle" fxLayout="column" fxLayoutAlign="center center">
+                                    <img src="../../../../assets/images/market-size.png" alt="">
+                                </div>
+                                <div class="vertical-line"></div>
+                                <div class="top-line"></div>
+                                <div class="card-title">18 Cr.</div>
+                                <div class="bottom-line"></div>
+                                <div class="card-name">Market Size</div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="insights-card" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+                                <div class="insights-card-circle" fxLayout="column" fxLayoutAlign="center center">
+                                    <img src="../../../../assets/images/appreciation.png" alt="">
+                                </div>
+                                <div class="vertical-line"></div>
+                                <div class="top-line"></div>
+                                <div class="card-title">42 %</div>
+                                <div class="bottom-line"></div>
+                                <div class="card-name">Market Size</div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="insights-card" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+                                <div class="insights-card-circle" fxLayout="column" fxLayoutAlign="center center">
+                                    <img src="../../../../assets/images/neighbourhood.png" alt="">
+                                </div>
+                                <div class="vertical-line"></div>
+                                <div class="top-line"></div>
+                                <div class="card-title">5</div>
+                                <div class="bottom-line"></div>
+                                <div class="card-name">Market Size</div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                
+                            <div class="insights-card" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+                                <div class="insights-card-circle" fxLayout="column" fxLayoutAlign="center center">
+                                    <img src="../../../../assets/images/benchmark.png" alt="">
+                                </div>
+                                <div class="vertical-line"></div>
+                                <div class="top-line"></div>
+                                <div class="card-title">58 %</div>
+                                <div class="bottom-line"></div>
+                                <div class="card-name">Market Size</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            
+        </div>
+    </ng-container>
+    
+    <ng-container>
+        <div class="market-statistics" ngClass.xs="market-statistics-xs" id="market-statistics">
+            <div class="container">
+                <div class="property-title">Market Statistics</div>
+                <div class="statistics-cards" fxLayout="row wrap" fxLayoutAlign="space-around">
+                    <div class="statistics-card" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let item of marketStatisticsCards">
+                        <div>
+                            <div fxLayout=row fxLayoutAlign="space-between center" >
+                                <div class="title">{{item.title}}</div>
+                                <div class="more-infor"><img src="../../../../assets/images/more-info.png" alt=""></div>
+                            </div>
+                            <div class="subtitle">{{item.subtitle}}</div>
+                        </div>
+                        <div>
+                            <div class="light-title">{{item.lightTitle}}</div>
+                            <div class="per">{{item.per}}</div>
+                        </div>
+                    </div>                            
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container>
+        <div class="neighbourhood" id="location">
+            <div class="container neighbourhood-container">
+                <div class="property-title">Neighbourhood</div>
+                <div class="near-by " fxLayoutGap="25px" fxLayout="column" fxLayout.gt-xs="row"  ngClass.lt-md="display-none">
+                    <div class="locations active" fxLayoutGap="10px" fxLayout="row">
+                        <img src="../../../../assets/images/sm-location.png" alt="">
+                        <div>minim veniam minim veniam (15 mins)</div>
+                    </div>
+                    <div class="locations" fxLayoutGap="10px" fxLayout="row">
+                        <img src="../../../../assets/images/sm-location-light.png" alt="">
+                        <div>minim veniam (25 mins)</div>
+                    </div>
+                    <div class="locations" fxLayoutGap="10px" fxLayout="row">
+                        <img src="../../../../assets/images/sm-location-light.png" alt="">
+                        <div>minim veniam (28 mins)</div>
+                    </div>
+                    <div class="locations" fxLayoutGap="10px" fxLayout="row">
+                        <img src="../../../../assets/images/sm-location-light.png" alt="">
+                        <div>minim veniam minim (32 mins)</div>
+                    </div>
+                </div>
+                <div class="neighbourhood-map" fxHide.xs>
+                    <img src="../../../../assets/images/neighbourhood-map.png" class="img img-responsive" alt="" style="width: 100%;">
+                </div>
+                <div class="neighbourhood-map " fxHide.gt-xs>
+                    <img src="../../../../assets/images/map-zoom.png" class="img img-responsive" alt="" style="width: 100%; margin-top: 30px;">
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <!--  -->
+    <ng-container>
+        <div class="benchmarks" ngClass.xs="benchmarks-xs">
+            <div class="container">
+                <div class="property-title">Benchmarks</div>
+                <div class="benchmark-cards" fxLayoutGap="20px" fxLayoutAlign="space-around" fxLayout="row" fxLayout.gt-xs="row">
+                    <div class="benchmark-card benchmark-card-active" fxLayout="column" fxLayoutAlign="space-between start">
+                        <div >
+                            <div class="title"   fxLayoutAlign="space-between center">
+                                <div>Avg sold price</div>
+                                <div class="more-info"  fxHide.xs>
+                                    <img src="../../../../assets/images/more-info-white.png" alt="">
+                                </div>
+                            </div>
+                            <div class="subtitle">Rs. 900/ sq.ft.</div>
+                        </div>
+                        <div >
+                            <div class="price">Asking price</div>
+                            <div class="area">Rs. 1200/ sq.ft.</div>
+                        </div>
+                    </div>
+                    <div class="benchmark-card " fxLayout="column" fxLayoutAlign="space-between start">
+                        <div >
+                            <div class="title" fxLayout="row" fxLayoutAlign="space-between center">
+                                <div>Avg asking price</div>
+                                <div class="more-info"  fxHide.xs>
+                                    <img src="../../../../assets/images/more-info.png" alt="">
+                                </div>
+                            </div>
+                            <div class="subtitle">Not available</div>
+                        </div>
+                        <div >
+                            <div class="price">Asking price</div>
+                            <div class="area">Rs. 1200/ sq.ft.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="benchmark-chart">
+                    <img src="../../../../assets/images/Benchmarks-chart.png" alt="" style="width: 100%; height: auto;" *ngIf="avgSoldPriceChart" 
+                    (click)="viewAllAvgPrice(false)">
+                    <!-- <div class="view-all" (click)="viewAllAvgPrice(false)" *ngIf="avgSoldPriceChart">View All</div> -->
+                    <img src="../../../../assets/images/avg-sold-price-table.png" alt="" style="width: 100%; height: auto;" *ngIf="!avgSoldPriceChart" 
+                    (click)="viewAllAvgPrice(true)">
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container>
+        <div class="financial-analysis" id="financial">
+            <div class="container">
+                <div class="property-title">Financial Analysis</div>
+                <div class="desc col-md-7">
+                    The below financial analysis table is based on assumptions entered in the calculator on the right hand side. Omah uses multiple credible market databases and proprietary algorithms to give guidance on the assumptions, but they are best case assumptions and can be changed.
+                </div>
+                <div class="analysis-table" ngClass.xs="analysis-table-xs">
+                    <table>
+                        <thead class="t-header t-header-bt">
+                            <tr>
+                                <th fxFlex="25">Income</th>
+                                <th fxFlex>1 yr</th>
+                                <th fxFlex>2 yr</th>
+                                <th fxFlex>3 yr</th>
+                                <th fxFlex>5 yr</th>
+                                <th fxFlex>10 yr</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="t-row pt-15">
+                                <th fxFlex="25">Days Rented <img class="more-info" src="../../../../assets/images/more-info.png" alt="">
+                                </th>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                            </tr>
+                            <tr class="t-row ">
+                                <th fxFlex="25">Avg Daily Rent (ADR) <img class="more-info" src="../../../../assets/images/more-info.png"
+                                        alt=""></th>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                            </tr>
+                            <div class="line"></div>
+                            <tr class="t-row dark-td">
+                                <th fxFlex="25">Gross Annual Rent <img class="more-info" src="../../../../assets/images/more-info.png"
+                                        alt=""></th>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="gap-50"></div>
+                    <table>
+                        <thead class="t-header">
+                            <tr>
+                                <th fxFlex="25">Expenses</th>
+                                <th fxFlex>1 yr</th>
+                                <th fxFlex>2 yr</th>
+                                <th fxFlex>3 yr</th>
+                                <th fxFlex>5 yr</th>
+                                <th fxFlex>10 yr</th>
+                            </tr>
+                    
+                        </thead>
+                        <tbody>
+                            <tr class="t-row" *ngFor="let item of expenses; let i = index"
+                              >
+                                <th fxFlex="25">{{item.title}} <img class="more-info" src="../../../../assets/images/more-info.png" alt="">
+                                </th>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                                <td fxFlex>Rs. 12,000</td>
+                            </tr>
+                            <div class="line"></div>
+                            <tr class="t-row dark-td">
+                                <th fxFlex="25">Operating Expenses <img class="more-info" src="../../../../assets/images/more-info.png"
+                                        alt=""></th>
+                                <td fxFlex>Rs. 46,000</td>
+                                <td fxFlex>Rs. 46,000</td>
+                                <td fxFlex>Rs. 46,000</td>
+                                <td fxFlex>Rs. 46,000</td>
+                                <td fxFlex>Rs. 46,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    
+                    <div class="gap-50"></div>
+                    <!--  -->
+                    <div *ngFor="let item of cashFlow; let i = index">
+                        <table>
+                            <thead class="t-header" *ngIf="item?.header">
+                                <tr *ngIf="item?.header">
+                                    <th fxFlex="25">{{item?.header}}</th>
+                                    <th fxFlex>1 yr</th>
+                                    <th fxFlex>2 yr</th>
+                                    <th fxFlex>3 yr</th>
+                                    <th fxFlex>5 yr</th>
+                                    <th fxFlex>10 yr</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="t-row"  *ngIf="item?.title">
+                                    <th fxFlex="25">{{item?.title}} <img class="more-info" src="../../../../assets/images/more-info.png"
+                                            alt=""></th>
+                                    <td fxFlex>Rs. 12,000</td>
+                                    <td fxFlex>Rs. 12,000</td>
+                                    <td fxFlex>Rs. 12,000</td>
+                                    <td fxFlex>Rs. 12,000</td>
+                                    <td fxFlex>Rs. 12,000</td>
+                                </tr>
+                                <!-- <div class="gap-10" *ngIf="item?.total"></div> -->
+                                <div class="line" *ngIf="item?.total"></div>
+                                <tr class="t-row dark-td" *ngIf="item?.total">
+                                    <th fxFlex="25">{{item?.total}} <img class="more-info" src="../../../../assets/images/more-info.png"
+                                            alt=""></th>
+                                    <td fxFlex>Rs. 46,000</td>
+                                    <td fxFlex>Rs. 46,000</td>
+                                    <td fxFlex>Rs. 46,000</td>
+                                    <td fxFlex>Rs. 46,000</td>
+                                    <td fxFlex>Rs. 46,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        
+                        <div class="gap-50" *ngIf="item?.total"></div>
+                    </div>
+                    <div class="border-bottom"></div>
+                </div>
+            </div>
+            <div class="property-points" >
+                <div class="container" fxLayout="column" fxLayoutGap="20px">
+                    <div>1. Prime beachfront location with direct beach access and panoramic ocean views, ensuring high demand throughout the year from luxury travelers and vacation rental guests.liquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+                    <div>2. Professional property management by StayMaster including marketing, guest services, housekeeping, maintenance, and 24/7 concierge support ensuring optimal occupancy rates.liquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+                    <div>3. Luxury amenities including private pool, fully equipped modern kitchen, spacious bedrooms, and premium furnishing that commands premium rental rates in the vacation market.liquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+                    <div>4. Strong rental yield potential with projected annual returns of 12-18% based on market analysis, seasonal demand patterns, and comparable property performance data.liquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+                    <div>5. Strategic location near major attractions, restaurants, and transportation hubs making it highly attractive to tourists and business travelers seeking premium accommodations.liquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+                    <div>6. Comprehensive insurance coverage and legal compliance managed by StayMaster, providing peace of mind for investors with transparent reporting and regular income distribution.liquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <app-dont-warry-section id="faqs"></app-dont-warry-section>
+    <ng-container>
+        <app-footer></app-footer>
+    </ng-container>
+    
+</div>

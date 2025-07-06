@@ -1,0 +1,91 @@
+<div class="login-wrap">
+  <div mat-dialog-content class="modal-body">
+    <div class="bg" ngClass.lt-sm="bg-xs">
+      <div class="box login-form" fxLayout="column" fxLayoutGap="25px">
+        <div fxLayout="row" fxLayoutAlign="space-between start">
+          <div class="verify-phn-number" fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="40px" fxFlex.gt-md="93" fxFlex="100">
+            <div class="left-side" fxLayout="column" fxFlex="100" fxFlex.gt-xs="50" fxLayoutAlign="center start"
+              fxHide.lt-md>
+              <div class="comment">
+                <div class="qoute">“</div>
+                <div>
+                  Tell us your travel dreams, we will make them come true!
+                </div>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-xs="50" class="right-side">
+              <ng-container *ngIf="!verifyMobile">
+                <div class="form-side">
+                  <div class="title">Welcome to staymaster</div>
+                  <div class="sub-title">Login or Sign up</div>
+
+                  <div fxLayout="column" fxLayoutGap="20px" class="controls">
+                    <div fxFlex>
+                      <select name="" id="" [(ngModel)]="selectedISD" class="sm-text form-select">
+                        <option value="91" selected>India (+91)</option>
+                        <option value="1">US (+1)</option>
+                        <option value="44">UK (+44)</option>
+                        <option value="61">AUS (+61)</option>
+                      </select>
+                    </div>
+                    <div fxFlex>
+                      <input type="text" class="sm-text form-control" [(ngModel)]="phoneNumber"
+                        placeholder="Phone Number" />
+                    </div>
+                    <button mat-raised-button class="login-btn" (click)="loginClick()">
+                      Continue
+                    </button>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="verifyMobile">
+                <div class="form-side">
+                  <div class="title">Verify your number</div>
+                  <div class="sub-title">
+                    We've sent the code via SMS to +{{selectedISD}} {{ phoneNumber }}
+                  </div>
+                  <br fxHide.lt-md />
+                  <div fxLayout="column" fxLayoutGap="20px" class="controls">
+                    <div fxLayout="row" fxLayoutGap="14px">
+                      <input type="text" class="form-control otp-text" [(ngModel)]="otp[0]" 
+                        maxlength="1" inputmode="numeric" pattern="[0-9]*"
+                        (keydown)="onKeydown($event, 0)" maxlength="1" (input)="onOtpInput($event, 0)" />
+                      <input type="text" class="form-control otp-text" [(ngModel)]="otp[1]"
+                        maxlength="1" inputmode="numeric" pattern="[0-9]*"
+                        (keydown)="onKeydown($event, 1)" maxlength="1" (input)="onOtpInput($event, 1)" />
+                      <input type="text" class="form-control otp-text" [(ngModel)]="otp[2]"
+                        maxlength="1" inputmode="numeric" pattern="[0-9]*"
+                        (keydown)="onKeydown($event, 2)" maxlength="1" (input)="onOtpInput($event, 2)" />
+                      <input type="text" class="form-control otp-text" [(ngModel)]="otp[3]"
+                        maxlength="1" inputmode="numeric" pattern="[0-9]*"
+                        (keydown)="onKeydown($event, 3)" maxlength="1" (input)="onOtpInput($event, 3)" />
+                      <input type="text" class="form-control otp-text" [(ngModel)]="otp[4]"
+                        maxlength="1" inputmode="numeric" pattern="[0-9]*"
+                        (keydown)="onKeydown($event, 4)" maxlength="1" (input)="onOtpInput($event, 4)" />
+                      <input type="text" class="form-control otp-text" [(ngModel)]="otp[5]"
+                        maxlength="1" inputmode="numeric" pattern="[0-9]*"
+                        (keydown)="onKeydown($event, 5)" maxlength="1" (input)="onOtpInput($event, 5)" />
+                    </div>
+                    <br fxHide.gt-sm />
+
+
+                    <button mat-raised-button class="login-btn" (click)="otpClick()">
+                      Continue
+                    </button>
+                    <div class="resend-code" style="padding-top:26px; 
+                                          cursor: pointer;
+                                          color: #f9f5f3;
+                                        " (click)="loginClick()">
+                      Didn’t receive the code ? <span>Resend</span>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <mat-icon fxFlex.gt-sm="7" fxFlex="0" (click)="onNoClick()">close</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

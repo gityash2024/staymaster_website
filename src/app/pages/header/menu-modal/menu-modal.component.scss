@@ -1,0 +1,95 @@
+.modal-body {
+    overflow: visible;
+    // background: #F9F5F3;
+    height: 100%;
+}
+
+.bg {
+    // background-image: url("../../../../assets/images/waveline.png");
+    background-position: right 0px bottom 0px;
+    background-repeat: no-repeat;
+    @media (min-width: 992px) {
+        height: 75vh;
+    }
+}
+
+.menus {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    padding: 15px;
+
+    .title {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        color: #008281;
+        cursor: pointer;
+        margin-bottom: 30px;
+        font-family: "Inter";
+        @media (max-width: 599px) {
+            font-size: 18px !important;
+        }
+    }
+
+    a {
+        text-decoration: none;
+
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
+    .sub-menu {
+        font-size: 16px;
+        line-height: 19px;
+        color: rgba(0, 130, 129, 0.85);
+        cursor: pointer;
+        font-family: "Inter";
+        @media (max-width: 599px) {
+            font-size: 14px !important;
+        }
+    }
+    .devider-line {
+        width: 74px;
+        border: 1px solid rgba(196, 179, 133, 0.7);
+    }
+
+    .mat-icon {
+        color: rgba(0, 130, 129, 0.85) !important;
+        height: 22px;
+        width: 22px;
+
+        &.material-icons {
+            font-size: 22px !important;
+        }
+    }
+}
+.mat-mdc-dialog-content{
+    // height: fit-content !important;
+    max-height: 100%;
+}
+
+@media (max-width: 991px) {
+    .sticky-header{
+        position: sticky;
+        top: 6px;
+        background: white;
+        padding: 6px 0px;
+        overflow: visible;
+        justify-content: space-between;
+    }
+    .mat-icon{
+        margin-top: 15px;
+    }
+}
+
+.background-img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @media (max-width: 450px) {
+        max-width: 165px;
+    }
+}

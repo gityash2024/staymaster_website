@@ -1,0 +1,43 @@
+<div  class="modal-body">
+    <div class="bg" ngClass.lt-sm="bg-xs">
+        <div class="box login-form" fxLayout="column" fxLayoutGap="25px">
+            <div fxLayout="row" fxLayoutAlign="space-between start">
+                <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="40px" fxFlex="93">
+                    <div  class="left-side" fxLayout="column" fxFlex="100" fxFlex.gt-xs="50" fxLayoutAlign="center start" fxHide.lt-sm="" >
+                        <div class="comment">
+                            <div class="qoute">“</div>
+                            <div>Manage premium vacation rentals with professional hospitality excellence</div>
+                        </div>
+                    </div>                    
+                    <div fxFlex="100" fxFlex.gt-xs="50">
+                        <ng-container>
+                            <form (ngSubmit)="loginClick()" #loginForm="ngForm">
+                                           
+                            <div class="form-side" >
+                                <div class="title">Welcome to staymaster admin</div>
+                                <div class="sub-title">Login or Sign up</div>
+                                <br>
+                                <div fxLayout="column" fxLayoutGap="20px" class="controls">
+                                    <div fxFlex>
+                                        <!-- <select name="" id="" class="sm-text form-select">
+                                            <option value="">India (+91)</option>
+                                        </select> -->
+                                        <input type="email" class="sm-text form-select" placeholder="x@y.com"  id="username" name="username" [(ngModel)]="username" required>
+                                    </div>
+                                    <div fxFlex>
+                                        <input type="password" class="sm-text form-control" value="" placeholder="abcd1234"  id="password" name="password" [(ngModel)]="password" required> 
+                                    </div>
+                                    <br>
+                                    <button mat-raised-button class="login-btn" type="submit" [disabled]="!loginForm.valid">Login</button>
+                                </div>
+                            </div>    
+                        </form>                                         
+                        </ng-container>
+
+                    </div>
+                </div>          
+                <!-- <mat-icon fxFlex="7" (click)="onNoClick()">close</mat-icon>             -->
+            </div>
+        </div>
+    </div>
+</div>

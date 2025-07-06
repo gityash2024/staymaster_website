@@ -1,0 +1,25 @@
+<div class="modal-container sm-modal">
+    <div
+      style="
+        width: 500px;
+        height: auto;
+        border: olive 1px solid;
+        background-color: white;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+      "
+    >
+      <h1 class="title">{{ title }}</h1>
+      <p class="body">{{ body }}</p>
+      <!-- <div mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">               
+      </div> -->
+      <div mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">               
+        <div (click)="closeMe()"  class="clearall">close</div>
+        <button (click)="confirm()" class="sm-modal-btn-submit">Confirm</button>
+      </div>
+    </div>
+  </div>

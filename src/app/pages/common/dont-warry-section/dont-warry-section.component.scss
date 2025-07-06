@@ -1,0 +1,71 @@
+.mat-expansion-panel-header {
+    padding: 0 5px 0 0;
+    height: fit-content;
+
+    @media (max-width: 599px) {
+        height: max-content !important;
+    }
+}
+
+.always-here {
+    padding-top: 110px;
+    padding-bottom: 144px;
+    background: #ffffff;
+    background-image: url("../../../../assets/images/Frame.png");
+    background-position: left 0px bottom -10px;
+    background-repeat: no-repeat;
+
+    .title {
+        font-family: "Caudex";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 58px;
+        color: #008281;
+
+        @media (max-width: 599px) {
+            font-size: 28px;
+            line-height: 35px;
+            padding-bottom: 40px;
+        }
+    }
+
+    .panel-title {
+        font-family: "Akkurat";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 25px;
+        color: rgba(88, 65, 57, 0.95);
+        margin: 12px 0;
+    }
+
+    .mat-expansion-panel {
+        box-shadow: none;
+        background-color: #ffffff;
+        border-bottom: 1px solid rgba(88, 65, 57, 0.3);
+        padding-bottom: 10px;
+    }
+    @media (max-width: 599px) {
+        background: none;
+        padding: 40px 32px 80px;
+    }
+}
+
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+}
+
+.aminities-control {
+    cursor: pointer;
+}
+
+.panel-content {
+    font-family: "Akkurat" !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    line-height: 24.84px !important;
+    color: #584139f2 !important;
+    padding-top: 10px;
+}

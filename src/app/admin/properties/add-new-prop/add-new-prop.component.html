@@ -1,0 +1,721 @@
+<div class="addnewprop" fxFlex fxLayout="column" fxLayoutGap="5px">
+    <!-- Booking Header -->
+    <div fxFlex fxLayout="row" fxLayoutAlign="space-between start">
+        <div fxFlex class="title">
+            Property Details
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="end">
+            <div>
+                <button class="deletebtn">Delete</button>
+            </div>
+            <div>
+                <button class="savebtn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <form [formGroup]="myForm" (ngSubmit)="submitForm()" fxFlex fxLayout="column" fxLayoutGap="10px">
+        <mat-card class="propertyDetailsCard" style="margin: 0; padding: 0;">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-subtitle class="title">Property Details</mat-card-subtitle>
+                    <p class="mandatoryFields">All Fileds Are Mandatory</p>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="5px" style="font-size: 12px">
+                <hr style="width: 100%;">
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field fxFlex="33" class="matFormFMetric">
+                        <input matInput placeholder="Listing Name" formControlName="name">
+                    </mat-form-field>
+                    <mat-form-field class="matFormFMetric" fxFlex="33">
+                        <mat-label>Client Name</mat-label>
+                        <mat-select formControlName="client_id">
+                            <mat-option *ngFor="let client of clients" [value]="client.id">{{client.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div fxFlex="33" fxLayout="row" fxLayoutAlign="start center">
+                        <div>Staymaster Catogery</div>
+                        <!-- <mat-form-field class="matFormFMetric" > -->
+                        <mat-radio-group formControlName="staymaster_select" aria-label="Select an option">
+                            <mat-radio-button value="1">Yes</mat-radio-button>
+                            <mat-radio-button value="2">No</mat-radio-button>
+                        </mat-radio-group>
+                        <!-- </mat-form-field> -->
+                    </div>
+                </div>
+
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field class="matFormFMetric" fxFlex="33">
+                        <input matInput placeholder="Internal Name" formControlName="internal_name">
+                    </mat-form-field>
+                    <mat-form-field class="matFormFMetric" fxFlex="33">
+                        <mat-label>Location</mat-label>
+                        <mat-select formControlName="location_id">
+                            <mat-option *ngFor="let loc of locations" [value]="loc.id">{{loc.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field class="matFormFMetric" fxFlex="45">
+                        <input matInput placeholder="Address Line 1" formControlName="address_line1">
+                    </mat-form-field>
+                </div>
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field class="matFormFMetric" fxFlex="45">
+                        <input matInput placeholder="Address Line 2 (Optional)" formControlName="address_line2">
+                    </mat-form-field>
+                </div>
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field class="matFormFMetric" fxFlex="33">
+                        <mat-label>City</mat-label>
+                        <input matInput placeholder="city" formControlName="city">
+                        <!-- <mat-select formControlName="city">
+                            <mat-option *ngFor="let city of cities" [value]="city.id">{{city?.name}}</mat-option>
+                        </mat-select> -->
+                    </mat-form-field>
+                </div>
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field class="matFormFMetric" fxFlex="33">
+                        <mat-label>State</mat-label>
+                        <input matInput placeholder="state" formControlName="state">
+                        <!-- <mat-select formControlName="state">
+                            <mat-option *ngFor="let state of states" [value]="state.id">{{state.name}}</mat-option>
+                        </mat-select> -->
+                    </mat-form-field>
+                </div>
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field class="matFormFMetric" fxFlex="33">
+                        <mat-label>Country</mat-label>
+                        <mat-select formControlName="country">
+                            <mat-option *ngFor="let c of countries" [value]="c.id">{{c.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field class="matFormFMetric" fxFlex="45">
+                        <input formControlName="pin_code" matInput placeholder="Pin Code"
+                            (keypress)="numberOnly($event)">
+                    </mat-form-field>
+                </div>
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field class="matFormFMetric" fxFlex="33">
+                        <mat-label>Type Of Property</mat-label>
+                        <mat-select formControlName="property_type">
+                            <mat-option *ngFor="let top of typeOfProperty" [value]="top.id">{{top.display}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="matFormFMetric" fxFlex="33">
+                        <input formControlName="no_of_bedrooms" matInput placeholder="No. of Bedrooms"
+                            (keypress)="numberOnly($event)">
+                    </mat-form-field>
+                    <mat-form-field class="matFormFMetric" fxFlex="33">
+                        <input formControlName="no_of_bathrooms" matInput placeholder="No. of Bathrooms"
+                            (keypress)="numberOnly($event)">
+                    </mat-form-field>
+
+                </div>
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field class="matFormFMetric" fxFlex="30">
+                        <input matInput placeholder="No. of Guest" formControlName="no_of_guests"
+                            (keypress)="numberOnly($event)">
+                    </mat-form-field>
+                    <mat-form-field class="matFormFMetric" fxFlex="30">
+                        <input formControlName="no_of_extra_guests" matInput placeholder="No. of Extra Guest"
+                            (keypress)="numberOnly($event)">
+                    </mat-form-field>
+
+                </div>
+                <div fxLayoutGap="10px" fxLayout="column" class="formstart">
+                    <span> This is a auto generated Field</span>
+                    <mat-form-field class="matFormFMetric">
+                        <input formControlName="maximum_capacity" matInput placeholder="Maximum Capacaity">
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="5px" class="formstart">
+                    <div class="title">Property Category </div>
+                    <div class="subtitle">(Please select atleast 5 options)</div>
+                </div>
+                <hr style="width: 100%;">
+                <div fxFill fxFlex fxLayout="row wrap" formArrayName="property_features" fxLayoutGap="5px">
+                    <div *ngFor="let cat of propertyCatogery.controls; let i = index" [formGroupName]="i" fxFlex="33">
+                        <p><mat-checkbox formControlName="value">{{cat.value.name}}</mat-checkbox></p>
+                    </div>
+                </div>
+
+
+                <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px">
+                    <div>
+                        <p><mat-checkbox formControlName="featured_property">Show this property on Featured Property
+                                Search</mat-checkbox></p>
+                    </div>
+                </div>
+
+
+                <div fxLayout="row" class="formstart">
+                    <div class="title">Security Deposit</div>
+                </div>
+                <hr style="width: 100%;">
+                <div fxFlex fxLayout="column" fxLayoutGap="5px">
+                    <p>Enter % of security deposit</p>
+                    <mat-form-field class="matFormFMetric">
+                        <input formControlName="security_deposit_percentage" matInput placeholder="Security Deposit"
+                            (keypress)="numberOnly($event)">
+                    </mat-form-field>
+                </div>
+
+                <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px">
+                    <div>
+                        <p><mat-checkbox formControlName="showSecurityDeposit">Show the security deposit % to the
+                                user</mat-checkbox></p>
+                    </div>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="propertyphotos" style="margin: 0; padding: 0;">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-subtitle class="title">Photos</mat-card-subtitle>
+
+                    <p class="mandatoryFields">All Fileds Are Mandatory</p>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="10px">
+                <hr style="width: 100%;">
+                <div fxLayoutGap="10px" class="uploadbtns">
+                    <div fxFlex fxLayout="column">
+                        <div class="title">Display Image</div>
+                        <div class="subtitle">PNG or JPG to be displayed on property listing page</div>
+                    </div>
+                    <div>
+                        <button type="button" class="upload" (click)="addFormControl('Display')">Upload Image</button>
+                    </div>
+                </div>
+                <div fxLayoutGap="10px" class="uploadbtns">
+                    <div fxFlex fxLayout="column">
+                        <div class="title">Upload Property Images</div>
+                        <div class="subtitle">PNG, JPG and MP4 Files are allowed</div>
+                    </div>
+                    <div>
+                        <button type="button" class="upload" (click)="addFormControl('Property')">Upload Image</button>
+                    </div>
+                </div>
+                <div fxFlex fxFill fxLayout="row wrap" formArrayName="display_images">
+                    <div *ngFor="let controlGroup of Photos.controls; let i = index" [formGroupName]="i" fxFlex="45"
+                        fxLayout="row wrap" fxLayoutGap="10px" class="imageUploaded">
+                        <div fxFlex="40">
+                            <!-- {{ Photos.at(i).value.file }} -->
+                            <img formControlName="display_image"
+                                src="{{Photos.at(i).value.filedata ? Photos.at(i).value.filedata : imageUrl}}"
+                                class="uploadedImg">
+                            <input type="file" accept=".png, .jpg, .jpeg" (change)="uploadFile($event, i)">
+                        </div>
+                        <div fxFlex="48" fxLayout="column">
+                            <mat-form-field class="matFormFMetric">
+                                <mat-select formControlName="categoryId">
+                                    <mat-option value="">--Select Category--</mat-option>
+                                    <mat-option *ngFor="let category of imageUploadCategory" [value]="category">
+                                        {{category}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="matFormFMetric">
+                                <input matInput placeholder="Serial No" formControlName="serialNo">
+                            </mat-form-field>
+                            <mat-form-field class="matFormFMetric">
+                                <input matInput placeholder="Title" formControlName="title">
+                            </mat-form-field>
+                            <mat-form-field class="matFormFMetric">
+                                <textarea matInput placeholder="Descr" formControlName="description"></textarea>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+
+            </mat-card-content>
+        </mat-card>
+
+
+        <mat-card class="propertydescription" style="margin: 0; padding: 0;">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-subtitle class="title">Property Description</mat-card-subtitle>
+                    <p class="mandatoryFields">All Fileds Are Mandatory</p>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content fxFlex="100" fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="15px">
+                <hr style="width: 100%;">
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="20"><span class="pdTitle">Summary</span></div>
+                    <div fxFlex="70"><mat-form-field class="pdDesc"><textarea matInput
+                                formControlName="summary"></textarea></mat-form-field></div>
+                </div>
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="20"><span class="pdTitle">Bedroom & Bath</span></div>
+                    <div fxFlex="70"><mat-form-field class="pdDesc"><textarea matInput
+                                formControlName="bedrooms_bath"></textarea></mat-form-field></div>
+                </div>
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="20"><span class="pdTitle">Living & Dinning</span></div>
+                    <div fxFlex="70"><mat-form-field class="pdDesc"><textarea matInput
+                                formControlName="living_dining"></textarea></mat-form-field></div>
+                </div>
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="20"><span class="pdTitle">Kitchen Space</span></div>
+                    <div fxFlex="70"><mat-form-field class="pdDesc"><textarea matInput
+                                formControlName="kitchen"></textarea></mat-form-field></div>
+                </div>
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="20"><span class="pdTitle">Pool</span></div>
+                    <div fxFlex="70"><mat-form-field class="pdDesc"><textarea matInput
+                                formControlName="pool"></textarea></mat-form-field></div>
+                </div>
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="20"><span class="pdTitle">Unique Highlights</span></div>
+                    <div fxFlex="70"><mat-form-field class="pdDesc"><textarea matInput
+                                formControlName="unique_highlights"></textarea></mat-form-field></div>
+                </div>
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="20"><span class="pdTitle">Hospatility & Service</span></div>
+                    <div fxFlex="70"><mat-form-field class="pdDesc"><textarea matInput
+                                formControlName="hospitality_service"></textarea></mat-form-field></div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+
+        <mat-card class="aminites" style="margin: 0; padding: 0;">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-subtitle class="title">Aminites</mat-card-subtitle>
+                    <p class="mandatoryFields">All Fileds Are Mandatory</p>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="5px">
+                <hr style="width: 100%;">
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Essentials</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px">
+                        <div *ngFor="let cat of amenities.Essentials; let i = index" fxLayout="column" fxLayoutGap="5px"
+                            fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" [(ngModel)]="cat.checked"
+                                    [ngModelOptions]="{standalone: true}">{{cat.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text" [(ngModel)]="cat.description"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                </div>
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Housekeeping</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px">
+                        <div *ngFor="let cat of amenities.Housekeeping; let i = index" fxLayout="column"
+                            fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" [(ngModel)]="cat.checked"
+                                    [ngModelOptions]="{standalone: true}">{{cat.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text" [(ngModel)]="cat.description"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                </div>
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Safety</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px">
+                        <div *ngFor="let cat of amenities.Safety; let i = index" fxLayout="column" fxLayoutGap="5px"
+                            fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" [(ngModel)]="cat.checked"
+                                    [ngModelOptions]="{standalone: true}">{{cat.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text" [(ngModel)]="cat.description"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                </div>
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Kitchen</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px">
+                        <div *ngFor="let cat of amenities.Kitchen; let i = index" fxLayout="column" fxLayoutGap="5px"
+                            fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" [(ngModel)]="cat.checked"
+                                    [ngModelOptions]="{standalone: true}">{{cat.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text" [(ngModel)]="cat.description"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                </div>
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Rooms</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px">
+                        <div *ngFor="let cat of amenities.Rooms; let i = index" fxLayout="column" fxLayoutGap="5px"
+                            fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" [(ngModel)]="cat.checked"
+                                    [ngModelOptions]="{standalone: true}">{{cat.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text" [(ngModel)]="cat.description"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                </div>
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Bathrooms</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px">
+                        <div *ngFor="let cat of amenities.Bathrooms; let i = index" fxLayout="column" fxLayoutGap="5px"
+                            fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" [(ngModel)]="cat.checked"
+                                    [ngModelOptions]="{standalone: true}">{{cat.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text" [(ngModel)]="cat.description"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                </div>
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Living & Dinning</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px">
+                        <div *ngFor="let cat of amenities.LivingAndDining; let i = index" fxLayout="column"
+                            fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" [(ngModel)]="cat.checked"
+                                    [ngModelOptions]="{standalone: true}">{{cat.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text" [(ngModel)]="cat.description"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                </div>
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Pools</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px">
+                        <div *ngFor="let cat of amenities.Pool; let i = index" fxLayout="column" fxLayoutGap="5px"
+                            fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" [(ngModel)]="cat.checked"
+                                    [ngModelOptions]="{standalone: true}">{{cat.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text" [(ngModel)]="cat.description"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                </div>
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Accessilbilty</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px">
+                        <div *ngFor="let cat of amenities.Accessibility; let i = index" fxLayout="column"
+                            fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" [(ngModel)]="cat.checked"
+                                    [ngModelOptions]="{standalone: true}">{{cat.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text" [(ngModel)]="cat.description"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                </div>
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Baby & Kids</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px">
+                        <div *ngFor="let cat of amenities.BabyAndKids; let i = index" fxLayout="column"
+                            fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" [(ngModel)]="cat.checked"
+                                    [ngModelOptions]="{standalone: true}">{{cat.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text" [(ngModel)]="cat.description"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Essentials</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px"  formArrayName="amenitiesEssential">
+                        <div *ngFor="let cat of amenitiesEssential.controls; let i = index" [formGroupName]="i" fxLayout="column" fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" formControlName="value">{{cat.value.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text" formControlName="description">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Housekeeping</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px" formArrayName="amenitiesHousekeeping">
+                        <div  *ngFor="let cat of amenitiesHousekeeping.controls; let i = index" [formGroupName]="i" fxLayout="column" fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" formControlName="value">{{cat.value.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text">
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Safety</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px" formArrayName="amenitiesSafety">
+                        <div *ngFor="let cat of amenitiesSafety.controls; let i = index" [formGroupName]="i" fxLayout="column" fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" formControlName="value">{{cat.value.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text">
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Kitchen</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px" formArrayName="amenitiesKitchen">
+                        <div *ngFor="let cat of amenitiesKitchen.controls; let i = index" [formGroupName]="i" fxLayout="column" fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" formControlName="value">{{cat.value.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Rooms</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px" formArrayName="amenitiesRoom">
+                        <div *ngFor="let cat of amenitiesRoom.controls; let i = index" [formGroupName]="i" fxLayout="column" fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" formControlName="value">{{cat.value.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Bathrooms</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px" formArrayName="amenitiesBathroom">
+                        <div *ngFor="let cat of amenitiesBathroom.controls; let i = index" [formGroupName]="i" fxLayout="column" fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" formControlName="value">{{cat.value.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Living & Dinning</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px" formArrayName="amenitiesLivingDinning">
+                        <div *ngFor="let cat of amenitiesLivingDinning.controls; let i = index" [formGroupName]="i" fxLayout="column" fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" formControlName="value">{{cat.value.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Pools</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px" formArrayName="amenitiesLivingPools">
+                        <div *ngFor="let cat of amenitiesLivingPools.controls; let i = index" [formGroupName]="i" fxLayout="column" fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" formControlName="value">{{cat.value.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Accessilbilty</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px" formArrayName="amenitiesAccessibility">
+                        <div *ngFor="let cat of amenitiesAccessibility.controls; let i = index" [formGroupName]="i" fxLayout="column" fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" formControlName="value">{{cat.value.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="AminitySection" fxLayout="column">
+                    <span class="AmTitle">Baby & Kids</span>
+                    <div fxFill fxFlex fxLayout="row wrap" fxLayoutGap="5px" formArrayName="amenitiesBabyKids">
+                        <div *ngFor="let cat of amenitiesBabyKids.controls; let i = index" [formGroupName]="i" fxLayout="column" fxLayoutGap="5px" fxFlex="24">
+                            <p><mat-checkbox class="AmCheckBox" formControlName="value">{{cat.value.name}}</mat-checkbox></p>
+                            <input placeholder="Description" class="AmInput" type="text">
+                        </div>
+                    </div>
+                </div> -->
+
+
+            </mat-card-content>
+        </mat-card>
+
+
+        <mat-card class="locations" style="margin: 0; padding: 0;">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-subtitle class="title">Location & Neighbourhood</mat-card-subtitle>
+                    <p class="mandatoryFields">All Fileds Are Mandatory</p>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="5px">
+                <hr style="width: 100%;margin-bottom: 15px;">
+                <span class="locationTitle">Pin Property Location</span>
+                <div fxLayoutGap="10px" style="width: 100%;">
+                    <div fxFlex="20" fxLayout="column" fxLayoutGap="10px">
+                        <mat-form-field class="matFormFMetric">
+                            <input formControlName="latitude" matInput placeholder="Latitude">
+                        </mat-form-field>
+                        <mat-form-field class="matFormFMetric">
+                            <input formControlName="longitude" matInput placeholder="longitude">
+                        </mat-form-field>
+                        <button class="locationBtn1">Preview</button>
+                        <button class="locationBtn2">Confirm</button>
+                    </div>
+                    <div fxFlex="70" fxLayout="column">
+                        <img src="../../../../assets/images/admin_map.png" class="locationMap">
+                    </div>
+                </div>
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="22"><span class="pdTitle">Loacation Details</span></div>
+                    <div fxFlex="70"><mat-form-field class="pdDesc"><textarea formControlName="location_Details"
+                                matInput></textarea></mat-form-field></div>
+                </div>
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="22"><span class="pdTitle">Places Around</span></div>
+                    <div fxFlex="70"><mat-form-field class="pdDesc"><textarea formControlName="places_around"
+                                matInput></textarea></mat-form-field></div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+
+        <mat-card class="meals" style="margin: 0; padding: 0;">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-subtitle class="title">Meals</mat-card-subtitle>
+                    <p class="mandatoryFields">All Fileds Are Mandatory</p>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="5px">
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <div>
+                        <p>Meals Available</p>
+                    </div>
+                    <div>
+                        <!-- <mat-form-field> -->
+                        <mat-radio-group formControlName="meals_available" aria-label="Select an option">
+                            <mat-radio-button value="1">Yes</mat-radio-button>
+                            <mat-radio-button value="2">No</mat-radio-button>
+                        </mat-radio-group>
+                        <!-- </mat-form-field> -->
+                    </div>
+                </div>
+
+                <mat-form-field class="description">
+                    <textarea formControlName="meals_description" matInput placeholder="meals description"> </textarea>
+                </mat-form-field>
+
+                <div fxLayout="row" fxLayoutGap="10px" formArrayName="meals_types">
+                    <div *ngFor="let cat of meals_types.controls; let i = index" [formGroupName]="i">
+                        <p><mat-checkbox formControlName="value">{{cat.value.name}}</mat-checkbox></p>
+                    </div>
+
+                    <!-- <p><mat-checkbox>Non - Vegitarian</mat-checkbox></p> -->
+
+                </div>
+                <div fxLayout="column" fxLayoutGap="5px">
+                    <div >Upload Menu</div>
+                    <div><input style="display: none" type="file" class="uploadbtn" id="fileInput" accept=".pdf" (change)="uploadMenu($event)"><button class="uploadbtn" (click)="triggerFileInput()">Upload Menu &nbsp;<img
+                                src="../../../../assets/images/upload-admin.png"></button></div>
+                </div>
+
+                <div fxLayout="column" fxLayoutGap="5px" class="bfastFee">
+                    <p><mat-checkbox class="AmCheckBox">Fix Breakfast Fee</mat-checkbox></p>
+                    <mat-form-field class="matFormFMetric">
+                        <input matInput placeholder="Fix Breakfast Fee" formControlName="breakfast_fee">
+                    </mat-form-field>
+
+
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+
+
+        <mat-card class="essentialinfo" style="margin: 0; padding: 0;">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-subtitle class="title">Essential Info</mat-card-subtitle>
+                    <p class="mandatoryFields">All Fileds Are Mandatory</p>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="5px">
+                <hr style="width: 100%;">
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="20"><span class="pdTitle">Check-In time*</span></div>
+                    <div fxFlex="70"><mat-form-field class="pdDesc"><input formControlName="check_in"
+                                matInput></mat-form-field></div>
+                </div>
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="20"><span class="pdTitle">Check Out time *</span></div>
+                    <div fxFlex="70"><mat-form-field class="pdDesc"><input formControlName="check_out"
+                                matInput></mat-form-field></div>
+                </div>
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="20"><span class="pdTitle">Other Details</span></div>
+                    <div fxFlex="70"><mat-form-field class="pdDesc"><input formControlName="other_details"
+                                matInput></mat-form-field></div>
+                </div>
+
+
+                <p>House Rules & Policies</p>
+                <hr style="width: 100%;">
+                <mat-form-field class="pdDesc"><textarea formControlName="house_rules"
+                        matInput></textarea></mat-form-field>
+
+
+
+                <p>Cancellation Policies</p>
+                <hr style="width: 100%;">
+                <mat-form-field class="pdDesc"><textarea formControlName="cancellation_policies"
+                        matInput></textarea></mat-form-field>
+            </mat-card-content>
+        </mat-card>
+
+
+        <mat-card class="userdetails" style="margin: 0; padding: 0;">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-subtitle class="title">User Details</mat-card-subtitle>
+                    <p class="mandatoryFields">All Fileds Are Mandatory</p>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="5px">
+                <hr style="width: 100%;">
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="40"><span class="pdTitle">Reservative Executive</span></div>
+                    <div fxFlex="60"><mat-form-field class="pdDesc"><mat-label>Select Reservation Executive</mat-label>
+                            <mat-select formControlName="reservation_executive">
+                                <mat-option *ngFor="let item of staffs"
+                                    [value]="item.id">{{item.name}}</mat-option>
+                            </mat-select></mat-form-field></div>
+                </div>
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="40"><span class="pdTitle">Revenue Manager</span></div>
+                    <div fxFlex="60"><mat-form-field class="pdDesc"><mat-label>Select Revenue Manager</mat-label>
+                            <mat-select formControlName="revenue_manager">
+                                <mat-option *ngFor="let item of staffs"
+                                    [value]="item.id">{{item.name}}</mat-option>
+                            </mat-select></mat-form-field></div>
+                </div>
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="40"><span class="pdTitle">Hospitality Manager</span></div>
+                    <div fxFlex="60"><mat-form-field class="pdDesc"><mat-label>Select Hospitality Manager</mat-label>
+                            <mat-select formControlName="hospitality_manager">
+                                <mat-option *ngFor="let item of staffs"
+                                    [value]="item.id">{{item.name}}</mat-option>
+                            </mat-select></mat-form-field></div>
+                </div>
+                <div fxLayout="row" class="pdrow">
+                    <div fxFlex="40"><span class="pdTitle">General Manager</span></div>
+                    <div fxFlex="60"><mat-form-field class="pdDesc"><mat-label>Select Genral Manager</mat-label>
+                            <mat-select formControlName="general_manager">
+                                <mat-option *ngFor="let item of staffs"
+                                    [value]="item.id">{{item.name}}</mat-option>
+                            </mat-select></mat-form-field></div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+
+        <div fxFlex fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="start start">
+            <div>
+                <button class="deletebtn">Delete</button>
+            </div>
+            <div>
+                <button class="savebtn">Save</button>
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,206 @@
+<ng-container *ngIf="menuName === 'Destination'">
+  <div ngClass.gt-sm="modal-align stay-sedt-model" ngClass.lt-md="modal-align-xs" class="">
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <h2 class="modal-title">Destinations</h2>
+      <div>
+        <mat-icon (click)="CloseDialog()">close</mat-icon>
+      </div>
+    </div>
+    <p class="modal-p">We are available in these 3 states</p>
+    <div mat-dialog-content>
+      <div class="container p-0">
+        <div>
+          <div fxLayout="row" fxLayout.lt-md="row" fxLayoutGap="10px" fxLayoutAlign="space-between center">
+            <div class="destinations-location" (click)="selectDestinations(destination)"
+              *ngFor="let destination of destinationsALl">
+              <img class="des-img" [src]="destination.photo" alt="img" />
+              <div flex class="loc-name">{{destination.name}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-img" fxHide.lt-md></div>
+    </div>
+  </div>
+</ng-container>
+
+<div class="checkInOut-modal d-none" [ngClass]="{'celnader-disply': menuName === 'checkInOut'}">
+  <!-- <div ngClass.lt-md="modal-align-xs"> -->
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <h2 class="modal-title">Add Dates</h2>
+    <mat-icon class="" (click)="closeMenu.emit()">close</mat-icon>
+  </div>
+  <br>
+  <ngx-daterangepicker-material #dateRangePicker ngxDaterangepickerMd class="date-rage justify-content-center"
+    [linkedCalendars]="true" (rangeClicked)="rangeClicked($event)" (datesUpdated)="datesUpdated($event)"
+    [startDate]="selected.startDate" [endDate]="selected.endDate" [isInvalidDate]="isInvalidDate"
+    (choosedDate)="choosedDate($event)" [minDate]="minDate">
+  </ngx-daterangepicker-material>
+  <!-- </div> -->
+
+</div>
+
+<!-- Guests added and removed -->
+<ng-container *ngIf="menuName === 'guests'">
+  <div class="guest-modal" ngClass.lt-md="modal-align-xs">
+    <div fxLayout="row" fxLayoutAlign="space-between baseline">
+
+      <h2 class="modal-title pt-3 pb-4">Add Guests</h2>
+
+      <!-- <button class="close-btn" type="button" mat-stroked-button color="secondary" (click)="CloseDialog()">X</button> -->
+      <mat-icon class="" (click)="closeMenu.emit()">close</mat-icon>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" style="gap: 30px;">
+      <h2 class="guest-p">Adults<span class="guest-sp">Age 13 above</span></h2>
+      <div mat-dialog-actions class="guest-actions">
+        <div>
+          <span class="decrement" (click)="decrementGuests('adult')"> - </span>
+        </div>
+        <div class="count">
+          <span> {{adultCount}} </span>
+        </div>
+        <div>
+          <span class="increment" (click)="incrementGuests('adult')"> + </span>
+        </div>
+      </div>
+    </div>
+    <!-- <div mat-dialog-actions fxLayout="row" fxLayoutGap="20px">
+      <div flex>
+        <label class="sm-checkbox" (change)="notSureEvent($event)">
+          <input type="checkbox">
+          <span class="sm-checkbox-mark"></span>
+          <span class="label-name">Not Sure</span>
+        </label>
+      </div>
+      <ng-container *ngIf="notSureCheck">
+        <div flex class="">
+          <span class="table-set">3 - 5</span>
+        </div>
+        <div flex class="pl-10">
+          <span class="table-set">6 - 8</span>
+        </div>
+        <div flex class="pl-10">
+          <span class="table-set">7 - 9</span>
+        </div>
+        <div flex class="pl-10">
+          <span class="table-set">8 - 9</span>
+        </div>
+      </ng-container>
+
+    </div> -->
+    <hr />
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="my-2">
+      <div class="children">Children</div>
+      <div mat-dialog-actions class="guest-actions">
+        <div>
+          <span class="decrement" (click)="decrementGuests('child')"> - </span>
+        </div>
+        <div class="count">
+          <span> {{childCount}} </span>
+        </div>
+        <div>
+          <span class="increment" (click)="incrementGuests('child')"> + </span>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <!-- <div fxLayout="row" fxLayoutAlign="space-between">
+        <div>
+          <span class="children">Pets</span>
+        </div>
+        <div>
+          <div flex>
+            <label class="sm-checkbox">
+              <input type="checkbox">
+              <span class="sm-checkbox-mark"></span>
+              <span class="label-name">Not Sure</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <hr /> -->
+    <div mat-dialog-actions class="search-btn" fxLayout="row" fxLayoutGap="20px" (click)="selectGuests()">
+      <div class="action-btn" fxLayout="row" fxLayoutAlign="start end">
+        <div class="btn-view-all" fxLayout="row" fxLayoutAlign="center center">Search</div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+
+<!-- price range filters -->
+<ng-container *ngIf="menuName === 'priceDetails'">
+ 
+  <div class="price-modal" ngClass.gt-sm="price-modal" ngClass.lt-sm="price-modal-xs">
+    <div class="d-flex justify-content-between align-items-center header-section">
+      <h2 class="modal-title">Filters</h2>
+      <!-- <button class="close-btn" type="button" mat-stroked-button color="secondary" (click)="CloseDialog()">X</button> -->
+      <mat-icon (click)="CloseDialog()">close</mat-icon>
+    </div>
+    <div class="modal-p">Price Range</div>
+    <div mat-dialog-actions fxLayout="row" fxLayoutGap="20px">
+      <span>Rs. 999</span>
+      <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" class="slider-w"
+        (userChangeEnd)="onPriceChange($event)"></ngx-slider>
+      <span>Rs. 50,000</span>
+    </div>
+    <div fxLayoutAlign="center center" class="amount" fxLayout="row" fxLayoutGap="20px">
+      <!-- <span>Rs.3,000 - Rs.21,000</span> -->
+    </div>
+    <div class="devider-line"></div>
+    <div class="modal-p">Type of Place</div>
+    <br>
+    <div mat-dialog-actions fxLayout="row wrap" class="gap-4" fxLayoutGap="50px">
+      <div flex *ngFor="let item of filterPropertyType">
+        <label class="sm-checkbox position-relative">
+          <input type="checkbox" [value]="item.id" (change)="togglePropertyTypeSelection(item.id)"
+            [checked]="isPropertyTypeSelected(item.id)">
+          <span class="sm-checkbox-mark"></span>
+          <span class="label-name">{{item.display}}</span>
+        </label>
+      </div>
+    </div>
+    <div class="devider-line"></div>
+    <div mat-dialog-actions fxLayout="row" fxLayoutGap="20px" class="filter-bedroom-action">
+      <div class="filter-controls" fxLayout="column" fxLayoutGap="10px">
+        <div class="modal-p">Bedrooms</div>
+        <div class="bedrooms" mat-dialog-actions fxLayout="row" fxLayoutGap="12px">
+          <div class="bedroom-no" fxLayoutAlign="center center" *ngFor="let item of bedroomsArr; let i = index;"
+            (click)="onSelectBedroom(item)" [ngClass]="{ 'active' : selectedBedroom == item }">{{item}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="devider-line"></div>
+    <div mat-dialog-actions fxLayout="row" fxLayoutGap="20px">
+      <div class="filter-controls w-100" fxLayout="column" fxLayoutGap="22px">
+        <div class="d-flex flex-column gap-4">
+          <ng-container>
+            <div *ngFor="let category of filterAminities | keyvalue : customSort">
+              <div  class="category-key">{{ category.key }}</div>
+              <div *ngIf="category.value" fxLayout="row wrap" fxLayoutGap="50px" class="show-categories">
+                <div *ngFor="let item of category.value">
+                  <label class="sm-checkbox position-relative">
+                    <input type="checkbox" [value]="item?.id" (change)="toggleAmenitySelection(item.id)" [checked]="isSelected(item.id)">
+                    <span class="sm-checkbox-mark"></span>
+                    <span class="label-name">{{ item.name }}</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="footer-section">
+      <div class="devider-line"></div>
+        <div mat-dialog-actions class="search-btn pb-3" fxLayout="row" fxLayoutGap="20px">
+          <div class="action-btn w-100" fxLayout="row" fxLayoutAlign="space-between center">
+            <div (click)="onClearAllClick()" class="clearall">Clear All</div>
+            <div class="btn-view-all" fxLayout="row" fxLayoutAlign="center center" (click)="filterApply()">Apply</div>
+          </div>
+        </div>
+      </div>
+    </div>
+</ng-container>

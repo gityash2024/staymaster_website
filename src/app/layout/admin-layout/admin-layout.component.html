@@ -1,0 +1,26 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="panel"><span class="sm-logo"><img src="../../../assets/images/staymaster-logo.png" alt=""></span></mat-toolbar>
+    <mat-nav-list>
+      <a *ngFor="let item of drawerList" class="list-item" mat-list-item [routerLink]="item.routerLink"
+      [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active">
+        <img [src]="'../../../assets/admin/icons/'+item.icon" alt=""> {{item.title}}
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" style="z-index: 99999;">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <!-- <span class="sm-logo"><img src="../../../assets/images/staymaster-logo.png" alt=""></span> -->
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="body-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

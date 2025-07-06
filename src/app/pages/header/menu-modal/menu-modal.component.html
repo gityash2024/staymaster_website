@@ -1,0 +1,74 @@
+<div mat-dialog-content class="modal-body">
+    <div class="bg h-100">
+        <img [src]="'../../../../assets/images/waveline.png'" class="background-img">
+        <div class="menus" fxLayout="column" fxLayoutGap="25px">
+            <div fxLayout="row" fxLayoutAlign="space-between start">
+                <div fxLayout="column" fxLayout.gt-xs="column" fxLayoutGap="40px" fxFlex="90">
+                    <div fxShow fxHide.gt-sm class="sticky-header">
+                        <img class="logo-size" src="../../../assets/images/mobile-logo.svg" alt="img" [routerLink]="'/'"/>
+                        <mat-icon fxFlex="10" (click)="onNoClick()">close</mat-icon>
+                    </div>
+                    <!-- <div fxLayout="column" fxLayoutAlign="space-between start"> -->
+                    <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutGap="40px" fxFlex="93">
+                        <div fxFlex="100" fxFlex.gt-xs="50" fxLayout="column" fxLayoutGap="30px">
+                            <a class="title mb-44" [routerLink]="'/about'" (click)="onNoClick()">About</a>
+                            <!--<a class="title" [routerLink]="'/invest-old'" (click)="onNoClick()">Invest</a>-->
+
+                            <div class="title">Menu</div>
+                            <div fxLayout="column" fxLayoutGap="24px" *ngIf="!userLoggedIn">
+                                <a class="sub-menu" (click)="loginModal()">Login / Sign Up</a>
+                                <a class="sub-menu" [routerLink]="'/blogs'" (click)="onNoClick()">Blogs</a>
+                                <a class="sub-menu" [routerLink]="'/conceirge-service'" (click)="onNoClick()">Conceirge</a>
+                                <!--<a class="sub-menu" (click)="onNoClick()">Blogs</a>-->
+                                <a class="sub-menu" [routerLink]="'/contact-us'" (click)="onNoClick()">Contact Us</a>
+                                <a class="sub-menu" (click)="onNoClick()">Support and Help</a>
+                            </div>
+                            <div fxLayout="column" fxLayoutGap="24px" *ngIf="userLoggedIn">
+                                <a class="sub-menu" [routerLink]="'/trips'" (click)="onNoClick()">Trips</a>
+                                <a class="sub-menu" [routerLink]="'/conceirge-service'" (click)="onNoClick()">Conceirge
+                                    Service </a>
+                                <!--<a class="sub-menu" (click)="onNoClick()">Wishlist</a>-->
+                                <a class="sub-menu" (click)="onNoClick()">Conceirge</a>
+                                <!--<a class="sub-menu" (click)="onNoClick()">Messages</a>
+                                <a class="sub-menu" [routerLink]="'/notifications'"
+                                    (click)="onNoClick()">Notifications</a>-->
+                                <a class="sub-menu" [routerLink]="'/profile'" (click)="onNoClick()">Profile</a>
+                                <div class="devider-line"></div>
+                                <a class="sub-menu" (click)="logOut()">Log Out</a>
+                            </div>
+                        </div>
+                        <div fxFlex="100" fxFlex.gt-xs="50" fxLayout="column" fxLayoutGap="24px">
+                            <a class="title mb-44" [routerLink]="'/host'" (click)="onNoClick()">Host</a>
+                            <!-- <a class="sub-menu" (click)="onNoClick()">Login / Sign Up</a> -->
+                            <a class="title mb-30" [routerLink]="'/stay/all'" (click)="onNoClick()">Stay</a>
+                            <a class="sub-menu" (click)="onNoClick()">Stays in Goa</a>
+                            <!-- <a class="sub-menu" (click)="onNoClick()">Stays in Maharashtra</a>
+                            <a class="sub-menu" (click)="onNoClick()">Stays in Uttarakhand</a> -->
+                            <!-- <div class="devider-line"></div> -->
+                            <!--<a class="sub-menu" (click)="onNoClick()">Blogs</a>
+                            <a class="sub-menu" (click)="onNoClick()">Contact Us</a>
+                            <a class="sub-menu" (click)="onNoClick()">Support and Help</a>
+                            <a class="sub-menu" (click)="onNoClick()">Profile</a>-
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <mat-icon class="sticky-header" fxHide fxShow.gt-sm fxFlex="10" (click)="onNoClick()">close</mat-icon>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <ng-container *ngIf="loginOverlayVisible">
+    <ng-template [ngTemplateOutlet]="loginMenuModal"></ng-template>
+</ng-container>
+  
+<ng-template #loginMenuModal>
+    <div class="overlay">
+        <div class="overlay-content">
+            <app-login *ngIf="loginOverlayVisible" (closeModal)="loginOverlayVisible = false;"></app-login>
+        </div>
+    </div>
+</ng-template> -->

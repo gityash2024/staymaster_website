@@ -1,0 +1,100 @@
+<ng-container>
+    <div class="profile">
+        <div fxLayout.gt-xs="row" fxLayout="column">
+            <div fxFlex="100" fxFlex.gt-xs="40">
+                <div class="bg" ngClass.xs="bg-xs">
+                    <div class="left-side" ngClass.xs="left-side-xs" fxLayout="column" fxLayoutAlign="">
+                        <div fxLayout="row" fxLayoutAlign="space-between">
+                            <div class="logo" [routerLink]="'/home'">
+                                <img class="logo-image" src="../../../assets/images/staymaster-logo.png" alt="">
+                            </div>
+                            <div fxHide.gt-xs class="menu-icon">
+                                <img src="../../../assets/images/menu-icon.png" alt="" (click)="toggleMenu()">
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <div class="qoute">“</div>
+                            <div>Update your preferences to get personalized property recommendations and booking experiences</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-xs="60">
+                <div class="profile-form" ngClass.s="profile-form-xs">
+                    <div class="menu" fxLayout="row" fxLayoutAlign="end start" fxHide.xs>
+                        <img src="../../../assets/images/menu-blue.png" alt="" (click)="toggleMenu()">
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="15px">
+                        <div class="title" fxHide.gt-xs>My Profile</div>
+                        <div fxLayout="column" fxLayoutGap="6px">
+                            <label for="" fxHide.xs>First Name</label>
+                            <input type="text" class="sm-text form-control" [(ngModel)]="firstname" placeholder="First Name">
+                        </div>
+                        <div fxLayout="column" fxLayoutGap="6px">
+                            <label for="" fxHide.xs>Last Name</label>
+                            <input type="text" class="sm-text form-control" [(ngModel)]="lastname" placeholder="Last Name">
+                        </div>
+                        <div fxLayout="column" fxLayoutGap="6px">
+                            <label for="" fxHide.xs>Email</label>
+                            <input type="email" class="sm-text form-control" [(ngModel)]="email" placeholder="Email">
+                        </div>
+                        <div fxLayout="column" fxLayoutGap="6px">
+                            <label for="" fxHide.xs>Phone number</label>
+                            <div class="phone-number" fxLayout="row" fxLayoutGap="15px">
+                                <select fxFlex="35" name="" id="" class="form-select sm-text mobile-select">
+                                    <option value="">+91 (IND)</option>
+                                </select>
+                                <input fxFlex type="text" class="sm-text form-control" [(ngModel)]="phone" placeholder="Phone Number">
+                            </div>
+                        </div>
+                        <div fxLayout="column" fxLayoutGap="6px" fxHide.xs>
+                            <label for="" fxHide.xs>Gender</label>
+                            <div fxLayout="row" fxLayoutGap="15px" class="booking-for">
+                                <div class="booking-for-btn" [ngClass]="{'active': selectedGender === 'Male' }"
+                                    fxLayout="row" fxLayoutAlign="center center" (click)="onSelectGender('Male')">Male
+                                </div>
+                                <div class="booking-for-btn" [ngClass]="{'active': selectedGender === 'Female' }"
+                                    fxLayout="row" fxLayoutAlign="center center" (click)="onSelectGender('Female')">
+                                    Female</div>
+                                <div class="booking-for-btn" [ngClass]="{'active': selectedGender === 'Non-Binary' }"
+                                    fxLayout="row" fxLayoutAlign="center center" (click)="onSelectGender('Non-Binary')">
+                                    Non- Binary</div>
+                            </div>
+                        </div>
+                        <div fxLayout="column" fxLayoutGap="6px" fxHide.gt-xs>
+                            <select fxFlex="35" name="" id="" class="form-select sm-text">
+                                <option value="">Male</option>
+                                <option value="">Female</option>
+                                <option value="">Non-Binary</option>
+                            </select>
+                        </div>
+                        <div fxLayout="column" fxLayoutGap="6px">
+                            <label for="" fxHide.xs>Address</label>
+                            <input type="text" class="sm-text form-control" value="" placeholder="Address">
+                        </div>
+                        <div>
+                            <br>
+                            <div class="save-btn" fxLayout="row" fxLayoutAlign="center center" (click)="setProfile()">Save
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-container>
+    <app-footer></app-footer>
+</ng-container>
+
+<ng-container *ngIf="overlayVisible">
+    <ng-template [ngTemplateOutlet]="menuModal"></ng-template>
+</ng-container>
+
+<ng-template #menuModal>
+    <div class="overlay">
+        <div class="overlay-content">
+            <app-menu-modal (closeModal)="overlayVisible = false;"></app-menu-modal>
+        </div>
+    </div>
+</ng-template>

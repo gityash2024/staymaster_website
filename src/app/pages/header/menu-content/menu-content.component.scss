@@ -1,0 +1,83 @@
+.cdk-overlay-pane {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.card-content {
+  line-height: 60px !important;
+  height: 60px;
+  color: #584139;
+  font-family: Akkurat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  @media (max-width: 959px) {
+    background: #f9f5f3;
+    box-shadow: 2px 2px 15px 1px rgba(105, 105, 105, 0.18);
+    border-radius: 50px;
+    min-height: 70px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    border: 1px solid #a18180;
+    margin: 10px 0;
+    padding: 20px;
+  }
+}
+
+.description-card-content{
+  box-shadow: 2px 2px 15px 1px rgba(105, 105, 105, 0.18);
+  min-height: 70px;
+  font-style: normal;
+  margin: 10px 0;
+  border-radius: 12px;
+  padding: 0 20px;
+}
+
+.card-icon {
+  padding-right: 6px;
+  margin-bottom: -3px;
+  height: max-content;
+  align-self: center;
+
+  @media (max-width: 991px) {
+    padding-right: 0px;
+  }
+}
+
+.checkout-arrow {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 5px;
+}
+
+img.checkout-arrow {
+  width: 30px;
+}
+
+.form-control {
+  background-color: transparent !important;
+  color: white;
+  line-height: 3 !important;
+}
+
+.card-attribute {
+  white-space: nowrap;
+  overflow: hidden;
+  // text-overflow: ellipsis;
+  display: block;
+  max-width: 115px;
+  margin-left: 10px;
+}
+
+.mobile-card-content{
+  border: none;
+  background: none;
+  color: white;
+  box-shadow: none;
+  padding: 0;
+}

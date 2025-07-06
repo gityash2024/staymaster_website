@@ -1,0 +1,158 @@
+<div class="page">
+    <app-header [headerName]="headerName"></app-header>
+    <ng-container>
+        <div class="skeleton container py-5"  *ngIf="loading">
+            <div class="d-flex justify-content-between flex-wrap gap-4">
+              <div class="flex-grow-1 image-section" style="min-width: 180px; max-width: 50%;">
+                <div class="d-flex gap-3 justify-content-between flex-wrap">
+                  <div class="d-flex flex-column gap-4" style="min-width: 200px;">
+                    <div class="skeleton-name skeleton-sm w-100" style="height: 95px;"></div>
+                    <div class="skeleton-name skeleton-sm w-100" style="height: 60px;"></div>
+                  </div>
+          
+                  <div class="skeleton-name skeleton-md" style="height: 200px;"></div>
+                </div>
+          
+                <div class="skeleton-name mt-5 w-100" style="height: 200px;"></div>
+              </div>
+          
+              <div class="flex-grow-1 w-100 image-section" style="min-width: 150px; max-width: 50%;">
+                <div class="skeleton-name w-100" style="height: 400px;"></div>
+                <div class="skeleton-name mt-3 w-100" style="height: 100px;"></div>
+              </div>
+            </div>
+        </div>
+        <div class="container mb-5" *ngIf="!loading" >
+            <div class="thank-you" ngClass.lt-sm="thank-you-lt-sm" *ngIf="showSuccess">
+                <div class="align-items-center confirmation" fxLayoutGap="20px" fxLayout="column" fxLayout.gt-sm="row">
+                    <div fxFlex  ngClass.gt-xs="check-gt-xs" class="check-content">
+                        <div class="check" fxLayout="row" fxLayoutAlign="center center">
+                            <mat-icon>check</mat-icon>
+                        </div>
+                    </div>
+                    <div fxFlex="92" fxLayout="column" fxLayoutGap="16px" class="text-center">
+                        <div class="title">Thank You for Booking with us!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="confirmed-booking">
+                <div fxFlex="100" fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="space-between"
+                fxLayoutGap="20px" fxLayoutGap.gt-xs="0px" class="mobile-booking">
+                    <div class="mobile-booking-details" fxLayout="column" fxFlex="100" fxFlex.gt-xs="50">
+                        <div class="flex-wrap " fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between">
+                            <div fxLayout="column" class="booking-qr-code">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <div class="sub-title">
+                                            Booking Number
+                                        </div>
+                                        <div class="tranzaction-no">
+                                            {{bookingDetails?.info?.booking.id}}
+                                        </div>
+                                    </div>
+                                    <div *ngIf="isSmallScreen" class="scanner-mobile">
+                                        <qrcode [qrdata]="currentUr" [width]="114" [errorCorrectionLevel]="'M'"></qrcode>
+                                    </div>
+                                </div>
+                                <div class="sm-btn mt-50" fxLayout="row" fxLayoutAlign="center center">Save QR</div>
+                                <div class="devider-line mobile-only mb-0"></div>
+                            </div>
+                            <div *ngIf="!isSmallScreen" class="scanner">
+                                <qrcode [qrdata]="currentUr" [width]="230" [errorCorrectionLevel]="'M'"></qrcode>
+                            </div>
+                        </div>
+                        <div class="devider-line mb-0"></div>
+                        <div fxLayout="column" class="booking-details" fxFlex="100" fxFlex.gt-xs="50">
+                            <div class="sub-title">
+                                Booking Details
+                            </div>
+                            <div [ngClass]="isSmallScreen ? 'booking-info' : ''">
+                                <div fxLayout="row" class="mt-20">
+                                    <div class="label-light " fxFlex="40" >Full Name:</div>
+                                    <div class="label-dark" fxFlex="60">{{bookingDetails?.info?.guest.firstname}} {{bookingDetails?.info?.guest.lastname}}</div>
+                                </div>
+                                <div fxLayout="row" class="mt-8">
+                                    <div class="label-light " fxFlex="40">Email Address:</div>
+                                    <div class="label-dark" fxFlex="60">{{bookingDetails?.info?.guest.email}}</div>
+                                </div>
+                                <div fxLayout="row" class="mt-8">
+                                    <div class="label-light " fxFlex="40">Phone Number:</div>
+                                    <div class="label-dark" fxFlex="60">+{{bookingDetails?.info?.guest.phone}}</div>
+                                </div>
+                                <!-- <div class="mt-50 reminder-service w-100 flex-wrap gap-4 w-100" fxLayout="row" fxLayoutGap="20px">
+                                    <div class="sm-btn-reminder" fxLayout="row" fxLayoutAlign="center center" >
+                                        <span class="reminder-text">Set a Reminder</span>
+                                        <span class="reminder-text-mobile">Reminder</span>
+                                    </div>
+                                    <div class="sm-btn-bordered" fxLayout="row" fxLayoutAlign="center center" >Add Services</div>
+                                </div> -->
+                            </div>
+                        </div>                                                
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-xs="50" class="detailed-property" fxFlexOrder="1"
+                    fxFlexOrder.gt-xs="0">
+                        <div  fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start end" >
+                            <div class="property-photo"  fxLayoutAlign="end start" fxLayoutAlign.lt-sm="center center">
+                                <img src="{{bookingDetails?.info?.property.cover_image}}" alt="">
+                            </div>
+                        </div>
+                        <div class="property-detail" ngClass.lt-sm="property-detail-lt-sm" fxLayout="column" fxLayoutGap="10px">
+                            <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="15px" fxLayoutAlign="space-between" class="name-guests">
+                                <div class="ptitle mb-2">{{bookingDetails?.info?.property.property_name}} </div>
+                                <div>{{bookingDetails?.info?.booking.number_adults + bookingDetails?.info?.booking.number_children}} Guests</div>
+                            </div>
+                            <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="15px" fxLayoutAlign="space-between"
+                            class="name-guests">
+                                <div class="mb-2">{{bookingDetails?.info?.property.address}} </div>
+                                <div>{{bookingDetails?.info?.booking.check_in_date}}  to {{bookingDetails?.info?.booking.check_out_date}} </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div [ngClass]="!isSmallScreen ? 'mobile-booking-info d-none' : 'd-block order-1'">
+                        <div fxLayout="row" class="mt-20">
+                            <div class="label-light " fxFlex="40">Full Name:</div>
+                            <div class="label-dark" fxFlex="60">{{bookingDetails?.info?.guest.firstname}} {{bookingDetails?.info?.guest.lastname}}</div>
+                        </div>
+                        <div fxLayout="row" class="mt-8">
+                            <div class="label-light " fxFlex="40">Email Address:</div>
+                            <div class="label-dark" fxFlex="60">{{bookingDetails?.info?.guest.email}}</div>
+                        </div>
+                        <div fxLayout="row" class="mt-8">
+                            <div class="label-light " fxFlex="40">Phone Number:</div>
+                            <div class="label-dark" fxFlex="60">+{{bookingDetails?.info?.guest.phone}}</div>
+                        </div>
+                        <!-- <div class="mt-50 reminder-service w-100 flex-wrap gap-4 w-100" fxLayout="row" fxLayoutGap="20px">
+                            <div class="sm-btn-reminder" fxLayout="row" fxLayoutAlign="center center" >
+                                <span class="reminder-text">Set a Reminder</span>
+                                <span class="reminder-text-mobile">Reminder</span>
+                            </div>
+                            <div class="sm-btn-bordered" fxLayout="row" fxLayoutAlign="center center" >Add Services</div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="devider-line"></div>
+            <div class="bottom-btns">
+                <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="20px">
+                    <div class="sbtn" ngClass.lt-sm="sbtn-slt-sm" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div>Invoice</div>
+                        <img src="../../../../assets/images/download-icon.png" alt="">
+                    </div>
+                    <div class="sbtn" ngClass.lt-sm="sbtn-slt-sm" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div>Cancellation Policy</div>
+                        <img src="../../../../assets/images/download-icon.png" alt="">
+                    </div>
+                    <div class="sbtn" ngClass.lt-sm="sbtn-slt-sm" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div>House Rules</div>
+                        <img src="../../../../assets/images/download-icon.png" alt="">
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </ng-container>
+    <ng-container>
+        <app-footer></app-footer>
+    </ng-container>
+    
+</div>

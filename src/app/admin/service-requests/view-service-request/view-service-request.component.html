@@ -1,0 +1,44 @@
+<div mat-dialog-title class="dialog-title formHeader">
+    View Service Request
+</div>
+
+<div mat-dialog-content class="modal-body">
+    <div class="declineform" fxFlex fxLayout="column" fxLayoutGap="20px">
+        <div fxFlex fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between start">
+            <div fxFlex="70" fxLayout="column">
+                <div fxLayout="row">
+                    <p class="srTitle">Property Name / Nummber</p>:&nbsp;&nbsp;<p class="srDescription">#12334455</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="srTitle">Service Update</p> :&nbsp;&nbsp;<p class="srDescription">#12334455</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="srTitle">Service Number</p> :&nbsp;&nbsp;<p class="srDescription">#12334455</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="srTitle">Amount</p> :&nbsp;&nbsp;<p class="srDescription">#12334455</p>
+                </div>
+            </div>
+            <div fxFlex="30" fxLayout="row" class="editIcon"><img src="../../../../assets/images/edit.png">&nbsp; Edit
+                Service Request</div>
+        </div>
+        <div fxFlex fxLayout="column" fxLayoutGap="5px"><span class="service_request_desc">Lightbulb of room no. 3 needs
+                replacement amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud </span></div>
+        <div fxFlex fxLayout="row" fxLayoutGap="10px">
+            <img src="../../../../assets/images/about-background-xs.png" class="view_images">
+            <img src="../../../../assets/images/about-background-xs.png" class="view_images">
+            <img src="../../../../assets/images/about-background-xs.png" class="view_images">
+        </div>
+        <div fxFlex fxLayout="column" fxLayoutGap="5px">
+            <div class="titlect">Contact Details</div>
+            <div class="contact">Virat Koli - 788747475774</div>
+        </div>
+    </div>
+
+</div>
+<div mat-dialog-actions>
+    <button class="cancel" type="button" (click)="onNoClick()">Cancel</button>
+    <button class="submit" type="submit" color="primary" cdkFocusInitial>Save</button>
+    <!-- [mat-dialog-close]="data" -->
+</div>

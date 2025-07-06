@@ -1,0 +1,113 @@
+<ng-container>
+    <div class="all-properties">
+        <app-header [headerName]="headerName"></app-header>
+        <div class="container">
+            <!-- <form [formGroup]="myForm" (ngSubmit)="submitForm()"> -->
+            <div class="filters">
+                <div class="filter" fxLayout="row" fxLayoutAlign.lt-sm="center center">
+                    <div ngClass.lt-sm="wSet" fxFlex.lt-sm="100" fxFlex.gt-md="18" fxFlex.gt-sm="25">
+                        <div ngClass.lt-sm="pSet" class="form-control sm-control aminities-control"
+                            (click)="openFilterModal(allPropertyFilterModelType.location)" fxLayout="row" fxLayoutAlign="space-between center">
+                            <div style="margin-right: 10px;">Location</div>
+                            <div class="ml-10" style="width: 16px;height: 24px;"> 
+                                <img src="../../../assets/images/dropdown_brown_icon.png" alt=""> 
+                            </div>
+                        </div>
+                        <!-- <div class="form-control sm-control" (click)="openFilterModal()">Location</div>  -->
+                        <!-- <select name="" id="" class="form-control sm-control form-select">
+                                <option>Location</option>
+                            </select> -->
+                        <!-- if select-dropdown use below -->
+                        <!-- <mat-form-field appearance="outline">
+                                <mat-label>Location</mat-label>
+                                <mat-select [formControl]="locations" multiple>
+                                <mat-select-trigger>
+                                    {{locations.value?.[0] || ''}}
+                                    <span *ngIf="(locations.value?.length || 0) > 1" class="example-additional-selection">
+                                    (+{{(locations.value?.length || 0) - 1}} {{locations.value?.length === 2 ? 'other' : 'others'}})
+                                    </span>
+                                </mat-select-trigger>
+                                <mat-option *ngFor="let location of locationsList" [value]="location">{{location}}</mat-option>
+                                </mat-select>
+                            </mat-form-field> -->
+                    </div>
+                    <div ngClass.lt-sm="wSet" fxFlex.lt-sm="100" fxFlex.gt-md="18" fxFlex.gt-sm="25">
+                        <div ngClass.lt-sm="pSet" class="form-control sm-control aminities-control"
+                        fxLayout="row" fxLayoutAlign="space-between center"
+                            (click)="openFilterModal(allPropertyFilterModelType.propertyType)"><div
+                                style="margin-right: 10px;">Property Type</div>
+                            <div class="ml-10" style="width: 16px;height: 24px;"> <img
+                                    src="../../../assets/images/dropdown_brown_icon.png" alt=""> </div>
+                        </div>
+                        <!-- <select name="" id="" class="form-control sm-control">
+                                <option>Property Type</option>
+                            </select> -->
+                        <!-- if select-dropdown use below -->
+                        <!-- <mat-form-field appearance="outline">
+                                <mat-label>Property Type</mat-label>
+                                <mat-select [formControl]="propertyType" multiple>
+                                <mat-select-trigger>
+                                    {{propertyType.value?.[0] || ''}}
+                                    <span *ngIf="(propertyType.value?.length || 0) > 1" class="example-additional-selection">
+                                    (+{{(propertyType.value?.length || 0) - 1}} {{propertyType.value?.length === 2 ? 'other' : 'others'}})
+                                    </span>
+                                </mat-select-trigger>
+                                <mat-option *ngFor="let propertyType of propertyTypeList" [value]="propertyType">{{propertyType}}</mat-option>
+                                </mat-select>
+                            </mat-form-field> -->
+                    </div>
+                    <div ngClass.lt-sm="wSet" fxFlex.lt-sm="100" fxFlex.gt-sm="18" fxFlex.gt-md="25">
+                        <!-- ngClass.lt-sm="pSet" <select name="" id="" class="form-control sm-control">
+                                <option>Amenities</option>
+                            </select> -->
+                        <div ngClass.lt-sm="pSet" class="form-control sm-control aminities-control"
+                        fxLayout="row" fxLayoutAlign="space-between center"
+                            (click)="openFilterModal(allPropertyFilterModelType.amenities)"><div
+                                style="margin-right: 10px;">Amenities</div>
+                            <div class="m-10" style="width: 16px;height: 24px;"> <img
+                                    src="../../../assets/images/dropdown_brown_icon.png" alt=""> </div>
+                        </div>
+                    </div>
+                    <div ngClass.lt-sm="wSet" fxFlex.lt-sm="100" fxFlex.gt-sm="25">
+                        <div class="clear-all" (click)="createModal()">Clear All Filters</div>
+                    </div>
+                    <!-- <button (click)="openFilterModal()">Filters</button>  -->
+                </div>
+            </div>
+            <!-- </form> -->
+            <div class="properties-list" fxLayout="column" fxLayout.gt-sm="row wrap" fxLayoutGap="20px"
+                fxLayoutAlign="start">
+                <div class="card" *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]" fxFlex="100%" [routerLink]="'/invest-property-details-old'">
+                    <div class="card-img">
+                        <img src="../../../assets/images/property-ex-3.png" alt="">
+                    </div>
+                    <div class="card-title">Rs. 1,50,00,000</div>
+                    <div class="card-sub-title">Anjuna, North Goa</div>
+                    <div class="card-item-list">
+                        <div class="card-item" fxLayout="row" fxLayoutAlign="space-between center">
+                            <div class="card-item-name">Net Yield Potential</div>
+                            <div class="card-item-value">12%</div>
+                        </div>
+                        <div class="card-item" fxLayout="row" fxLayoutAlign="space-between center">
+                            <div class="card-item-name">Cash Flow Potential</div>
+                            <div class="card-item-value">Rs. 18L /yr</div>
+                        </div>
+                        <div class="card-item" fxLayout="row" fxLayoutAlign="space-between center">
+                            <div class="card-item-name">Net Yield Potential</div>
+                            <div class="card-item-value">18%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ng-container>
+<ng-container>
+    <div #modal></div>
+    <div #modalFilter></div>
+</ng-container>
+<app-dont-warry-section></app-dont-warry-section>
+<ng-container>
+    <app-footer></app-footer>
+</ng-container>

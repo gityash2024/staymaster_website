@@ -1,0 +1,17 @@
+<div mat-dialog-title class="dialog-title formHeader">
+    Add Aminities
+</div>
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+<div mat-dialog-content class="modal-body">
+    <mat-form-field class="" appearance="fill">
+        <mat-label>Aminitie Name</mat-label>
+        <input matInput type="text" placeholder="Enter Mobile No" formControlName="name"
+            autocomplete="off">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button type="button" (click)="onNoClick()">Cancel</button>
+    <button mat-raised-button type="submit" color="primary"  cdkFocusInitial>Save</button>
+    <!-- [mat-dialog-close]="data" -->
+</div>
+</form>

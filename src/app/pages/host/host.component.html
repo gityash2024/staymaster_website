@@ -1,0 +1,599 @@
+<div class="page">
+  <!-- Slider -->
+  <!--  -->
+  <ng-container>
+    <div class="about-header header-box" fxLayout="column">
+      <div class="header-box">
+        <app-header [headerName]="headerName"></app-header>
+        <div class="container" fxLayout.gt-md="row" fxLayoutGap="15px">
+          <div class="w-100" fxLayout="row" fxLayout.gt-md="row">
+            <div class="left-section" fxFlex.gt-md="50" fxFlex="100" *ngIf="userFormsSection">
+              <div class="title space-evenly">Become a Staymaster Host</div>
+              <p class="sub-head">Calculate your earning</p>
+              <form [formGroup]="becomeHostForm">
+                <div *ngIf="currentForm === 'aboutPropertyDetails'">
+                  <div class="space-evenly">
+                    <div class="d-flex relative location-select">
+                      <select name="property" id="property" formControlName="location"
+                        class="form-control sm-text form-select">
+                        <option value="">Select Location</option>
+                        <option *ngFor="let i of locationData.location" [value]="i.id">
+                          {{ i.name }}
+                        </option>
+                      </select>
+                      <img class="drop-arr-img" src="../../../assets/images/drop-arr-down.svg" alt="img" />
+                    </div>
+
+                    <div *ngIf="
+                        becomeHostForm.get('location')?.touched &&
+                        becomeHostForm.get('location')?.invalid
+                      " class="error">
+                      Location is required
+                    </div>
+                  </div>
+                  <div class="space-evenly">
+                    <div class="d-flex relative location-select">
+                      <select name="property" id="property" formControlName="property_type"
+                        class="form-control sm-text form-select">
+                        <option class="option" value="">
+                          Select Type Of Property
+                        </option>
+                        <option *ngFor="let i of locationData.property_type" [value]="i.id">
+                          {{ i.name }}
+                        </option>
+                      </select>
+                      <img class="drop-arr-img" src="../../../assets/images/drop-arr-down.svg" alt="img" />
+                    </div>
+                    <div *ngIf="
+                        becomeHostForm.get('property_type')?.touched &&
+                        becomeHostForm.get('property_type')?.invalid
+                      " class="error">
+                      Property type is required
+                    </div>
+                  </div>
+                  <div class="space-evenly">
+                    <div class="d-flex relative location-select">
+                      <select name="property" id="property" formControlName="bedrooms"
+                        class="form-control sm-text form-select">
+                        <option value="">Select Bedrooms</option>
+                        <option *ngFor="let i of locationData.bedrooms" [value]="i.id">
+                          {{ i.name }}
+                        </option>
+                      </select>
+                      <img class="drop-arr-img" src="../../../assets/images/drop-arr-down.svg" alt="img" />
+                    </div>
+                    <div *ngIf="
+                        becomeHostForm.get('bedrooms')?.touched &&
+                        becomeHostForm.get('bedrooms')?.invalid
+                      " class="error">
+                      Bedrooms are required
+                    </div>
+                  </div>
+                  <div class="space-evenly">
+                    <div class="d-flex relative location-select">
+                      <select name="property" id="property" formControlName="pool_type"
+                        class="form-control sm-text form-select">
+                        <option value="">Select Type Of Pools</option>
+                        <option *ngFor="let i of locationData.pool_type" [value]="i.id">
+                          {{ i.name }}
+                        </option>
+                      </select>
+                      <img class="drop-arr-img" src="../../../assets/images/drop-arr-down.svg" alt="img" />
+                    </div>
+
+                    <div *ngIf="
+                        becomeHostForm.get('pool_type')?.touched &&
+                        becomeHostForm.get('pool_type')?.invalid
+                      " class="error">
+                      Pool type is required
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="currentForm === 'userDetails'">
+                  <div class="space-evenly">
+                    <input type="text" class="form-control sm-text white-placeholder" name="username"
+                      formControlName="name" placeholder="Enter your name" />
+                    <div *ngIf="
+                        becomeHostForm.get('name')?.touched &&
+                        becomeHostForm.get('name')?.invalid
+                      " class="error">
+                      Name is required.
+                    </div>
+                  </div>
+                  <div class="space-evenly">
+                    <input type="text" class="form-control sm-text white-placeholder" name="email"
+                      formControlName="email" placeholder="Enter your email id" />
+                    <div *ngIf="
+                        becomeHostForm.get('email')?.touched &&
+                        becomeHostForm.get('email')?.invalid
+                      " class="error">
+                      Valid email is required.
+                    </div>
+                  </div>
+                  <div class="space-evenly position-relative" fxLayout="row">
+                    <input type="text" class="form-control sm-text white-placeholder" name="mobileNo"
+                      formControlName="phone" placeholder="Enter your mobile no" />
+                    <div *ngIf="
+                        becomeHostForm.get('phone')?.touched &&
+                        becomeHostForm.get('phone')?.invalid
+                      " class="error position-absolute" style="bottom: -12px">
+                      Phone number is required.
+                    </div>
+                    <div class="btn-get-otp" fxLayoutAlign="center center" (click)="getOtp(becomeHostForm)">
+                      Get OTP
+                    </div>
+                  </div>
+                  <div class="space-evenly" fxLayout="column" fxLayoutGap="20px">
+                    <div class="otp-msg">
+                      Enter Code sent via SMS for verification
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="15px" class="position-relative">
+                      <input type="tel" class="form-control sm-text sm-otp" maxlength="1"
+                        (keydown)="onKeydown($event, 0)" />
+                      <input type="tel" class="form-control sm-text sm-otp" maxlength="1"
+                        (keydown)="onKeydown($event, 1)" />
+                      <input type="tel" class="form-control sm-text sm-otp" maxlength="1"
+                        (keydown)="onKeydown($event, 2)" />
+                      <input type="tel" class="form-control sm-text sm-otp" maxlength="1"
+                        (keydown)="onKeydown($event, 3)" />
+                      <input type="tel" class="form-control sm-text sm-otp" name="otpFifthdNo" maxlength="1"
+                        (keydown)="onKeydown($event, 4)" />
+                      <input type="tel" class="form-control sm-text sm-otp" maxlength="1"
+                        (keydown)="onKeydown($event, 5)" />
+                      <div *ngIf="
+                          becomeHostForm.get('otp')?.invalid &&
+                          becomeHostForm.get('otp')?.touched
+                        " class="error position-absolute" style="bottom: -22px">
+                        Please enter a complete 6-digit OTP.
+                      </div>
+                    </div>
+
+                    <div class="otp-msg" fxLayout="row" fxLayoutAlign="space-between center"
+                      style="padding-right: 20px">
+                      <!-- <div>Code expires in 4:59</div> -->
+                      <div style="text-decoration: underline; cursor: pointer" (click)="getOtp(becomeHostForm)">
+                        Resend
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="space-evenly">
+                  <div class="btn-rounded" (click)="showUserDetails()" *ngIf="currentForm === 'aboutPropertyDetails'">
+                    Next
+                  </div>
+                  <br />
+                  <div class="btn-rounded" (click)="submitUserDetails(becomeHostForm)"
+                    *ngIf="currentForm === 'userDetails'">
+                    Submit
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="w-100 justify-content-between" *ngIf="!userFormsSection">
+              <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="50px" class="estimated-earings">
+                <div class="earings-details" fxFlex="40">
+                  <div class="title">Estimated Earnings</div>
+                  <div class="estimated-amount" fxLayout="row">
+                    <div style="word-break: break-all;">
+                      Rs. {{ getBarchartData.base_rental | number : "1.0-2" }}
+                    </div>
+                    <div class="day-night">GBV</div>
+                  </div>
+                  <div class="result-for">Results for</div>
+                  <div class="villa">
+                    <ng-container *ngIf="getDisplayDetails() as details">
+                      {{ details.locationName }}, {{ details.propertyTypeName
+                      }}<br />
+                      {{ details.bedroomsName }} Bedrooms<br />
+                      {{ details.poolTypeName }} Pool
+                    </ng-container>
+                  </div>
+
+                  <div class="edit-result" (click)="editResult()">
+                    Edit Results
+                  </div>
+                  <div class="learn-more">
+                    <span [routerLink]="'/contact-us'">Learn how we estimate your earnings</span>
+                  </div>
+                </div>
+                <div fxFlex="60" class="estimated-chart">
+                  <div class="w-100 d-flex justify-content-center">
+                    <div *ngIf="showChart" class="barChart">
+                      <canvas baseChart 
+                        [data]="mixedChartData" 
+                        [options]="mixedChartOptions" 
+                        chartType="bar">
+                      </canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  
+  <ng-container *ngIf="!userFormsSection">
+    <div fxFlex="100" class="estimated-chart-mobile">
+      <div class="w-100 d-flex justify-content-center">
+        <div *ngIf="showChart" class="barChart">
+          <canvas baseChart 
+            [data]="mixedChartData" 
+            [options]="mixedChartOptions" 
+            chartType="bar">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container>
+    <div class="benefits-bg pt-2r pb-50" ngClass.lt-md="benefits-bg-sm">
+      <div>
+        <img src="../../../assets/images/waveline.png" class="waveline-img" ngClass.lt-md="display-none" alt="" />
+      </div>
+      <div class="container pb-50 hosting-benefits" fxLayoutAlign="start start" fxLayout="row" ngxSplitArea fxLayout.lt-md="column">
+        <div fxFlex="40" fxLayout.lt-sm="column" class="host">
+          <div class="page-header pt-4r">Benefits of Hosting</div>
+          <div class="sub-content pt-2r">
+            When you're in a distant city, you tend to worry that your vacation
+            home remains dusty and unattended. By opening its doors to hosting
+            trusted travellers, you can turn your property into a vacation
+            rental as a rewarding source of income.
+          </div>
+          <div fxLayout="50" class="pt-3r" fxLayoutAlign="start center">
+            <img class="icon" src="../../../assets/images/Mask group 1.png" alt="" />
+            <p class="paragraph m-0">Maximise Property Value With Extra Income</p>
+          </div>
+          <br fxHide.lt-md />
+          <div fxLayout="50" class="pt-1r" fxLayoutAlign="start center">
+            <img class="icon" src="../../../assets/images/Mask group 3.png" alt="" />
+            <p class="paragraph m-0">
+              Professional Management for Regular Upkeep and Maintenance
+            </p>
+          </div>
+          <br fxHide.lt-md />
+          <div fxLayout="50" class="pt-1r" fxLayoutAlign="start center">
+            <img class="icon" src="../../../assets/images/Mask group 2.png" alt="" />
+            <p class="paragraph m-0">Easy Marketing With 360° Visibility</p>
+          </div>
+          <!-- <img src="../../../assets/images/Frame-bg-right.png" alt="" class="mob-ben-img" />/ -->
+        </div>
+        <div fxFlex="60" fxLayoutAlign="center center" fxLayout.lt-sm="column" fxHide.lt-md>
+          <div class="triangle" fxLayoutAlign="center center">
+            <img class="triangle-img" src="../../../assets/images/Benefits_of_Hosting.png" alt="" />
+          </div>
+        </div>
+        <div fxFlex="100" class="ben-mob-w pt-5" fxHide fxShow.lt-md>
+          <img src="../../../assets/images/investor-bg-xs.png" alt="" class="mob-ben-img" />
+          <img src="../../../assets/images/investor-bg-xs.png" alt="" class="mob-ben-img" />
+          <img src="../../../assets/images/investor-bg-xs.png" alt="" class="mob-ben-img" />
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container class="">
+    <div class="airbnb" ngClass.lt-md="airbnb-sm" fxLayout="column">
+      <div class="background-sm">
+        <div class="container content">
+          <div fxLayout="column" fxFlex="100" fxLayoutAlign="center center">
+            <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign.xs="center center">
+              <img src="../../../assets/images/stay-master-sm.png" class="logo-img" />
+              <img src="../../../assets/images/close-icon.png" class="cross-img" ngClass.lt-md="cross-img-xs" />
+              <img src="../../../assets/images/airbnb-sm.png" class="bnb-img" />
+            </div>
+            <div class="desc">
+              Staymaster is Airbnb India's exclusive partner of choice to help
+              homeowners<br />
+              list and monetise their spaces on their platform.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-side-img">
+      <img src="../../../assets/images/About-frame.png" class="ssi-img" />
+      <div class="container" ngClass.xs="container-xs">
+        <div class="offers-section">
+          <div class="page-header">Staymaster's approach of Hosting</div>
+          <div class="offers" fxLayout="column" fxLayoutGap="40px" fxLayoutGap.gt-sm="74px">
+            <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="40px" fxLayoutGap.lt-md="32px"
+              fxLayoutGap.gt-sm="74px">
+              <div class="offer" fxLayoutGap="25px">
+                <div class="offer-number">1.</div>
+                <br fxHide.lt-md />
+                <div fxLayout="column" fxLayoutGap="15px">
+                  <div class="offer-desc">
+                    <br fxHide.lt-md />
+                    <span>Personalised Marketing</span>
+                    <div class="ph-border bottom-br" fxHide.lt-md></div>
+                    <br />
+                    From professional photography and targeted ad campaigns to
+                    influencer marketing, we ensure your villa or service
+                    apartment reaches the right audience and drives bookings.
+                  </div>
+                </div>
+              </div>
+              <div class="offer" fxLayoutGap="25px">
+                <div class="offer-number">2.</div>
+                <br fxHide.lt-md />
+                <div fxLayout="column" fxLayoutGap="15px">
+                  <div class="offer-desc">
+                    <span>Unparalleled Guest Experience</span>
+                    <div class="ph-border bottom-br" fxHide.lt-md></div>
+                    <br />
+                    We have seamless check-in, check-out and concierge booking
+                    services. Your home takes on the role of a comfortable host
+                    that gets repeat bookings and 5-star reviews in return.
+                  </div>
+                </div>
+              </div>
+              <div class="offer" fxLayoutGap="25px">
+                <div class="offer-number">3.</div>
+                <br fxHide.lt-md />
+                <div fxLayout="column" fxLayoutGap="15px">
+                  <div class="offer-desc">
+                    <br fxHide.lt-md />
+                    <span>Technology-Driven Efficiency</span>
+                    <div class="ph-border bottom-br" fxHide.lt-md></div>
+                    <br />
+                    The use of the latest technology in property management
+                    streamlines our operations. Dynamic pricing, booking
+                    management, and guest communication align to achieve maximum
+                    profitability.
+                  </div>
+                </div>
+              </div>
+              <div class="offer" fxLayoutGap="25px">
+                <div class="offer-number">4.</div>
+                <br fxHide.lt-md />
+                <div fxLayout="column" fxLayoutGap="15px">
+                  <div class="offer-desc">
+                    <br fxHide.lt-md />
+                    <span>Transparent Profits</span>
+                    <div class="ph-border bottom-br" fxHide.lt-md></div>
+                    <br />
+                    Hosts, you are our partners in this business. Always stay
+                    informed about your property performance, profits and
+                    insights. We count on your trust to bring reliable guests
+                    and predictable returns on your investment.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container>
+    <div class="happy-investors" ngClass.xs="happy-investors-xs">
+      <div class="container">
+        <div>
+          <div fxLayout="column" fxFlex="100" fxFlex.gt-xs="100">
+            <div class="section-title">Hear It From Our Home Owners</div>
+            <div ngClass.gt-xs="section-desc">
+              We don't just manage private holiday homes; we transform them into
+              high-demand vacation rentals. We are duly committed to boosting
+              your property value and lifestyle. Our homeowners share their
+              side, unbiased:
+            </div>
+          </div>
+          <!-- -->
+        </div>
+        <div class="" ngClass.lt-sm="display-none">
+          <div class="investor-cards" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+            <div class="investor-card" ngClass.xs="investor-card-xs" fxLayout="column" fxLayout.gt-xs="row">
+              <div class="">
+                <img src="../../../assets/images/investor-bg.png" alt="" class="investor-card-img" />
+              </div>
+              <div class="about-card">
+                <div class="premium" fxLayout="row" fxLayoutAlign="center center">
+                  <div class="p-border" fxLayoutAlign="center center">
+                    Pura Vida
+                  </div>
+                </div>
+                <div class="card-title">Aryan</div>
+                <div class="card-location">Mumbai</div>
+                <div class="card-desc">
+                  StayMaster transformed my property into a profitable vacation rental.
+                  Their professional management and marketing expertise doubled my rental income.
+                  Excellent guest services and maintenance support throughout.
+                </div>
+              </div>
+            </div>
+            <div class="investor-card" ngClass.xs="investor-card-xs" fxLayout="column" fxLayout.gt-xs="row" fxFlex="50">
+              <div class="">
+                <img src="../../../assets/images/investor-bg.png" alt="" class="investor-card-img" />
+              </div>
+              <div class="about-card">
+                <div class="card-title">Aryan Mumbai</div>
+                <div class="card-desc">
+                  Outstanding experience with StayMaster's property management services.
+                  They handle everything from guest communications to maintenance, ensuring
+                  consistent income while preserving property quality.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="" ngClass.gt-xs="display-none">
+          <div class="slider">
+            <div class="slides">
+              <div class="slide" #slide1>
+                <div class="client" fxLayout="column" fxLayout.gt-sm="row">
+                  <div fxFlex="100" class="" fxLayoutAlign="center">
+                    <div class="premium-mobile" fxLayout="row" fxLayoutAlign="center center">
+                        <div class="p-border" fxLayoutAlign="center center">
+                            Pura Vida
+                        </div>
+                    </div>
+                    <img src="../../../assets/images/investor-bg-xs.png"
+                      class="investor-card-img-lt-md img img-responsive" alt="" />
+                  </div>
+                  <div class="about-card">
+                    <div class="card-title">Aryan</div>
+                    <div class="card-location">Mumbai</div>
+                    <div class="card-desc">
+                      StayMaster transformed my property into a profitable vacation rental.
+                      Their professional management and marketing expertise doubled my rental income.
+                      Excellent guest services and maintenance support throughout.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide" #slide1>
+                <div class="client" fxLayout="column" fxLayout.gt-sm="row">
+                  <div fxFlex="100" class="" fxLayoutAlign="center">
+                    <!-- <div class="premium" fxLayout="row" fxLayoutAlign="center center">
+                                            <div class="p-border" fxLayoutAlign="center center">
+                                                Pura Vida
+                                            </div>
+                                        </div> -->
+                    <img src="../../../assets/images/investor-bg-xs.png"
+                      class="investor-card-img-lt-md img img-responsive" alt="" />
+                    <!-- <div>
+                                        </div> -->
+                  </div>
+                  <div class="about-card">
+                    <div class="card-title">Aryan</div>
+                    <div class="card-location">Mumbai</div>
+                    <div class="card-desc">
+                      Outstanding experience with StayMaster's property management services.
+                      They handle everything from guest communications to maintenance, ensuring
+                      consistent income while preserving property quality.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br fxHide.lt-md />
+            <br fxHide.lt-md />
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container>
+    <app-dont-warry-section></app-dont-warry-section>
+    <!-- <div class=" section-process">
+            <div fxLayout="column" fxLayout.gt-sm="row">
+                <div fxFlex="50" fxFlex.gt-sm="50" class="left-side">
+                    <div class="container " ngClass.xs="container-xs" fxLayout="column" fxLayoutGap="20px">
+                        <div class="title">Don't Worry! We are always here for you</div>
+                    </div>
+                </div>
+                <div fxFlex="50">
+                    <div fxLayout="column" class="dropdown-txt">
+                        <div class="section-p">How does StayMaster manage property maintenance and guest communication? <span
+                                class="down-arrow"><img src="../../../assets/images/down-arrow.png" /></span></div>
+                        <hr class="hr-line" />
+                    </div>
+                    <div fxLayout="column" class="dropdown-txt">
+                        <div class="section-p">What marketing support does StayMaster provide to maximize bookings? <span
+                                class="down-arrow"><img src="../../../assets/images/down-arrow.png" /></span></div>
+                        <hr class="hr-line" />
+                    </div>
+                    <div fxLayout="column" class="dropdown-txt">
+                        <div class="section-p">How are housekeeping services coordinated for my guests? <span
+                                class="down-arrow"><img src="../../../assets/images/down-arrow.png" /></span></div>
+                        <hr class="hr-line" />
+                    </div>
+                    <div fxLayout="column" class="dropdown-txt">
+                        <div class="section-p">What earnings can I expect when partnering with StayMaster? <span
+                                class="down-arrow"><img src="../../../assets/images/down-arrow.png" /></span></div>
+                        <hr class="hr-line" />
+                    </div>
+                </div>
+            </div>
+        </div> -->
+  </ng-container>
+  <ng-container>
+    <div class="invest-in-properties-xs" ngClass.gt-xs="invest-in-properties">
+      <div ngClass.xs="container-xs" class="container">
+        <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap.lt-md="30">
+          <div class="about-properties" ngClass.xs="about-properties-xs" fxLayout="column" fxLayoutGap="26px"
+            fxFlex="100" fxFlex.gt-xs="50">
+            <div class="title">Ready to Profit From Your Second Home?</div>
+            <div class="desc">
+              List your second home for hosting seasoned travellers and relax
+              with the idea of making passive income. Just fill out this form
+              and let's get to hosting with Staymaster
+            </div>
+          </div>
+          <div fxFlex="100" fxLayout="column" fxLayoutGap="26px" fxFlex.gt-xs="50">
+            <div class="enquiry-form" ngClass.xs="enquiry-form-xs">
+              <form [formGroup]="enquiryForm" (ngSubmit)="onSubmit(enquiryForm)">
+                <div fxLayout="column" fxLayoutGap="15px">
+                  <div>
+                    <input type="text" class="form-control sm-text" placeholder="Name" formControlName="name" />
+                    <span
+                      *ngIf="(enquiryForm.controls['name'].touched || formSubmitted) && enquiryForm.controls['name']?.errors?.['required']"
+                      class="error-message">
+                      Name is required
+                    </span>
+                  </div>
+                  <div>
+                    <input type="text" class="form-control sm-text" placeholder="Email" formControlName="email" />
+                    <span
+                      *ngIf="(enquiryForm.controls['email'].touched || formSubmitted) && enquiryForm.controls['email']?.errors?.['required']"
+                      class="error-message">
+                      Email is required
+                    </span>
+                    <span
+                      *ngIf="(enquiryForm.controls['email'].touched || formSubmitted) && enquiryForm.controls['email']?.errors?.['email']"
+                      class="error-message">
+                      Enter a valid email
+                    </span>
+                  </div>
+                  <div>
+                    <input type="text" class="form-control sm-text" placeholder="Phone" formControlName="phone" />
+                    <span
+                      *ngIf="(enquiryForm.controls['phone'].touched || formSubmitted) && enquiryForm.controls['phone']?.errors?.['required']"
+                      class="error-message">
+                      Phone is required
+                    </span>
+                  </div>
+                  <div>
+                    <select formControlName="propertyType" name="property" id="property"
+                      class="form-control sm-text form-select">
+                      <option [value]="''" disabled>
+                        Select Type Of Property
+                      </option>
+                      <option *ngFor="let option of propertyOptions" [value]="option.id">
+                        {{ option.display }}
+                      </option>
+                    </select>
+                    <span
+                      *ngIf="(enquiryForm.controls['propertyType'].touched || formSubmitted) && enquiryForm.controls['propertyType']?.errors?.['required']"
+                      class="error-message">
+                      Property type is required
+                    </span>
+                  </div>
+                  <br fxHide.lt-md />
+                  <div fxLayoutAlign.gt-xs="end end">
+                    <button class="submit-btn" ngClass.lt-md="submit-btn-xs">
+                      Submit
+                    </button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+            <div fxLayoutAlign="start start" fxHide.lt-md>
+              <div class="kit-align">
+                <img src="../../../assets/images/kit.png" alt="" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container>
+    <app-footer></app-footer>
+  </ng-container>
+</div>

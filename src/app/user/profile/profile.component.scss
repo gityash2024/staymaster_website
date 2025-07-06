@@ -1,0 +1,177 @@
+
+.profile {
+    
+    .bg {
+        background-image: url(../../../assets/images/profile-bg.png);
+        min-height: 100vh;   
+        background-position: right;
+        background-repeat: no-repeat;     
+        background-size: cover;
+    }
+    .bg-xs {
+        background-image: url(../../../assets/images/profile-bg-xs.png);
+        min-height: 90vh;   
+        background-position: right;
+        background-repeat: no-repeat;     
+        background-size: cover;
+    }
+
+    .comment {
+        font-family: 'Caudex';
+        font-style: italic;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 42px;
+        color: #F9F5F3;
+        padding-top: 12rem;
+
+        .qoute {
+            font-family: 'Milyuna';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 300px;
+            // line-height: 405px;
+            // text-align: center;
+            color: #F9F5F3;
+            position: relative;
+            top: 80px;
+        }
+    }
+    .left-side {
+        background: #008281;
+        opacity: 0.8;
+        min-height: 100vh;
+        padding: 3rem 3rem 3rem 6rem;
+        @media (max-width: 959px) {
+            padding: 0.8rem 3rem 3rem 3rem;
+        }
+        .logo-image{
+            width: 100%;
+        }
+    }
+
+    .left-side-xs {
+        padding: 2rem 2rem 2rem 2rem;
+
+        .menu-icon {
+            padding-top: 20px;
+        }
+    }
+
+    .profile-form {
+        background: #FFFFFF;
+        min-height: 100vh;
+        padding: 30px 148px 64px 148px;
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+
+        label {
+            font-size: 18px;
+            line-height: 23px;
+            color: #757575;
+            padding-left: 20px;
+        }
+
+        .sm-text {
+            border: 1.1px solid rgba(161, 129, 128, 0.9);
+            border-radius: 29px;            
+            font-size: 20px;
+            line-height: 25px;
+            color: rgba(46, 46, 46, 0.95);
+            height: 45px;
+            padding-left: 20px;
+        }
+
+        .title {
+            font-family: Caudex;
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 34px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #008281;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+        @media (max-width: 1090px) {
+            padding: 30px 30px 64px 30px !important;
+        }
+    }
+
+    .profile-form-xs {
+        background: #FFFFFF;
+        min-height: 100vh;
+        padding: 2rem 2rem 2rem 2rem;
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .menu > img {
+        width: 28px;
+        height: 24px;
+        margin-bottom: 30px;
+        cursor: pointer;
+    }
+
+    .booking-for {    
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 23px;
+    
+        .booking-for-btn {
+            width: 250px;
+            height: 50px;
+            border-radius: 8px;
+            background: #FFFFFF;
+            border: 1.1px solid rgba(161, 129, 128, 0.9);
+            cursor: pointer;
+            border-radius: 29px;
+            @media (min-width: 600px) and (max-width: 768px) {
+                font-size: 14px;
+            }
+        }
+    
+        .active {
+            background: #008281;
+            color: #FFFFFF;
+            border: 1px solid #008281;
+        }
+    }
+
+    .save-btn {
+        background: #008281;
+        box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+        border-radius: 46px;
+        width: 100%;
+        height: 50px;
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 25px;
+        color: #F9F5F3;
+        cursor: pointer;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .phone-number{
+        flex-direction: column !important;
+        gap: 15px;
+        select{
+            max-width: 100% !important;
+        }
+    }
+}
+
+.mobile-select{
+    @media (max-width: 768px) {
+        max-width: 45% !important;
+        padding-left: 10px !important;
+    }
+}

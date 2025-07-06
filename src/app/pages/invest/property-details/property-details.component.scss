@@ -1,0 +1,1052 @@
+.page {
+    background: #FFFFFF;
+}
+
+
+.property-header {
+    background-image: url('../../../../assets/images/stay-description-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height : 677px;
+    // max-height: auto;
+    .header-box {
+        position: relative;
+        min-height: inherit;
+        background-color: rgba(8, 8, 8, 0.55);
+    }  
+    .left-section {
+        margin-top: 100px;
+    }
+    .header-info {
+        position: absolute;
+        bottom: 0;
+        // width: 100%;
+    }
+    .share-btn {
+        right: 0;
+    }
+    .property-info {
+        .price {
+            font-family: 'Caudex';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 46px;
+            color: #F9F5F3;
+        } 
+        .address {
+            font-family: 'Caudex';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 28px;
+            color: #E6E6E6;
+        }
+
+        .aminities {
+            font-family: 'Akkurat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: rgba(255, 255, 255, 0.8);
+
+        }
+
+        .aminities-dot {
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin-top: 8px;
+        }
+
+        .share-btn {
+            float: right;
+        }
+
+    } 
+
+}
+
+.property-header-xs {
+    background-image: url('../../../../assets/images/image 1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height : 677px;
+    // max-height: auto;
+    .header-box {
+        position: relative;
+        min-height: inherit;
+        background-color: rgba(8, 8, 8, 0.55);
+       
+    }  
+    .left-section {
+        margin-top: 100px;
+    }
+    .header-info {
+        position: absolute;
+        bottom: 0;
+        // width: 100%;
+    }
+    .share-btn {
+        right: 0;
+    }
+    .property-info {
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 50px;
+        .price {
+            font-family: 'Caudex';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 28px;
+            line-height: 46px;
+            color: #F9F5F3;
+        } 
+        .address {
+            font-family: 'Caudex';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 28px;
+            color: #E6E6E6;
+        }
+
+        .aminities {
+            font-family: 'Akkurat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 20px;
+            color: rgba(255, 255, 255, 0.8);
+
+        }
+
+        .aminities-dot {
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin-top: 8px;
+        }
+
+        .share-btn {
+            float: right;
+        }
+
+    } 
+
+}
+
+.menus {
+    height: 110px;
+    background: #008281;
+
+    .menu {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 25px;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+    }
+
+    .menu-active {
+        color: #FFFFFF;
+    }
+
+    
+}
+
+.property-details {
+    padding-top: 80px;
+}
+.property-title {
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 28px;
+    color: #2E2E2E;
+}
+
+.calculator {
+    margin-top: 38px;
+    background: #F9F5F3;
+    box-shadow: 2px 2px 15px 1px rgba(105, 105, 105, 0.18);
+    border-radius: 8px;
+    min-height: 104px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-around;
+    @media (max-width: 992px) {
+        display: block !important;
+    }
+    @media (max-width: 992px) {
+        background: none !important;
+        box-shadow: none !important;
+    }
+    .title {
+        font-size: 16px;
+        line-height: 20px;
+        color: #696969;
+    }
+    .sub-title {
+        font-size: 20px;
+        line-height: 25px;
+        color: #2E2E2E;
+        margin-top: 10px;
+    }
+
+    .card {
+        background: #F9F5F3;
+    }
+}
+
+.calculator-xs {
+    margin-top: 38px;
+    background: transparent;
+    box-shadow: 2px 2px 15px 1px rgba(105, 105, 105, 0.18);
+    border-radius: 8px;
+    min-height: 104px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    .title {
+        font-size: 16px;
+        line-height: 20px;
+        color: #696969;
+    }
+    .sub-title {
+        font-size: 20px;
+        line-height: 25px;
+        color: #2E2E2E;
+        margin-top: 10px;
+    }
+
+    .card {
+        background: #F9F5F3;
+    }
+
+
+    .vertical-line {
+        transform: rotate(90deg);
+        border: 1px solid #D9D9D9;
+        width: 56px;
+    }
+
+    .horizantal-line {
+        height: 1px;
+        border: 1px solid #D9D9D9;
+        width: 56px;
+    }
+    
+}
+
+.property-details-xs {
+    padding-top: 80px;
+    .property-title {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 28px;
+        color: #2E2E2E;
+    }
+    
+    .calculator {
+        margin-top: 38px;
+        background: transparent;
+        box-shadow: 0px 0px 0px 0px;
+        border-radius: 8px;
+        min-height: 104px;
+        padding-top: 22px;
+        padding-bottom: 50px;
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        .title {
+            font-size: 16px;
+            line-height: 20px;
+            color: #696969;
+        }
+        .sub-title {
+            font-size: 20px;
+            line-height: 54px;
+            color: #2E2E2E;
+            margin-top: 10px;
+            border-radius: 8px;
+            height: 54px;
+            border: #A18180 1px solid;
+            margin-bottom: 10px;
+            // text-align: center;
+            vertical-align: baseline;
+            padding-left: 10px;
+        }
+
+        .card {
+            background: #F9F5F3;
+        }
+    }
+
+     
+
+
+    .vertical-line {
+        transform: rotate(90deg);
+        border: 1px solid #D9D9D9;
+        width: 56px;
+    }
+
+    .horizantal-line {
+        height: 1px;
+        border: 1px solid #D9D9D9;
+        width: 56px;
+    }
+    
+}
+
+.margin-right {
+    margin-right: 4px;
+  }
+
+.about-the-property {
+    margin-top: 68px;
+    padding-bottom: 50px;    
+    .st-card {
+        width: 260px;
+        height: 151px;
+
+        background: #FFFFFF;
+        box-shadow: 2px 2px 15px 1px rgba(105, 105, 105, 0.18);
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .about > .title {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 28px;
+        color: #2E2E2E;
+    }
+
+    .about > .desc {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 23px;
+        color: #2E2E2E;
+    }
+
+    .read-more > a {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 25px;
+        text-decoration: underline;
+        color: #444444;
+        cursor: pointer;
+    }
+
+    .card-title {
+        font-family: 'Caudex';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 52px;
+        text-align: center;
+        color: #C4B385;
+    }
+    .card-subtitle {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 23px;
+        color: #333333;
+        margin-top: 10px;
+    }
+}
+
+.about-the-property-xs {
+    margin-top: 68px;
+    padding-bottom: 50px;    
+
+    .st-cardgp{
+        margin-top: 20px;
+    }
+
+    .about-btn{
+        width: 100%;
+    }
+
+    .st-card {
+        width: 157px;
+        height: 98px;
+
+        background: #FFFFFF;
+        box-shadow: 2px 2px 15px 1px rgba(105, 105, 105, 0.18);
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .about > .title {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 28px;
+        color: #2E2E2E;
+    }
+
+    .about > .desc {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 23px;
+        color: #2E2E2E;
+    }
+
+    .read-more > a {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 25px;
+        text-decoration: underline;
+        color: #444444;
+        cursor: pointer;
+    }
+
+    .card-title {
+        font-family: 'Caudex';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 26px;
+        line-height: 52px;
+        text-align: center;
+        color: #C4B385;
+    }
+    .card-subtitle {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 23px;
+        color: #333333;
+        margin-top: 10px;
+    }
+}
+
+.bottom-line {
+    height: 1px;
+  background: 
+   linear-gradient(to left,  #C4B385 0%, #C4B385 70%);
+  background-size:100% 2px;
+//   background-position:bottom 0 left 0,bottom 5px left 0;
+  background-repeat:no-repeat;
+}
+
+.property-insights {
+    margin-top: 70px;
+    padding-bottom: 100px;
+    .insights-cards {
+        margin-top: 50px;
+        overflow: auto;
+        flex-direction: row !important;
+        scrollbar-width: none ;
+        .insights-card {
+            width: 100%;
+            flex: 0 0 300px;
+            min-width: 300px;
+            max-width: 300px;
+        }
+        .insights-card-circle {            
+            width: 103px;
+            height: 103px;
+            background: #C4B385;
+            border: 1.2px solid #C4B385;
+            border-radius: 50px;
+        }
+
+        .card-title {
+            font-family: 'Caudex';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 50px;
+            line-height: 73px;
+            text-align: center;
+            color: #C4B385;
+        }
+
+        .vertical-line {
+            transform: rotate(90deg);
+            border: 1.6px solid #C4B385;
+            transform: rotate(90deg);
+            width: 56px;
+            margin-top: 28px;
+            margin-bottom: 27px;
+        }
+
+        .top-line, .bottom-line {
+            width: 100%;
+            // height: 1.6px;
+            border: 1.6px solid #C4B385;
+        }
+
+        .card-name {
+            margin-top: 18px;
+            font-family: 'Akkurat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 24px;
+            text-align: center;
+            color: #C4B385;
+        }
+    }
+}
+
+.property-insights-xs {
+    margin-top: 70px;
+    padding-bottom: 100px;
+    .insights-cards {
+        margin-top: 50px;
+        overflow: auto;
+        flex-direction: row !important;
+        scrollbar-width: none;
+
+        .insights-card {
+            width: 100%;
+            flex: 0 0 300px;
+            min-width: 300px;
+            max-width: 300px;
+        }
+        .insights-card-circle {            
+            width: 103px;
+            height: 103px;
+            background: #C4B385;
+            border: 1.2px solid #C4B385;
+            border-radius: 50px;
+        }
+
+        .card-title {
+            font-family: 'Caudex';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 50px;
+            line-height: 73px;
+            text-align: center;
+            color: #C4B385;
+        }
+
+        .vertical-line {
+            transform: rotate(90deg);
+            border: 1.6px solid #C4B385;
+            transform: rotate(90deg);
+            width: 56px;
+            margin-top: 28px;
+            margin-bottom: 27px;
+        }
+
+        .top-line, .bottom-line {
+            width: 100%;
+            // height: 1.6px;
+            border: 1.6px solid #C4B385;
+        }
+
+        .card-name {
+            margin-top: 18px;
+            font-family: 'Akkurat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 24px;
+            text-align: center;
+            color: #C4B385;
+        }
+
+        .slider {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .slides::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        .slides::-webkit-scrollbar-thumb {
+            // background: black;
+            border-radius: 10px;
+        }
+
+        .slides::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .slides>.slide {
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            width: 100%;
+            height: 100%;
+            padding-top: 40px;
+            transform: scale(1);
+            transition: transform 0.5s;
+            position: relative;
+            overflow-y: hidden;
+            margin: 0 10px;
+        }
+    }
+}
+
+.market-statistics {
+    background: #F9F5F3;
+    padding-top: 62px;
+    padding-bottom: 96px;
+
+    .statistics-cards {
+        margin-top: 38px;
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+        gap: 20px;
+    }
+
+    .statistics-card {
+        height: 162px;
+        background: #FFFFFF;
+        box-shadow: 2px 2px 15px 1px rgba(105, 105, 105, 0.12);
+        border-radius: 8px;
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        padding: 20px 24px 20px 24px;
+
+        .title {
+            font-size: 20px;
+            line-height: 25px;
+            color: #2E2E2E;
+        }
+
+        .more-infor > img {
+            width: 19px;
+            height: 19px;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            line-height: 28px;
+            color: #2E2E2E;
+        }
+
+        .light-title {
+            font-size: 16px;
+            line-height: 20px;
+            color: rgba(105, 105, 105, 0.8);
+        }
+
+        .per {
+            font-size: 16px;
+            line-height: 20px;
+            color: #2E2E2E;
+        }
+    }
+}
+
+
+.market-statistics-xs {
+    background: #F9F5F3;
+    padding-top: 62px;
+    padding-bottom: 96px;
+
+    .statistics-cards {
+        margin-top: 38px;
+    }
+
+    .statistics-card {
+        height: auto;
+        background: #FFFFFF;
+        box-shadow: 2px 2px 15px 1px rgba(105, 105, 105, 0.12);
+        border-radius: 8px;
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        padding: 20px 24px 20px 24px;
+
+        .title {
+            font-size: 14px;
+            line-height: 25px;
+            color: #2E2E2E;
+        }
+
+        .more-infor > img {
+            width: 19px;
+            height: 19px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            line-height: 28px;
+            color: #2E2E2E;
+        }
+
+        .light-title {
+            font-size: 14px;
+            line-height: 20px;
+            color: rgba(105, 105, 105, 0.8);
+        }
+
+        .per {
+            font-size: 16px;
+            line-height: 20px;
+            color: #2E2E2E;
+        }
+    }
+}
+
+.neighbourhood {
+    padding-top: 100px;
+    margin-bottom: 100px;
+
+    .property-title{
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 28px;
+        color: #2E2E2E;
+    }
+    .near-by {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        margin-top: 15px;
+        margin-bottom: 40px;
+        .active {
+            color: #008281;
+        }
+    }
+
+    .locations {        
+        font-size: 16px;
+        line-height: 22px;
+        text-decoration-line: underline;
+        color: #8A8A8A;        
+    }
+
+    .neighbourhood-map {
+        width: 100%;
+    }
+}
+
+.benchmarks {
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    padding-bottom: 100px;
+
+    .property-title {        
+        font-size: 22px;
+        line-height: 28px;
+        color: #2E2E2E;
+        margin-bottom: 50px;
+    }
+
+    .benchmark-card {
+        cursor: pointer;
+        width: 260px;
+        height: 162px;
+        left: 110px;
+        top: 3671px;
+        background: #FFFFFF;
+        color: #2E2E2E;
+        box-shadow: 2px 2px 15px 1px rgba(105, 105, 105, 0.18);
+        border-radius: 8px;
+        padding: 20px 22px 20px 22px;
+
+        @media (max-width: 600px) {
+            width: 50% !important;
+        }
+
+        .title {
+            font-size: 20px;
+            line-height: 25px;
+        }
+
+        .subtitle {
+            margin-top: 4px;
+            font-size: 20px;
+            line-height: 25px;
+        }
+
+        .price {
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        .area {
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+
+    .benchmark-card-active {
+        background: #008281;
+        color: #FFFFFF;
+    }
+
+    .more-info > img {
+        width: 19px;
+        height: 19px;
+        margin-left: 40px;
+    }
+
+    .benchmark-chart {
+        margin-top: 5px;
+    }
+
+    .view-all {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 25px;
+        text-decoration-line: underline;
+        color: #008281;
+        text-align: center;
+        cursor: pointer;
+    }
+
+}
+
+.benchmarks-xs {
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    padding-bottom: 100px;
+
+    .property-title {        
+        font-size: 22px;
+        line-height: 28px;
+        color: #2E2E2E;
+        margin-bottom: 50px;
+    }
+
+    .benchmark-card {
+        cursor: pointer;
+        width: 157px;
+        height: auto;
+        left: 110px;
+        top: 3671px;
+        background: #FFFFFF;
+        color: #2E2E2E;
+        box-shadow: 2px 2px 15px 1px rgba(105, 105, 105, 0.18);
+        border-radius: 8px;
+        padding: 20px 22px 20px 22px;
+        
+
+        .title {
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .subtitle {
+            margin-bottom: 4px;
+            font-size: 16px;
+            line-height: 20px;
+    
+        }
+
+        .price {
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .area {
+            font-size: 14px;
+            line-height: 20px;
+        }
+    }
+
+    .benchmark-card-active {
+        background: #008281;
+        color: #FFFFFF;
+    }
+
+    .more-info > img {
+        width: 19px;
+        height: 19px;
+        margin-left: 40px;
+    }
+
+    .benchmark-chart {
+        margin-top: 5px;
+
+        img{
+            height: inherit;
+        }
+    }
+
+    .view-all {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 25px;
+        text-decoration-line: underline;
+        color: #008281;
+        text-align: center;
+        cursor: pointer;
+    }
+
+}
+
+
+.financial-analysis {
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    padding-bottom: 100px;
+
+    .property-title {        
+        font-size: 22px;
+        line-height: 28px;
+        color: #2E2E2E;
+        margin-bottom: 30px;
+    }
+
+    .desc {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 23px;
+        margin-bottom: 40px;
+        color: #2E2E2E;
+    }
+}
+
+
+.always-here {
+    padding-top: 110px;
+    padding-bottom: 100px;    
+    background: #F9F5F3;
+    background-image: url('../../../../assets/images/Frame.png');
+    background-position: left 0px bottom -10px;
+    background-repeat: no-repeat;
+
+    .title {
+        font-family: 'Caudex';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 58px;
+        color: #008281;
+    }
+    .panel-title {
+        font-family: 'Akkurat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 25px;
+        color: rgba(88, 65, 57, 0.95);
+    }
+
+    .mat-expansion-panel {
+        box-shadow: none;
+        background-color: #F9F5F3;
+        border-bottom: 1px solid rgba(88, 65, 57, 0.3);
+        padding-bottom: 10px;
+    }
+}
+
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+  }
+
+
+  .aminities-control {
+    cursor: pointer;
+  }
+
+.property-points {
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #4F4F4F;
+    padding-top: 100px;
+}
+
+.st-btn {
+    min-width: 230px;
+    height: 60px;
+    background: #008281;
+    box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+    border-radius: 46px;
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #F9F5F3;
+    border: none;
+}
+
+.invest-calculator-mobile{
+    display: none !important;
+    @media (max-width: 992px) {
+        display: block !important;
+    }
+}
+
+.invest-calculator{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @media (max-width: 992px) {
+        display: none !important;
+    }
+}
+
+.neighbourhood-container{
+    @media (max-width: 600px) {
+        padding: 0 !important
+    }
+}
+
+.analysis-table, .analysis-table-xs{
+    min-width: 250px !important;
+    width: 100%;
+    overflow-x: auto;
+    border: 0.1px solid #d4c7a7 !important;
+    scrollbar-width: none;
+    table{
+        overflow: auto;
+    }
+}

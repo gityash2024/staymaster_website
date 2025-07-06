@@ -1,0 +1,95 @@
+<div class="footer">
+  <div class="container px-3" fxLayout="column">
+    <div fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="start stretch" fxLayoutGap="30px" fxFlex="100" class="footer-content">
+      <div fxFlex="40" fxFlexOrder="2" fxFlexOrder.gt-md="1">
+        <div ngClass.gt-md="about-company" ngClass.lt-md="about-company-xs" fxLayout="column" fxLayout.lt-md="row"
+          fxLayoutAlign="start center" fxLayoutGap="10px" fxLayoutAlign.lt-md="flex-start" class="about-company-content">
+          <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+            <img src="../../../assets/images/logo.png" alt="" class="logo mb-2" />
+            <div class="company-name">staymaster</div>
+          </div>
+
+
+          <div class="">
+            <div class="title mb-2">Experiential stays for Happy Holidays!</div>
+            <div class="company-desc">
+              Welcome to the brand that helps you<br />
+              master the new way to stay
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxFlex="60" class="footer-text-content" fxFlexOrder="1" fxFlexOrder.gt-md="2">
+        <div fxFlex="20%" [ngClass.lt-md]="'mt-5'" class="footer-heads">
+          <div class="footer-menu mat-list-menu" fxLayout="column" fxLayoutGap="28">
+            <a [routerLink]="'/'" class="mat-list-item">Home</a>
+            <a [routerLink]="'/blogs'" class="mat-list-item">Blogs</a>
+            <a [routerLink]="'/about'" class="mat-list-item">About us</a>
+            <!--<a [routerLink]="'/invest'" class="mat-list-item">Invest</a>-->
+            <a [routerLink]="'/host'" class="mat-list-item">Host</a>
+            <a [routerLink]="'/stay/all'" class="mat-list-item">Stay</a>
+            <a [routerLink]="'/contact-us'" class="mat-list-item">Contact us</a>
+          </div>
+        </div>
+        <div ngClass.lt-sm="mt-20 gap-3" class="d-flex gap-5" fxFlexOrder.lt-md="1" fxFlex.gt-md="80" fxLayoutAlign.gt-sm="space-between">
+          <div fxFlex="100%" fxFlex.lt-lg="30%" fxFlex="100" fxFlex.gt-md="30" fxFlex.lt-md="34" >
+            <div class="footer-menu mat-list-menu" fxLayout="column" fxLayoutGap="15px">
+              <a class="menu-header mat-list-item mb-20" [routerLink]="'/stay/all'">Stays</a>
+              <a [routerLink]="'/stay/all'" class="mat-list-subitem">Stays in Goa</a>
+              <!-- <a [routerLink]="'/stay'" [queryParams]="{destination: 'Maharashtra'}" class="mat-list-subitem">Stays in Maharashtra</a> -->
+              <!-- <a [routerLink]="'/stay'" [queryParams]="{destination: 'Uttarakhand'}" class="mat-list-subitem">Stays in Uttarakhand</a> -->
+            </div>
+          </div>
+          <div fxFlex="100" fxFlex.gt-md="60" fxFlex.lt-md="55" >
+            <div class="footer-menu mat-list-menu" fxLayout="column" fxLayoutGap="15px">
+              <a class="menu-header mat-list-item mb-20">Collections</a>
+              <div class="gap-3" ngClass.lt-sm="flex-wrap">
+                <div class="collections-grid">
+                  <div *ngFor="let item of collections" class="collection-item">
+                    <a [routerLink]="item.path" class="mat-list-subitem mb-3">
+                      {{ item.name }}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="column" fxLayout.gt-md="row">
+      <div fxLayout="column" fxLayoutAlign="start center" fxLayoutAlign.lt-md="flex-start" fxFlex="100"
+        fxFlex.gt-xs="40" fxFlexOrder.lt-sm="0">
+        <div ngClass.gt-sm="social-media-icons" ngClass.lt-md="social-media-icons-xs" fxLayout="row"
+          fxLayoutGap="13.28px">
+          <img src="../../../assets/images/facebook-icon.svg" class="cursor-pointer"
+            (click)="openSocialMedia('https://www.facebook.com/staymaster')" />
+          <img src="../../../assets/images/instagram-icon.svg" class="cursor-pointer" (click)="
+              openSocialMedia('https://www.instagram.com/thestaymaster/')
+            " />
+          <img src="../../../assets/images/twitter-icon.svg" class="cursor-pointer"
+            (click)="openSocialMedia('https://www.twitter.com/')" />
+          <img src="../../../assets/images/linkedin-icon.svg" class="cursor-pointer" (click)="
+              openSocialMedia(
+                'https://www.linkedin.com/company/staymaster/mycompany'
+              )
+            " />
+        </div>
+      </div>
+      <div fxLayout="row" fxFlex="100" fxFlex.gt-xs="36" class="footer-bootom" fxFlexOrder.lt-sm="2"
+        fxLayoutAlign.lt-md="flex-start center">
+        <div class="d-flex align-items-center flex-wrap justify-content-center text-center">
+          Copyright
+          <img src="../../../assets/images/copyright.svg" alt="" class="copyright" />
+          All rights reserved Staymaster Pvt. Ltd.
+        </div>
+      </div>
+      <div fxLayout="row" fxFlex="100" fxFlex.gt-xs="24" class="footer-bootom flex-wrap" fxLayoutAlign.lt-md="flex-start center"
+        fxFlexOrder.lt-sm="1">
+        <a [routerLink]="'/privacy-policy'">Privacy</a>
+        <span class="tc-dot"></span>
+        <a [routerLink]="['/terms-and-conditions']">Terms and Conditions</a>
+      </div>
+    </div>
+  </div>
+</div>

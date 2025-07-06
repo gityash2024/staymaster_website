@@ -1,0 +1,175 @@
+.viewProperty {
+    padding: 20px;
+
+    .title{
+        font-size:20px;
+    }
+
+    .topCard {
+        width: 86swv;
+        height: 255px;
+        border-radius: 10px;
+
+        .rowtitle {
+            font-size: var(--admin-subtitlesiz);
+            color: var(--admin-inactivetxt);
+        }
+
+        .rowdata {
+            font-size: var(--admin-subtitlesiz);
+            color: #787878;
+        }
+    }
+
+    .secondCard {
+        width: 86swv;
+        height: 1926px;
+        border-radius: 10px;
+
+        .rowtitle {
+            font-size: var(--admin-subtitlesiz);
+            color: var(--admin-inactivetxt);
+        }
+
+        .propimg {
+            width: 137px;
+            height: 110px;
+        }
+
+        .propdetailsphoto {
+            width: 400px;
+            .propimg {
+                width: 137px !important;
+                height: 110px !important;
+            }
+
+            .rowtitle {
+                font-size: var(--admin-subtitlesiz);
+                color: var(--admin-inactivetxt);
+            }
+
+            .rowdata {
+                font-size: var(--admin-subtitlesiz);
+                color: #787878;
+                word-wrap: break-word;
+            }
+        }
+    }
+
+    .thirdCard {
+        height: 694px;
+        border-radius: 10px;
+
+        .rowtitle {
+            font-size: var(--admin-subtitlesiz);
+            color: var(--admin-inactivetxt);
+        }
+
+        .rowdata {
+            font-size: var(--admin-subtitlesiz);
+            color: #787878;
+            word-wrap: break-word;
+        }
+    }
+
+    .location {
+        height: 314px;
+        border-radius: 10px;
+
+        .rowtitle {
+            font-size: var(--admin-subtitlesiz);
+            color: var(--admin-inactivetxt);
+        }
+
+        .rowdata {
+            font-size: var(--admin-subtitlesiz);
+            color: #787878;
+            word-wrap: break-word;
+        }
+    }
+
+    .meal {
+        height: 500px;
+        border-radius: 10px;
+
+        .rowtitle {
+            font-size: var(--admin-subtitlesiz);
+            color: var(--admin-inactivetxt);
+        }
+
+        .rowdata {
+            font-size: var(--admin-subtitlesiz);
+            color: #787878;
+            word-wrap: break-word;
+
+            .propimg {
+                width: 137px !important;
+                height: 110px !important;
+            }
+        }
+    }
+
+    .Essential {
+        height: 550px;
+        border-radius: 10px;
+
+        .rowtitle {
+            font-size: var(--admin-subtitlesiz);
+            color: var(--admin-inactivetxt);
+        }
+
+        .rowdata {
+            font-size: var(--admin-subtitlesiz);
+            color: #787878;
+            word-wrap: break-word;
+        }
+    }
+
+    .Aminity {
+        height: 2300px;
+        border-radius: 10px;
+
+        .rowtitle {
+            font-size: var(--admin-subtitlesiz);
+            color: var(--admin-inactivetxt);
+        }
+
+        .rowdata {
+            font-size: var(--admin-subtitlesiz);
+            color: #787878;
+            word-wrap: break-word;
+        }
+    }
+
+    .userd {
+        height: 300px;
+        border-radius: 10px;
+
+        .rowtitle {
+            font-size: var(--admin-subtitlesiz);
+            color: var(--admin-inactivetxt);
+        }
+
+        .rowdata {
+            font-size: var(--admin-subtitlesiz);
+            color: #787878;
+            word-wrap: break-word;
+        }
+    }
+}
+
+
+
+// --admin-mainfont:"Akkurat";
+
+// --admin-active: #008281;
+// --admin-inactive: rgb(66, 77, 79);
+
+// --admin-activetxt: #ffff;
+// --admin-inactivetxt:#222222;
+// #808080
+
+// --admin-titlesiz:16px;
+// --admin-titlesmall:15px;
+// --admin-subtitlesiz:14px;
+// --admin-subsubtitlesiz:12px;

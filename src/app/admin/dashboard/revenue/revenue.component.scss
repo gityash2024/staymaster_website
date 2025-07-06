@@ -1,0 +1,85 @@
+.revenue{
+padding: 20px;
+
+.date{
+    gap: 5px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+
+
+.cards{
+    height: fit-content;
+    .example-card{
+        width: 382px !important;
+        height: 318px !important;
+        border-radius: 8px;
+        padding-right: 20px;
+    
+        .title{
+            color: var(--admin-active);
+            font-size: var(--admin-titlesiz);
+        }
+        .subtitle{
+            color: var(--admin-inactivetxt);
+            font-size: var(--admin-subtitlesiz);
+        }
+
+        .placeholder{
+            width: -webkit-fill-available;
+        }
+
+        .date-placeholder{
+            height: 25px;
+            margin-left: -145px;
+            margin-top: 5px;
+        }
+    }
+}
+
+
+.bottom{
+    height: fit-content;
+    .bottomcard{
+        width: 382px !important;
+        height: 450px !important;
+        border-radius: 8px;
+        padding-right: 20px;
+    
+        .title{
+            color: var(--admin-active);
+            font-size: var(--admin-titlesiz);
+        }
+        .subtitle{
+            color: var(--admin-inactivetxt);
+            font-size: var(--admin-subtitlesiz);
+        }
+
+        .placeholder{
+            width: -webkit-fill-available;
+        }
+
+        .date-placeholder{
+            height: 25px;
+            margin-left: -145px;
+            margin-top: 5px;
+        }
+    }
+}
+}
+
+
+// --admin-mainfont:"Akkurat";
+
+// --admin-active: #008281;
+// --admin-inactive: rgb(66, 77, 79);
+
+// --admin-activetxt: #ffff;
+// --admin-inactivetxt:#222222;
+// #808080
+
+// --admin-titlesiz:16px;
+// --admin-titlesmall:15px;
+// --admin-subtitlesiz:14px;
+// --admin-subsubtitlesiz:12px;

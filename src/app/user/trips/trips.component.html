@@ -1,0 +1,159 @@
+<ng-container>
+    <app-header [headerName]="headerName"></app-header>
+</ng-container>
+<ng-container>
+    <div class="trips">
+        <div class="container">
+            <div class="title">My Trips</div>
+            <br>
+            <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+                <mat-tab *ngFor="let tab of tripTabs" [label]="tab.label">
+                    <ng-container *ngIf="trips[tab.key].length; else load">
+                        <div class="property-cards p-2" *ngIf="!loading">
+                            <div *ngFor="let trip of trips[tab.key]" class="property-card" fxFlex="100%" (click)="onTripClick(trip.id)">
+                                <div class="property-img">
+                                    <img [src]="trip.s3Url" alt="{{ trip.listing_name }}" height="200px" width="100%"/>
+                                </div>
+                                <div class="title">{{ trip.listing_name }}</div>
+    
+                                <div class="top-aminities" fxLayout="row" fxLayoutAlign="space-between">
+                                    <div fxLayout="row" fxLayoutGap="5px">
+                                        <div class="aminities-icon">
+                                            <img src="../../../assets/images/calendar-gray.png" alt="">
+                                        </div>
+                                        <div class="no-of-aminities">{{ trip.start | date: 'dd-MM-yyyy' }} - {{ trip.end | date: 'dd-MM-yyyy' }}</div>
+                                    </div>
+                                    <div fxLayout="row" fxLayoutGap="5px">
+                                        <div class="aminities-icon">
+                                            <img src="../../../assets/images/people-icon.png" alt="">
+                                        </div>
+                                        <div class="no-of-aminities"> {{ trip.guests }}</div>
+                                    </div>
+                                </div>
+                                <div class="trip-button">
+                                    <div *ngIf="tab.key === 'upcoming'">
+                                        + Add Concerirge Service
+                                    </div>
+                                    <div *ngIf="tab.key === 'past'">
+                                        Book Again
+                                    </div>
+                                    <div *ngIf="tab.key === 'cancelled'">
+                                        Book Now
+                                    </div>
+                                </div>
+                                <div fxLayout="row" fxLayoutAlign="space-between" class="mt-3 location-content">
+                                    <div class="d-flex gap-1" fxFlex="60">
+                                        <img src="assets/images/location-green.svg">
+                                        View Location
+                                    </div>
+                                    <!-- <div class="d-flex gap-1 justify-content-end" fxFlex="40">
+                                        <img src="assets/images/sm-call.png" height='20px' width='20px'>
+                                        Call Now
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                  
+                </mat-tab>
+            </mat-tab-group>
+
+            <div *ngIf="isMobile" class="mobile-dropdown">
+                <div class="rounded-circle">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-select
+                            [(value)]="selectedTabKey"
+                            panelClass="custom-select-panel">
+                            <mat-option *ngFor="let tab of tripTabs" [value]="tab.key">
+                                {{ tab.label }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+              
+                <ng-container *ngIf="trips[selectedTabKey]?.length; else load">
+                    <div class="property-cards p-2" *ngIf="!loading">
+                        <div *ngFor="let trip of trips[selectedTabKey]" class="property-card" fxFlex="100%" (click)="onTripClick(trip.id)">
+                            <div class="property-img">
+                                <img [src]="trip.s3Url" alt="{{ trip.listing_name }}" height="200px" width="100%"/>
+                            </div>
+                            <div class="title">{{ trip.listing_name }}</div>
+                    
+                            <div class="top-aminities" fxLayout="row" fxLayoutAlign="space-between">
+                                <div fxLayout="row" fxLayoutGap="5px">
+                                <div class="aminities-icon">
+                                    <img src="../../../assets/images/calendar-gray.png" alt="">
+                                </div>
+                                <div class="no-of-aminities">{{ trip.start | date: 'dd-MM-yyyy' }} - {{ trip.end | date: 'dd-MM-yyyy' }}</div>
+                                </div>
+                                <div fxLayout="row" fxLayoutGap="5px">
+                                <div class="aminities-icon">
+                                    <img src="../../../assets/images/people-icon.png" alt="">
+                                </div>
+                                <div class="no-of-aminities"> {{ trip.guests }}</div>
+                                </div>
+                            </div>
+                            <div class="trip-button">
+                                <div *ngIf="selectedTabKey === 'upcoming'" [routerLink]="'/conceirge-service'">
+                                    + Add Concerirge Service
+                                </div>
+                                <div *ngIf="selectedTabKey === 'past'">
+                                    Book Again
+                                </div>
+                                <div *ngIf="selectedTabKey === 'cancelled'">
+                                    Book Now
+                                </div>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="space-between" class="mt-3 location-content">
+                                <div class="d-flex gap-1 align-items-center" fxFlex="60">
+                                    <img src="assets/images/location-green.svg">
+                                    View Location
+                                </div>
+                                <!-- <div class="d-flex gap-1 justify-content-end align-items-center" fxFlex="40">
+                                    <img src="assets/images/sm-call.png" height='20px' width='20px'>
+                                    Call Now
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+              </div>
+            <div class="explore-stays">
+                <button type="button" class="sm-btn" fxLayout="row" fxLayoutAlign="center center" [routerLink]="'/stay/all'">
+                    Explore Stays
+                </button>
+            </div>
+            <div class="explore-stays-mobile-view">
+                <div class="explore-stays-button" fxLayout="row" fxLayoutGap="15px" [routerLink]="'/stay/all'">
+                    <span>Explore Stays</span>
+                    <div>
+                        <img src="../../../assets/images/right-arrow-icon.svg" class="cursor-pointer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container>
+    <app-footer></app-footer>
+</ng-container>
+
+<ng-template #load>
+    <div *ngIf="loading; else noData">
+        <div class="property-cards" fxLayout="column" fxLayout.gt-sm="row wrap" fxLayoutGap="0px"
+            fxLayoutAlign="space-between center" fxFlex="100%">
+            <div class="skeleton-item property-card" fxFlex="100%" fxFlex.gt-sm="45%" fxFlex.gt-md="23%" *ngFor="let item of skeletonObject"></div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #noData>
+    <div class="booking-empty">
+        <div class="booking-empty-title">
+            No Trips Booked Yet !
+        </div>
+    </div>
+    <div class="explore-stay-content">
+                    View all your upcoming and past bookings, manage check-in details, and access guest services
+    </div>
+</ng-template>

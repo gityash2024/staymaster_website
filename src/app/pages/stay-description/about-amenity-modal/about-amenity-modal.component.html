@@ -1,0 +1,26 @@
+<div mat-dialog-content class="modal-body">
+    <div class="amenity-head" fxLayout="row" fxLayoutAlign="space-between start">
+        <div class="title">Amenities</div>
+        <mat-icon (click)="onNoClick()">close</mat-icon>
+    </div>
+    <div class="house-rules" fxLayout="column" fxLayoutGap="25px">
+        <div class="list">
+            <div>
+                <div *ngFor="let amenity of amenityCategories">
+                    <div class="mb-20">
+                        <div class="tittle">
+                            <img [src]="amenity.img" alt="">
+                            <span class="pl-10">
+                                {{amenity.title}}
+                            </span>
+                        </div>
+                        <div fxLayout="row wrap" fxLayoutGap="20px" style="gap: 0 20px;">
+                            <div class="description mb-20" fxFlex="25%"  *ngFor="let item of amenity.list">
+                                {{item}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+.bookings{
+    padding: 20px;
+
+    .title{
+      font-size: var(--admin-maintitlesiz);
+    }
+
+
+    
+    .bookingDetailsCard{
+        margin-top: 20px;
+        width: 86vw;
+        height: 86svh;
+        overflow:scroll;
+        border-radius: 10px;
+  
+        .viewDetails{
+          width: 94px;
+          height: 38px;
+          border: 0.8px solid var(--admin-active);
+          color: var(--admin-active);
+          font-size: var(--admin-subtitlesiz);
+        }
+
+
+        .title{
+            color: var(--admin-active); 
+            font-size: var(--admin-maintitlesiz);
+        }
+
+        .subtitle{
+            color: var(--admin-active); 
+            font-size: var(--admin-subsubtitlesiz);
+        }
+
+        .mandatoryFields{
+            font-size: var(--admin-subsubtitlesiz);
+            color: var(--admin-active); 
+        }
+
+        .cancel{
+            width: 126px;
+            height: 38px;
+            color:var(--admin-active);
+            border :0.7px solid var(--admin-active);
+            margin-right: 10px;
+        }
+        .submit{
+            width: 126px;
+            height: 38px;
+           background-color: var(--admin-active); 
+           color:var(--admin-activetxt);
+
+        }
+
+        .formstart{
+            margin-top: 5px;
+            width: 100%;
+
+            .title{
+                color: var(--admin-active); 
+                font-size: var(--admin-subtitlesiz); 
+            }
+
+            .uploadArea{
+                height: 96px;
+                border-radius: 2px;
+                border: 2px dotted #C3C3C3;
+
+                .uploadtxt{
+                    top: 40%;
+                    left: 42%;
+                    position: relative;
+                    color:#C3C3C3;
+                    }
+
+            }
+
+            .uploadBtn{
+                width: 103px;
+                height: 38px;
+               background-color:var(--admin-active);
+               color:var(--admin-activetxt);
+               font-size:var(--admin-subtitlesiz)
+
+            }
+
+            .matFormFMetric{
+                height: 70px !important;
+                font-size: 14px;
+            }
+
+            /* Target the mat-select-trigger class for the selected option */
+            .mat-select-trigger {
+                font-size: 16px; /* Set your desired font size */
+            }
+            
+            /* Target the mat-option class for the dropdown options */
+            .mat-option {
+                font-size: 14px; /* Set your desired font size */
+  }
+            
+        }
+  
+      }
+}

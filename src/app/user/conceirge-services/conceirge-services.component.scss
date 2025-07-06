@@ -1,0 +1,222 @@
+.page {
+    background: #FFFFFF;
+}
+
+
+.property-header {
+    background-image: url('../../../assets/images/stay-description-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height : 677px;
+    // max-height: auto;
+
+    .header-title {
+        font-family: 'Milyuna';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 90px;
+        line-height: 108px;
+        padding-top: 225px;
+        text-align: center;
+        letter-spacing: 0.02em;
+
+        color: rgba(249, 245, 243, 0.9);
+    }
+    .header-box {
+        min-height: inherit;
+        background-color: rgba(8, 8, 8, 0.55);
+    }  
+    .left-section {
+        margin-top: 100px;
+    }
+    .header-info {
+        position: absolute;
+        bottom: 50px;
+        width: 82%;
+    }
+    .share-btn {
+        right: 0;
+        img {
+            width: 27px;
+            height: 27px;
+        }
+    }
+    .property-info {
+        .price {
+            font-family: 'Caudex';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 46px;
+            color: #F9F5F3;
+        } 
+        .address {
+            font-family: 'Caudex';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 28px;
+            color: #E6E6E6;
+        }
+
+        .aminities {
+            font-family: 'Akkurat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: rgba(255, 255, 255, 0.8);
+
+        }
+
+        .aminities-dot {
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin-top: 8px;
+        }
+
+        .share-btn {
+            float: right;
+        }
+
+    } 
+
+}
+
+
+.property-header-xs {
+    background-image: url('../../../assets/images/about-background-xs.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height : 677px;
+
+    .header-title-xs {
+        font-size: 50px;
+        line-height: 70px;
+    }
+}
+
+.services {
+    padding-top: 40px;
+    padding-bottom: 100px;
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+    
+    background-image: 
+        url('../../../assets/images/waveline.png'), 
+        url('../../../assets/images/Frame-bg-right.png');
+    
+    background-repeat: no-repeat, no-repeat;
+    background-position: left -30px top 20px, right 0px bottom -10px;
+
+    .title {
+        font-family: 'Caudex';
+        margin-top: 10px;
+        font-size: 40px;
+        line-height: 48px;
+        color: #008281;
+    }
+
+    .services-card {
+        // position: relative;
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) ;
+        grid-gap: 20px;
+
+        .scard {
+            cursor: pointer;
+            height: 120px;
+            margin-top: 20px;
+            border-radius: 4px;
+            background: #008281;
+            box-shadow: 2px 2px 15px 1px rgba(83, 83, 83, 0.25);
+            border-radius: 8px;
+            padding: 25px 15px;
+
+            .side-icon {
+                width: 65.72px;
+                height: 64.16px;
+                border-radius: 50px;
+                background: #C4B385;
+                padding: 6px;
+               
+            }
+            .service-img {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        .scard-lt-sm {
+            width: 100%;
+
+            .side-icon {
+                width: 65.72px;
+                height: 64.16px;
+            }
+        }
+
+        .service-img {
+
+        }
+
+        .card-title {
+            font-family: 'Caudex';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 26px;
+            color: #FFFFFF;
+        }
+    }
+}
+@media (max-width: 768px) {
+    .card-title{
+        justify-content: flex-start !important;
+        margin-left: 30px;
+    }
+
+    .side-icon-content {
+        max-width: 20% !important;
+    }
+}
+
+.pillar{
+    position: relative;
+    border-radius: 340px 340px 0px 0px;
+    border: 2px solid #c4b385;
+    transition: all 0.6s ease;
+    object-fit: cover;
+    overflow: hidden;
+    padding: 8px 16px 8px 8px;
+}
+
+.pillar-image{
+    height: 310px;
+    width: 50%;
+}
+
+.img-1{
+    border-radius: 320px 0 0 0;
+}
+
+.img-2{
+    border-radius: 0 320px 0 0 ;
+}
+
+.pillar-content{
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 132%;
+    color: #584139;
+    margin: 0px 0px;
+    background: white;
+    padding: 20px;
+}

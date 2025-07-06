@@ -1,0 +1,142 @@
+.gallery-container {
+    margin: 30px 0 auto;
+}
+
+.main-header {
+    align-items: center;
+}
+
+.gallery-header {
+    align-items: center;
+}
+
+.gallery-icon {
+    width: 26px;
+}
+
+.gallery-title {
+    font-family: Akkurat, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #2e2e2e;
+    margin-left: 10px;
+}
+
+.photo-collection {
+    display: flex;
+    gap: 20px;
+    // justify-content: space-between;
+}
+
+.photo-item {
+}
+
+.category-nav {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    color: #2e2e2e;
+    font-weight: 400;
+    margin-top: 46px;
+    overflow-x: auto;
+    white-space: nowrap;
+    @media (max-width: 991px) {
+        scrollbar-width: none;
+    }
+}
+
+.category {
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 19.5px;
+    border: 1px solid #c4b385;
+    background-color: rgba(217, 217, 217, 0);
+    transition: background-color 0.3s;
+    font-family: "Akkurat";
+}
+
+.category.active {
+    background-color: #008281;
+    color: #fff;
+}
+
+.image-display {
+    margin: 30px 0;
+}
+
+.featured-image,
+.wide-image {
+    width: auto;
+    height: auto;
+}
+
+.image-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+
+@media (max-width: 591px) {
+    .gallery-container {
+        max-width: 100%;
+    }
+}
+
+ngx-masonry {
+    display: block;
+    column-count: 4;
+    column-gap: 10px;
+    height: 100% !important;
+}
+
+ngx-masonry-item {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 10px
+}
+
+.gallery-item {
+    display: block;
+    width: 100%;
+}
+
+.grid-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+@media (max-width: 991px) {
+    ngx-masonry{
+        column-count: 3;
+        column-gap: 5px;
+    }
+    ngx-masonry-item {
+        margin-bottom: 5px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    ngx-masonry{
+        column-count: 2;
+        column-gap: 5px;
+    }
+    ngx-masonry-item {
+        margin-bottom: 5px !important;
+    }
+}
+
+@media (max-width: 550px) {
+    ngx-masonry{
+        column-count: 1;
+        column-gap: 0;
+    }
+    ngx-masonry-item {
+        margin-bottom: 5px !important;
+    }
+}

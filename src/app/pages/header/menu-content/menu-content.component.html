@@ -1,0 +1,66 @@
+<div *ngIf="isSummary; else menuData">
+    <ng-container *ngIf="viewType === 'checkInOut'">
+        <div class="d-flex card-content" [ngClass]="{
+                'description-card-content' : isDescription,
+                'mobile-card-content' : isMobile
+            }">
+            <div class="daterange justify-content-between w-100" fxLayout="row" fxLayoutGap="10px" *ngIf="!isMobile">
+                <div class="form-control sm-text sm-text-bg" [matMenuTriggerFor]="menu" (menuOpened)="setNameData()">
+                    {{ checkInDate }}
+                </div>
+                <div type="text" class="form-control sm-text sm-text-bg" [matMenuTriggerFor]="menu" (menuOpened)="setNameData()">
+                    {{ checkOutDate }}
+                </div>
+            </div>
+            <div *ngIf="isMobile" [matMenuTriggerFor]="menu" (menuOpened)="setNameData()">
+                {{ formatDateRange(checkInDate,checkOutDate) }}
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="viewType === 'guests'">
+        <div class="d-flex w-100 card-content" [ngClass]="{
+                'description-card-content' : isDescription,
+                'mobile-card-content' : isMobile
+            }">
+            <div class="form-control sm-text sm-text-bg" [matMenuTriggerFor]="menu" (menuOpened)="setNameData()" *ngIf="!isMobile">
+                {{ totalGuests ? (totalGuests + ' ' + (totalGuests == 1 ? 'Guest' : 'Guests')) : 'Guests' }}
+            </div>
+            <span class="card-attribute" *ngIf="isMobile" [matMenuTriggerFor]="menu" (menuOpened)="setNameData()">
+                {{ totalGuests ? (totalGuests + ' ' + (totalGuests == 1 ? 'Guest' : 'Guests')) : 'Guests' }}
+            </span>
+        </div>
+    </ng-container>
+</div>
+<ng-template #menuData>
+    <div class="d-flex" [ngClass]="isDescription ? 'description-card-content' : 'card-content'">
+      <ng-container *ngIf="viewType === 'checkInOut'">
+        <div class="d-flex align-items-center" fxFlex.lt-md="100" ngClass.md="margin-right" [matMenuTriggerFor]="menu" (menuOpened)="setNameData()">
+            <img class="card-icon" src="../../../assets/images/calendar.svg" alt="img" />
+            <span class="card-attribute">{{checkInDate}}</span>
+            <img class="card-icon checkout-arrow" src="../../../assets/images/rightArrow.png" alt="img" />
+            <span class="card-attribute">{{checkOutDate}}</span>
+        </div>
+      </ng-container>
+    
+      <ng-container *ngIf="viewType === 'guests'">
+        <div class="d-flex align-items-center" fxFlex.lt-md="100" [matMenuTriggerFor]="menu" (menuOpened)="setNameData()">
+            <img class="card-icon" src="../../../assets/images/people.svg" alt="img" />
+            <span class="card-attribute">
+                {{ totalGuests ? (totalGuests + ' ' + (totalGuests == 1 ? 'Guest' : 'Guests')) : 'Guests' }}
+            </span>
+        </div> 
+      </ng-container>
+    </div>
+</ng-template>
+
+<mat-menu #menu="matMenu" [overlapTrigger]="false">
+    <app-stay-destination 
+        [menuName]="viewType" 
+        (click)="$event.stopPropagation()" 
+        (keydown)="$event.stopPropagation()"
+        (selectedTotalGuests)="updateGuests($event)"
+        (updatedDateRange)="updateDateRange($event)"
+        (closeMenu)="closeMenu()"
+        [name]="name">
+    </app-stay-destination>
+</mat-menu>

@@ -1,0 +1,60 @@
+.booking{
+    padding: 20px;
+    
+    .date{
+        gap: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    
+    
+    .cards{
+        height: fit-content;
+
+        .example-card{
+            width: 582px !important;
+            height: 371px !important;
+            border-radius: 8px;
+            padding-right: 20px;
+        
+            .title{
+                color: var(--admin-active);
+                font-size: var(--admin-titlesiz);
+            }
+            .subtitle{
+                color: var(--admin-inactivetxt);
+                font-size: var(--admin-subtitlesiz);
+            }
+    
+            .placeholder{
+                width: -webkit-fill-available;
+            }
+        }
+    }
+    
+    
+    .bottom{
+        height: fit-content;
+        padding-top: 20px;
+        .bottomcard{
+            width: 100svw !important;
+            height: 450px !important;
+            border-radius: 8px;
+            padding-right: 20px;
+        
+            .title{
+                color: var(--admin-active);
+                font-size: var(--admin-titlesiz);
+            }
+            .subtitle{
+                color: var(--admin-inactivetxt);
+                font-size: var(--admin-subtitlesiz);
+            }
+    
+            .placeholder{
+                width: -webkit-fill-available;
+            }
+        }
+    }
+    }

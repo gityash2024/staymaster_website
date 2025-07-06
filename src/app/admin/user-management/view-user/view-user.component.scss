@@ -1,0 +1,79 @@
+.viewBooking{
+    padding: 20px;
+
+    .topCard{
+        // width: 1368px;
+        height: 150px;
+        border-radius: 10px;
+
+        .topcardtext{
+            width: 100%;
+            .title{
+                font-size: var(--admin-subtitlesiz); 
+                color: var(--admin-inactivetxt);
+             }
+     
+             .details{
+                 font-size: var(--admin-subtitlesiz); 
+                 color: var(--admin-inactive);
+             }
+        }
+
+        
+    }
+
+    .middleCard{
+        // width: 427px
+        height: 250px;
+        border-radius: 10px;
+
+        .middlecardtext{
+            width: 100%;
+            .title{
+                font-size: var(--admin-subtitlesiz); 
+                color: var(--admin-inactivetxt);
+             }
+     
+             .details{
+                 font-size: var(--admin-subtitlesiz); 
+                 color: var(--admin-inactive);
+             }
+        }
+    }
+
+    .endCard{
+        // width: 413px
+        height: 279px;
+        border-radius: 10px;
+
+        .endcardtext{
+            width: 100%;
+            .title{
+                font-size: var(--admin-subtitlesiz); 
+                color: var(--admin-inactivetxt);
+             }
+     
+             .details{
+                 font-size: var(--admin-subtitlesiz); 
+                 color: var(--admin-inactive);
+             }
+        }
+
+    }
+
+
+}
+
+// --admin-mainfont:"Akkurat";
+
+// --admin-active: #008281;
+// --admin-inactive: rgb(66, 77, 79);
+
+// --admin-activetxt: #ffff;
+// --admin-inactivetxt:#222222;
+// #808080
+
+// --admin-titlesiz:16px;
+// --admin-titlesmall:15px;
+// --admin-subtitlesiz:14px;
+// --admin-subsubtitlesiz:12px;

@@ -1,0 +1,155 @@
+<ng-container>
+  <div class="profile">
+    <div fxLayout.gt-xs="row" fxLayout="column" class="connect-us">
+      <div fxFlex="100" fxFlex.gt-xs="40">
+        <div class="bg" ngClass.xs="bg-xs">
+          <div class="left-side" ngClass.xs="left-side-xs" fxLayout="column" fxLayoutAlign="">
+            <div fxLayout="row" fxLayoutAlign="space-between">
+              <div class="logo" [routerLink]="'/home'">
+                <img class="logo-image" src="../../../assets/images/staymaster-logo.svg" alt="" />
+              </div>
+              <div fxHide.gt-xs class="menu-icon">
+                <img src="../../../assets/images/menu-icon.png" alt="" (click)="toggleMenu()" />
+              </div>
+            </div>
+            <div class="comment">
+              <div class="qoute">“</div>
+              <div>Your best getaway is a message away. Say Hello!</div>
+            </div>
+            <br /><br />
+            <div fxLayout="column" fxLayoutGap="10px">
+              <div class="random-large">
+                Staymaster Services Private Limited
+              </div>
+              <div class="random-title">91 Springboard Business Hub,</div>
+              <div class="random-title">201/301, Shanta Building,</div>
+              <div class="random-title">
+                St Inez, Panjim, North Goa, Goa 403001, India
+              </div>
+              <div class="random-title">Mobile: +91 824 077 2024</div>
+              <div class="random-title">Email: info@thestaymaster.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-xs="60">
+        <div class="profile-form" ngClass.xs="profile-form-xs">
+          <div class="menu menu-contact-us" fxLayout="row" fxLayoutAlign="end start" fxHide.xs>
+            <img src="../../assets/images/menu-blue.png" alt="" (click)="toggleMenu()" />
+          </div>
+
+          <!--Start of-->
+          <!--<div *ngIf="!isSubmitted; else thankYouMessage">
+                        <div fxLayout="column" fxLayoutGap="20px">
+                            <div class="title">Let’s Connect
+                                <div class="line"></div>
+                            </div>
+                            <div fxLayout="column" fxLayoutGap="6px">
+                                <input id="name" type="text" class="sm-text form-control" value="">
+                            </div>
+                            <div class="error">Name is required.</div>
+                            <div
+                                *ngIf="
+                                contactForm.get('name')?.touched &&
+                                contactForm.get('name')?.invalid
+                                "
+                                class="error"
+                                >
+                                Name is required...
+                            </div>
+                            <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="error">
+                                Name is required.
+                            </div>
+                        </div>
+                    </div>
+                    <ng-template #thankYouMessage>
+                        <p>Thanks! We have received your inputs!</p>
+                    </ng-template>-->
+          <!--End of -->
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm)">
+            <div fxLayout="column" fxLayoutGap="20px">
+              <div class="title">
+                Let’s Connect
+                <div class="line" fxHide.lt-md></div>
+              </div>
+              <div fxLayout="column" fxLayoutGap="6px">
+                <input type="text" formControlName="name" class="sm-text form-control" value="Name"
+                  placeholder="Name" />
+                <span
+                  *ngIf="(contactForm.controls['name'].touched || isSubmitted) && contactForm.controls['name']?.errors?.['required']"
+                  class="error-message">
+                  Name is required
+                </span>
+              </div>
+              <div fxLayout="column" fxLayoutGap="6px">
+                <input type="text" formControlName="email" class="sm-text form-control" value="Email"
+                  placeholder="Email" />
+                <span
+                  *ngIf="(contactForm.controls['email'].touched || isSubmitted) && contactForm.controls['email']?.errors?.['required']"
+                  class="error-message">
+                  Email is required
+                </span>
+                <span
+                  *ngIf="(contactForm.controls['email'].touched || isSubmitted) && contactForm.controls['email']?.errors?.['email']"
+                  class="error-message">
+                  Enter a valid email
+                </span>
+              </div>
+
+              <div fxLayout="column" fxLayoutGap="6px">
+                <div fxLayout="row" fxLayoutGap="15px" class="phone-number">
+                  <select fxFlex="35" name="" id="" class="form-select sm-text mobile-select">
+                    <option value="">+91 (IND)</option>
+                  </select>
+                  <input fxFlex type="text" formControlName="phone" class="sm-text form-control" value="Phone" placeholder="Phone Number"/>
+                </div>
+                <span
+                  *ngIf="(contactForm.controls['phone'].touched || isSubmitted) && contactForm.controls['phone']?.errors?.['required']"
+                  class="error-message">
+                  Phone is required
+                </span>
+              </div>
+              <div fxLayout="column" fxLayoutGap="6px">
+                <div fxLayout="row" fxLayoutGap="15px">
+                  <select name="" id="" class="form-select sm-text">
+                    <option value="">Reason</option>
+                  </select>
+                </div>
+              </div>
+              <div fxLayout="column" fxLayoutGap="6px">
+                <textarea formControlName="message" name="" id="" cols="30" class="sm-text textarea form-control"
+                  rows="4" placeholder="Message"></textarea>
+                <span
+                  *ngIf="(contactForm.controls['message'].touched || isSubmitted) && contactForm.controls['message']?.errors?.['required']"
+                  class="error-message">
+                  Message is required
+                </span>
+              </div>
+              <div>
+                <br fxHide.lt-md />
+                <div class="save-btn" fxLayout="row" fxLayoutAlign="center center" (click)="onSubmit(contactForm)">
+                  Submit
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container>
+  <app-footer></app-footer>
+</ng-container>
+
+<ng-container *ngIf="overlayVisible">
+  <ng-template [ngTemplateOutlet]="menuModal"></ng-template>
+</ng-container>
+
+<ng-template #menuModal>
+  <div class="overlay">
+      <div class="overlay-content">
+          <app-menu-modal (closeModal)="overlayVisible = false;"></app-menu-modal>
+      </div>
+  </div>
+</ng-template>

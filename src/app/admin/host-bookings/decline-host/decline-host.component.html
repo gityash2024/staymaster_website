@@ -1,0 +1,36 @@
+<div mat-dialog-title class="dialog-title formHeader">
+    Decline/Accept Host
+</div>
+
+<div mat-dialog-content class="modal-body">
+    <div class="declineform" fxFlex fxLayout="column" fxLayoutGap="20px">
+        <mat-form-field class="matFormFMetric">
+            <mat-label>Select Resone</mat-label>
+            <mat-select >
+                <mat-option value="food">Option 1</mat-option>
+                <mat-option value="food">Option 1</mat-option>
+                <mat-option value="food">Option 1</mat-option>
+                <mat-option value="food">Option 1</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <span>Suggest few days when bookings are more likely to be on the lower price side during that time period</span>
+
+        <!-- <mat-form-field class="example-form-field">
+            <mat-label>First campaign</mat-label>
+            <mat-date-range-input
+              [rangePicker]="campaignOnePicker">
+              <input matStartDate placeholder="Start date" formControlName="start">
+              <input matEndDate placeholder="End date" formControlName="end">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+            <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+          </mat-form-field> -->
+    </div>
+   
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button type="button" (click)="onNoClick()">Cancel</button>
+    <button mat-raised-button type="submit" color="primary"  cdkFocusInitial>Save</button>
+    <!-- [mat-dialog-close]="data" -->
+</div>

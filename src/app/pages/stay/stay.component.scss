@@ -1,0 +1,209 @@
+.modal-align {
+    width: 70% !important;
+}
+
+.filter {
+    margin-top: 20px;
+    .aminities-name {
+        font-family: "Akkurat";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #a5a5a5;
+    }
+
+    .aminities {
+        cursor: pointer;
+        img {
+            width: 35px;
+            height: 34px;
+        }
+    }
+    .active {
+        .aminities-name {
+            color: #008281;
+        }
+    }
+    .aminities:hover {
+        .aminities-name {
+            color: #008281;
+        }
+    }
+
+    .more-aminities {
+        width: 34px;
+        height: 34px;
+        box-shadow: 2px 4px 30px 2px rgba(88, 65, 57, 0.165);
+        border-radius: 23px;
+        border: 1px solid #a5a5a5;
+        cursor: pointer;
+    }
+
+    .btn-filters {
+        width: 127px;
+        height: 43px;
+        box-shadow: 2px 4px 30px 2px rgba(88, 65, 57, 0.165);
+        border-radius: 8px;
+        border: 1px solid #a5a5a5;
+        font-family: "Akkurat";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 23px;
+        color: #584139;
+        padding: 15px;
+        cursor: pointer;
+    }
+    @media (max-width: 991px) {
+        margin-top: 27px;
+    }
+}
+/*.always-here {
+    background: none !important;
+    padding-top: 0;
+}*/
+.property-cards {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    padding-top: 50px;
+    padding-bottom: 0px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+    gap: 25px;
+    display: grid !important;
+
+    .property-card {
+        // margin-top: 20px;
+        width: 100%;
+        background: #ffffff;
+        box-shadow: 2px 2px 15px 1px rgba(83, 83, 83, 0.25);
+        border-radius: 8px;
+        padding: 12px;
+        color: #2e2e2e;
+
+        .property-img > img {
+            width: 100%;
+            height: 240px;
+            border-radius: 8px 8px 0px 0px;
+            cursor: pointer;
+            object-fit: cover;
+        }
+
+        .property-img-lt-sm > img {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px 8px 0px 0px;
+            cursor: pointer;
+        }
+
+        .title {
+            padding-top: 9px;
+            font-size: 20px;
+            line-height: 25px;
+            cursor: pointer;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+            @media (max-width: 599px) {
+                font-size: 18px;
+                line-height: 100%;
+            }
+        }
+
+        .location {
+            font-size: 13px;
+            line-height: 16px;
+            padding-top: 4px;
+        }
+
+        .top-aminities {
+            padding-top: 10px;
+            font-size: 14px;
+            line-height: 18px;
+            color: #b6b6b6;
+
+            @media (max-width: 599px) {
+                padding-top: 14px;
+            }
+        }
+
+        .rate {
+            padding-top: 13px;
+            .price {
+                font-size: 20px;
+                line-height: 25px;
+            }
+
+            .daynight {
+                padding-top: 5px;
+                font-size: 13px;
+            }
+
+            .whishlist {
+                cursor: pointer;
+            }
+        }
+    }
+    @media (max-width: 599px) {
+        padding-top: 20px !important;
+    }
+}
+
+.stay-map {
+    position: inherit;
+    width: 639px;
+    height: 159rem;
+    padding-top: 20px;
+    left: 738px;
+    border-radius: 8px 0px 0px 8px;
+}
+
+.stay-map-xs {
+    // position: inherit;
+    width: 100%;
+    height: 100rem;
+    // padding-top: 20px;
+    // left: 738px;
+    border-radius: 8px 0px 0px 8px;
+}
+
+/** Chirag Dev */
+.collection-datas {
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    place-content: center space-between;
+    align-items: center;
+    flex: 1 1 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow-x: scroll;
+    text-overflow: ellipsis;
+    gap: 30px;
+    padding-bottom: 0px;
+    // margin-left: 140px;
+    justify-content: flex-start;
+    @media (max-width: 991px) {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;
+    }
+}
+
+// .filter-icon {
+//     position: absolute;
+//     top: 23px;
+// }
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    width: 100%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    @media (max-width: 991px) {
+        position: relative !important;   
+    }
+}

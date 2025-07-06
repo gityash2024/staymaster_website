@@ -1,0 +1,173 @@
+.todayoverview {
+    padding: 20px;
+
+
+
+    .columns {
+        flex: 0 50%;
+        height: 100svh !important;
+
+    }
+
+    .section1 {
+        gap: 10px;
+
+        .sectionttl {
+            padding-top: 100px;
+            width: 100%;
+            color: var(--admin-inactivetxt);
+            font-size: var(--admin-titlesiz);
+        }
+
+        .cards {
+            height: fit-content;
+
+            .example-card {
+                width: 148px !important;
+                height: 104px !important;
+                border-radius: 8px;
+                text-align: center;
+
+                .title {
+                    color: var(--admin-active);
+                    font-size: var(--admin-titlesiz);
+                }
+
+                .subtitle {
+                    color: var(--admin-inactivetxt);
+                    font-size: var(--admin-subtitlesiz);
+                }
+            }
+        }
+
+        .bestseller {
+            height: fit-content;
+
+            .bestsellercard {
+                width: 227px !important;
+                height: 90px !important;
+                border-radius: 8px;
+
+                .title {
+                    color: var(--admin-active);
+                    font-size: var(--admin-titlesiz);
+                }
+
+                .subtitle {
+                    color: var(--admin-inactivetxt);
+                    font-size: var(--admin-subtitlesiz);
+                }
+            }
+        }
+    }
+
+
+
+
+
+    .example {
+        width: 100% !important;
+        height: 90svh !important;
+
+
+        .card-content {
+            padding: 16px;
+            height: 100svh !important;
+
+        }
+
+        .bookings {
+            height: 100px;
+            padding: 5px;
+            // margin-top: 5px;
+            border-bottom: 1px solid #CFCFCF;
+            // border-top: 0.5px solid var(--admin-greytxt);
+        }
+
+        .bookingdetails {
+            height: 77svh;
+            overflow: scroll;
+
+        }
+
+        /* Default styles for inactive buttons */
+        .inactivebtn {
+            background-color: white !important;
+            /* Add !important to override Angular Material styles */
+            color: black !important;
+        }
+
+        /* Styles for the active button */
+        .activebtn {
+            background-color: #008281 !important;
+            color: white !important;
+        }
+
+        .date {
+            background: #F4F6F8;
+            border-radius: 3px;
+
+            .dt {
+                color: var(--admin-active);
+                font-size: var(--admin-titlesmall);
+                text-align: center;
+            }
+
+            .dtline {
+                margin-top: 2px;
+                margin-bottom: 2px;
+                height: 1px;
+                color: var(--admin-active);
+            }
+
+            .mnt {
+                color: var(--admin-active);
+                font-size: var(--admin-titlesmall);
+                text-align: center;
+            }
+        }
+
+
+        .guest {
+            color: var(--admin-active);
+            font-size: var(--admin-titlesiz);
+        }
+
+        .guestdesc {
+            color: var(--admin-inactivetxt);
+            font-size: var(--admin-subtitlesiz);
+        }
+
+
+        .ttl {
+            color: var(--admin-greytxt);
+            font-size: var(--admin-subtitlesiz);
+        }
+
+        .details {
+            color: var(--admin-inactivetxt);
+            font-size: var(--admin-titlesiz);
+        }
+
+
+
+    }
+}
+
+
+
+
+
+// --admin-mainfont:"Akkurat";
+
+// --admin-active: #008281;
+// --admin-inactive: rgb(66, 77, 79);
+
+// --admin-activetxt: #ffff;
+// --admin-inactivetxt:#222222;
+// #808080
+
+// --admin-titlesiz:16px;
+// --admin-titlesmall:15px;
+// --admin-subtitlesiz:14px;
+// --admin-subsubtitlesiz:12px;

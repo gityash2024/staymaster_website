@@ -1,0 +1,99 @@
+.top-buttons {
+    display: table-cell;
+    max-width: 600px;
+  }
+
+  .bookings{
+    padding: 20px;
+
+    .title{
+      font-size: var(--admin-maintitlesiz);
+    }
+
+
+    .copyt{
+      width: 182px;
+      height: 48px;
+      border: 1px solid var(--admin-active);
+      color: var(--admin-active);
+      font-size: var(--admin-titlesiz);
+    }
+
+    .savet{
+      width: 182px;
+      height: 48px;
+      border: 1px solid var(--admin-active);
+      color: var(--admin-activetxt);
+      font-size: var(--admin-titlesiz);
+      background-color: var(--admin-active);
+    }
+
+
+    .bookingDetailsCard{
+      width: 87vw;
+      height: 498px;
+      overflow:scroll;
+      border-radius: 10px;
+      margin-top: 20px;
+
+      .applybtn{
+        width: 30px;
+        height: 30px;
+        border-radius: 2px;
+        background-color: var(--admin-active);
+      }
+
+      .inptfm{
+        width: 99px;
+        height: 26px;
+        border: 0.5px solid #787878;
+        color: #787878;
+        margin-right: 10px;
+        text-align: -webkit-center;
+      }
+
+      .inptfm1{
+        width: 99px;
+        height: 26px;
+        border: 0.5px solid #787878;
+        color: #787878;
+        margin-right: 40px;
+        text-align: -webkit-center;
+      }
+
+      .thresholdtitle{
+        font-size: 16px;
+        color: black;
+        margin-bottom: -10px;
+      }
+
+      .titlegrey{
+        color:#787878;
+        font-size: 14px;
+      }
+
+      .titleinbetween{
+        color: black;
+        font: 16px;
+        position: relative;
+        top: 59px;
+        right: 370px;
+        position: relative;
+        z-index: 99;
+        align-self: end;
+        font-weight: bold;
+      }
+
+
+  
+      .viewDetails{
+        width: 94px;
+        height: 38px;
+        border: 0.8px solid var(--admin-active);
+        color: var(--admin-active);
+        font-size: var(--admin-subtitlesiz);
+      }
+  
+    }
+
+  }

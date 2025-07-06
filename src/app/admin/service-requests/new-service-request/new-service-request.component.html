@@ -1,0 +1,100 @@
+<div class="bookings" fxFlex fxLayout="column">
+
+    <!-- Booking Header -->
+    <div fxFlex fxLayout="row" fxLayoutAlign="space-between start">
+        <div fxFlex class="title">
+            New Service Request
+        </div>
+    </div>
+
+    <form [formGroup]="myForm" (ngSubmit)="submitForm()" fxFlex fxLayout="column" fxLayoutGap="10px">
+        <mat-card class="bookingDetailsCard">
+            <mat-card-content fxFlex fxLayout="column" fxLayoutGap="20px">
+                <div fxFlex fxLayout="row" fxLayoutAlign="space-between start">
+                    <div fxFlex class="title">
+                        Property Details
+                    </div>
+                </div>
+                <hr style="width: 100%;">
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field fxFlex="33" class="matFormFMetric">
+                        <input matInput placeholder="Property Name" formControlName="propertyName">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="33" class="matFormFMetric">
+                        <input matInput placeholder="Property Code" formControlName="propertyCode">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="33" class="matFormFMetric">
+                        <input matInput placeholder="Location" formControlName="location">
+                    </mat-form-field>
+                </div>
+
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field fxFlex="66" class="">
+                        <textarea matInput placeholder="Description" formControlName="description"></textarea>
+                    </mat-form-field>
+
+                </div>
+
+                <div fxLayoutGap="10px" class="formstart">
+                    <span class="subtitle">Upload Photo</span>
+                </div>
+
+                <div fxLayoutGap="10px" class="formstart" fxLayoutAlign="start center">
+                    <div class="uploadArea" fxFlex="33"><span class="uploadtxt">Drop files here</span></div>
+                    <div>or</div>
+                    <div><button class="uploadBtn">Upload</button></div>
+                </div>
+
+                <div fxFlex fxLayout="row" fxLayoutAlign="space-between start">
+                    <div fxFlex class="title">
+                        Owner Details
+                    </div>
+                </div>
+                <hr style="width: 100%;">
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field fxFlex="33" class="matFormFMetric">
+                        <mat-select placeholder="Host" formControlName="host">
+                            <mat-option value="food.id">Host 1</mat-option>
+                            <mat-option value="food.id">Host 2</mat-option>
+                            <mat-option value="food.id">Host 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                  
+                </div>
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field fxFlex="33" class="matFormFMetric">
+                        <input matInput placeholder="Name" formControlName="name">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="33" class="matFormFMetric">
+                        <input matInput placeholder="Email" formControlName="email">
+                    </mat-form-field>
+                </div>
+
+                
+                <div fxFlex fxLayout="row" fxLayoutAlign="space-between start">
+                    <div fxFlex class="title">
+                        Other Details
+                    </div>
+                </div>
+                <hr style="width: 100%;">
+
+                <div fxLayoutGap="10px" class="formstart">
+                    <mat-form-field fxFlex="33" class="matFormFMetric">
+                        <input matInput placeholder="Amount" formControlName="amount">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="33" class="matFormFMetric">
+                        <input matInput placeholder="Service Incharge" formControlName="serviceIncharge">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="33" class="matFormFMetric">
+                        <input matInput placeholder="Contract" formControlName="contract">
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex fxLayout="row" fxLayoutAlign="start start">
+                       <div><button class="cancel">cancel</button></div>
+                       <div><button class="submit">submit</button></div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </form>
+</div>

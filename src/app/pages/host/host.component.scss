@@ -1,0 +1,1573 @@
+.page {
+  background: #ffffff;
+  flex-direction: column !important;
+  display: block !important;
+
+  .airbnb {
+    background-image: url("../../../assets/images/airbnb-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 300px;
+
+    .desc {
+      font-family: Akkurat;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 25px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: #ffffff;
+      margin-top: 48px;
+
+      @media (max-width: 599px) {
+        margin-top: 37px !important;
+      }
+    }
+
+    .content {
+      padding: 58px 0 46px;
+
+      @media (max-width: 599px) {
+        padding: 32px !important;
+      }
+    }
+
+    .cross-img {
+      width: 23px;
+      height: 23px;
+      margin: 40px 100px;
+    }
+
+    .cross-img-xs {
+      width: 23px;
+      height: 23px;
+      margin: 24px;
+    }
+  }
+
+  .background-sm {
+    height: 100%;
+    background: #008281cc;
+  }
+
+  .airbnb-sm {
+    background-image: url("../../../assets/images/Rectangle-sm.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    // height: 314px;
+    min-height: 314px;
+
+    .logo-img {
+      height: 56px;
+    }
+
+    .bnb-img {
+      height: 46px;
+    }
+
+    @media (max-width: 959px) {
+      min-height: 100%;
+    }
+  }
+}
+
+.about-header {
+  background-image: url("../../../assets/images/Host_Page_banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 720px;
+
+  // max-height: auto;
+  .header-box {
+    min-height: inherit;
+    background-color: rgba(8, 8, 8, 0.55);
+  }
+
+  .left-section {
+    margin: 85px 0 87px;
+
+    @media (max-width: 599px) {
+      padding: 0 0px 6px;
+    }
+  }
+
+  .sub-head {
+    margin-top: 2px;
+    font-size: 20px;
+    line-height: 25px;
+    color: #ffffff;
+    font-family: "Akkurat";
+  }
+
+  form {
+    font-family: "Akkurat";
+
+    .form-select {
+      font-size: 18px !important;
+    }
+
+    .form-control {
+      font-family: "Akkurat";
+      font-size: 18px !important;
+    }
+  }
+
+  .drop-arr-img {
+    position: absolute;
+    right: 5%;
+    bottom: 50%;
+    transform: translate(0px, 50%);
+  }
+  .title {
+    font-family: "Caudex";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 52px;
+    color: #f9f5f3;
+    min-width: 370px;
+    @media (max-width: 599px) {
+      font-size: 28px;
+      line-height: 34px;
+    }
+  }
+
+  .sm-text {
+    width: 370px;
+    left: 0px;
+    top: 0px;
+    background: transparent;
+    color: #ffffff;
+    border: 0.1px solid #f9f5f3;
+    border-radius: 29px;
+    height: 54px;
+    padding-left: 20px;
+
+    // &.sm-otp {
+    //   background: #fff !important;
+    // }
+  }
+
+  .sm-text-xs {
+    left: 0px;
+    top: 0px;
+    background: none;
+    color: #ffffff;
+    border: 0.1px solid #f9f5f3;
+    border-radius: 29px;
+    height: 54px;
+    padding-left: 20px;
+  }
+
+  .space-evenly {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    @media (max-width: 599px) {
+      padding: 6px 0;
+    }
+  }
+
+  .btn-rounded {
+    width: 370px;
+    height: 54px;
+    background: #f9f5f3;
+    box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+    border-radius: 46px;
+    text-align: center;
+    // padding-top: 12px;
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #008281;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+
+    @media (max-width: 599px) {
+      margin-top: 22px;
+      width: 100% !important;
+    }
+  }
+
+  .btn-rounded-xs {
+    height: 54px;
+    background: #f9f5f3;
+    box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+    border-radius: 46px;
+    text-align: center;
+    padding-top: 12px;
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #008281;
+    cursor: pointer;
+  }
+
+  .right-section {
+    margin-top: 98.5px;
+  }
+
+  .card {
+    width: 332px;
+    height: 468px;
+    background: #f9f5f3;
+    box-shadow: 2px 2px 15px 1px rgba(83, 83, 83, 0.25);
+    border-radius: 8px;
+    padding: 12px;
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    color: #2e2e2e;
+
+    .card-img {
+      width: 308px;
+      height: 250px;
+      left: 912px;
+      border-radius: 8px 8px 0px 0px;
+    }
+
+    .card-title {
+      margin-top: 12px;
+      font-size: 20px;
+      line-height: 25px;
+    }
+
+    .card-sub-title {
+      margin-top: 4px;
+      font-size: 13px;
+      line-height: 16px;
+    }
+
+    .card-desc {
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .card-item-list {
+      margin-top: 16px;
+    }
+
+    .card-item-name {
+      color: #b6b6b6;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .card-item-value {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}
+
+.btn-get-otp {
+  background: #008281;
+  border-radius: 45px;
+  width: 136px;
+  height: 54px;
+  color: #ffffff;
+  position: relative;
+  border: 1px solid #ffffff;
+  border-left: none;
+  cursor: pointer;
+  position: absolute;
+  right: -9px;
+  top: 10px;
+}
+
+.otp-msg {
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #f9f5f3;
+}
+
+.sm-otp {
+  width: 80px !important;
+  padding-left: 10px !important;
+  text-align: center;
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 35px;
+  color: #f9f5f3;
+  background-color: #ffffff;
+}
+
+.sm-otp-entered {
+}
+
+.estimated-earings {
+  padding-top: 50px;
+  gap: 50px;
+  .earings-details {
+    font-style: normal;
+    font-weight: 400;
+    font-family: "Akkurat";
+    color: #f9f5f3;
+
+    .title {
+      padding-top: 20px;
+    }
+
+    .estimated-amount {
+      font-family: "Caudex";
+      font-size: 66px;
+      line-height: 88px;
+      padding-top: 20px;
+      align-items: end;
+      flex-wrap: wrap;
+      
+      .day-night {
+        font-size: 20px;
+        padding-top: 10px;
+        padding-left: 10px;
+      }
+    }
+
+    .result-for {
+      padding-top: 20px;
+      font-size: 16px;
+      line-height: 20px;
+      color: rgba(249, 245, 243, 0.75);
+    }
+
+    .villa,
+    .edit-result {
+      padding-top: 20px;
+      font-size: 18px;
+      line-height: 23px;
+    }
+
+    .edit-result {
+      text-decoration-line: underline;
+      cursor: pointer;
+    }
+
+    .learn-more {
+      padding-top: 70px;
+      font-size: 16px;
+      line-height: 20px;
+      text-decoration-line: underline;
+      color: #f9f5f3;
+    }
+
+  }
+}
+
+.estimated-chart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Host pages
+.pt-1r {
+  padding-top: 1rem;
+}
+
+.pt-2r {
+  padding-top: 2rem;
+}
+
+.pt-3r {
+  padding-top: 3rem;
+}
+
+.pt-4r {
+  padding-top: 4rem;
+}
+
+.pt-5r {
+  padding-top: 5rem;
+}
+
+.mt-1r {
+  margin-top: 1rem;
+}
+
+.mt-2r {
+  margin-top: 2rem;
+}
+
+.mt-3r {
+  margin-top: 3rem;
+}
+
+.mt-4r {
+  margin-top: 4rem;
+}
+
+.mt-5r {
+  margin-top: 5rem;
+}
+
+.benefits-bg {
+  background-color: #ffffff;
+
+  .waveline-img {
+    margin-top: 1rem;
+    position: relative;
+  }
+
+  .sub-title {
+    font-family: "Caudex";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 52px;
+    color: #008281;
+  }
+
+  .sub-content {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: rgba(88, 65, 57, 0.95);
+    @media (max-width: 599px) {
+      font-size: 16px;
+      line-height: 21px;
+      padding-top: 22px !important;
+    }
+  }
+
+  .icon {
+    height: 49px;
+    width: 49px;
+    margin-right: 33px;
+  }
+
+  .paragraph {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: rgba(88, 65, 57, 0.95);
+  }
+
+  .triangle {
+    position: relative;
+    width: 470px;
+    padding-top: 4px;
+    padding-left: 4px;
+    height: 531px;
+    border: 2px solid #c4b385;
+    border-radius: 350px 350px 0px 0px;
+  }
+
+  .triangle-img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 0;
+    object-fit: cover;
+  }
+
+  .page-header {
+    @media (max-width: 599px) {
+      padding-top: 0px !important;
+    }
+  }
+
+  img.mob-ben-img {
+    width: 100%;
+    object-fit: cover;
+    max-width: 290px;
+    max-height: 417px;
+    border: 2px solid #c4b385;
+    border-radius: 9px;
+    height: 421px;
+  }
+
+  .ben-mob-w {
+    width: 100%;
+    overflow: auto;
+    gap: 10px;
+    display: flex;
+    @media (max-width: 991px) {
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;
+  }
+  }
+
+  .host {
+    .pt-1r {
+      @media (max-width: 599px) {
+        padding-top: 30px !important;
+      }
+    }
+  }
+
+  @media (max-width: 599px) {
+    margin-top: 0 !important;
+    padding: 72px 32px 86px !important;
+  }
+}
+
+.benefits-bg-sm {
+  position: relative;
+  left: 0;
+  margin-top: 30px;
+  background-color: #ffffff;
+
+  .triangle {
+    position: relative;
+    width: 100%;
+    padding-top: 4px;
+    padding-left: 4px;
+    height: 473px;
+    border: 2px solid #c4b385;
+    border-radius: 400px 400px 0px 0px;
+
+    .triangle-img {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      padding: 0;
+      object-fit: cover;
+    }
+  }
+
+  .waveline-img {
+    margin-top: 14px;
+    position: relative;
+  }
+
+  .sub-title {
+    font-family: "Caudex";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 52px;
+    color: #008281;
+  }
+
+  .sub-content {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: rgba(88, 65, 57, 0.95);
+
+    @media (max-width: 599px) {
+      font-size: 16px;
+      line-height: 132%;
+    }
+  }
+
+  .icon {
+    height: 49px;
+    width: 49px;
+    margin-right: 20px;
+  }
+
+  .paragraph {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: rgba(88, 65, 57, 0.95);
+    @media (max-width: 599px) {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}
+
+.section-side-img {
+  // background: url("../../../assets/images/About-frame.png");
+  // background-position: right 0px top 0px;
+  // background-repeat: no-repeat;
+  // padding-bottom: 10px;
+  // z-index: 999;
+
+  position: relative;
+
+  .ssi-img {
+    position: absolute;
+    right: 0;
+    top: -6%;
+
+    @media (max-width: 599px) {
+      right: -10%;
+      top: 1%;
+      width: 200px;
+    }
+  }
+
+  @media (max-width: 599px) {
+    overflow: hidden;
+  }
+}
+
+.section {
+  margin-top: 110px;
+}
+
+.section-desc {
+  max-width: 70%;
+  text-align: justify;
+  font-family: "Akkurat";
+}
+
+.section-desc-xs {
+  max-width: 100%;
+  text-align: justify;
+}
+
+.section-types {
+  margin-top: 68.61px;
+  padding-bottom: 50px;
+
+  .img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .desc {
+    margin-top: 19.27px;
+    font-family: "Caudex";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #584139;
+  }
+}
+
+.what-we-offer {
+  margin-top: 60px;
+
+  .cards {
+    padding-top: 48px;
+  }
+
+  .offer-card-xs {
+    width: 100%;
+  }
+
+  .offer-card {
+    // width: 394px;
+    height: 477px;
+    width: 100%;
+    background: #ffffff;
+    border: 2px solid #c4b385;
+    box-shadow: 2px 2px 17px 1px rgba(128, 128, 128, 0.18);
+    border-radius: 6px;
+  }
+
+  .offer-card:hover .title-box {
+    display: none;
+  }
+
+  .offer-card:hover .offer-card-hover {
+    display: block;
+  }
+
+  .offer-card-hover {
+    display: none;
+    // width: 414px;
+    height: 269px;
+    background: #008281;
+    border-radius: 6px;
+    padding: 34px 24px 24px 24px;
+
+    .card-title-hover {
+      font-family: "Akkurat";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 38px;
+      color: #f9f5f3;
+    }
+
+    .card-info-hover {
+      font-family: "Akkurat";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 21px;
+      color: #f9f5f3;
+      padding-top: 14px;
+    }
+  }
+
+  .offer-card-villas {
+    background: url("../../../assets/images/image 1.png");
+  }
+
+  .title-box {
+    width: inherit;
+    height: 123px;
+    background: linear-gradient(180deg, rgba(161, 129, 128, 0.1) 0%, #a18180 100%);
+  }
+
+  .card-title {
+    margin-top: 60px;
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 38px;
+    text-align: center;
+    color: #f9f5f3;
+  }
+}
+
+.promise-bg {
+  background-color: #ffffff;
+}
+
+.offers-section {
+  padding: 130px 0 110px;
+
+  .offers {
+    padding-top: 76px;
+
+    @media (max-width: 599px) {
+      padding-top: 40px;
+    }
+  }
+
+  .offer {
+    @media (max-width: 959px) {
+      display: flex;
+    }
+    @media (max-width: 599px) {
+      display: flex;
+      margin-bottom: 32px;
+    }
+  }
+
+  .offer-number {
+    font-family: "Milyuna";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 88px;
+    color: #c4b385;
+
+    @media (max-width: 599px) {
+      font-size: 50px;
+      line-height: 55px;
+      min-width: 40px;
+    }
+  }
+
+  .offer-desc {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 132%;
+    color: rgba(88, 65, 57, 0.92);
+
+    span {
+      font-size: 18px;
+      line-height: 132%;
+    }
+    @media (max-width: 599px) {
+      font-size: 14px;
+      line-height: 132%;
+    }
+  }
+
+  @media (max-width: 599px) {
+    padding: 78px 0 55px;
+  }
+}
+
+.section-title {
+  font-family: "Caudex";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 52px;
+  color: #008281;
+
+  @media (max-width: 599px) {
+    font-size: 28px;
+    line-height: 34px;
+    padding-bottom: 22px;
+  }
+}
+
+.happy-investors-xs {
+  padding-bottom: 0 !important;
+
+  .container {
+    .slider {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+
+      @media (max-width: 599px) {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;
+      }
+      .about-card {
+        padding: 15px 22px 15px 22px;
+        border-radius: 0 0 14px 14px;
+        background: #008281;
+        color: #f9f5f3;
+      }
+
+      .investor-card-img {
+        width: 231px;
+        height: 280px;
+        border-radius: 14px 0px 0px 14px;
+      }
+
+      .investor-card-img-lt-md {
+        width: 100%;
+        // height: 196px;
+        border-radius: 14px 14px 0px 0px;
+      }
+
+      .card-title {
+        font-family: "Akkurat";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 138%;
+        color: #f9f5f3;
+
+        @media (max-width: 599px) {
+          font-size: 16px;
+          line-height: 138%;
+        }
+      }
+
+      .card-location {
+        font-family: "Akkurat";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 138%;
+        color: #f9f5f3;
+      }
+
+      .card-desc {
+        font-family: "Akkurat";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 138%;
+        color: #f9f5f3;
+        margin-top: 15px;
+        @media (max-width: 599px) {
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+    }
+
+    .slides::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    .slides::-webkit-scrollbar-thumb {
+      // background: black;
+      border-radius: 10px;
+    }
+
+    .slides::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .slides > .slide {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      width: 96%;
+      height: 100%;
+      padding-top: 40px;
+      transform: scale(1);
+      transition: transform 0.5s;
+      position: relative;
+      overflow-y: hidden;
+      margin: 0 10px;
+      margin-right: 10px;
+
+      .premium {
+        width: 50px;
+        height: 50px;
+        background: #c4b385;
+        border-radius: 50px;
+        position: relative;
+        top: -24px;
+        float: right;
+      }
+
+      .p-border {
+        width: 40px;
+        height: 40px;
+        border: 0.7px solid rgba(249, 245, 243, 0.97);
+        border-radius: 50px;
+        font-family: "Milyuna";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 12px;
+        text-align: center;
+        color: #f9f5f3;
+      }
+
+      // img {
+      //     border-radius: 14px 14px 0 0;
+      //     width: 388px;
+      // }
+    }
+  }
+  // .section-desc {
+  @media (max-width: 599px) {
+    font-family: "Akkurat";
+    font-size: 16px;
+    line-height: 132%;
+  }
+  // }
+  @media (max-width: 599px) {
+    padding: 54px 0 107px !important;
+  }
+}
+
+.happy-investors {
+  background: #f9f5f3;
+  padding-top: 74px;
+  padding-bottom: 147px;
+
+  .investor-cards {
+    padding-top: 70px;
+    @media (max-width: 959px) {
+      flex-direction: row !important;
+      gap: 25px;
+      overflow: auto;
+      scrollbar-width: none;
+    }
+  }
+
+  .investor-cards > .investor-card-xs {
+    width: 400px;
+  }
+
+  .investor-cards > .investor-card {
+    // width: 600px;
+    max-height: 280px;
+    filter: drop-shadow(3px 3px 15px rgba(167, 167, 167, 0.2));
+
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    @media (max-width: 959px) {
+      flex-direction: column !important;
+      width: fit-content;
+    }
+
+    .about-card {
+      padding: 32px 22px 22px 22px;
+      border-radius: 0px 14px 14px 0px;
+      background: #008281;
+      color: #f9f5f3;
+      max-width: 400px;
+      overflow: auto;
+      min-width: 160px;
+      @media (max-width: 959px) {
+        width: 296px;
+        border-radius: 0 0 14px 14px;
+        min-height: 300px;
+        scrollbar-width: none;
+      }
+    }
+
+    .investor-card-img {
+      width: 231px;
+      height: 280px;
+      border-radius: 14px 0px 0px 14px;
+
+      @media (max-width: 959px) {
+        height: 100%;
+        object-fit: cover;
+        border-radius: 14px 14px 0px 0px;
+        width: 296px;
+      }
+    }
+
+    .card-title {
+      font-family: "Akkurat";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 138%;
+      color: #f9f5f3;
+    }
+
+    .card-location {
+      font-family: "Akkurat";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 138%;
+      color: #f9f5f3;
+    }
+
+    .card-desc {
+      font-family: "Akkurat";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 138%;
+      color: #f9f5f3;
+      margin-top: 30px;
+    }
+
+    .premium {
+      width: 101px;
+      height: 101px;
+      background: #c4b385;
+      border-radius: 50px;
+      position: absolute;
+      top: -50px;
+      right: 10px;
+      float: right;
+    }
+
+    .p-border {
+      width: 75px;
+      height: 75px;
+      border: 0.7px solid rgba(249, 245, 243, 0.97);
+      border-radius: 50px;
+      font-family: "Milyuna";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 25px;
+      /* or 114% */
+
+      text-align: center;
+
+      color: #f9f5f3;
+    }
+  }
+
+  @media (max-width: 599px) {
+    padding-top: 54px 0 107p !important;
+  }
+}
+
+.section-process {
+  background-color: #ffffff;
+  padding-top: 76px;
+
+  .container {
+    padding-left: 17%;
+    padding-right: 2%;
+  }
+
+  .title {
+    font-family: "Caudex";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 145%;
+    color: #008281;
+  }
+
+  .container-xs {
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 100px;
+
+    .destination-box-sm {
+      position: relative;
+      left: 0;
+      margin-top: 30px;
+
+      .triangle {
+        position: relative;
+        width: 100%;
+        padding-top: 4px;
+        padding-left: 4px;
+        height: 473px;
+        border: 2px solid #c4b385;
+        border-radius: 400px 400px 0px 0px;
+
+        .triangle-img {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          padding: 0;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  .left-side {
+    background-image: url("../../../assets/images/Frame.png");
+    background-position: left 0px bottom 0px;
+    background-repeat: no-repeat;
+  }
+
+  .section-p {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 8%;
+    color: rgba(88, 65, 57, 0.95);
+  }
+
+  .dropdown-txt {
+    margin-right: 90px;
+    margin-left: 50px;
+    margin-top: 15px;
+  }
+
+  .down-arrow {
+    position: relative;
+    float: right;
+  }
+
+  .hr-line {
+    vertical-align: middle;
+    padding: 5px 0px;
+  }
+}
+
+.invest-in-properties-xs {
+  .container-xs {
+    padding: 0;
+
+    @media (max-width: 599px) {
+      max-width: 100%;
+    }
+  }
+
+  .about-properties {
+    padding: 20px;
+    background: #c4b385;
+  }
+
+  .about-properties-xs {
+    padding-right: 15px;
+    @media (max-width: 599px) {
+      padding: 58px 32px 65px;
+    }
+  }
+
+  .about-properties > .title {
+    font-family: "Caudex";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 57px;
+    color: rgba(88, 65, 57, 0.95);
+
+    @media (max-width: 599px) {
+      font-size: 28px;
+      line-height: 34px;
+    }
+  }
+
+  .about-properties > .desc {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: rgba(88, 65, 57, 0.95);
+    @media (max-width: 599px) {
+      font-size: 16px;
+      line-height: 132%;
+    }
+  }
+
+  .enquiry-form {
+    padding-left: 80px;
+  }
+
+  .enquiry-form-xs {
+    padding-left: 0;
+    padding-top: 20px;
+    width: 90%;
+    margin-left: 15px;
+
+    @media (max-width: 599px) {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    // .input {
+    //   height: 54px;
+    // }
+  }
+
+  .sm-text,
+  select {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #584139;
+  }
+
+  select option {
+    color: #584139;
+  }
+
+  .submit-btn {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    color: #f9f5f3;
+    background: #008281;
+    box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+    border-radius: 46px;
+    float: right;
+    border: none;
+    padding: 8px 19px;
+    z-index: 9;
+    @media (max-width: 599px) {
+      font-size: 20px;
+      margin-top: 39px;
+    }
+  }
+
+  .submit-btn-xs {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    color: #f9f5f3;
+    background: #008281;
+    box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+    border-radius: 46px;
+    border: none;
+    padding: 8px 19px;
+    width: 100%;
+  }
+
+  .form-control {
+    @media (max-width: 599px) {
+      height: 60px !important;
+      border-radius: 46px;
+      border: 1.2px solid rgba(88, 65, 57, 0.4);
+    }
+  }
+}
+
+.invest-in-properties {
+  padding-top: 98px;
+  // padding-bottom: 123px;
+  background: linear-gradient(to right, #c4b385 0%, #c4b385 50%, #ffffff 50%, #ffffff 100%);
+  border-top: 2px solid rgba(196, 179, 133, 1);
+
+  .about-properties {
+    padding: 0 113px 126px 0;
+  }
+
+  .about-properties-xs {
+    padding-right: 15px;
+  }
+
+  .about-properties > .title {
+    font-family: "Caudex";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 57px;
+    color: rgba(88, 65, 57, 0.95);
+  }
+
+  .about-properties > .desc {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: rgba(88, 65, 57, 0.95);
+  }
+
+  .enquiry-form {
+    padding-left: 80px;
+    padding-bottom: 159px;
+  }
+
+  .enquiry-form-xs {
+    padding-left: 10px;
+  }
+
+  .sm-text {
+    padding-left: 20px;
+    height: 54px;
+
+    ::placeholder {
+      color: #584139;
+    }
+  }
+
+  .kit-align {
+    position: relative;
+
+    img {
+      position: absolute;
+      bottom: 0;
+      transform: rotate(16deg);
+      left: 80px;
+    }
+  }
+
+  // input {
+  //   &.form-control {
+  //     &.sm-text {
+  //       &.sm-otp {
+  //         background: #fff !important;
+  //       }
+  //     }
+  //   }
+  // }
+  .sm-text,
+  select {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #584139;
+  }
+
+  select option {
+    color: #584139;
+  }
+
+  .submit-btn {
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #f9f5f3;
+    background: #008281;
+    box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+    border-radius: 46px;
+    float: right;
+    border: none;
+    padding: 8px 19px;
+  }
+
+  @media (max-width: 959px) {
+    background: transparent;
+  }
+}
+@media (max-width: 767px) {
+  .host {
+    max-width: 100% !important;
+  }
+  .barChart {
+    display: flex !important;
+    justify-content: center !important;
+    min-width: auto !important;
+    min-height: auto !important;
+    padding: 9px !important;
+    margin-left: 0px !important;
+    border-radius: 5px !important;
+    margin: 5px 0px 5px 5px !important;
+  }
+  .about-header .sm-text {
+    width: 100%;
+  }
+  .sm-otp {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .about-header .btn-rounded {
+    // width: 337px !important;
+  }
+}
+.form-select {
+  color: white;
+  option {
+    color: black;
+  }
+}
+.white-placeholder::placeholder {
+  color: white;
+}
+.white-placeholde {
+  color: white !important;
+}
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+.barChart {
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 19px;
+  border-radius: 5px;
+  position: relative;
+  width: 100%; /* ✅ fill parent width */
+  height: auto; /* ✅ adjust height naturally */
+  max-width: 600px; /* ✅ optional, to limit on large screens */
+  aspect-ratio: 16 / 9; /* ✅ keeps the shape proportionally */
+}
+.chart-container {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.premium-mobile{
+  width: 70px;
+  height: 70px;
+  background: #c4b385;
+  border-radius: 50px;
+  top: 18px;
+  float: left;
+  position: absolute;
+  right: 10px;
+  .p-border{
+    width: 55px;
+    height: 55px;
+    border: 0.7px solid rgba(249, 245, 243, 0.97);
+    border-radius: 50px;
+    font-family: "Milyuna";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    color: #f9f5f3;
+  }
+}
+
+@media (max-width: 1280px) {
+  .about-properties {
+    padding: 50px !important;
+  }
+  .enquiry-form{
+    padding: 50px !important;
+  }
+}
+
+.dropdown-backdrop{
+  position: static;
+}
+
+@media (max-width: 599px) {
+  .title{
+    min-width: 100% !important;
+  }
+  .btn-get-otp {
+    top: 6px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .location-select{
+    width: fit-content !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .profit-content {
+    max-width: 960px !important;
+  }
+}
+@media (max-width: 991px) {
+  .profit-content {
+    max-width: 100% !important;
+  }
+  .estimated-earings{
+    flex-direction: column !important;
+
+    .earings-details{
+      max-width: 100% !important;
+    }
+
+    .estimated-chart{
+      display: none !important;
+    }
+  }
+
+  .estimated-chart-mobile{
+    display: flex !important;
+    margin-top: 70px;
+    .barChart{
+      box-shadow: 2px 2px 15px 1px #53535340 !important;
+      border-radius: 12px !important;
+    }
+  }
+}
+
+@media (max-width: 1020px) {
+  .hosting-benefits{
+    flex-direction: column !important;
+    div{
+      max-width: 100% !important;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .sm-otp {
+    width: 30px !important;
+    height: 30px !important;
+    padding: 0 !important;
+  }
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.estimated-chart-mobile{
+  display: none;
+  background: #F9F5F3;
+  padding: 40px 0;
+}

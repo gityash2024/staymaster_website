@@ -1,0 +1,126 @@
+.top-buttons {
+    display: table-cell;
+    max-width: 600px;
+  }
+
+  
+  .bookings{
+    padding: 20px;
+
+    .title{
+      font-size: var(--admin-maintitlesiz);
+    }
+
+    .search{
+      width: 333px;
+      height: 38px;
+      border: 0.8px solid #B4B4B4;
+    }
+
+    .searchbtn{
+      width: 38px;
+      height: 38px;
+      background-color: var(--admin-active);
+      border: 0.8px solid var(--admin-active);
+      
+    }
+
+    .Addbtn{
+      width: 94px;
+      height: 38px;
+      color: var(--admin-activetxt);
+      background-color: var(--admin-active);
+      font-size: var(--admin-titlesiz);
+      border: 0.8px solid var(--admin-active);
+    }
+
+    .refreshndownload{
+      width: 38px;
+      height: 38px;
+      color: var(--admin-active);
+      border: 0.8px solid var(--admin-active);
+    }
+
+    .line{
+      margin: 0px;
+      margin-top: -2px;
+      margin-bottom: 20px;
+    }
+
+    .tabs{
+      padding-top: 20px;
+
+      .tabTitle{
+        width: 53px;
+        height: 38px;
+        font-size: var(--admin-titlesiz);
+        cursor: pointer;
+
+      }
+
+      .tabActive{
+        background: var(--admin-active) !important;
+        width: 53px;
+        height: 3px !important;
+        border-top: 0px;
+      }
+
+      .tabUnderLine{
+        width: 100%;
+        height: 3px;
+        background: transparent;
+        border-top: 0px;
+      }
+    }
+
+
+    .bookingDetailsCard{
+      width: 86vw;
+      height: 498px;
+      overflow:scroll;
+      border-radius: 10px;
+
+      .viewDetails{
+        width: 94px;
+        height: 38px;
+        border: 0.8px solid var(--admin-active);
+        color: var(--admin-active);
+        font-size: var(--admin-subtitlesiz);
+      }
+
+      .viewDetails-reserve{
+        width: 94px;
+        height: 38px;
+        border: 0.8px solid #99CDCD;
+        background-color: #99CDCD;
+        color: black;
+        font-size: var(--admin-subtitlesiz);
+      }
+
+      .viewDetails-red{
+        width: 94px;
+        height: 38px;
+        border: 0.8px solid #E15C5C;
+        background-color: #E15C5C;
+        color: #ffff;
+        font-size: var(--admin-subtitlesiz);
+      }
+
+    }
+  }
+
+
+  
+// --admin-mainfont:"Akkurat";
+
+// --admin-active: #008281;
+// --admin-inactive: rgb(66, 77, 79);
+
+// --admin-activetxt: #ffff;
+// --admin-inactivetxt:#222222;
+// #808080
+
+// --admin-titlesiz:16px;
+// --admin-titlesmall:15px;
+// --admin-subtitlesiz:14px;
+// --admin-subsubtitlesiz:12px;

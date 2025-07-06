@@ -1,0 +1,265 @@
+.carousel-inner {
+  height: 100%;
+  overflow: visible;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  height: calc(100vh - 400px);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 20;
+  cursor: pointer;
+}
+
+.show-header{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 400px);
+    z-index: 10;
+    color: white;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: baseline;
+    padding: 40px;
+    background: rgb(8 8 8 / 31%);
+}
+
+.sub-head{
+    font-family: "Caudex";
+    margin-top: 10px;
+    font-size: 40px;
+    line-height: 48px;
+}
+
+.head{
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.property-header {
+    background-image: url('../../../../assets/images/stay-description-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height : 530px;
+}
+
+.header-info {
+    position: absolute;
+    bottom: 50px;
+    width: 82%;
+    color: white;
+}
+
+
+.header {
+  background: #ffffff;
+  padding: 0px;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 400px);
+  overflow: hidden;
+  .menu-icon {
+    cursor: pointer;
+    margin: 3rem 5rem 0rem 0rem;
+    position: fixed !important;
+    right: 0;
+    top: 0;
+    width: 28px;
+    height: 27px;
+    z-index: 1000;
+
+    cursor: pointer;
+    img {
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+
+      @media (max-width: 599px) {
+        margin: 5% !important;
+        width: max-content;
+      }
+
+      @media (max-width: 599px) {
+        margin: 5% !important;
+        width: max-content;
+      }
+    }
+
+    @media (max-width: 599px) {
+      margin: 0rem !important;
+      width: 100%;
+      position: absolute !important;
+    }
+
+    @media (max-width: 599px) {
+      margin: 0rem !important;
+      width: 100%;
+      position: absolute !important;
+    }
+  }
+
+  .header-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 400px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(8, 8, 8, 0.55);
+    z-index: 10;
+  }
+
+  .header-content {
+    color: #fff;
+    z-index: 11;
+  }
+
+  .company-name {
+    font-family: "Milyuna";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 51px;
+    color: #f9f5f3;
+    margin-top: 15px;
+  }
+
+  .subtitle {
+    font-family: "Caudex";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  .line {
+    text-align: center;
+    margin-top: 0px;
+
+    .line1 {
+      width: 80px;
+      border: 1px solid #ffffff;
+      transform: rotate(90deg);
+    }
+
+    .line2 {
+      border: 1px solid #ffffff;
+      width: 109px;
+      margin-top: 38px;
+    }
+  }
+
+  .align-middle {
+    position: relative;
+    bottom: 11px;
+  }
+
+  .search-btn {
+    margin-top: 20px;
+  }
+
+  .booknow-btn {
+    width: 263px;
+    height: 60px;
+    background: #ffffff;
+    box-shadow: 2px 2px 18px 1px rgba(88, 65, 57, 0.25);
+    border-radius: 46px;
+    font-family: "Akkurat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    cursor: pointer;
+    color: #008281;
+  }
+}
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 20;
+  cursor: pointer;
+}
+
+.whatsapp-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  background: #ffffff;
+  padding: 40px;
+  padding-bottom: 100px;
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  background-image: url('/assets/images/Frame-bg-right.png');
+  background-position: right 0px bottom -10px;
+  background-repeat: no-repeat;
+
+  .content {
+      text-align: left;
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+  }
+
+  .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0c6b58;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.3s ease-in-out;
+      
+      img {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+      }
+
+      &:hover {
+          background-color: #0a5c4a;
+      }
+  }
+
+  .wave-bottom {
+      margin-top: 40px;
+      width: 100%;
+      img {
+          width: 100%;
+      }
+  }
+}
+
+@media (min-width: 600px) {
+  .menu-icon-mobile-view{
+      display: none !important;
+  }
+}
+
+app-header{
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  // height: 100%;
+}

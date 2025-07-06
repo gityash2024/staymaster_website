@@ -1,0 +1,23 @@
+<ng-container>
+    <app-header [headerName]="headerName"></app-header>
+</ng-container>
+<ng-container>
+    <div class="services">
+        <div class="container">
+            <div class="title">{{title}}</div>
+            <br>
+            <div class="services-card mt-4" fxLayout="row wrap" fxLayout.lt-sm="column">
+                <div  class="scard" ngClass.lt-sm="scard-lt-sm"  *ngFor="let item of selectedConceirgeServices"
+                    [routerLink]="'/concierge-description'" [queryParams]="{conciergeDesc: item | json, title: title}">
+                    <img class="service-img" [src]="getImagePath(item.name)" [alt]="item.name" (error)="handleImgError($event)" />
+                    <div class="card-title" fxLayout="row" fxLayoutAlign="center center">
+                        {{item.name}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-container>
+    <app-footer></app-footer>
+</ng-container>

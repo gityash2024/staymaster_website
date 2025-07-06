@@ -1,0 +1,33 @@
+.meal-pricing {
+    width: 655px;
+    height: 439px;
+    padding: 30px;
+    font-family: 'Akkurat';
+    font-style: normal;
+    font-weight: 400;
+
+    .title {        
+        font-size: 22px;
+        line-height: 28px;
+        color: #008281;
+    }
+
+    .veg-non-veg {
+        font-size: 18px;
+        padding-top: 7px;
+    }
+
+    .pricing {
+        font-size: 18px;
+        line-height: 23px;
+        color: #2E2E2E;
+    }
+
+    .small {
+        font-size: 12px;
+    }
+}
+
+.modal-body {
+    overflow: visible;
+}

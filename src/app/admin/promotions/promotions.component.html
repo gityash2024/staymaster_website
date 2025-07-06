@@ -1,0 +1,120 @@
+<div class="promotions" fxFlex fxLayout="column">
+
+  <!-- Booking Header -->
+  <div fxFlex fxLayout="row" fxLayoutAlign="space-between start">
+    <div fxFlex class="title">
+      Promotions
+    </div>
+    <div fxFlex fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="end">
+      <div>
+        <input type="text" class="search">
+        <button class="searchbtn"><img src="../../../assets/images/search-admin.png"></button>
+      </div>
+    </div>
+  </div>
+
+
+  <div fxFlex fxLayout="row">
+    <div fxFlex="80" fxLayout="column" fxLayoutGap="5px">
+      <div  class="tabs">
+        <div fxFlex="7" fxLayout="column">
+          <div class="tabTitle"><a  (click)="tabSelected(0)">AllRate</a></div>
+          <div class="tabUnderLine" [ngClass]="{'tabActive':index == 0}"><hr  style="border-top: 0px;"></div>
+        </div>
+        <div fxFlex="7" fxLayout="column">
+          <div class="tabTitle"><a  (click)="tabSelected(1)">Ongoing</a></div>
+          <div class="tabUnderLine" [ngClass]="{'tabActive':index == 1}"><hr  style="border-top: 0px;"></div>
+        </div>
+        <div fxFlex="8" fxLayout="column">
+          <div class="tabTitle"><a  (click)="tabSelected(2)">Upcomming</a></div>
+          <div class="tabUnderLine" [ngClass]="{'tabActive':index == 2}"><hr  style="border-top: 0px;"></div>
+        </div>
+        <div fxFlex="7" fxLayout="column">
+          <div class="tabTitle"><a  (click)="tabSelected(3)">Past</a></div>
+          <div class="tabUnderLine" [ngClass]="{'tabActive':index == 3}"><hr  style="border-top: 0px;"></div>
+        </div>
+      
+      </div>
+
+      <mat-card class="packagedetailscard" >
+        <mat-card-content fxFlex fxLayout="column" fxLayoutGap="20px">
+          <table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="customerName">
+              <th mat-header-cell *matHeaderCellDef> Customer Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="villaName">
+              <th mat-header-cell *matHeaderCellDef> Villa Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.villaName}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="location">
+              <th mat-header-cell *matHeaderCellDef> Location </th>
+              <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Price </th>
+              <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="noOfVillas">
+              <th mat-header-cell *matHeaderCellDef> No Of Villas </th>
+              <td mat-cell *matCellDef="let element"> {{element.noOfVillas}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="mealType">
+              <th mat-header-cell *matHeaderCellDef> Meal Type </th>
+              <td mat-cell *matCellDef="let element"> {{element.mealType}} </td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> Status </th>
+              <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef> Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="options">
+              <th mat-header-cell *matHeaderCellDef> Options </th>
+              <td mat-cell *matCellDef="let element"> 
+                <button  class="viewDetails" routerLink="vb">
+                  View & Edit
+               </button>
+              </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
+      
+
+    </div>
+    <div fxFlex="20" fxLayout="column" fxLayoutGap="10px">
+      <div class="quickTitle">Create from Quick</div>
+      <div *ngFor="let i of [1,2,3,4,5]">
+        <mat-card class="quiickcard" style="margin: 0; padding: 0;">
+          <mat-card-header>
+            <mat-card-title-group>
+              <mat-card-subtitle>Basic Promotion</mat-card-subtitle>
+              <!-- <img mat-card-xs-image src="../../../../assets/admin/icons/Mask group.png" style="cursor: pointer;" title="this is dummy title"> -->
+            </mat-card-title-group>
+          </mat-card-header>
+          <mat-card-content fxFlex fxLayoutAlign="column center" fxLayout="column" fxLayoutGap="5px">
+            Create seasonal discounts and special offers for premium vacation rentals
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

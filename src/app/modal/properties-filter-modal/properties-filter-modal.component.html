@@ -1,0 +1,105 @@
+<!-- <div class="modal-container">
+    <div class="property-modal">
+      <h1 class="title">{{ title }}</h1>
+      <p class="body">{{ body }}</p>
+      <div class="btn-container">
+        <button (click)="closeMe()">close</button>
+        <button (click)="confirm()">Confirm</button>
+      </div>
+    </div>
+  </div> -->
+<div class="sm-modal">
+    <div mat-dialog-title class="dialog-title">
+    <div class="sm-modal-title" fxLayout="row" fxLayoutAlign="space-between">
+        <span> {{title}}
+        </span>
+        <mat-icon (click)="CloseDialog()">close</mat-icon>
+    </div>
+    
+      
+    </div>
+    <div mat-dialog-content class="modal-body">
+        <div *ngIf="title===allPropertyFilterModelType.amenities" fxLayout="column" fxLayoutGap="22px">
+            <div class="amenities">
+                <div class="filter-controls" fxLayout="column" fxLayoutGap="22px">
+                    <div class="filter-sub-header">Bedrooms</div>
+                    <div class="bedrooms" fxLayout="row" fxLayoutGap="22px" fxLayout.lt-md="row wrap">
+                        <div [ngClass.gt-md]="[item.isChecked? 'bedroom-no-selected bedroom-no' : 'bedroom-no']"
+                            [ngClass.lt-md]="[item.isChecked? 'bedroom-no-selected bedroom-no-sm' : 'bedroom-no-sm']"
+                            fxLayoutAlign="center center"  *ngFor="let item of bedroomsArr">
+                            {{item.name}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="locations" fxLayout="column" fxLayoutGap="22px">
+                <div class="filter-sub-header">Location</div> 
+                <div fxLayout="row" fxLayoutGap="50px" >
+                    <p><mat-checkbox >Beachfront</mat-checkbox></p>
+                    <p><mat-checkbox >Waterfront</mat-checkbox></p>
+                </div>                
+            </div>
+            <div class="line"></div>
+            <div class="locations" fxLayout="column" fxLayoutGap="0px">
+                <div class="filter-sub-header">Aminities</div> 
+                <br>
+                <div fxLayout="row wrap" fxLayoutGap="50px" >
+                    <p fxFlex><mat-checkbox >Pool</mat-checkbox></p>
+                    <p fxFlex><mat-checkbox >Parking</mat-checkbox></p>
+                    <p fxFlex><mat-checkbox>Kitchen</mat-checkbox></p>
+                    <p fxFlex><mat-checkbox>Conceirge</mat-checkbox></p>
+                    <p fxFlex><mat-checkbox >Gym</mat-checkbox></p>
+                    <p fxFlex><mat-checkbox >EV Charger</mat-checkbox></p>
+                </div>                
+            </div>
+            <div class="line"></div>
+        </div>
+        <div *ngIf="title===allPropertyFilterModelType.location" fxLayout="column" fxLayoutGap="22px">
+            
+            <div class="locations" fxLayout="column" fxLayoutGap="5px">
+                <!-- <div class="filter-sub-header">Location</div>  -->
+                <div fxLayout="row" fxLayoutGap="50px" >
+                    <mat-checkbox >Goa</mat-checkbox>
+                </div>                
+                <!-- <div class="line"></div> -->
+                <div fxLayout="row" fxLayoutGap="50px" >
+                    <mat-checkbox >Maharashtra</mat-checkbox>
+                </div>           
+                <!-- <div class="line"></div> -->
+                <div fxLayout="row" fxLayoutGap="50px" >
+                    <mat-checkbox >Uttarakhand</mat-checkbox>
+                </div>                
+                <div class="line"></div>
+                <div fxLayout="row" fxLayoutGap="50px" >
+                    <mat-checkbox >Open to any</mat-checkbox>
+                </div>          
+            </div>
+            <div class="line"></div>
+        </div>
+        <div *ngIf="title===allPropertyFilterModelType.propertyType" fxLayout="column" fxLayoutGap="22px">
+                <div class="locations" fxLayout="column" fxLayoutGap="5px">
+                    <!-- <div class="filter-sub-header">Location</div>  -->
+                    <div fxLayout="row" fxLayoutGap="50px" >
+                        <mat-checkbox >Villa</mat-checkbox>
+                    </div>                
+                    <!-- <div class="line"></div> -->
+                    <div fxLayout="row" fxLayoutGap="50px" >
+                        <mat-checkbox >Apartment</mat-checkbox>
+                    </div>           
+                    <div class="line"></div>
+                    <div fxLayout="row" fxLayoutGap="50px" >
+                        <mat-checkbox >Open to any</mat-checkbox>
+                    </div>          
+                </div>
+                <div class="line"></div>
+            
+        </div>
+        <div mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">               
+                <!-- <button class="sm-modal-btn-submit" >Close</button> -->
+                <!-- <a  (click)="onNoClick()" class="clearall">Clear All</a> -->
+                <div (click)="onClearAllClick()" class="clearall">Clear All</div>
+                <button (click)="onNoClick()" class="sm-modal-btn-submit">Apply</button>
+            
+        </div>
+    </div>
+</div>

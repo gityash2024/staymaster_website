@@ -1,0 +1,76 @@
+.top-buttons {
+    display: table-cell;
+    max-width: 600px;
+  }
+
+  .bookings{
+    padding: 20px;
+
+    .title{
+      font-size: var(--admin-maintitlesiz);
+    }
+
+    .createNew{
+      width: 220px;
+      height: 48px;
+      color: var(--admin-activetxt);
+      background-color: var(--admin-active);
+      border: 2px solid var(--admin-activetxt);
+      
+    }
+
+    .vdetails{
+      width: 94px;
+      height: 36px;
+      border: 0.9px solid var(--admin-active);
+      color : var(--admin-active);
+      font-size: var(--admin-subtitlesiz);
+    }
+
+    .line{
+      margin: 0px;
+      margin-top: -2px;
+      margin-bottom: 20px;
+    }
+
+    .tabs{
+      padding-top: 20px;
+
+      .tabTitle{
+        width: 53px;
+        height: 38px;
+        font-size: var(--admin-titlesiz);
+        cursor: pointer;
+
+      }
+
+      .tabActive{
+        background: var(--admin-active) !important;
+        width: 53px;
+        height: 3px !important;
+        border-top: 0px;
+      }
+
+      .tabUnderLine{
+        width: 100%;
+        height: 3px;
+        background: transparent;
+        border-top: 0px;
+      }
+    }
+  }
+
+
+  // --admin-mainfont:"Akkurat";
+
+// --admin-active: #008281;
+// --admin-inactive: rgb(66, 77, 79);
+
+// --admin-activetxt: #ffff;
+// --admin-inactivetxt:#222222;
+// #808080
+
+// --admin-titlesiz:16px;
+// --admin-titlesmall:15px;
+// --admin-subtitlesiz:14px;
+// --admin-subsubtitlesiz:12px;

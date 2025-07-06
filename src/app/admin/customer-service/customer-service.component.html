@@ -1,0 +1,266 @@
+<div class="customerservice" fxFlex fxLayout="column">
+
+  <!-- Booking Header -->
+  <div fxFlex fxLayout="row" fxLayoutAlign="space-between start">
+    <div fxFlex class="title">
+      Customer Service
+    </div>
+    <!-- <div fxFlex fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="end">
+      <div>
+        <input type="text" class="search">
+        <button class="searchbtn"><img src="../../../assets/images/search-admin.png"></button>
+      </div>
+      <div>
+        <button class="Addbtn"><img src="../../../assets/images/plus.png"> Search</button>
+      </div>
+      <div>
+        <button class="refreshndownload"><img src="../../../assets/images/refresh.png"></button>
+      </div>
+      <div>
+        <button class="refreshndownload"><img src="../../../assets/images/download-admin.png"></button>
+      </div>
+    </div> -->
+  </div>
+
+
+  <div fxFlex fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" class="tabs">
+    <div fxFlex="7" fxLayout="column">
+      <div class="tabTitle"><a (click)="tabSelected(0)">All</a></div>
+      <div class="tabUnderLine" [ngClass]="{'tabActive':index == 0}">
+        <hr style="border-top: 0px;">
+      </div>
+    </div>
+    <div fxFlex="7" fxLayout="column">
+      <div class="tabTitle"><a (click)="tabSelected(1)">Genral</a></div>
+      <div class="tabUnderLine" [ngClass]="{'tabActive':index == 1}">
+        <hr style="border-top: 0px;">
+      </div>
+    </div>
+    <div fxFlex="8" fxLayout="column">
+      <div class="tabTitle"><a (click)="tabSelected(2)">Host</a></div>
+      <div class="tabUnderLine" [ngClass]="{'tabActive':index == 2}">
+        <hr style="border-top: 0px;">
+      </div>
+    </div>
+    <div fxFlex="7" fxLayout="column">
+      <div class="tabTitle"><a (click)="tabSelected(3)">Invest</a></div>
+      <div class="tabUnderLine" [ngClass]="{'tabActive':index == 3}">
+        <hr style="border-top: 0px;">
+      </div>
+    </div>
+
+  </div>
+  <hr class="line">
+
+
+  <mat-card class="bookingDetailsCard" *ngIf="index==0">
+    <mat-card-content fxFlex fxLayout="column" fxLayoutGap="20px">
+      <table mat-table [dataSource]="dataSource" >
+      
+        <ng-container matColumnDef="customerName">
+          <th mat-header-cell *matHeaderCellDef> Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef> Phone No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="purpose">
+          <th mat-header-cell *matHeaderCellDef> Purpose </th>
+          <td mat-cell *matCellDef="let element"> {{element.purpose}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="message">
+          <th mat-header-cell *matHeaderCellDef> Message </th>
+          <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="options">
+          <th mat-header-cell *matHeaderCellDef> Options </th>
+          <td mat-cell *matCellDef="let element">
+            <button class="viewDetails" routerLink="vb">
+              Reply
+            </button>
+
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="bookingDetailsCard" *ngIf="index==1">
+    <mat-card-content fxFlex fxLayout="column" fxLayoutGap="20px">
+      <table mat-table [dataSource]="dataSource" >
+      
+        <ng-container matColumnDef="customerName">
+          <th mat-header-cell *matHeaderCellDef> Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef> Phone No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="purpose">
+          <th mat-header-cell *matHeaderCellDef> Purpose </th>
+          <td mat-cell *matCellDef="let element"> {{element.purpose}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="message">
+          <th mat-header-cell *matHeaderCellDef> Message </th>
+          <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="options">
+          <th mat-header-cell *matHeaderCellDef> Options </th>
+          <td mat-cell *matCellDef="let element">
+            <button class="viewDetails" routerLink="vb">
+              Reply
+            </button>
+
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="bookingDetailsCard" *ngIf="index==2">
+    <mat-card-content fxFlex fxLayout="column" fxLayoutGap="20px">
+      <table mat-table [dataSource]="dataSource" >
+      
+        <ng-container matColumnDef="customerName">
+          <th mat-header-cell *matHeaderCellDef> Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef> Phone No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="villaName">
+          <th mat-header-cell *matHeaderCellDef> Property Type </th>
+          <td mat-cell *matCellDef="let element"> {{element.villaName}} </td>
+        </ng-container>
+      
+
+        <ng-container matColumnDef="options">
+          <th mat-header-cell *matHeaderCellDef> Options </th>
+          <td mat-cell *matCellDef="let element">
+            <button class="viewDetails" routerLink="vb">
+              Reply
+            </button>
+
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+
+
+  <mat-card class="bookingDetailsCard" *ngIf="index==3">
+    <mat-card-content fxFlex fxLayout="column" fxLayoutGap="20px">
+      <table mat-table [dataSource]="dataSource" >  
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef> Phone No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="location">
+          <th mat-header-cell *matHeaderCellDef> Location </th>
+          <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Budget </th>
+          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="villaName">
+          <th mat-header-cell *matHeaderCellDef> Property Type </th>
+          <td mat-cell *matCellDef="let element"> {{element.villaName}} </td>
+        </ng-container>
+
+      
+        <ng-container matColumnDef="aminities">
+          <th mat-header-cell *matHeaderCellDef> Aminites </th>
+          <td mat-cell *matCellDef="let element"> {{element.aminities}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="options">
+          <th mat-header-cell *matHeaderCellDef> Options </th>
+          <td mat-cell *matCellDef="let element">
+            <button class="viewDetails" routerLink="vb">
+              Reply
+            </button>
+
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

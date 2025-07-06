@@ -1,0 +1,454 @@
+<div class="viewProperty" fxFlex fxLayout="column" fxLayoutGap="10px">
+
+    <div fxFlex fxLayout="row" fxLayoutAlign="space-between start">
+        <div fxFlex class="title">
+            Property Details
+        </div>
+        <img src="../../../../assets/images/cross_admin.png">
+    </div>
+
+    <mat-card class="topCard" style="margin: 0; padding: 0;">
+        <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="row">
+            <div fxFlex="33" fxLayout="column" fxLayoutGap="10px">
+                <div fxLayout="row">
+                    <p class="rowtitle">Property Type</p>:<p class="rowdata">Luxury Villa</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="rowtitle">Location</p>:<p class="rowdata">Beachfront Goa</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="rowtitle">Bedrooms</p>:<p class="rowdata">4 Bedrooms</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="rowtitle">Bathrooms</p>:<p class="rowdata">3 Bathrooms</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="rowtitle">Max Guests</p>:<p class="rowdata">8 Guests</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="rowtitle">Pool</p>:<p class="rowdata">Private Pool</p>
+                </div>
+            </div>
+            <div fxFlex="33" fxLayout="column" fxLayoutGap="10px">
+                <div fxLayout="row">
+                    <p class="rowtitle">Check-in</p>:<p class="rowdata">3:00 PM</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="rowtitle">Check-out</p>:<p class="rowdata">11:00 AM</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="rowtitle">Status</p>:<p class="rowdata">Active</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="rowtitle">Rating</p>:<p class="rowdata">4.8/5</p>
+                </div>
+            </div>
+            <div fxFlex="33" fxLayout="column" fxLayoutGap="10px">
+                <div fxLayout="row">
+                    <p class="rowtitle">Price</p>:<p class="rowdata">₹15,000/night</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="rowtitle">Occupancy</p>:<p class="rowdata">85%</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="rowtitle">Host</p>:<p class="rowdata">Premium Host</p>
+                </div>
+                <div fxLayout="row">
+                    <p class="rowtitle">Revenue</p>:<p class="rowdata">₹45L/year</p>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="secondCard" style="margin: 0; padding: 0;">
+        <mat-card-header>
+            <mat-card-title-group>
+                <mat-card-subtitle class="title">Property Description</mat-card-subtitle>
+                <img src="../../../../assets/images/edit.png">
+            </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="20px">
+            <hr style="width: 100%;">
+            <div fxLayout="row" fxLayoutGap="10px">
+                <p class="rowtitle">Display Image</p> :
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <img class="propimg" src="../../../../assets/images/about-background-xs.png">
+                </div>
+            </div>
+            <div fxLayout="row">
+                <p class="rowtitle">Property Images</p>:
+            </div>
+            <div fxLayout="row wrap" fxLayoutGap="10px">
+                <div class="propdetailsphoto" fxLayout="row" fxLayoutGap="10px"
+                    *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]">
+                    <img class="propimg" src="../../../../assets/images/about-background-xs.png">
+                    <div fxLayout="column" fxLayoutGap="10px">
+                        <div fxLayout="row">
+                            <p class="rowtitle">Category</p>:<p class="rowdata">Bedroom</p>
+                        </div>
+                        <div fxLayout="row">
+                            <p class="rowtitle">Title</p>:<p class="rowdata">Master Suite</p>
+                        </div>
+                        <div fxLayout="row">
+                            <p class="rowtitle">Description</p>:<p class="rowdata">Spacious bedroom with ocean view</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <div fxFlex fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between start">
+
+        <div fxFlex="49" fxLayout="column" fxLayoutGap="10px">
+            <mat-card class="thirdCard" style="margin: 0; padding: 0;">
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <mat-card-subtitle class="title">Property Features</mat-card-subtitle>
+                        <img src="../../../../assets/images/edit.png">
+                    </mat-card-title-group>
+                </mat-card-header>
+                <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="40px">
+                    <hr style="width: 100%;">
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Location :</p>
+                        <p class="rowdata">Prime beachfront location offering stunning ocean views with direct beach access and 
+                            proximity to luxury restaurants, spa services, and cultural attractions in the area</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Services :</p>
+                        <p class="rowdata">Professional housekeeping services with daily cleaning, fresh linens, and 24/7 
+                            maintenance support ensuring pristine condition throughout guest stays</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Amenities :</p>
+                        <p class="rowdata">Luxury amenities including private pool, jacuzzi, premium bedding, high-speed WiFi, 
+                            smart TV entertainment system, and fully equipped modern kitchen facilities</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Investment :</p>
+                        <p class="rowdata">Investment grade property with projected 12-15% annual returns through 
+                            professional rental management and premium guest experience services</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Access :</p>
+                        <p class="rowdata">Strategic location near international airport, shopping districts, and tourist 
+                            attractions ensuring high occupancy rates and guest satisfaction</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Security :</p>
+                        <p class="rowdata">Comprehensive security features including 24/7 surveillance, secure entry systems, 
+                            fire safety equipment, and emergency response protocols for guest safety</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="location" style="margin: 0; padding: 0;">
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <mat-card-subtitle class="title">Location Details</mat-card-subtitle>
+                        <img src="../../../../assets/images/edit.png">
+                    </mat-card-title-group>
+                </mat-card-header>
+                <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="30px">
+                    <hr style="width: 100%;">
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Neighborhood :</p>
+                        <p class="rowdata">Exclusive beachfront community known for luxury vacation rentals, high-end dining 
+                            options, and pristine beaches with water sports facilities</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Transportation :</p>
+                        <p class="rowdata">Easy access to airport transfers, local taxi services, bike rentals, and public 
+                            transportation with dedicated guest pickup services available</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Attractions :</p>
+                        <p class="rowdata">Walking distance to beach clubs, cultural sites, shopping centers, adventure 
+                            activities, and nightlife venues ensuring diverse guest experiences</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="meal" style="margin: 0; padding: 0;">
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <mat-card-subtitle class="title">Dining & Services</mat-card-subtitle>
+                        <img src="../../../../assets/images/edit.png">
+                    </mat-card-title-group>
+                </mat-card-header>
+                <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="column">
+                    <hr style="width: 100%;">
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Kitchen :</p>
+                        <p class="rowdata">Fully equipped modern kitchen with premium appliances, cookware, and dining 
+                            essentials for self-catering and private chef services</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Dining :</p>
+                        <p class="rowdata">Multiple dining areas including outdoor terrace, formal dining room, and casual 
+                            breakfast nook with scenic views and luxury furnishings</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Catering :</p>
+                        <p class="rowdata" fxLayout="row" fxLayoutGap="10px" style="margin-left: 100px;"> <img class="propimg"
+                                src="../../../../assets/images/about-background-xs.png"> <img class="propimg"
+                                src="../../../../assets/images/about-background-xs.png"></p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Services :</p>
+                        <p class="rowdata">Private chef services, grocery delivery, meal planning, and special dietary 
+                            accommodation available upon request for enhanced guest experience</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="Essential" style="margin: 0; padding: 0;">
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <mat-card-subtitle class="title">Essential Information</mat-card-subtitle>
+                        <img src="../../../../assets/images/edit.png">
+                    </mat-card-title-group>
+                </mat-card-header>
+                <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="30px">
+                    <hr style="width: 100%;">
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">House Rules :</p>
+                        <p class="rowdata">Check-in after 3 PM, check-out before 11 AM, no smoking indoors, respect 
+                            neighbors, and maximum 8 guests allowed as per local regulations</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Policies :</p>
+                        <p class="rowdata">Cancellation policy, damage deposit requirements, noise restrictions, pet policies, 
+                            and party guidelines clearly outlined for guest compliance</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Support :</p>
+                        <p class="rowdata">24/7 guest support hotline, local concierge services, emergency contacts, and 
+                            immediate assistance for any property or service related inquiries</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Documentation :</p>
+                        <p class="rowdata">All legal permits, tourism licenses, safety certifications, and insurance 
+                            documentation maintained and verified for regulatory compliance</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Reviews :</p>
+                        <p class="rowdata">Consistently high guest ratings, positive testimonials, repeat bookings, and 
+                            recognition as premium vacation rental in the StayMaster portfolio</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div fxFlex="50" fxLayout="column" fxLayoutGap="10px">
+            <mat-card class="Aminity" style="margin: 0; padding: 0;">
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <mat-card-subtitle class="title">Amenities</mat-card-subtitle>
+                        <img src="../../../../assets/images/edit.png">
+                    </mat-card-title-group>
+                </mat-card-header>
+                <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="5px">
+                    <hr style="width: 100%;">
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Essentials -</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">WiFi :</p>
+                        <p class="rowdata">High-speed fiber internet connection throughout the property with dedicated 
+                            workspace areas and tech support for business travelers</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Climate :</p>
+                        <p class="rowdata">Central air conditioning, ceiling fans, and climate control in all rooms 
+                            ensuring optimal comfort during tropical weather conditions</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Power :</p>
+                        <p class="rowdata">Reliable power supply with backup generator, surge protection, and multiple 
+                            charging stations for electronic devices and equipment</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Water :</p>
+                        <p class="rowdata">Filtered drinking water, hot water systems, and water pressure pumps ensuring 
+                            consistent supply and quality throughout the property</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Housekeeping -</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Daily Service :</p>
+                        <p class="rowdata">Professional daily housekeeping including bed making, bathroom cleaning, 
+                            trash removal, and general tidying of common areas</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Laundry :</p>
+                        <p class="rowdata">Washing machine, dryer, ironing facilities, and laundry service available 
+                            with detergents and fabric care products provided</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Safety -</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Security :</p>
+                        <p class="rowdata">24/7 security cameras, motion sensors, secure entry systems, and emergency 
+                            communication devices for comprehensive guest safety</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Fire Safety :</p>
+                        <p class="rowdata">Smoke detectors, fire extinguishers, emergency exits, and evacuation plans 
+                            clearly marked and regularly maintained for fire prevention</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">First Aid :</p>
+                        <p class="rowdata">First aid kits, emergency contact numbers, nearby hospital information, and 
+                            basic medical supplies accessible for guest health emergencies</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Pool Safety :</p>
+                        <p class="rowdata">Pool fence, safety equipment, life rings, and clear safety instructions posted 
+                            for responsible use of swimming and water facilities</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Kitchen -</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Appliances :</p>
+                        <p class="rowdata">Full-size refrigerator, dishwasher, microwave, oven, stovetop, and premium 
+                            small appliances for complete cooking convenience</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Cookware :</p>
+                        <p class="rowdata">Complete set of pots, pans, utensils, dishes, glassware, and serving items 
+                            for preparing and enjoying meals comfortably</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Pantry :</p>
+                        <p class="rowdata">Basic pantry essentials, spices, cooking oils, and condiments provided along 
+                            with storage space for guest groceries and supplies</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Coffee :</p>
+                        <p class="rowdata">Premium coffee machine, variety of coffee beans, tea selection, and breakfast 
+                            supplies for perfect morning starts</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Dining :</p>
+                        <p class="rowdata">Elegant dining table, comfortable seating, proper lighting, and outdoor dining 
+                            options for memorable meal experiences</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Bar :</p>
+                        <p class="rowdata">Wine fridge, cocktail essentials, glassware collection, and ice maker for 
+                            entertaining and relaxation purposes</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Grill :</p>
+                        <p class="rowdata">Outdoor barbecue grill, grilling tools, outdoor seating area, and dining 
+                            space for al fresco cooking experiences</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Rooms -</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Bedrooms :</p>
+                        <p class="rowdata">Luxury bedding, blackout curtains, air conditioning, ceiling fans, and 
+                            premium mattresses ensuring restful sleep experiences</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Storage :</p>
+                        <p class="rowdata">Ample closet space, dressers, luggage racks, and hangers for convenient 
+                            organization of personal belongings and clothing</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Bathrooms -</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Fixtures :</p>
+                        <p class="rowdata">Modern fixtures, rainfall showers, luxury toiletries, hair dryer, and 
+                            premium towels for spa-like bathroom experiences</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Amenities :</p>
+                        <p class="rowdata">Bathrobes, slippers, bath salts, premium soap, shampoo, and conditioner 
+                            for complete comfort and luxury bathing</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Living & Dining -</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Entertainment :</p>
+                        <p class="rowdata">Large smart TV, sound system, streaming services, gaming console, and 
+                            comfortable seating for relaxation and entertainment</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Furniture :</p>
+                        <p class="rowdata">Designer furniture, comfortable sofas, coffee tables, and ambient lighting 
+                            creating elegant and functional living spaces</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Accessibility -</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Features :</p>
+                        <p class="rowdata">Ground floor access, wide doorways, accessible bathrooms, and mobility-friendly 
+                            features ensuring comfortable stays for all guests</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Support :</p>
+                        <p class="rowdata">Special assistance available upon request, accessible parking, and staff 
+                            trained to accommodate guests with diverse mobility needs</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Baby & Kids -</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Equipment :</p>
+                        <p class="rowdata">Baby crib, high chair, safety gates, toys, and childproofing measures 
+                            ensuring safe and comfortable stays for families with children</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Activities :</p>
+                        <p class="rowdata">Beach toys, children's books, games, and safe play areas both indoor and 
+                            outdoor for engaging family vacation experiences</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="userd" style="margin: 0; padding: 0;">
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <mat-card-subtitle class="title">Guest Services</mat-card-subtitle>
+                        <img src="../../../../assets/images/edit.png">
+                    </mat-card-title-group>
+                </mat-card-header>
+                <mat-card-content fxFlex fxLayoutAlign="start start" fxLayout="column" fxLayoutGap="5px">
+                    <hr style="width: 100%;">
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Concierge :</p>
+                        <p class="rowdata">Dedicated concierge service for restaurant reservations, activity bookings, 
+                            transportation arrangements, and local recommendations</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Check-in :</p>
+                        <p class="rowdata">Seamless self-check-in process with digital keys, welcome package, property 
+                            orientation, and 24/7 support contact information</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Maintenance :</p>
+                        <p class="rowdata">Rapid response maintenance team, regular property inspections, and preventive 
+                            care ensuring optimal property condition throughout stays</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="rowtitle" fxFlex="20">Emergency :</p>
+                        <p class="rowdata">24/7 emergency hotline, local emergency contacts, medical assistance coordination, 
+                            and immediate response protocols for guest safety</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

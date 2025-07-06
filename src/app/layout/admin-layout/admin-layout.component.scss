@@ -1,0 +1,36 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.sm-logo > img {
+  height: 45px;
+}
+mat-toolbar{
+  background: #008281 !important;
+}
+
+.panel {
+  color: #FFFFFF;
+}
+
+.list-item{
+  opacity: 0.5;
+}
+
+.active{
+  opacity: 1 !important;
+}

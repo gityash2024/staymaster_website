@@ -1,0 +1,209 @@
+<ng-container *ngIf="headerName === 'default'">
+    <div class="header-top">
+        <div class="container" fxLayout="column">
+            <div fxLayout="row" fxLayoutAlign="space-between">
+                <div class="logo" [routerLink]="'/home'">
+                    <img src="../../../assets/images/staymaster-logo-blue.png" alt="">
+                </div>
+                <div class="menu-icon">
+                    <img src="../../../assets/images/menu-blue.png" alt="" (click)="toggleMenu()">
+                </div>
+            </div>
+            <div class="bottom-line"></div>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="headerName === 'transparant'">
+    <div class="header container" fxLayout="row" fxLayoutAlign="space-between">
+        <div class="logo" [routerLink]="'/home'">
+            <img src="../../../assets/images/staymaster-logo.svg" alt="">
+        </div>
+        <div class="menu-icon">
+            <img src="../../../assets/images/menu-icon.png" alt="" (click)="toggleMenu()">
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="headerName === 'menus'">
+    <div class="header container menu-container">
+        <div fxLayout="row" fxLayoutAlign="space-between">
+            <div class="logo" [routerLink]="'/home'">
+                <img src="../../../assets/images/staymaster-logo-blue.png" alt="">
+            </div>
+
+            <div class="justify-content-center">
+                <div class="card card-border">
+                    <div class="justify-content-center card-align">
+                        <div class="flex-display" fxLayout="row" fxLayoutAlign="space-between center">
+                            <!--<div class="menu-align" (click)="sendDestination()" fxLayout="row">-->
+                            <div class="menu-align" fxLayout="row">
+                                <img class="card-icon" src="../../../assets/images/location.png" alt="img"
+                                    fxHide.lt-md />
+                                <span *ngIf="selectedDestination"
+                                    class="card-attribute pl-8">{{selectedDestination.name}}</span>
+                            </div>
+                            <div class="dot-icon">
+                                <img src="../../../assets/images/dot.png" alt="img" />
+                            </div>
+                            <app-menu-content class="menu-align check-in-out-date" [checkInDate]="checkInDate" [checkOutDate]="checkOutDate" [viewType]="'checkInOut'" (dateRange)="dateRange($event)"></app-menu-content>
+                            <app-menu-content class="mx-4" [selectedGuest]="selectedGuestCount" [viewType]="'guests'"></app-menu-content>
+                            <div class="search-icon" (click)="onCaclulate()">
+                                <div class="search-btn">
+                                    <img class="search-icon-img" src="../../../assets/images/search.png" alt="img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-icon">
+                <img src="../../../assets/images/menu-blue.png" alt="" (click)="toggleMenu()">
+            </div>
+        </div>
+        <!-- <div class="bottom-line"></div> -->
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="headerName === 'menus-xs'">
+    <div class="container justify-content-center mt-20">
+        <div class="card card-border" (click)="showContentValue()">
+            <div class="card-body card-align-xs" fxLayout="row" fxLayoutAlign="center center">
+                <div fxFlex="5%">
+                    <img class="card-icon" src="../../../assets/images/search-icon-filter.png" alt="img" />
+                </div>
+
+                <div fxFlex="90%" class="card-align-small-content" fxLayout="row" fxLayoutGap="5px">
+                    <!--<div class="menu-align-xs" (click)="sendDestination()">-->
+                        <div class="menu-align-xs">
+                        <!-- <img class="card-icon" src="../../../assets/images/location.png" alt="img" /> -->
+                        <span *ngIf="selectedDestination"
+                            class="card-attribute pl-8">{{selectedDestination.name}}</span>
+                    </div>
+                    <!-- <div fxLayout="row"> -->
+                    <div fxLayout="100">
+                        <!-- (click)="sendCheckInOut()" -->
+                        <div class="menu-align-xs d-flex" >
+                            <span class="card-attribute p-0" *ngIf="checkInDate && checkInDate !== 'Check in'; else checkIn">
+                                {{ checkInDate | date: 'dd MMM' }}
+                            </span> -
+                            <ng-template #checkIn> Check in </ng-template>
+                            <span class="card-attribute p-0" *ngIf="checkOutDate && checkOutDate !== 'Check out'; else checkout">
+                                {{ checkOutDate | date: 'dd MMM' }}
+                            </span>
+                            <ng-template #checkout> Check out </ng-template>
+                        </div>
+                        <div class="dot-icon">
+                            <img src="../../../assets/images/dot.png" alt="img" />
+                        </div>
+                        <!-- (click)="openGuestModal()" -->
+                        <div class="menu-align-xs align-items-center">
+                            <!-- <img class="card-icon" src="../../../assets/images/people.png" alt="img" /> -->
+                            <span class="card-attribute pl-8">
+                                <ng-container *ngIf="(selectedGuestCount ? (selectedGuestCount.number_adults + selectedGuestCount.number_children) : totalSelectedGuest) > 0; else noGuests">
+                                    {{
+                                      selectedGuestCount
+                                        ? (selectedGuestCount.number_adults + selectedGuestCount.number_children)
+                                        : totalSelectedGuest
+                                    }}
+                                    {{
+                                      (selectedGuestCount ? (selectedGuestCount.number_adults + selectedGuestCount.number_children) : totalSelectedGuest) === 1
+                                        ? 'Guest'
+                                        : 'Guests'
+                                    }}
+                                  </ng-container>
+                                  <ng-template #noGuests> 0 Guest </ng-template>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- <div fxFlex.xs="100">
+                        <button type="button" class="filter-icon" fxFlex.xs="100"
+                            (click)="onCaclulate()">Search</button>
+                    </div> -->
+                    <!-- </div> -->
+                </div>
+                <div fxFlex="5%">
+                    <div class="btn-filters" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between center" (click)="openGuestModal()">
+                        <!-- <div>Filters</div> -->
+                        <img src="../../../assets/images/filter-icon.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</ng-container>
+
+
+<ng-container *ngIf="headerName === 'menus-xs'">
+    <div class="container justify-content-center mt-20">
+        <div class="card" [ngClass]="showContent ? 'show-content' : 'hide-content'">
+            <div class="card-body card-align" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxFlex="100" class="" fxLayout="column" [fxLayoutGap]="isDescription ? '' : '18px'">
+                    <!--<div class="menu-align" (click)="sendDestination()">-->
+                    <div class="menu-align" [ngClass]="{ 'mx-4': !isDescription }">
+                        <img class="card-icon" src="../../../assets/images/location.png" alt="img" />
+                        <span *ngIf="selectedDestination"
+                            class="card-attribute pl-8">{{selectedDestination.name}}</span>
+                    </div>
+                    <app-menu-content [ngClass]="isDescription ? '' : 'mx-4'" 
+                        [checkInDate]="checkInDate" 
+                        [checkOutDate]="checkOutDate" 
+                        [viewType]="'checkInOut'" 
+                        [isDescription]="isDescription"
+                        (dateRange)="updateDateRange($event)">
+                    </app-menu-content>
+
+                    <app-menu-content [ngClass]="isDescription ? '' : 'mx-4'" 
+                        [isDescription]="isDescription" 
+                        [selectedGuest]="selectedGuestCount" 
+                        [viewType]="'guests'">
+                    </app-menu-content>
+
+                    <div fxFlex.xs="100">
+                        <button type="button" class="filter-icon" fxFlex.xs="100"
+                            (click)="onCaclulate()">Search</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</ng-container>
+
+
+
+<ng-container *ngIf="headerName === 'home'">
+    <!--<div class="d-flex card-content" fxFlex.lt-md="100" (click)="sendDestination()">-->
+    <div class="d-flex card-content" fxFlex.lt-md="100">
+        <img class="card-icon" src="../../../assets/images/location.svg" alt="img" />
+        <div class="card-attribute">{{selectedDestination.name}}</div>
+    </div>
+    <div fxLayoutAlign="center center">
+        <span fxHide.lt-md class="h-filter-dot"></span>
+        <!-- <img fxHide.lt-sm src="../../../assets/images/dot.png" alt="img" /> -->
+    </div>
+    <app-menu-content [checkInDate]="checkInDate" [checkOutDate]="checkOutDate" [viewType]="'checkInOut'" (dateRange)="dateRange($event)"></app-menu-content>
+    <div fxLayoutAlign="center center">
+        <span fxHide.lt-md class="h-filter-dot"></span>
+        <!-- <img fxHide.lt-sm src="../../../assets/images/dot.png" alt="img" /> -->
+    </div>
+    <app-menu-content [selectedGuest]="selectedGuestCount" [viewType]="'guests'"></app-menu-content>    
+    <button type="button" class="st-btn" fxFlex.md="100" (click)="onCaclulate()">
+          <div class="search-text">Search</div>
+          <mat-icon class="search-icon-mobile">search</mat-icon>
+      </button>
+</ng-container>
+
+<ng-container *ngIf="overlayVisible">
+    <ng-template [ngTemplateOutlet]="menuModal"></ng-template>
+</ng-container>
+  
+<ng-template #menuModal>
+    <div class="overlay">
+        <div class="overlay-content">
+            <app-menu-modal (closeModal)="overlayVisible = false;"></app-menu-modal>
+        </div>
+    </div>
+</ng-template>

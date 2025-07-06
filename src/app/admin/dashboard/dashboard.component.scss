@@ -1,0 +1,61 @@
+.wrapper{
+    padding: 20px;
+    background-color: #f2f3f5;
+    min-height: 100vh;
+}
+
+.dashboard-card{
+    margin-bottom: 15px;
+    color: #FFFFFF;
+    box-shadow: 2px 2px 15px 1px rgba(83, 83, 83, 0.25);
+    height: 130px;
+    
+}
+mat-card :hover{
+    cursor: pointer;
+    // background-color: #96b9ff;
+    
+}
+.dashboard-card .title{
+    font-size: 24px;
+    font-weight: 600;
+    // color: #011875;
+    height: 80px;
+    text-align: center;
+}
+
+.dashboard-card .card-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #5272f7;
+}
+
+.dashboard-card .card-img {
+    width: 80px;
+    height: 80px;    
+}
+
+.dashboard-card .count{
+    font-size: 28px;
+    font-weight: 600;
+    color: #5272f7;
+}
+
+.card-chart {
+    width: 100%;
+}
+
+.body-content {
+    padding: 10px;
+  }
+/* Default styles for inactive buttons */
+button.mat-raised-button {
+    background-color: white !important; /* Add !important to override Angular Material styles */
+    color: black !important;
+  }
+  
+  /* Styles for the active button */
+  button.mat-raised-button.active-link {
+    background-color: #008281 !important;
+    color: white !important;
+  }

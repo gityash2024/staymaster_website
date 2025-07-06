@@ -1,0 +1,654 @@
+<!-- <ng-container>
+  <app-header fxShow.lt-md="" fxHide.gt-xs="" (notifyParent)="getDestination($event)"
+    (checkInOut)="getCheckInOut($event)" (checkAvailability)="searchProperity($event)" [menuName]="menuName"
+    [headerName]="'menus-xs'"></app-header>
+</ng-container> -->
+
+<div class="page">
+  <!-- <ngx-spinner bdColor = "initial" size = "medium" color = "#fff" type = "ball-climbing-dot" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>-->
+  <ng-container>
+    <div class="skeleton d-flex flex-column gap-2" *ngIf="!propertyDetails.display_image">
+      <div class="container position-relative py-4 skeleton-container">
+        <div class="d-flex justify-content-between align-items-center gap-3">
+          <div class="skeleton-name skeleton-sm" style="height: 70px; max-width: 300px;"></div>
+          <div class="skeleton-name skeleton-xs" style="height: 30px; max-width: 60px;"></div>
+        </div>
+    
+        <div class="bottom-section">
+          <div class="skeleton-name skeleton-full my-3" style="height: 40px; max-width: 800px;"></div>
+          <div class="d-flex justify-content-between align-items-start flex-wrap gap-3 mt-4">
+            <div class="d-flex flex-column gap-3" style="flex: 1; min-width: 250px;">
+              <div class="skeleton-name" style="height: 30px; max-width: 600px;"></div>
+              <div class="skeleton-name" style="height: 30px; max-width: 400px;"></div>
+            </div>
+            <div class="skeleton-name skeleton-md" style="height: 70px; max-width: 300px;"></div>
+          </div>
+        </div>        
+      </div>
+    </div>
+    
+    <!-- <div class="skeleton d-flex flex-column gap-2" >
+      <div class="container position-relative" style="height: 677px;">
+        <div class="d-flex justify-content-between w-100">
+          <div class="skeleton-name" style="max-height: 70px; max-width: 300px;"></div>
+          <div class="skeleton-name" style="max-height: 30px; max-width: 60px;"></div>
+        </div>
+        <div class="skeleton-name"></div>
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="skeleton-name" style="max-height: 30px; max-width: 600px;"></div>
+            <div class="skeleton-name" style="max-height: 30px; max-width: 400px;"></div>
+          </div>
+          <div class="skeleton-name" style="max-height: 70px; max-width: 300px;"></div>
+        </div>
+      </div>
+    </div> -->
+    <div  *ngIf="propertyDetails.display_image" class="property-header position-relative" ngClass.xs="property-header-xs" fxLayout="column">
+      <img [src]="propertyDetails.display_image" class="property-img">
+      <div class="header-box">
+        <app-header [headerName]="headerName"></app-header>
+        <div class="container" fxLayout="column" fxLayoutAlign="space-between ">
+          <div fxFlex></div>
+          <div class="header-info" fxFlex>
+            <div class="" fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="15px" fxLayoutAlign="space-between end"
+              fxLayoutAlign.lt-md="flex-star">
+              <div class="property-info">
+                <div class="price">{{ propertyDetails.internal_name }}</div>
+                <div class="address">
+                  {{ propertyDetails.city }}, {{ propertyDetails.state }}
+                </div>
+                <div class="aminities" fxLayout="row" fxLayoutGap="15px">
+                  <div class="bedrooms">
+                    {{ propertyDetails.number_of_bedrooms }} Bedrooms
+                  </div>
+                  <div class="aminities-dot"></div>
+                  <div class="capacity">
+                    Upto {{ propertyDetails.number_of_guests }} Guests
+                  </div>
+                  <ng-container *ngIf="propertyDetails.pooltype != ''">
+                    <div class="aminities-dot"></div>
+                    <div class="aminitites">{{ propertyDetails.pooltype }}</div>
+                  </ng-container>
+                  <ng-container *ngIf="propertyDetails.meals_available">
+                    <div class="aminities-dot"></div>
+                    <div class="aminitites">Meals Available</div>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="share-btn" fxLayout="row" fxLayoutGap="20px">
+                <img class="share-toggle" src="../../../assets/images/share-icon.png" style="cursor: pointer;" alt=""
+                  (click)="toggleShareMenu()" />
+                <div *ngIf="showShareMenu" class="share-buttons">
+                  <button (click)="share('facebook')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#3b5998">
+                      <path
+                        d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.326v21.348c0 .732.593 1.326 1.325 1.326h11.495v-9.293h-3.127v-3.622h3.127v-2.672c0-3.1 1.892-4.787 4.655-4.787 1.324 0 2.463.099 2.795.143v3.24h-1.917c-1.504 0-1.796.715-1.796 1.763v2.313h3.593l-.467 3.622h-3.126v9.293h6.127c.732 0 1.325-.593 1.325-1.326v-21.348c0-.732-.593-1.326-1.326-1.326z" />
+                    </svg>
+                  </button>
+                  <button (click)="share('twitter')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#1da1f2">
+                      <path
+                        d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.611 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-2.717 0-4.92 2.203-4.92 4.917 0 .385.044.76.128 1.122-4.09-.205-7.719-2.164-10.148-5.144-.424.728-.667 1.572-.667 2.476 0 1.708.87 3.216 2.188 4.099-.807-.026-1.566-.247-2.229-.616-.001.021-.001.042-.001.063 0 2.385 1.698 4.374 3.946 4.827-.414.113-.85.173-1.296.173-.317 0-.626-.031-.927-.089.626 1.956 2.444 3.377 4.6 3.415-1.684 1.32-3.809 2.106-6.115 2.106-.398 0-.79-.023-1.176-.069 2.179 1.397 4.768 2.213 7.548 2.213 9.057 0 14.01-7.508 14.01-14.008 0-.213-.005-.426-.014-.637.962-.695 1.797-1.562 2.457-2.549z" />
+                    </svg>
+                  </button>
+                  <button (click)="share('linkedin')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#0077b5">
+                      <path
+                        d="M22.23 0H1.77C.792 0 0 .774 0 1.728v20.543C0 23.227.792 24 1.77 24h20.457C23.208 24 24 23.227 24 22.272V1.728C24 .774 23.208 0 22.23 0zM7.06 20.452H3.56V9.045h3.5v11.407zm-1.75-13.04c-1.117 0-2.03-.926-2.03-2.067 0-1.14.914-2.065 2.03-2.065 1.117 0 2.03.926 2.03 2.065 0 1.14-.914 2.067-2.03 2.067zM20.45 20.452h-3.5v-5.916c0-1.41-.03-3.224-1.964-3.224-1.965 0-2.265 1.535-2.265 3.122v6.018h-3.5V9.045h3.361v1.552h.048c.467-.885 1.606-1.818 3.306-1.818 3.534 0 4.183 2.327 4.183 5.356v6.317z" />
+                    </svg>
+                  </button>
+                  <button (click)="share('instagram')">
+                    <img src="../../../assets/images/icons8-instagram.svg" alt="" />
+                  </button>
+                  <button (click)="share('whatsapp')">
+                    <img src="../../../assets/images/icons8-whatsapp.svg" alt="" />
+                  </button>
+                </div>
+
+                <img src="../../../assets/images/upload-icon.png" alt="" />
+                <button type="button" class="btn all-photos-btn" *ngIf="
+                    propertyDetails?.medias &&
+                    !isEmptyObject(propertyDetails.medias)
+                  " (click)="photoGalleryModal()">
+                  All Photos
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <!--  -->
+  <ng-container>
+    <div class="" [ngClass]="staySelect ? 'menus-select' : 'menus'" fxLayout="row" fxLayoutAlign="center center"
+      fxHide.lt-md [ngStyle]="getCollectionStyles(propertyDetails.collections)">
+      <div class="container">
+    <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="space-between center" style="gap: 40px;">
+          <div class="menu" (click)="setActiveMenuItem(0)" [ngClass]="{ 'menu-active': activeMenuItemIndex === 0 }">
+            Description
+          </div>
+          <div class="menu" (click)="setActiveMenuItem(1)" [ngClass]="{ 'menu-active': activeMenuItemIndex === 1 }">
+            Amenities
+          </div>
+          <!-- <div class="menu" (click)="setActiveMenuItem(2)" [ngClass]="{'menu-active': activeMenuItemIndex === 2}">Meals</div> -->
+          <div class="menu" (click)="setActiveMenuItem(3)" [ngClass]="{ 'menu-active': activeMenuItemIndex === 3 }">
+            Location & Neighbourhood
+          </div>
+          <div class="menu" (click)="setActiveMenuItem(4)" [ngClass]="{ 'menu-active': activeMenuItemIndex === 4 }">
+            House rules & policies
+          </div>
+          <div class="menu" (click)="setActiveMenuItem(5)" [ngClass]="{ 'menu-active': activeMenuItemIndex === 5 }">
+            FAQs
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <!--  -->
+  <ng-container>
+    <div class="about-property-xs" ngClass.gt-xs="about-property" id="descriptionSection">
+      <div class="container" ngClass.xs="overridePadding">
+        <!-- <div fxLayout="row" fxLayoutAlign="end" fxHide.lt-sm>
+                    <button mat-raised-button (click)="staySelectClick()"
+                    [ngClass]="staySelect ? 'stay-select-btn' : 'default-btn'">
+                        <mat-icon *ngIf="staySelect">check</mat-icon> Stay Select
+                    </button>
+                </div> -->
+        <div fxLayout="column" fxLayout.gt-sm="row" ngClass.xs="px-4 mx-2" fxLayout.lt-md="column-reverse" class="align-items-baseline">
+          <div fxFlex="60" class="property-text" fxFlex.lt-md="100">
+            <ng-container *ngIf="staySelect">
+              <div class="section-header">What is Staymaster Select ?</div>
+
+              <div class="about-property-desc">
+                StayMaster Select offers premium vacation rentals with enhanced services including 
+                dedicated concierge, housekeeping, chef services, and 24/7 guest support. Experience 
+                luxury accommodations with personalized hospitality that makes your stay unforgettable 
+                and hassle-free.
+              </div>
+              <br />
+              <div class="section-header">
+                How is Staymaster Select different ?
+              </div>
+              <div fxLayout="column" fxLayoutGap="25px">
+                <div fxLayout="row" fxLayoutGap="25px">
+                  <div fxFlex class="select-different" fxLayout="row" fxLayoutGap="25px">
+                    <img src="../../../assets/images/home-select.png" alt="" />
+                    <div class="about-property-desc">
+                      Premium properties with luxury amenities
+                    </div>
+                  </div>
+                  <div fxFlex class="select-different" fxLayout="row" fxLayoutGap="25px">
+                    <img src="../../../assets/images/troffee-select.png" alt="" />
+                    <div class="about-property-desc">
+                      Award-winning hospitality standards
+                    </div>
+                  </div>
+                </div>
+                <div fxLayout="row" fxLayoutGap="25px">
+                  <div fxFlex class="select-different" fxLayout="row" fxLayoutGap="25px">
+                    <img src="../../../assets/images/home-key-select.png" alt="" />
+                    <div class="about-property-desc">
+                      Dedicated concierge and guest services
+                    </div>
+                  </div>
+                  <div fxFlex class="select-different" fxLayout="row" fxLayoutGap="25px">
+                    <img src="../../../assets/images/batch-select.png" alt="" />
+                    <div class="about-property-desc">
+                      Certified quality and safety standards
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <!-- <br /> -->
+            <div class="section-header mt-lg-0 mt-0 pt-md-0 pt-xs-0">About the Property</div>
+            <div class="about-property-desc">
+              {{ propertyDetails.description_summary }}
+            </div>
+            <div class="read-more-btn" (click)="aboutPropertyModal()">
+              Read More
+            </div>
+            <!-- <br fxHide.gt-sm /> -->
+            <div class="bottom-line" fxHide.gt-xs></div>
+            <!-- <br /> -->
+            <div class="gradient-line"></div>
+            <div class="section-header" id="amenitiesSection">Amenities</div>
+            <div fxLayout="column" fxLayoutGap="25px">
+              <div class="row aminities" *ngIf="
+                  propertyDetails && propertyDetails.amenitiesWithDescriptions
+                ">
+                <div class="col-md-6" *ngFor="let item of filteredAmenities">
+                  <div class="aminitie" fxLayout="row" fxLayoutGap="25px">
+                    <div class="aminitie-icon">
+                      <img [src]="getIconUrl(item.icon)" alt="" />
+                    </div>
+                    <div class="aminitie-name">{{ item.name }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="read-more-btn" [ngClass]="isLargeScreen ? 'mt-3' : ''" (click)="aboutAmenityModal()">
+              Read More
+            </div>
+            <div class="bottom-line" fxHide.gt-xs></div>
+            <!-- <br fxHide.gt-sm /> -->
+            <div class="gradient-line"></div>
+            <ng-container *ngIf="staySelect">
+              <div class="section-header">Special Staymaster Services</div>
+              <div fxLayout="column" fxLayoutGap="25px">
+                <div class="row aminities">
+                  <div class="col-md-6">
+                    <div class="aminitie" fxLayout="row" fxLayoutGap="25px">
+                      <div class="aminitie-icon">
+                        <img src="../../../assets/images/Housekeeping.png" alt="" />
+                      </div>
+                      <div class="aminitie-name">Housekeeping</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="aminitie" fxLayout="row" fxLayoutGap="25px">
+                      <div class="aminitie-icon">
+                        <img src="../../../assets/images/wifi-select.png" alt="" />
+                      </div>
+                      <div class="aminitie-name">Wifi</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row aminities">
+                  <div class="col-md-6">
+                    <div class="aminitie" fxLayout="row" fxLayoutGap="25px">
+                      <div class="aminitie-icon">
+                        <img src="../../../assets/images/Chef.png" alt="" />
+                      </div>
+                      <div class="aminitie-name">Chef</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="aminitie" fxLayout="row" fxLayoutGap="25px">
+                      <div class="aminitie-icon">
+                        <img src="../../../assets/images/Restaurant-Conceitge.png" alt="" />
+                      </div>
+                      <div class="aminitie-name">Restaurant Conceitge</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="about-property-desc">
+                Premium concierge service, personalized trip planning and local experience curation.
+                Connect with the manager to know more additional services
+              </div>
+              <button class="sm-btn">Call the Manager</button>
+              <div class="gradient-line"></div>
+            </ng-container>
+
+            <ng-container *ngIf="propertyDetails.meals_available">
+              <div class="section-header">Meal</div>
+              <div class="about-property-desc">
+                {{ propertyDetails.meals_text }}
+              </div>
+              <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="25px" fxHide.lt-sm>
+                <div fxFlex fxLayout="row" fxLayoutGap="25px">
+                  <div><img src="../../../assets/images/Veg.png" alt="" /></div>
+                  <div class="veg-non-veg">Vegetarian</div>
+                </div>
+                <div fxFlex fxLayout="row" fxLayoutGap="25px">
+                  <div>
+                    <img src="../../../assets/images/Non-veg.png" alt="" />
+                  </div>
+                  <div class="veg-non-veg">Non-Vegetarian</div>
+                </div>
+                <div fxFlex></div>
+              </div>
+              <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutGap="25px" class="veg-non-veg1" fxHide.gt-sm>
+                <div fxFlex fxLayout="row" fxLayoutGap="25px">
+                  <div><img src="../../../assets/images/Veg.png" alt="" /></div>
+                  <div class="veg-non-veg title">Vegetarian</div>
+                </div>
+                <div fxFlex fxLayout="row" fxLayoutGap="25px">
+                  <div>
+                    <img src="../../../assets/images/Non-veg.png" alt="" />
+                  </div>
+                  <div class="veg-non-veg title">Non-Vegetarian</div>
+                </div>
+                <div fxFlex></div>
+              </div>
+              <br />
+              <div class="read-more-btn meal-pricing" (click)="mealPricingModal()">
+                Meal Pricing
+              </div>
+              <br fxHide.gt-sm />
+              <div class="bottom-line" fxHide.gt-sm></div>
+              <br fxHide.gt-sm />
+              <div class="gradient-line"></div>
+            </ng-container>
+          </div>
+
+
+          <div fxFlex="40" class="property-details">
+            <div fxLayout="row" fxLayoutAlign="center center" class="reserve-content">
+              <div class="top-circle"></div>
+            </div>
+            <div class="skeleton-item" *ngIf="propertyLoading"></div>
+            <div [ngStyle]="getCollectionStyles(propertyDetails.collections)" *ngIf="!propertyLoading && propertyDetails != ''" class="pricing-summary" fxLayout="column"
+              fxLayoutGap="15px" [ngClass]="
+                staySelect ? 'pricing-summary-select' : 'pricing-summary'
+              ">
+              <div class="title" *ngIf="propertyDetails?.price_per_night">
+                Pricing Summary
+              </div>
+              <div class="price" fxLayout="row" fxLayoutGap="3px" *ngIf="propertyDetails?.price_per_night">
+                <div>
+                  Rs. {{ propertyDetails?.price_per_night | number : "1.0-0" }}
+                </div>
+                <div class="type">night</div>
+              </div>
+              <app-menu-content 
+                [viewType]="'checkInOut'" 
+                [checkInDate]="checkInDate" 
+                [checkOutDate]="checkOutDate" 
+                (dateRange)="dateRange($event)"
+                [isSummary]="true"
+                [propertyId]="id"
+                [propertyDetails]="propertyDetails">
+              </app-menu-content>
+              <app-menu-content 
+                [viewType]="'guests'" 
+                [isSummary]="true"
+                [selectedGuest]="{
+                  number_adults: selectedGuestCount.number_adults,
+                  number_children: selectedGuestCount.number_children
+                }"
+                (updateGuest)="updateGuest($event)"
+                [propertyId]="id"
+                [propertyDetails]="propertyDetails">
+              </app-menu-content>
+            
+              <div class="breakfast" fxLayout="row" fxLayoutGap="10px" *ngIf="propertyDetails.meals_available">
+                <div class="chk">Include Breakfast</div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="center center">
+                <button class="reserve-btn btn" [disabled]="propertyDetails?.price_per_night ? false : true"
+                  (click)="confirmBooking()">
+                  Reserve
+                </button>
+              </div>
+
+              <div class="charged-yet" fxLayoutAlign="center center" *ngIf="propertyDetails?.price_per_night">
+                You wont be charged yet
+              </div>
+              <div class="calculations">
+                <div fxLayout="column" fxLayoutGap="15px">
+                  <div class="item" fxLayout="row" fxLayoutAlign="space-between start"
+                    *ngIf="propertyDetails?.price_per_night">
+                    <div fxLayout="row" fxLayoutGap="5px">
+                      <div class="underline">
+                         Rs. {{ calculateFinalPrice() | number: "1.0-0"}}
+                      </div>
+                      <div> x {{ propertyDetails?.number_of_nights }} nights </div>
+                    </div>
+                    <div> Rs. {{ calculateFinalPrice() * propertyDetails?.number_of_nights | number : "1.0-0" }}</div>
+                  </div>
+                  <div class="item" fxLayout="row" fxLayoutAlign="space-between start" *ngIf="propertyDetails.extra_person_charges_per_night">
+                    <div>
+                      <span class="underline"> Extra Guests</span>
+                        ( Rs. {{propertyDetails.extra_person_charges_per_night}} x {{ propertyDetails?.number_of_nights }} nights )
+                    </div>
+                    <div> Rs. {{ propertyDetails.extra_person_charges_per_night * propertyDetails?.number_of_nights | number : "1.0-0" }} </div>
+                  </div>
+                  <div class="item" fxLayout="row" fxLayoutAlign="space-between start"
+                    *ngIf="propertyDetails?.total_taxes">
+                    <div fxLayout="row" fxLayoutGap="5px">
+                      <div class="underline">Taxes</div>
+                    </div>
+                    <div> Rs. {{ propertyDetails?.total_taxes | number : "1.0-0" }} </div>
+                  </div>
+                  <div class="line"></div>
+                  <div class="total" fxLayout="row" fxLayoutAlign="space-between start"
+                    *ngIf="propertyDetails?.totalprice_inclusive_all">
+                    <div fxLayout="row" fxLayoutGap="5px">
+                      <div class="">Total</div>
+                    </div>
+                    <div>
+                      Rs.
+                      {{
+                      propertyDetails?.totalprice_inclusive_all
+                      | number : "1.0-0"
+                      }}
+                    </div>
+                  </div>
+                  <div class="guests">
+                    <!-- <div fxLayout="row" fxLayoutGap="5px">
+                                            <div class="guest-rate">Rs. 48,500 /</div>
+                                            <div class="guest">Guest</div>
+                                        </div> -->
+                    <div class="charged-yet">
+                      Security Deposit of Rs.
+                      {{
+                      propertyDetails.security_deposit_percentage
+                      | number : "1.0-0"
+                      }}
+                      to be paid at check in
+                      <br />
+                      Full return on cancellation
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" style="
+                flex-direction: row;
+                box-sizing: border-box;
+                display: flex;
+                place-content: center;
+                align-items: center;
+              ">
+              <div class="bottom-circle"></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="neighbourhood" id="locationSection">
+            <div class="section-header">Location & Neighbourhood</div>
+            <!-- <div class="near-by" fxLayoutGap="25px" fxLayout="column" fxLayout.gt-xs="row" fxHide.lt-sm>
+                            <div class="locations active" fxLayoutGap="10px" fxLayout="row">
+                                <img src="../../../../assets/images/sm-location.png" alt="">
+                                <div>minim veniam minim veniam (15 mins)</div>
+                            </div>
+                            <div class="locations" fxLayoutGap="10px" fxLayout="row">
+                                <img src="../../../../assets/images/sm-location-light.png" alt="">
+                                <div>minim veniam (25 mins)</div>
+                            </div>
+                            <div class="locations" fxLayoutGap="10px" fxLayout="row">
+                                <img src="../../../../assets/images/sm-location-light.png" alt="">
+                                <div>minim veniam (28 mins)</div>
+                            </div>
+                            <div class="locations" fxLayoutGap="10px" fxLayout="row">
+                                <img src="../../../../assets/images/sm-location-light.png" alt="">
+                                <div>minim veniam minim (32 mins)</div>
+                            </div>
+                        </div> -->
+            <!-- <div class="neighbourhood-map" fxHide.lt-sm>
+                            <img src="../../../../assets/images/neighbourhood-map.png" class="img img-responsive" alt=""
+                                style="width: 100%;">
+                        </div>
+                        <div class="neighbourhood-map" fxHide.gt-sm>
+                            <img src="../../../../assets/images/map-zoom.png" class="img img-responsive" alt=""
+                                style="width: 100%;">
+                        </div> -->
+            <app-google-map *ngIf="propertyDetails?.google_latitude" [locations]="[
+                {
+                  lat: propertyDetails?.google_latitude,
+                  lng: propertyDetails?.google_longitude
+                }
+              ]"></app-google-map>
+          </div>
+        </div>
+        <div class="privacy-policy-xs mx-xs-2" ngClass.gt-xs="privacy-policy mx-xs-2" fxHide.lt-md
+          id="houseRulesSection">
+          <div class="cards" fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="16px"
+            fxLayoutAlign="space-between center">
+            <div class="card" fxLayout="column" fxLayoutAlign="center center">
+              <img src="../../../assets/images/House-Rules.png" alt="" />
+              <div class="title">House Rules</div>
+              <div class="desc">
+                {{ propertyDetails?.house_rules?.substring(0, 160) }}
+              </div>
+              <div class="read-more" (click)="houseRulesModal()">Read More</div>
+            </div>
+            <div class="card" fxLayout="column" fxLayoutAlign="center center">
+              <img src="../../../assets/images/Privacy-Policy.png" alt="" />
+              <div class="title">Privacy Policy</div>
+              <div class="desc">
+                Staymaster Services Private Limited is committed to protecting
+                your privacy and all the information you share with us. Reading
+                this privacy policy statement
+              </div>
+              <div class="read-more" (click)="privacyPolicyModal()">
+                Read More
+              </div>
+            </div>
+            <div class="card" fxLayout="column" fxLayoutAlign="center center">
+              <img src="../../../assets/images/Cancellation-and-Refund.png" alt="" />
+              <div class="title">Cancellation and Refund</div>
+              <!--<div class="desc">{{propertyDetails?.cancellation_policy?.substring(0, 160)}}</div>-->
+              <div class="desc">
+                At Staymaster, we understand that plans can change unexpectedly.
+                To ensure clarity and fairness for all our guests, we have
+                established a
+              </div>
+              <div class="read-more" (click)="cancellationRefundModal()">
+                Read More
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="why-choose-staymaster" fxHide.gt-sm>
+          <div class="container">
+            <div fxLayout="column">
+              <div>
+                <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-between">
+                  <div class="section-types">
+                    <div class="type">
+                      <div class="img" fxLayout="column wrap">
+                        <img src="../../../assets/images/home.png" alt="" />
+                        <p class="section-title">House Rules</p>
+                      </div>
+                      <div class="desc">
+                        {{ propertyDetails?.house_rules?.substring(0, 160) }}
+                        <!-- <br />
+                        <br /> -->
+                        <p class="section-title-rm" (click)="houseRulesModal()">Read More</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="section-types">
+                    <div class="type">
+                      <div class="img" fxLayout="column wrap">
+                        <img src="../../../assets/images/home.png" alt="" />
+                        <p class="section-title">Privacy Policy</p>
+                      </div>
+                      <div class="desc">
+                        Staymaster Services Private Limited is committed to
+                        protecting your privacy and all the information you
+                        share with us. Reading this privacy policy statement
+                      </div>
+                      <div class="section-title-rm" (click)="privacyPolicyModal()">
+                        Read More
+                      </div>
+                
+                    </div>
+                  </div>
+                  <div class="section-types">
+                    <div class="type">
+                      <div class="img" fxLayout="column wrap">
+                        <img src="../../../assets/images/home.png" alt="" />
+                        <p class="section-title">Cancellation and Refund</p>
+                      </div>
+                      <div class="desc">
+                        At Staymaster, we understand that plans can change
+                        unexpectedly. To ensure clarity and fairness for all our
+                        guests, we have established a
+                      </div>
+                      <div class="section-title-rm" (click)="cancellationRefundModal()">
+                        Read More
+                      </div>
+                      <!--<div class="desc">
+                                                {{propertyDetails?.cancellation_policy?.substring(0, 160)}}
+                                                <br>
+                                                <br>
+                                                <p class="section-title-rm"><u>Read More</u></p>
+                                            </div>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <app-dont-warry-section id="faqsSection"></app-dont-warry-section>
+  <div class="d-flex justify-content-center align-items-center pb-5" *ngIf="scrolledToFooter">
+    <button class="reserve-btn-text btn" (click)="scrollToFooter()"> Reserve </button>
+  </div>
+  <ng-container>
+    <app-footer></app-footer>
+  </ng-container>
+</div>
+
+<div class="d-none mobile-pricing-summary">
+  <div class="d-flex justify-content-between pb-2 align-items-center flex-wrap" [ngClass]="{
+        'gap-5' : isLargeScreen,
+        'justify-content-around' : !isLargeScreen,
+    }">
+    <div class="d-flex flex-column">
+      <div class="d-flex align-items-baseline justify-content-around gap-3 sticky-content flex-wrap">
+        <app-menu-content 
+          class="app-menu-content"
+          [isSummary]="true"  
+          (dateRange)="dateRange($event)"
+          [viewType]="'checkInOut'" 
+          [isMobile]="true" 
+          [checkInDate]="checkInDate" 
+          [checkOutDate]="checkOutDate">
+        </app-menu-content>
+        <app-menu-content 
+          class="app-menu-content"
+          [isSummary]="true" 
+          (updateGuest)="updateGuest($event)" 
+          [viewType]="'guests'" 
+          [isMobile]="true" 
+          [selectedGuest]="{
+            number_adults: selectedGuestCount.number_adults,
+            number_children: selectedGuestCount.number_children
+          }">
+        </app-menu-content>
+      </div>
+    </div>
+    <div class="price" fxLayout="row" fxLayoutGap="3px" *ngIf="propertyDetails?.price_per_night">
+      <div>
+        Rs. {{ propertyDetails?.price_per_night | number : "1.0-0" }}
+      </div>
+      <div class="type">night</div>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <button class="reserve-btn btn" [disabled]="propertyDetails?.price_per_night ? false : true"
+      (click)="confirmBooking()">
+      Reserve
+    </button>
+  </div>
+  <div class="charged-yet mt-2 text-center">
+    Security Deposit of Rs.
+    {{
+    propertyDetails.security_deposit_percentage
+    | number : "1.0-0"
+    }}
+    to be paid at check in
+  </div>
+</div>

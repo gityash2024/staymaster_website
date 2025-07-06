@@ -1,0 +1,71 @@
+.declineform {
+    padding: 20px;
+
+    .view_images {
+        width: 310px;
+        height: 226px;
+    }
+
+    .srTitle {
+        color:#2E2E2EA6;
+        font-size: var(--admin-titlesiz);
+    }
+
+    .srDescription {
+        color:var(--admin-inactivetxt);
+        font-size: var(--admin-titlesiz);
+    }
+
+    .editIcon {
+        justify-content: flex-end;
+    }
+
+    .service_request_desc {
+        color:var(--admin-inactivetxt);
+        font-size: var(--admin-titlesiz);
+    }
+
+    .titlect {
+        font-size: 20px;
+        color: var(--admin-inactivetxt);
+    }
+
+    .contact {
+        color:var(--admin-inactivetxt);
+        font-size: var(--admin-titlesiz);
+    }
+
+  
+
+}
+.cancel {
+    width: 94px;
+    height: 36px;
+    border: 0.9px solid var(--admin-active);
+    font-size: var(--admin-titlesiz);
+    color:var(--admin-active);
+    margin-right:10px;
+    margin-left: 30px;
+}
+
+.submit {
+    width: 94px;
+    height: 36px;
+    border: 0.9px solid var(--admin-active);
+    background-color: var(--admin-active);
+    font-size: var(--admin-titlesiz);
+    color:var(--admin-activetxt)
+}
+  // --admin-mainfont:"Akkurat";
+
+// --admin-active: #008281;
+// --admin-inactive: rgb(66, 77, 79);
+
+// --admin-activetxt: #ffff;
+// --admin-inactivetxt:#222222;
+// #808080
+
+// --admin-titlesiz:16px;
+// --admin-titlesmall:15px;
+// --admin-subtitlesiz:14px;
+// --admin-subsubtitlesiz:12px;

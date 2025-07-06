@@ -1,0 +1,25 @@
+<div class="abt-prop-wrap">
+    <div mat-dialog-content class="modal-body">
+        <div class="about-property-header" fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="title">About this Property</div>
+            <mat-icon (click)="onNoClick()">close</mat-icon>
+        </div>
+        <div class="house-rules" fxLayout="column" fxLayoutGap="25px">
+            <div class="list">
+                <div>
+                    <p>
+                        {{propertyDetails.description}}
+                    </p>
+                </div>
+                <div>
+                    <div *ngFor="let details of propertyDetails.details">
+                        <div class="mb-20">
+                            <div class="tittle">{{details.title}}</div>
+                            <div class="description">{{details.description}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

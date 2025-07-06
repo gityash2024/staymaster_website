@@ -1,0 +1,581 @@
+.mdc-dialog__surface {
+  border-radius: 16px !important;
+}
+
+.stay-sedt-model .mdc-dialog__content {
+  padding: 20px 24px 0px 0px !important;
+}
+
+.modal-align {
+  min-width: 100%;
+  width: 950px;
+  background: #ffffff;
+  top: 100px;
+  padding: 40px;
+  overflow-y: auto;
+  overflow-x: auto;
+  height: 537px;
+  padding: 40px 63px;
+}
+
+.modal-align-xs {
+  width: 100%;
+  background: #ffffff;
+  top: 100px;
+  padding: 40px;
+  overflow-y: auto;
+  overflow-x: auto;
+  height: 600px;
+  padding: 25px 40px;
+
+  @media (max-width: 991px) {
+    height: -webkit-fill-available;
+    padding: 38px 20px;
+  }
+}
+
+.modal-title {
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
+  color: #008281;
+  // padding: 30px 0px 0px 30px;
+}
+
+.bg-img {
+  background: url("../../../assets/images/kit.png");
+  background-position: right 0px bottom 0px;
+  background-repeat: no-repeat;
+  height: 128px;
+  background-size: 110px;
+}
+.modal-p {
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: #2e2e2e;
+}
+
+.destinations-location {
+  cursor: pointer;
+}
+
+.close-btn {
+  float: right;
+  position: relative;
+  top: 15px;
+  right: 30px;
+}
+
+.des-img {
+  width: 256px;
+  height: 207px;
+  padding: 5px;
+  background: #ffffff;
+}
+
+// Guests
+
+.guest-p {
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: #2e2e2e;
+  top: -15px;
+}
+
+.guest-sp {
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  padding-left: 10px;
+  color: #737373;
+}
+
+.ml-22 {
+  margin-left: 22px;
+}
+
+.modal-body {
+  padding-top: 52px;
+  padding-left: 68px;
+  min-height: 60vh;
+  // min-width: 50%;
+  overflow: scroll;
+}
+
+.guest-modal {
+  // width: 800px;
+  background: #ffffff;
+  padding: 10px 30px;
+
+  hr {
+    opacity: 1 !important;
+    border-color: rgba(196, 179, 133, 0.4) !important;
+  }
+
+  .action-btn {
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 991px) {
+    padding: 22px 20px;
+  }
+}
+
+.checkbox-b {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #c0c0c0;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+}
+
+/* Creating a custom checkbox
+        based on demand */
+.sm-checkbox-mark {
+  cursor: pointer;
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  background-color: #ffffff;
+  border: 1px solid;
+  // border-image: linear-gradient(45deg, #c4b385, #a18180) 1;
+  border-radius: 6px;
+  color: rgba(196, 179, 133, 1);
+}
+
+/* Specify the background color to be
+        shown when hovering over checkbox */
+.sm-checkbox:hover input ~ .sm-checkbox-mark {
+  background-color: #008281;
+}
+
+/* Specify the background color to be
+        shown when checkbox is active */
+.sm-checkbox input:active ~ .sm-checkbox-mark {
+  background-color: #008281;
+}
+
+/* Specify the background color to be
+        shown when checkbox is checked */
+.sm-checkbox input:checked ~ .sm-checkbox-mark {
+  background-color: #008281;
+}
+
+/* Checkmark to be shown in checkbox */
+/* It is not be shown when not checked */
+.sm-checkbox-mark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Display checkmark when checked */
+.sm-checkbox input:checked ~ .sm-checkbox-mark:after {
+  display: block;
+}
+
+/* Styling the checkmark using webkit */
+/* Rotated the rectangle by 45 degree and 
+        showing only two border to make it look
+        like a tickmark */
+.sm-checkbox .sm-checkbox-mark:after {
+  left: 10px;
+  top: 5px;
+  width: 9px;
+  height: 15px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.sm-checkbox > .label-name {
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  margin-left: 45px;
+  color: #252525;
+}
+
+.iput:checked {
+  background: #008281;
+  border: 1px solid #008281;
+  border-radius: 3px;
+}
+
+.not-sure {
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  padding-left: 10px;
+  position: absolute;
+  padding-top: 5px;
+  line-height: 23px;
+  color: #2e2e2e;
+}
+
+.devider-line {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: rgb(196, 179, 133);
+  background: linear-gradient(90deg, rgba(196, 179, 133, 1) 0%, rgba(255, 255, 255, 1) 100%);
+  height: 1px;
+}
+
+.pl-10 {
+  padding-left: 10px;
+}
+
+.pl-6r {
+  padding-left: 6rem;
+}
+
+.table-set {
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #2e2e2e;
+  box-sizing: border-box;
+  width: 78px;
+  height: 36px;
+  left: 484px;
+  top: 262px;
+  border: 1px solid #aeaeae;
+  border-radius: 27px;
+  padding: 6px 15px;
+  cursor: pointer;
+}
+
+.f-r {
+  float: right;
+  right: 3rem;
+  position: absolute;
+}
+
+.decrement {
+  width: 25px;
+  height: 25px;
+  border-radius: 68px;
+  border: 1px solid #c0c0c0;
+  // padding: 6px;
+  display: block;
+  // left: 10px;
+  // line-height: 8px;
+  font-weight: 400;
+  font-size: 32px;
+  color: #c0c0c0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 991px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.count {
+  padding: 0px 20px;
+}
+
+.increment {
+  width: 25px;
+  height: 25px;
+  border-radius: 68px;
+  border: 1px solid #008281;
+  // padding: 6px;
+  display: block;
+  left: 10px;
+  line-height: 10px;
+  font-weight: 400;
+  font-size: 21px;
+  color: #008281;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 991px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.children {
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: #2e2e2e;
+}
+
+.action-btn {
+  // justify-content: end;
+}
+
+.btn-view-all {
+  width: 195px;
+  height: 60px;
+  background: #008281;
+  box-shadow: 1px 1px 14px 1px rgba(88, 65, 57, 0.12);
+  border-radius: 46px;
+  // text-align: center;
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: #f9f5f3;
+  // padding-top: 17px;
+  cursor: pointer;
+  // float: right;
+
+  @media (max-width: 559px) {
+    width: 100%;
+    margin-top: 38px;
+  }
+}
+
+.search-btn {
+  justify-content: end;
+}
+
+// Filter price range
+.price-modal {
+  width: 100%;
+  background: #ffffff;
+  overflow-y: auto;
+  overflow-x: hidden;
+  // height: 600px;
+  padding: 25px 40px;
+  max-height: calc(100vh - 100px);
+
+  .devider-line {
+    color: rgba(196, 179, 133, 1);
+  }
+
+  span {
+    font-family: "Akkurat";
+  }
+}
+.price-modal-xs {
+  width: 100%;
+  background: #ffffff;
+  overflow-y: auto;
+  overflow-x: hidden;
+  // height: 600px;
+  padding: 25px 40px;
+  max-height: calc(100vh - 100px);
+
+  // .bedrooms {
+  //   flex-wrap: nowrap !important;
+  //   overflow: scroll;
+  // }
+
+  span {
+    font-family: "Akkurat";
+  }
+  .action-btn {
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+  }
+}
+.slider-w {
+  width: 70%;
+  justify-content: center;
+}
+
+.pl-13r {
+  padding-left: 13rem;
+}
+
+.filter-sub-header {
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: #2e2e2e;
+}
+
+.bedroom-no {
+  cursor: pointer;
+  width: 60px;
+  height: 39px;
+  background: #ffffff;
+  padding: 8px 21px;
+  margin-top: 12px;
+  // border-width: 1px;
+  // border-style: solid;
+  // border-image: linear-gradient(45deg, #C4B385, #A18180) 1;
+  border: 1px solid #a18180;
+  // border-image: linear-gradient(45deg, #C4B385, #A18180) 1;
+  border-radius: 20px;
+}
+
+.bedroom-no:hover {
+  color: #ffffff;
+  background: #008281;
+}
+
+.bedrooms > .active {
+  color: #ffffff;
+  background: #008281;
+}
+
+.essentials {
+  .sm-checkbox {
+    margin-top: 20px;
+    width: 250px;
+    position: relative;
+  }
+}
+.amount {
+  justify-content: center;
+  display: flex;
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #2e2e2e;
+}
+
+.sub-header {
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: #9b9b9b;
+}
+
+.loc-name {
+  font-family: "Akkurat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  padding-left: 5px;
+  line-height: 20px;
+  color: #2e2e2e;
+}
+
+.checkInOut-modal {
+  width: 100%;
+  background: #ffffff;
+  min-width: 100%;
+  top: 100px;
+  padding: 10px 30px;
+}
+
+.md-drppicker {
+  box-shadow: none !important;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.date-rage {
+  width: 100%;
+  display: flex;
+}
+
+.add-days {
+  cursor: pointer;
+  width: 71px;
+  height: 39px;
+  border-radius: 20px;
+  background: #ffffff;
+  padding: 7px 8px;
+  margin: 5px 5px;
+  border-radius: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border: linear-gradient(to right, #c4b385 0%, #a18180 100%) 0 0 100% 0;
+}
+
+.add-days:hover {
+  background: rgba(0, 130, 129, 0.18);
+  border: 1px solid #008281;
+}
+
+.celnader-disply {
+  display: block !important;
+}
+@media (max-width: 767px) {
+  .checkInOut-modal {
+    padding: 9px !important;
+  }
+}
+
+.guest-actions{
+  display: flex;
+}
+
+.filter-bedroom-action{
+  overflow: auto; 
+  @media (max-width: 992px) {
+    scrollbar-width: none;
+  }
+}
+
+.footer-section{
+  position: sticky;
+  bottom: -25px;
+  background: white;
+}
+
+.header-section{
+  position: sticky;
+  top: -25px;
+  padding: 14px 0;
+  background: white;
+  z-index: 9;
+}
+.show-categories{
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+  gap: 25px;
+  display: grid !important;
+  width: 100%;
+}
+
+.category-key{
+  font-family: "Akkurat";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  color: #9B9B9B;
+  padding-bottom: 20px;
+}
+
+.cdk-overlay-pane{
+  width: 950px !important;
+}

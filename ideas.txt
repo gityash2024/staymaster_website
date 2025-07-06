@@ -1,0 +1,9 @@
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+ <ng-container *ngFor="let item of items">
+    <li
+      fxFlex="0 1 calc(25% - 0.5%)"
+      fxFlex.lt-md="0 1 calc(50% - 0.5%)"
+      fxFlex.lt-sm="100%">
+   </li>
+</ng-container>
+   </div>

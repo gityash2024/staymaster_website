@@ -1,0 +1,72 @@
+<section class="hero">
+  <!-- Transparent header over hero image -->
+  <app-header [headerName]="'transparant'"></app-header>
+
+  <div class="hero-overlay">
+    <p class="hero-date">{{ today | date: 'dd MMM yyyy' }}</p>
+    <h1 class="hero-title">Discover Travel Stories &amp; Tips</h1>
+    <p class="hero-desc">From hidden gems to must-visit destinations, explore our curated collection of travel inspiration tailored for every wanderer.</p>
+    <button class=" hero-btn">Read More</button>
+  </div>
+</section>
+
+<section class="feature-section">
+  <div class="container feature-layout">
+    <nav class="categories">
+      <div
+        class="category-item"
+        *ngFor="let cat of categories"
+        [class.active]="cat === selectedCategory"
+        (click)="selectCategory(cat)"
+      >
+        {{ cat }}
+      </div>
+    </nav>
+
+    <div class="featured">
+     
+      <div class="featured-content" [style.background-image]="'url(' + featuredPost.image + ')'">
+        <p class="date">{{ featuredPost.date }}</p>
+        <h2 class="featured-title">{{ featuredPost.title }}</h2>
+        <p class="featured-excerpt">{{ featuredPost.excerpt }}</p>
+        <p class="post-excerpt" style="color: #ffffff; font-weight: 600;" >Read More →</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="posts-section">
+  <div class="posts container" #postsContainer>
+    <div class="post-card" *ngFor="let post of posts">
+      <div
+        class="post-img"
+        [style.background-image]="'url(' + post.image + ')'"
+      ></div>
+      <div class="post-body">
+        <p class="date">{{ post.date }}</p>
+        <h3 class="post-title">{{ post.title }}</h3>
+        <p class="post-excerpt">{{ post.excerpt }}</p>
+        <button class="read-more">Read More <span class="arrow">&#8594;</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- carousel dots -->
+  <div class="dots">
+    <span
+      class="dot"
+      *ngFor="let post of posts; let i = index"
+      [class.active]="i === currentSlide"
+    ></span>
+  </div>
+
+  
+</section>
+
+<div class="explore-section" style="margin-bottom: 60px;">
+  <p>Find your perfect escape, from sun-drenched villas to cozy mountain retreats, all curated by Staymaster.</p>
+  <button class="btn-primary">Explore Stays</button>
+</div>
+
+<!-- Global footer -->
+<app-footer></app-footer>
