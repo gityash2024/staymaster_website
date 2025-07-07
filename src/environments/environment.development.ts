@@ -3,7 +3,7 @@ export const environment = {
   production: false,
 
   //apiUrl: 'http://localhost:8080/api',
-  apiUrl: 'https://staymaster.in/api',
+  apiUrl: 'https://thestaymaster.com/api',
   // apiUrl: 'http://localhost:8080/api',
 
   //apiUrl: 'https://thestaymaster.com/api',
