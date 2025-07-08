@@ -72,6 +72,6 @@ export class ConceirgeServicesListComponent {
      */
     handleImgError(evt: Event): void {
         const imgElement = evt.target as HTMLImageElement;
-        imgElement.src = 'assets/images/lalithmalhaar-gadi.png';
+        imgElement.src = 'assets/images/Meeting_set_up.png';
     }
 }

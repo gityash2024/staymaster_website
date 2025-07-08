@@ -106,14 +106,6 @@ const CONCIERGE_DATA = [
                 desc: 'Add fun to your pool time and play around in elegant pool floaties. Lay on a lounger or tuck your toes in a bright pink flamingo and click cute photos for your memories.'
             },
             {
-                name: 'Shisha/Hookah',
-                desc: 'Wish to add a round of smoke and socialize to your evenings? We can arrange for hookah and shisha set up in the property outdoors. If you have any flavour preferences, let us know when you order.'
-            },
-            {
-                name: 'Cigarettes to be procured',
-                desc: 'Need to restock your cigarettes but too tired to step out? We can send someone from the housekeeping team. But please be kind and plan ahead to order everything at once, so we can be mindful of their time and effort.'
-            },
-            {
                 name: 'Additional groceries',
                 desc: 'Running low on groceries? We’re here to help and can arrange for someone to pick them up for you. We do kindly request that you provide a complete list in one go to avoid constant back and forth.'
             },
