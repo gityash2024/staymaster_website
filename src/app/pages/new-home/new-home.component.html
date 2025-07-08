@@ -25,14 +25,8 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div> -->
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="../../../assets/images/landing-page-banner.jpg" class="d-block w-100" alt="Slide 1" />
-        </div>
-        <div class="carousel-item">
-          <img src="../../../assets/images/stay-description-bg.jpg" class="d-block w-100" alt="Slide 2" />
-        </div>
-        <div class="carousel-item">
-          <img src="../../../assets/images/home-bg.jpg" class="d-block w-100" alt="Slide 3" />
+        <div *ngFor="let slide of slides; let i = index" [ngClass]="{'carousel-item': true, 'active': i === 0}">
+          <img [src]="slide.src" class="d-block w-100" [alt]="slide.alt" />
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"

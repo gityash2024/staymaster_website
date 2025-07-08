@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-footer',
@@ -6,6 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+
+  isStayDescriptionPage = false;
+
+  constructor(private router: Router) {
+    this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe(() => this.checkRoute());
+
+    // initial check (in case component instantiates after navigation)
+    this.checkRoute();
+  }
+
+  private checkRoute(): void {
+    this.isStayDescriptionPage = this.router.url.includes('/stay-description');
+  }
 
   collections: ICollections[] = [
     {

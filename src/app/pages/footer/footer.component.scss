@@ -1,7 +1,6 @@
 .footer {
   min-height: 527px;
-  background: url("../../../assets/images/footer_bg.png") no-repeat center center;
-  background-size: cover;
+  background: #008281;
   padding-top: 100px;
   padding-bottom: 98px;
 
@@ -252,6 +251,12 @@
       padding: 52px 0 57px;
     }
   }
+}
+
+/* Apply footer background image only when the extra class is present */
+.footer-image {
+  background: url("../../../assets/images/footer_bg.png") no-repeat center center;
+  background-size: cover;
 }
 
 .footer-menu {

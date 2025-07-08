@@ -27,20 +27,21 @@ export class NewHomeComponent {
     formSubmitted = false;
     slides = [
         {
-            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR199OJ4Icr9v1SoRKQq_z_l3iK-WnbHssTKQ&s',
-            title: 'Welcome to Staymaster',
-            subtitle: 'Discover the best places to stay',
+            src: '../../../assets/images/landing-page-banner.jpg',
+            alt: 'Slide 1'
         },
         {
-            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR199OJ4Icr9v1SoRKQq_z_l3iK-WnbHssTKQ&s',
-            title: 'Your Dream Stay Awaits',
-            subtitle: 'Find unique stays all around the world',
+            src: '../../../assets/images/stay-description-bg.jpg',
+            alt: 'Slide 2'
         },
         {
-            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR199OJ4Icr9v1SoRKQq_z_l3iK-WnbHssTKQ&s',
-            title: 'Stay Anywhere, Anytime',
-            subtitle: 'Experience a seamless stay with Staymaster',
+            src: '../../../assets/images/home-bg.jpg',
+            alt: 'Slide 3'
         },
+        {
+            src: '../../../assets/images/home-bg-2.jpg',
+            alt: 'Slide 4'
+        }
     ];
     propertyOptions: any = [];
     overlayVisible: boolean = false;
