@@ -36,7 +36,7 @@ export class ConciergeDescriptionComponent {
     }
 
     shareOnWhatsApp(){
-        const whatsappLink = `https://api.whatsapp.com/send?text=${this.conciergeDesc.name}&phone=919226934609`;
+        const whatsappLink = `https://api.whatsapp.com/send?text=${this.conciergeDesc.name}&phone=918767519675`;
         window.open(whatsappLink, '_blank')
     }
 }

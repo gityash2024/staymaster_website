@@ -533,41 +533,39 @@
       <div class="side-img- our-founders-bg">
         <div class="container " ngClass.xs="container-xs" fxLayout="column" fxLayoutGap="20px">
           <div class="page-header">Our Founders</div>
-          <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="40px">
-            <div class="founder-card" fxLayout="row" fxLayout.gt-xs="row" fxLayoutGap="28px" fxFlex="50">
-              <div fxLayoutAlign="end start" class="founder-bg" ngClass.xs="founder-bg-xs" fxFlex.lt-md="30">
-                <img src="../../../assets/images/ankur_mathur.png" alt="" class="founder-photo"
-                  ngClass.xs="founder-photo-xs">
-              </div>
-              <div class="founder-info" fxLayout="column" fxLayoutGap="0px" fxLayoutAlign="end start" fxFlex.lt-md="70">
+          <div class="founders-wrapper" fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="60px">
+            <!-- Founder – Ankur -->
+            <div class="founder-block" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="center center" fxLayoutGap="40px" fxFlex="50">
+              <div class="founder-text" fxFlex="50">
                 <div class="founder-name">Ankur Mathur</div>
-                <div class="founder-designation">Co-Founder</div>
-                <div class="about-founder">
+                <div class="founder-divider"></div>
+                <div class="founder-desc">
                   With his bounty of experience in property acquisition, real estate consulting and sales growth
                   marketing with Airbnb, Ankur's the force behind improving customer-centric hospitality.
                 </div>
-                <div class="founder-social-media">
-                  <img src="../../../assets/images/linkedin-icon.svg" alt=""
-                    (click)="openSocialMedia('https://www.linkedin.com/in/ankurmathur7/')">
+              </div>
+              <div class="founder-image-wrap" fxFlex="50">
+                <img src="../../../assets/images/ankur_mathur.png" alt="Ankur Mathur" class="founder-photo">
+                <div class="linkedin-icon cursor-pointer" (click)="openSocialMedia('https://www.linkedin.com/in/ankurmathur7/')">
+                  <img src="../../../assets/images/linkedin-icon.svg" alt="LinkedIn">
                 </div>
               </div>
             </div>
-            <!--  -->
-            <div class="founder-card" fxLayout="row" fxLayout.gt-xs="row" fxLayoutGap="28px" fxFlex="50">
-              <div fxLayoutAlign="end start" class="founder-bg" ngClass.xs="founder-bg-xs" fxFlex.lt-md="30">
-                <img src="../../../assets/images/rishi_modi.png" alt="" class="founder-photo"
-                  ngClass.xs="founder-photo-xs">
+
+            <!-- Founder – Rishi -->
+            <div class="founder-block founder-right" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="center center" fxLayoutGap="40px" fxFlex="50">
+              <div class="founder-image-wrap" fxFlex="50">
+                <img src="../../../assets/images/rishi_modi.png" alt="Rishi Modi" class="founder-photo">
+                <div class="linkedin-icon cursor-pointer" (click)="openSocialMedia('https://www.linkedin.com/in/rishi-modi-40099a15/')">
+                  <img src="../../../assets/images/linkedin-icon.svg" alt="LinkedIn">
+                </div>
               </div>
-              <div class="founder-info" fxLayout="column" fxLayoutGap="0px" fxLayoutAlign="end start" fxFlex.lt-md="70">
+              <div class="founder-text" fxFlex="50">
                 <div class="founder-name">Rishi Modi</div>
-                <div class="founder-designation">Co-Founder</div>
-                <div class="about-founder">
+                <div class="founder-divider"></div>
+                <div class="founder-desc">
                   His knack of outreach, understanding of Indian market potential and stellar business relationships
                   bind the strategy to grow into a premier vacation rental in the country.
-                </div>
-                <div class="founder-social-media">
-                  <img src="../../../assets/images/linkedin-icon.svg" alt=""
-                    (click)="openSocialMedia('https://www.linkedin.com/in/rishi-modi-40099a15/')">
                 </div>
               </div>
             </div>
@@ -645,51 +643,7 @@
 
 <ng-container>
   <div class="stay-host-invest">
-    <div class="host-sections" fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="0px">
-      <div class="stay" ngClass.xs="stay-xs">
-        <div class="bg-box">
-          <div class="stay-card" fxLayout="column" fxLayoutGap="20px">
-            <div class="stay-title">Stay</div>
-            <div class="stay-desc">Come for a vacation, stay for the vibe. Indulge in the amenities and experience the
-              warmth of our hospitality. We won't be surprised if you feel like extending your short stay.</div>
-            <div class="stay-link" fxLayout="row" fxLayoutGap="15px">
-              <span>Explore Stays</span>
-              <div><img src="../../../assets/images/right-arrow.png" class="cursor-pointer"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--  -->
-      <div class="host" ngClass.xs="host-xs">
-        <div class="bg-box">
-          <div class="stay-card" fxLayout="column" fxLayoutGap="20px">
-            <div class="stay-title">Live</div>
-            <div class="stay-desc">We have homes as flexible as your lifestyle, whether you shift from an apartment to a
-              villa or vice versa. Immerse and experience a place, at your will. When you feel like staying longer with
-              us, we know we've succeeded.</div>
-            <div class="stay-link" fxLayout="row" fxLayoutGap="15px">
-              <span>Explore Live</span>
-              <div><img src="../../../assets/images/right-arrow.png" class="cursor-pointer" alt=""></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--  -->
-      <div class="invest" ngClass.xs="invest-xs">
-        <div class="bg-box">
-          <div class="invest-card" fxLayout="column" fxLayoutGap="20px">
-            <div class="stay-title">Belong</div>
-            <div class="stay-desc">Has a place enticed you so much that you feel like you belong there? That's where we
-              meet you once again! Discover the choice of owning a home at a remote location, live in it or rent it out.
-            </div>
-            <div class="stay-link" fxLayout="row" fxLayoutGap="15px">
-              <span>Explore Belong</span>
-              <div><img src="../../../assets/images/right-arrow.png" class="cursor-pointer" alt=""></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <img src="../../../assets/images/about_us_corousel.jpg" alt="Stay Live Belong Banner" style="width: 100%; height: auto;">
   </div>
   <!--  -->
 </ng-container>
