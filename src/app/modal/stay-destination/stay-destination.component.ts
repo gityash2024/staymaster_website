@@ -67,7 +67,7 @@ export class StayDestinationComponent {
   featuresArr = ['Pool', 'Hot Tub', 'Parking', 'EV Charger', 'BBQ Gril', 'Breakfast', 'Gym', 'Smoking Allowed'];
   public notSureCheck: boolean = false;
   destination: string = '';
-  occupied: string[] = [];
+  occupied: (string | {date: string, status: number})[] = [];
   checkInOutSelected = { startDate: "", endDate: "", close: false }
   destinationsALl: any;
   minDate: dayjs.Dayjs = dayjs().subtract(0, 'days');
@@ -252,21 +252,40 @@ export class StayDestinationComponent {
   }
 
   isInvalidDate = (m: dayjs.Dayjs) => {
-    // Check if this date is in occupied list
-    const isOccupied = this.occupied?.some((d: any) => dayjs(d).isSame(m, 'day'));
-    
-    // If date is occupied, mark it as invalid for selection but allow as checkout date
-    // Following Airbnb style - checkout is allowed on check-in day of next guest
-    if (isOccupied) {
-      // If we have a selected start date and this occupied date comes after it, 
-      // it can be a valid checkout date
-      if (this.selected?.startDate && m.isAfter(this.selected.startDate, 'day')) {
-        return false; // Allow as checkout date
+    // Check if this date is in occupied list and get its status
+    const dateStr = m.format('YYYY-MM-DD');
+    const occupiedEntry = this.occupied?.find((d: string | {date: string, status: number}) => {
+      if (typeof d === 'string') {
+        return dayjs(d).isSame(m, 'day');
       }
-      return true; // Block as check-in date
+      return dayjs(d.date).isSame(m, 'day');
+    });
+
+    if (occupiedEntry) {
+      const status = typeof occupiedEntry === 'string' ? 0 : (occupiedEntry as {date: string, status: number}).status;
+      
+      // Status meanings:
+      // 0 = Completely unavailable (internal stay days)
+      // 1 = Available (including check-out dates)
+      // 2 = Check-out only (check-in dates - greyed but allow as check-out)
+      
+      if (status === 0) {
+        // Completely occupied - not available for check-in or check-out
+        return true;
+      } else if (status === 2) {
+        // Check-in date of existing booking - allow as check-out only
+        // If we have a selected start date and this comes after it, allow as checkout
+        if (this.selected?.startDate && m.isAfter(this.selected.startDate, 'day')) {
+          return false; // Allow as checkout date
+        }
+        return true; // Block as check-in date
+      } else if (status === 1) {
+        // Available date (including someone's check-out date)
+        return false;
+      }
     }
     
-    return false; // Date is available
+    return false; // Date is completely available
   };
 
   selectGuests() {
@@ -397,9 +416,14 @@ export class StayDestinationComponent {
     // payload.check_out_date = moment(newMonth).add(1, 'month').endOf('month').format('YYYY-MM-DD');
     await this.apiService.httpPost('/ext/calendarAvailability', payload).subscribe(async (res: any) => {
       for (const [date, status] of Object.entries(res.property)) {
+        // Store date with its status for proper handling
+        // Status 0 = unavailable, Status 1 = available, Status 2 = check-out only
         if (status === 0) {
-          this.occupied.push(date);
+          this.occupied.push(date); // Completely unavailable
+        } else if (status === 2) {
+          this.occupied.push({date: date, status: 2}); // Check-out only (greyed)
         }
+        // Status 1 dates are not added to occupied array as they're available
       }
       console.log(this.occupied)
       this.datePicker.updateCalendars();

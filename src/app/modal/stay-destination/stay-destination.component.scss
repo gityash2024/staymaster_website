@@ -495,6 +495,68 @@ input[type="checkbox"] {
   padding: 10px 30px;
 }
 
+// Airbnb-style calendar styling for different date types
+:host ::ng-deep {
+  // Style for check-out only dates (status 2) - greyed but selectable
+  .md-drppicker .calendar-table .available.off {
+    background-color: #f7f7f7 !important;
+    color: #717171 !important;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background-color: #717171;
+      opacity: 0.6;
+    }
+    
+    &:hover {
+      background-color: #e0e0e0 !important;
+      color: #484848 !important;
+    }
+  }
+  
+  // Style for completely unavailable dates (status 0)
+  .md-drppicker .calendar-table .disabled {
+    background-color: #ffffff !important;
+    color: #dddddd !important;
+    text-decoration: line-through;
+    
+    &:hover {
+      background-color: #ffffff !important;
+      color: #dddddd !important;
+      cursor: not-allowed;
+    }
+  }
+  
+  // Style for available dates including check-out dates (status 1)
+  .md-drppicker .calendar-table .available {
+    background-color: #ffffff !important;
+    color: #484848 !important;
+    
+    &:hover {
+      background-color: #f7f7f7 !important;
+    }
+  }
+  
+  // Style for selected dates
+  .md-drppicker .calendar-table .in-range {
+    background-color: #008489 !important;
+    color: #ffffff !important;
+  }
+  
+  .md-drppicker .calendar-table .start-date,
+  .md-drppicker .calendar-table .end-date {
+    background-color: #008489 !important;
+    color: #ffffff !important;
+    border-radius: 50%;
+  }
+}
+
 .md-drppicker {
   box-shadow: none !important;
   border-bottom-right-radius: 16px;
