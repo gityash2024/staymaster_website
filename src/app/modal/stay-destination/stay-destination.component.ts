@@ -252,6 +252,8 @@ export class StayDestinationComponent {
   }
 
   isInvalidDate = (m: dayjs.Dayjs) => {
+    return false;
+
     // Check if this date is in occupied list and get its status
     const dateStr = m.format('YYYY-MM-DD');
     const occupiedEntry = this.occupied?.find((d: string | {date: string, status: number}) => {
