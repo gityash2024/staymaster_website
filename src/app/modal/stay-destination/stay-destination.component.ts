@@ -252,10 +252,7 @@ export class StayDestinationComponent {
   }
 
   isInvalidDate = (m: dayjs.Dayjs) => {
-    return false;
-
-    // Check if this date is in occupied list and get its status
-    const dateStr = m.format('YYYY-MM-DD');
+   
     const occupiedEntry = this.occupied?.find((d: string | {date: string, status: number}) => {
       if (typeof d === 'string') {
         return dayjs(d).isSame(m, 'day');
@@ -414,26 +411,38 @@ export class StayDestinationComponent {
     this.spinner.show();
     let payload: any = {};
     payload.propertyId = this.id;
-    // payload.check_in_date = moment(newMonth).format('YYYY-MM-DD');
-    // payload.check_out_date = moment(newMonth).add(1, 'month').endOf('month').format('YYYY-MM-DD');
+    
     await this.apiService.httpPost('/ext/calendarAvailability', payload).subscribe(async (res: any) => {
-      for (const [date, status] of Object.entries(res.property)) {
+      // Convert to array of entries and sort by date
+      const sortedEntries = Object.entries(res.property).sort(([dateA], [dateB]) => 
+        new Date(dateA).getTime() - new Date(dateB).getTime()
+      );
+      
+      for (let i = 0; i < sortedEntries.length; i++) {
+        const [date, status] = sortedEntries[i];
+        
+        // If current date has status 2, make next date status 1
+        if (status === 2 && i + 1 < sortedEntries.length) {
+          const nextDate = sortedEntries[i + 1][0];
+          res.property[nextDate] = 1;
+        }
+        
         // Store date with its status for proper handling
         // Status 0 = unavailable, Status 1 = available, Status 2 = check-out only
-        if (status === 0) {
+        if (res.property[date] === 0) {
           this.occupied.push(date); // Completely unavailable
-        } else if (status === 2) {
+        } else if (res.property[date] === 2) {
           this.occupied.push({date: date, status: 2}); // Check-out only (greyed)
         }
         // Status 1 dates are not added to occupied array as they're available
       }
+      
       console.log(this.occupied)
       this.datePicker.updateCalendars();
       this.spinner.hide();
       this.cd.markForCheck();
     });
     }
-  }
-
+}
   onClearAllClick(){}
 }
