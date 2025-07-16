@@ -21,6 +21,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { MenuContentComponent } from '../pages/header/menu-content/menu-content.component';
 import { StayDestinationComponent } from '../modal/stay-destination/stay-destination.component';
@@ -41,14 +42,15 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
     MatSidenavModule, MatListModule, MatMenuModule, MatTableModule, MatDialogModule,
     MatFormFieldModule, FormsModule, ReactiveFormsModule, MatInputModule, MatSelectModule,
     MatAutocompleteModule, MatCheckboxModule, MatExpansionModule, MatDatepickerModule,
-    MatNativeDateModule, MatRadioModule, MatTabsModule, MatCardModule, MenuContentComponent,
-    StayDestinationComponent
+    MatNativeDateModule, MatRadioModule, MatTabsModule, MatCardModule, MatTooltipModule, 
+    MenuContentComponent, StayDestinationComponent
   ],
   imports: [
     ToastrModule.forRoot(),
     MatMenuModule,
     CommonModule,
     MatIconModule,
+    MatTooltipModule,
     NgxSliderModule,
     NgxDaterangepickerMd,
     FlexLayoutModule

@@ -87,7 +87,8 @@
                                         {{
                                         hotel.listing_name }}</div> -->
                                         <a class="title" [href]="'/stay-description/' + hotel.slug"
-                                        [title]="hotel.listing_name" 
+                                        [matTooltip]="hotel.listing_name"
+                                        matTooltipPosition="above"
                                         target="_blank">
                                         {{ hotel.listing_name }}
                                      </a>

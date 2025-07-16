@@ -105,10 +105,20 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            color: inherit;
+            max-width: 100%;
 
             @media (max-width: 599px) {
                 font-size: 18px;
                 line-height: 100%;
+            }
+
+            &:hover {
+                text-decoration: none;
+                color: inherit;
             }
         }
 
