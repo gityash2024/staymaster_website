@@ -67,7 +67,7 @@ export class StayDestinationComponent implements OnDestroy {
   featuresArr = ['Pool', 'Hot Tub', 'Parking', 'EV Charger', 'BBQ Gril', 'Breakfast', 'Gym', 'Smoking Allowed'];
   public notSureCheck: boolean = false;
   destination: string = '';
-  occupied: (string | {date: string, status: number})[] = [];
+  occupied: string[] = [];
   checkInOutSelected = { startDate: "", endDate: "", close: false }
   destinationsALl: any;
   minDate: dayjs.Dayjs = dayjs().subtract(0, 'days');
@@ -287,20 +287,14 @@ export class StayDestinationComponent implements OnDestroy {
   isInvalidDate = (m: dayjs.Dayjs) => {
     const dateStr = m.format('YYYY-MM-DD');
     
-    // Check if this date is in our occupied dates array
-    const isOccupied = this.occupied?.some((d: string | {date: string, status: number}) => {
-      if (typeof d === 'string') {
-        return d === dateStr;
-      }
-      return d.date === dateStr;
-    });
-
-    if (isOccupied) {
-      return true; // Date is unavailable
+    // Simple check: if date is in occupied array, it's unavailable
+    const isUnavailable = this.occupied?.includes(dateStr);
+    
+    if (isUnavailable) {
+      return true; // Disable this date
     }
     
-    // Date is available
-    return false;
+    return false; // Date is available for selection
   };
 
   selectGuests() {
@@ -427,126 +421,68 @@ export class StayDestinationComponent implements OnDestroy {
       this.occupied = [];
       this.spinner.show();
       
-      console.log('=== AVAILABILITY CHECK DEBUG ===');
-      console.log('Loading availability for property SLUG:', this.propertySlug);
-      console.log('Property numeric ID:', this.id);
+      console.log('Loading calendar availability for:', this.propertySlug);
       
-      // Timeout safeguard to ensure spinner is hidden after 5 seconds max
+      // Timeout safeguard
       const timeoutId = setTimeout(() => {
-        console.warn('Availability loading timeout - forcing spinner to hide');
+        console.warn('Calendar loading timeout');
         this.spinner.hide();
         this.isLoadingCalendar = false;
         this.cd.detectChanges();
       }, 5000);
       
-      // Check availability for the current and next month to build calendar data
-      await this.checkAvailabilityForCalendar();
+      let payload: any = {};
+      payload.propertyId = this.propertySlug;
       
-      clearTimeout(timeoutId);
-      this.spinner.hide();
-      this.isLoadingCalendar = false;
-      
-      // Update calendar with proper error handling
-      try {
-        if (this.datePicker && this.datePicker.updateCalendars) {
-          this.datePicker.updateCalendars();
-          console.log('Calendar updated successfully for', this.propertySlug);
-        } else {
-          console.warn('DatePicker not available for update');
-        }
-      } catch (error) {
-        console.error('Error updating calendar:', error);
-      }
-      
-      // Force change detection
-      this.cd.detectChanges();
-    } else {
-      console.log('Skipping calendar load - Slug:', this.propertySlug, 'Already loading:', this.isLoadingCalendar);
-    }
-  }
-
-  async checkAvailabilityForCalendar() {
-    const today = dayjs();
-    const endDate = today.add(2, 'months'); // Check 2 months ahead
-    
-    // Check availability in chunks of 3 days for more precision
-    const promises = [];
-    let currentDate = today;
-    
-    while (currentDate.isBefore(endDate)) {
-      const chunkEnd = currentDate.add(2, 'days'); // 3-day chunks for better precision
-      if (chunkEnd.isAfter(endDate)) {
-        // Don't go beyond our end date
-        promises.push(this.checkDateRangeAvailability(currentDate, endDate));
-        break;
-      } else {
-        promises.push(this.checkDateRangeAvailability(currentDate, chunkEnd));
-      }
-      currentDate = chunkEnd.add(1, 'days');
-    }
-    
-    try {
-      await Promise.all(promises);
-      console.log('All availability checks completed. Total occupied dates:', this.occupied.length);
-    } catch (error) {
-      console.error('Error checking availability:', error);
-    }
-  }
-
-  async checkDateRangeAvailability(startDate: dayjs.Dayjs, endDate: dayjs.Dayjs): Promise<void> {
-    const payload = {
-      slug: this.propertySlug,
-      check_in_date: startDate.format('YYYY-MM-DD'),
-      check_out_date: endDate.format('YYYY-MM-DD'),
-      number_adults: 2, // Minimum guests for availability check
-      number_children: 0
-    };
-
-    return new Promise((resolve) => {
-      this.apiService.httpPost('/ext/availabilityAndDetails', payload).subscribe({
+      this.apiService.httpPost('/ext/calendarAvailability', payload).subscribe({
         next: (res: any) => {
-          if (res.success) {
-            if (res.message && res.message.includes('Not available for the selected dates')) {
-              // This date range is unavailable - mark all dates in range as occupied
-              this.markDateRangeAsOccupied(startDate, endDate);
-              console.log(`Date range ${startDate.format('YYYY-MM-DD')} to ${endDate.format('YYYY-MM-DD')} is unavailable`);
-            } else if (!res.data.price_per_night) {
-              // No pricing available usually means unavailable
-              this.markDateRangeAsOccupied(startDate, endDate);
-              console.log(`Date range ${startDate.format('YYYY-MM-DD')} to ${endDate.format('YYYY-MM-DD')} has no pricing (unavailable)`);
-            } else {
-              console.log(`Date range ${startDate.format('YYYY-MM-DD')} to ${endDate.format('YYYY-MM-DD')} is available`);
-            }
-          } else {
-            // API returned error - assume unavailable
-            this.markDateRangeAsOccupied(startDate, endDate);
-            console.log(`Date range ${startDate.format('YYYY-MM-DD')} to ${endDate.format('YYYY-MM-DD')} returned error (unavailable)`);
+          clearTimeout(timeoutId);
+          
+          if (res && res.property) {
+            this.processCalendarData(res.property);
           }
-          resolve();
+          
+          // Update calendar
+          this.spinner.hide();
+          this.isLoadingCalendar = false;
+          
+          try {
+            if (this.datePicker && this.datePicker.updateCalendars) {
+              this.datePicker.updateCalendars();
+            }
+          } catch (error) {
+            console.error('Error updating calendar:', error);
+          }
+          
+          this.cd.detectChanges();
         },
         error: (error: any) => {
-          console.error('Error checking date range availability:', error);
-          // On error, assume dates are unavailable to be safe
-          this.markDateRangeAsOccupied(startDate, endDate);
-          resolve();
+          clearTimeout(timeoutId);
+          console.error('Calendar API error:', error);
+          this.spinner.hide();
+          this.isLoadingCalendar = false;
+          this.cd.detectChanges();
         }
       });
-    });
+    }
   }
 
-  markDateRangeAsOccupied(startDate: dayjs.Dayjs, endDate: dayjs.Dayjs) {
-    let currentDate = startDate;
-    while (currentDate.isBefore(endDate) || currentDate.isSame(endDate, 'day')) {
-      const dateStr = currentDate.format('YYYY-MM-DD');
-      // Mark as completely unavailable (status 0)
-      if (!this.occupied.find(d => 
-        (typeof d === 'string' && d === dateStr) || 
-        (typeof d === 'object' && d.date === dateStr)
-      )) {
-        this.occupied.push(dateStr);
+  processCalendarData(calendarData: any) {
+    // Clear existing occupied dates
+    this.occupied = [];
+    
+    for (const [date, status] of Object.entries(calendarData)) {
+      if (status === 0) {
+        // Status 0: Internal stay days - completely unavailable
+        this.occupied.push(date);
+      } else if (status === 2) {
+        // Status 2: Check-in dates - unavailable for new check-ins
+        this.occupied.push(date);
       }
-      currentDate = currentDate.add(1, 'day');
+      // Status 1: Available dates (including check-out dates) - not added to occupied
     }
+    
+    console.log(`Processed ${Object.keys(calendarData).length} dates, ${this.occupied.length} unavailable`);
   }
   onClearAllClick(){}
 
