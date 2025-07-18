@@ -85,7 +85,9 @@ export class MenuContentComponent {
                 data : {
                     checkInDate:  this.parseDate(this.checkInDate, moment()).format('YYYY-MM-DD'),
                     checkOutDate: this.parseDate(this.checkOutDate, moment()).format('YYYY-MM-DD'),
-                    property_id: this.propertyId,
+                    property_id: this.propertyDetails?.id || this.propertyId, // Use numeric ID if available
+                    slug: this.propertyId, // The propertyId input is actually the slug
+                    property_slug: this.propertyId, // Alternative field name for slug
                     from: 'discription'
                 },
                 view: this.viewType
