@@ -1,4 +1,4 @@
-import { Component, Input, Inject, EventEmitter, Output, ViewChild, ElementRef, ChangeDetectorRef, Optional, SimpleChange, OnDestroy } from "@angular/core";
+import { Component, Input, Inject, EventEmitter, Output, ViewChild, ElementRef, ChangeDetectorRef, Optional, SimpleChange } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import * as dayjs from 'dayjs';
 import isoWeek from 'dayjs/plugin/isoWeek';
@@ -17,7 +17,7 @@ dayjs.extend(isoWeek);
   templateUrl: './stay-destination.component.html',
   styleUrls: ['./stay-destination.component.scss']
 })
-export class StayDestinationComponent implements OnDestroy {
+export class StayDestinationComponent {
   @ViewChild('dateRangePicker', { static: true }) dateRangePicker: ElementRef;
   previousMonth: string;
   observer: MutationObserver;
@@ -74,9 +74,6 @@ export class StayDestinationComponent implements OnDestroy {
   selectedAmenities: number[] = [];
   selectedPropertyType: number[] = [];
   id: number = 0;
-  propertySlug: string = '';
-  isLoadingCalendar: boolean = false;
-  lastLoadedPropertyId: number = 0;
   aminities: any[] = [
     {
       id: 16,
@@ -122,10 +119,6 @@ export class StayDestinationComponent implements OnDestroy {
     this.name = data;
   }
   ngOnInit() {
-    // Force hide any existing spinner on component init
-    this.spinner.hide();
-    this.isLoadingCalendar = false;
-    
     if (this.name?.view === 'destination') {
       this.adminService.getDestinations().subscribe((res: any) => {
         this.destinationsALl = res;
@@ -148,31 +141,13 @@ export class StayDestinationComponent implements OnDestroy {
           this.maxChildCount = this.name.data.max_children_allowed;
         }
       } else if (this.name?.view === 'checkInOut') {
-        // Force hide any existing spinner when calendar view opens
-        this.spinner.hide();
-        this.isLoadingCalendar = false;
-        
         this.menuName = 'checkInOut';
         this.selected = {
           startDate: dayjs(this.name.data.checkInDate),
           endDate: dayjs(this.name.data.checkOutDate)
         }
         this.id = this.name.data.property_id;
-        this.propertySlug = this.name.data.property_slug || this.name.data.slug || '';
-        
-        console.log('Property info received:', {
-          id: this.id,
-          slug: this.propertySlug,
-          data: this.name.data
-        });
-        
-        // Only load calendar data if property has changed and we have a valid slug
-        if(this.propertySlug && this.id !== this.lastLoadedPropertyId && !this.isLoadingCalendar) {
-          this.lastLoadedPropertyId = this.id;
-          this.handleMonthChange(this.name.data.checkInDate);
-        } else if (!this.propertySlug) {
-          console.error('No property slug available for calendar loading:', this.name.data);
-        }
+        if(this.id) this.handleMonthChange(this.name.data.checkInDate)
       } else if (this.name?.view === 'destination') {
         this.menuName = 'Destination';
         this.destination = this.name.data.destination
@@ -197,10 +172,6 @@ export class StayDestinationComponent implements OnDestroy {
   };
 
   CloseDialog() {
-    // Force hide spinner when closing dialog
-    this.spinner.hide();
-    this.isLoadingCalendar = false;
-    
     if (this.name?.view === 'destination') {
       this._mdr.close(this.destination)
     } else if (this.name?.view === 'checkInOut') {
@@ -266,10 +237,6 @@ export class StayDestinationComponent implements OnDestroy {
   }
 
   choosedDate(event: any) {
-    // Force hide spinner after date selection
-    this.spinner.hide();
-    this.isLoadingCalendar = false;
-    
     var checkInOutSelected =
     {
       startDate: event.startDate.format('DD MMM YYYY'),
@@ -285,16 +252,7 @@ export class StayDestinationComponent implements OnDestroy {
   }
 
   isInvalidDate = (m: dayjs.Dayjs) => {
-    const dateStr = m.format('YYYY-MM-DD');
-    
-    // Simple check: if date is in occupied array, it's unavailable
-    const isUnavailable = this.occupied?.includes(dateStr);
-    
-    if (isUnavailable) {
-      return true; // Disable this date
-    }
-    
-    return false; // Date is available for selection
+    return this.occupied?.some((d: any) => dayjs(d).isSame(m, 'day'));
   };
 
   selectGuests() {
@@ -416,85 +374,26 @@ export class StayDestinationComponent implements OnDestroy {
   // }
 
   async handleMonthChange(newMonth: string) {
-    if (this.propertySlug && !this.isLoadingCalendar) {
-      this.isLoadingCalendar = true;
-      this.occupied = [];
-      this.spinner.show();
-      
-      console.log('Loading calendar availability for:', this.propertySlug);
-      
-      // Timeout safeguard
-      const timeoutId = setTimeout(() => {
-        console.warn('Calendar loading timeout');
-        this.spinner.hide();
-        this.isLoadingCalendar = false;
-        this.cd.detectChanges();
-      }, 5000);
-      
-      let payload: any = {};
-      payload.propertyId = this.propertySlug;
-      
-      this.apiService.httpPost('/ext/calendarAvailability', payload).subscribe({
-        next: (res: any) => {
-          clearTimeout(timeoutId);
-          
-          if (res && res.property) {
-            this.processCalendarData(res.property);
-          }
-          
-          // Update calendar
-          this.spinner.hide();
-          this.isLoadingCalendar = false;
-          
-          try {
-            if (this.datePicker && this.datePicker.updateCalendars) {
-              this.datePicker.updateCalendars();
-            }
-          } catch (error) {
-            console.error('Error updating calendar:', error);
-          }
-          
-          this.cd.detectChanges();
-        },
-        error: (error: any) => {
-          clearTimeout(timeoutId);
-          console.error('Calendar API error:', error);
-          this.spinner.hide();
-          this.isLoadingCalendar = false;
-          this.cd.detectChanges();
+    if (this.id != 0) {
+    this.occupied = [];
+    this.spinner.show();
+    let payload: any = {};
+    payload.propertyId = this.id;
+    // payload.check_in_date = moment(newMonth).format('YYYY-MM-DD');
+    // payload.check_out_date = moment(newMonth).add(1, 'month').endOf('month').format('YYYY-MM-DD');
+    await this.apiService.httpPost('/ext/calendarAvailability', payload).subscribe(async (res: any) => {
+      for (const [date, status] of Object.entries(res.property)) {
+        if (status === 0) {
+          this.occupied.push(date);
         }
-      });
-    }
-  }
-
-  processCalendarData(calendarData: any) {
-    // Clear existing occupied dates
-    this.occupied = [];
-    
-    for (const [date, status] of Object.entries(calendarData)) {
-      if (status === 0) {
-        // Status 0: Internal stay days - completely unavailable
-        this.occupied.push(date);
-      } else if (status === 2) {
-        // Status 2: Check-in dates - unavailable for new check-ins
-        this.occupied.push(date);
       }
-      // Status 1: Available dates (including check-out dates) - not added to occupied
+      console.log(this.occupied)
+      this.datePicker.updateCalendars();
+      this.spinner.hide();
+      this.cd.markForCheck();
+    });
     }
-    
-    console.log(`Processed ${Object.keys(calendarData).length} dates, ${this.occupied.length} unavailable`);
   }
-  onClearAllClick(){}
 
-  ngOnDestroy(): void {
-    // Force hide spinner and cleanup on component destroy
-    this.spinner.hide();
-    this.occupied = [];
-    this.isLoadingCalendar = false;
-    this.lastLoadedPropertyId = 0;
-    this.selectedAmenities = [];
-    this.selectedPropertyType = [];
-    this.id = 0;
-    this.propertySlug = '';
-  }
+  onClearAllClick(){}
 }
