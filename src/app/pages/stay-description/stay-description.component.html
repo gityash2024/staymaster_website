@@ -370,7 +370,7 @@
               </div>
               <div fxLayout="row" fxLayoutAlign="center center">
                 <button class="reserve-btn btn" [disabled]="propertyDetails?.price_per_night ? false : true"
-                  (click)="confirmBooking()">
+                  (click)="openWhatsAppReservation()">
                   Reserve
                 </button>
               </div>
@@ -594,7 +594,7 @@
 
   <app-dont-warry-section id="faqsSection"></app-dont-warry-section>
   <div class="d-flex justify-content-center align-items-center pb-5" *ngIf="scrolledToFooter">
-    <button class="reserve-btn-text btn" (click)="scrollToFooter()"> Reserve </button>
+    <button class="reserve-btn-text btn" (click)="openWhatsAppReservation()"> Reserve </button>
   </div>
   <ng-container>
     <app-footer></app-footer>
@@ -638,8 +638,9 @@
     </div>
   </div>
   <div fxLayout="row" fxLayoutAlign="center center">
-    <button class="reserve-btn btn" [disabled]="propertyDetails?.price_per_night ? false : true"
-      (click)="confirmBooking()">
+    <!-- <button class="reserve-btn btn" [disabled]="propertyDetails?.price_per_night ? false : true"
+      (click)="confirmBooking()"> -->
+    <button class="reserve-btn btn" [disabled]="propertyDetails?.price_per_night ? false : true" (click)="openWhatsAppReservation()">
       Reserve
     </button>
   </div>

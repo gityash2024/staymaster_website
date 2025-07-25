@@ -577,4 +577,43 @@ export class StayDescriptionComponent {
   get isLargeScreen(): boolean {
     return window.innerWidth > 600;
   }
+
+  // Add new method for WhatsApp reservation
+  openWhatsAppReservation() {
+    // Get property and booking details
+    const propertyName = this.propertyDetails?.internal_name || 'Property';
+    const checkIn = this.checkInDate ? moment(this.checkInDate).format('DD MMM YYYY') : 'Not selected';
+    const checkOut = this.checkOutDate ? moment(this.checkOutDate).format('DD MMM YYYY') : 'Not selected';
+    const guests = this.selectedGuestCount ? 
+      `${this.selectedGuestCount.number_adults} Adults, ${this.selectedGuestCount.number_children} Children` : 
+      'Not selected';
+    const price = this.propertyDetails?.price_per_night ? 
+      `Rs. ${this.propertyDetails.price_per_night} per night` : 
+      'Price not available';
+    const totalPrice = this.propertyDetails?.totalprice_inclusive_all ? 
+      `Rs. ${this.propertyDetails.totalprice_inclusive_all}` : 
+      'Total price not available';
+    const location = this.propertyDetails?.city && this.propertyDetails?.state ? 
+      `${this.propertyDetails.city}, ${this.propertyDetails.state}` : 
+      'Location not available';
+    
+    // Create prefilled message with booking details
+    const message = `Hello, I would like to make a reservation for:\n\n` +
+      `Property: ${propertyName}\n` +
+      `Location: ${location}\n` +
+      `Check-in: ${checkIn}\n` +
+      `Check-out: ${checkOut}\n` +
+      `Guests: ${guests}\n` +
+      `Price: ${price}\n` +
+      `Total: ${totalPrice}`;
+    
+    // Get WhatsApp number from the global settings
+    // Using the number from the WhatsApp widget in index.html
+    const whatsAppNumber = '919226934609';
+    
+    // Open WhatsApp with prefilled message
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsAppNumber}&text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  }
 }
