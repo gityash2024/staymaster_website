@@ -598,7 +598,7 @@ export class StayDescriptionComponent {
       'Location not available';
     
     // Create prefilled message with booking details
-    const message = `Hello, I would like to make a reservation for:\n\n` +
+    const message = `Hello, I would like to make a booking for:\n\n` +
       `Property: ${propertyName}\n` +
       `Location: ${location}\n` +
       `Check-in: ${checkIn}\n` +
