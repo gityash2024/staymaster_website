@@ -1,19 +1,43 @@
 <div *ngIf="isSummary; else menuData">
     <ng-container *ngIf="viewType === 'checkInOut'">
+        <!-- Calendar Loading Progress Bar -->
+        <div *ngIf="isCalendarLoading()" class="calendar-loading-progress mb-2">
+            <div class="loading-text">
+                <span class="loading-icon">📅</span>
+                <span>Loading booking dates...</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" [style.width.%]="getLoadingProgress()"></div>
+            </div>
+            <div class="loading-subtext">
+                Fetching booking availability dates...
+            </div>
+        </div>
+        
+        <!-- Date Selection UI - shown when not loading or data is ready -->
         <div class="d-flex card-content" [ngClass]="{
                 'description-card-content' : isDescription,
                 'mobile-card-content' : isMobile
-            }">
+            }" [class.loading-overlay]="isCalendarLoading()">
             <div class="daterange justify-content-between w-100" fxLayout="row" fxLayoutGap="10px" *ngIf="!isMobile">
-                <div class="form-control sm-text sm-text-bg" [matMenuTriggerFor]="menu" (menuOpened)="setNameData()">
-                    {{ checkInDate }}
+                <div class="form-control sm-text sm-text-bg" 
+                     [matMenuTriggerFor]="menu" 
+                     (menuOpened)="setNameData()"
+                     [class.disabled]="isCalendarLoading()">
+                    {{ isCalendarLoading() ? 'Loading...' : checkInDate }}
                 </div>
-                <div type="text" class="form-control sm-text sm-text-bg" [matMenuTriggerFor]="menu" (menuOpened)="setNameData()">
-                    {{ checkOutDate }}
+                <div type="text" class="form-control sm-text sm-text-bg" 
+                     [matMenuTriggerFor]="menu" 
+                     (menuOpened)="setNameData()"
+                     [class.disabled]="isCalendarLoading()">
+                    {{ isCalendarLoading() ? 'Loading...' : checkOutDate }}
                 </div>
             </div>
-            <div *ngIf="isMobile" [matMenuTriggerFor]="menu" (menuOpened)="setNameData()">
-                {{ formatDateRange(checkInDate,checkOutDate) }}
+            <div *ngIf="isMobile" 
+                 [matMenuTriggerFor]="menu" 
+                 (menuOpened)="setNameData()"
+                 [class.disabled]="isCalendarLoading()">
+                {{ isCalendarLoading() ? 'Loading dates...' : formatDateRange(checkInDate,checkOutDate) }}
             </div>
         </div>
     </ng-container>

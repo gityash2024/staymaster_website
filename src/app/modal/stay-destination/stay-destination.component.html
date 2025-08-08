@@ -31,6 +31,8 @@
     <mat-icon class="" (click)="closeMenu.emit()">close</mat-icon>
   </div>
   <br>
+  
+  <!-- Calendar component - always shown -->
   <ngx-daterangepicker-material #dateRangePicker ngxDaterangepickerMd class="date-rage justify-content-center"
     [linkedCalendars]="true" (rangeClicked)="rangeClicked($event)" (datesUpdated)="datesUpdated($event)"
     [startDate]="selected.startDate" [endDate]="selected.endDate" [isInvalidDate]="isInvalidDate"

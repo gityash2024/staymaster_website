@@ -77,6 +77,12 @@ export class StayDestinationComponent implements OnDestroy {
   propertySlug: string = '';
   isLoadingCalendar: boolean = false;
   lastLoadedPropertyId: number = 0;
+  calendarDataLoading: boolean = false; // New local loading state for calendar
+  loadingMessage: string = 'Loading booking dates'; // Loading message
+  loadingDots: string = ''; // For dots animation
+  successToastShown: boolean = false; // Flag to track if success toast was shown
+  isCalendarModalOpen: boolean = false; // Flag to track if calendar modal is open
+  eventListenerAdded: boolean = false; // Flag to prevent duplicate event listeners
   aminities: any[] = [
     {
       id: 16,
@@ -126,6 +132,27 @@ export class StayDestinationComponent implements OnDestroy {
     this.spinner.hide();
     this.isLoadingCalendar = false;
     
+    // Listen for calendar data ready events - only add once
+    if (!this.eventListenerAdded) {
+      window.addEventListener('calendarDataReady', (event: any) => {
+        console.log('🎯 Received calendar data ready event');
+        if (this.calendarDataLoading) {
+          // Calendar modal is open and loading - just update data
+          this.calendarDataLoading = false;
+          this.stopLoadingAnimation();
+          if (event.detail?.data) {
+            this.processCalendarDataImproved(event.detail.data);
+          }
+          this.cd.detectChanges();
+        } else if (event.detail?.data) {
+          // Background loading completed - just process data
+          this.processCalendarDataImproved(event.detail.data);
+          this.cd.detectChanges();
+        }
+      });
+      this.eventListenerAdded = true;
+    }
+    
     if (this.name?.view === 'destination') {
       this.adminService.getDestinations().subscribe((res: any) => {
         this.destinationsALl = res;
@@ -134,6 +161,52 @@ export class StayDestinationComponent implements OnDestroy {
     this.filterAminities = this.name.filterAminities || [];
     this.filterPropertyType = this.name.filterPropertyType || [];
     this.filterAminities['Aminities'] = this.aminities;
+    
+    // Add additional spinner cleanup after 2 seconds
+    setTimeout(() => {
+      this.forceCloseLoading();
+    }, 2000);
+  }
+
+  /**
+   * Force close loading state and spinner
+   */
+  private forceCloseLoading() {
+    if (this.isLoadingCalendar) {
+      console.log('Force closing loading state');
+      this.spinner.hide();
+      this.isLoadingCalendar = false;
+      this.cd.detectChanges();
+    }
+    if (this.calendarDataLoading) {
+      console.log('Force closing calendar loading state');
+      this.calendarDataLoading = false;
+      this.stopLoadingAnimation();
+      this.cd.detectChanges();
+    }
+  }
+
+  /**
+   * Start loading animation with dots
+   */
+  private startLoadingAnimation() {
+    this.loadingDots = '';
+    const interval = setInterval(() => {
+      if (!this.calendarDataLoading) {
+        clearInterval(interval);
+        return;
+      }
+      this.loadingDots = this.loadingDots.length >= 3 ? '' : this.loadingDots + '.';
+      this.cd.detectChanges();
+    }, 500);
+  }
+
+  /**
+   * Stop loading animation
+   */
+  private stopLoadingAnimation() {
+    this.loadingDots = '';
+    this.cd.detectChanges();
   }
 
   ngOnChanges(changes: {name: SimpleChange}): void {
@@ -151,6 +224,7 @@ export class StayDestinationComponent implements OnDestroy {
         // Force hide any existing spinner when calendar view opens
         this.spinner.hide();
         this.isLoadingCalendar = false;
+        this.isCalendarModalOpen = true; // Mark calendar modal as open
         
         this.menuName = 'checkInOut';
         this.selected = {
@@ -166,12 +240,90 @@ export class StayDestinationComponent implements OnDestroy {
           data: this.name.data
         });
         
-        // Only load calendar data if property has changed and we have a valid slug
-        if(this.propertySlug && this.id !== this.lastLoadedPropertyId && !this.isLoadingCalendar) {
-          this.lastLoadedPropertyId = this.id;
-          this.handleMonthChange(this.name.data.checkInDate);
-        } else if (!this.propertySlug) {
-          console.error('No property slug available for calendar loading:', this.name.data);
+        // Check if we have pre-loaded calendar data from parent
+        const calendarStatus = this.name.data.calendarLoadingStatus;
+        if (calendarStatus) {
+          if (calendarStatus.data && !calendarStatus.isLoading) {
+            // Calendar data is ready, use it immediately
+            this.processCalendarDataImproved(calendarStatus.data);
+            this.calendarDataLoading = false;
+            this.stopLoadingAnimation();
+            console.log('✅ Using pre-loaded calendar data immediately');
+            
+            // Force update the calendar UI
+            setTimeout(() => {
+              try {
+                if (this.datePicker && this.datePicker.updateCalendars) {
+                  this.datePicker.updateCalendars();
+                }
+              } catch (error) {
+                console.error('Error updating calendar:', error);
+              }
+              this.cd.detectChanges();
+            }, 100);
+            
+          } else if (calendarStatus.isLoading && !calendarStatus.data) {
+            // Calendar data is still loading, show local loading state
+            this.calendarDataLoading = true;
+            this.startLoadingAnimation();
+            console.log('📅 Calendar data is still loading, showing loading state...');
+            
+            // Check periodically for completion with enhanced monitoring
+            this.checkCalendarLoadingStatusEnhanced();
+            
+            // Add aggressive timeout to force close loading after API should be complete
+            // Based on backend logs, 200 days takes about 1 minute 12 seconds
+            setTimeout(() => {
+              if (this.calendarDataLoading) {
+                console.log('🛑 Force closing calendar loading after 90 seconds timeout');
+                this.calendarDataLoading = false;
+                this.stopLoadingAnimation();
+                // Try to get any available data
+                const currentStatus = this.name?.data?.calendarLoadingStatus;
+                if (currentStatus?.data) {
+                  this.processCalendarDataImproved(currentStatus.data);
+                }
+                this.cd.detectChanges();
+              }
+            }, 90000); // 90 seconds timeout for 200 days
+            
+            // Add periodic aggressive check every 5 seconds
+            const aggressiveCheck = setInterval(() => {
+              const currentStatus = this.name?.data?.calendarLoadingStatus;
+              if (currentStatus && (currentStatus.data || !currentStatus.isLoading)) {
+                clearInterval(aggressiveCheck);
+                console.log('🎯 Aggressive check found calendar data ready');
+                this.calendarDataLoading = false;
+                this.stopLoadingAnimation();
+                if (currentStatus.data) {
+                  this.processCalendarDataImproved(currentStatus.data);
+                }
+                this.cd.detectChanges();
+              }
+            }, 5000); // Check every 5 seconds
+            
+            // Clear aggressive check after 2 minutes
+            setTimeout(() => {
+              clearInterval(aggressiveCheck);
+            }, 120000);
+            
+          } else if (calendarStatus.error) {
+            // Error in loading, fallback to old method
+            console.warn('⚠️ Calendar loading error, falling back to old method:', calendarStatus.error);
+            this.calendarDataLoading = false;
+            this.stopLoadingAnimation();
+            this.handleMonthChange(this.name.data.checkInDate);
+          }
+        } else {
+          // No calendar status provided, use old method
+          if(this.propertySlug && this.id !== this.lastLoadedPropertyId && !this.calendarDataLoading) {
+            this.lastLoadedPropertyId = this.id;
+            this.calendarDataLoading = true;
+            this.startLoadingAnimation();
+            this.handleMonthChange(this.name.data.checkInDate);
+          } else if (!this.propertySlug) {
+            console.error('No property slug available for calendar loading:', this.name.data);
+          }
         }
       } else if (this.name?.view === 'destination') {
         this.menuName = 'Destination';
@@ -190,6 +342,71 @@ export class StayDestinationComponent implements OnDestroy {
     }
   }
 
+  /**
+   * Enhanced calendar loading status checker that directly monitors data availability
+   */
+  private checkCalendarLoadingStatusEnhanced() {
+    let checkCount = 0;
+    const maxChecks = 120; // 2 minutes maximum
+    
+    const checkInterval = setInterval(() => {
+      checkCount++;
+      const calendarStatus = this.name?.data?.calendarLoadingStatus;
+      
+      // More aggressive checking - if data exists OR loading is false OR complete flag is true
+      if (calendarStatus && (calendarStatus.data || !calendarStatus.isLoading || calendarStatus.complete)) {
+        clearInterval(checkInterval);
+        console.log('✅ Enhanced check: Calendar data is now available or loading complete');
+        
+        // Force hide loading state immediately
+        this.calendarDataLoading = false;
+        this.stopLoadingAnimation();
+        
+        if (calendarStatus.data) {
+          this.processCalendarDataImproved(calendarStatus.data);
+          console.log('✅ Enhanced check: Processing calendar data');
+          
+          // Force update the calendar UI
+          try {
+            if (this.datePicker && this.datePicker.updateCalendars) {
+              this.datePicker.updateCalendars();
+            }
+          } catch (error) {
+            console.error('Error updating calendar:', error);
+          }
+          
+          this.cd.detectChanges();
+        } else if (calendarStatus.error) {
+          console.warn('⚠️ Enhanced check: Calendar loading failed, using fallback');
+          this.handleMonthChange(this.name.data.checkInDate);
+        }
+        return;
+      }
+      
+      // Also check if we somehow got data but status wasn't updated
+      if (calendarStatus && calendarStatus.data && this.calendarDataLoading) {
+        clearInterval(checkInterval);
+        console.log('🔍 Enhanced check: Found data despite loading status');
+        this.calendarDataLoading = false;
+        this.stopLoadingAnimation();
+        this.processCalendarDataImproved(calendarStatus.data);
+        this.cd.detectChanges();
+        return;
+      }
+      
+      // Force stop after maximum checks
+      if (checkCount >= maxChecks) {
+        clearInterval(checkInterval);
+        if (this.calendarDataLoading) {
+          this.calendarDataLoading = false;
+          this.stopLoadingAnimation();
+          console.warn('⏰ Enhanced check: Calendar loading timeout after 2 minutes, using fallback');
+          this.handleMonthChange(this.name.data.checkInDate);
+        }
+      }
+    }, 500); // Check every 500ms for faster response
+  }
+
   customSort = (a: KeyValue<string, any[]>, b: KeyValue<string, any[]>) => {
     if (a.key === 'Aminities') return -1;
     if (b.key === 'Aminities') return 1;
@@ -197,9 +414,9 @@ export class StayDestinationComponent implements OnDestroy {
   };
 
   CloseDialog() {
-    // Force hide spinner when closing dialog
-    this.spinner.hide();
-    this.isLoadingCalendar = false;
+    // Force hide spinner and reset loading state when closing dialog
+    this.forceCloseLoading();
+    this.isCalendarModalOpen = false; // Reset modal flag
     
     if (this.name?.view === 'destination') {
       this._mdr.close(this.destination)
@@ -266,9 +483,8 @@ export class StayDestinationComponent implements OnDestroy {
   }
 
   choosedDate(event: any) {
-    // Force hide spinner after date selection
-    this.spinner.hide();
-    this.isLoadingCalendar = false;
+    // Force close loading state after date selection
+    this.forceCloseLoading();
     
     var checkInOutSelected =
     {
@@ -416,35 +632,59 @@ export class StayDestinationComponent implements OnDestroy {
   // }
 
   async handleMonthChange(newMonth: string) {
-    if (this.propertySlug && !this.isLoadingCalendar) {
-      this.isLoadingCalendar = true;
-      this.occupied = [];
-      this.spinner.show();
+    if (this.propertySlug && !this.calendarDataLoading) {
+      // Check if we have pre-loaded calendar data from the parent component
+      const calendarStatus = this.name?.data?.calendarLoadingStatus;
       
-      console.log('Loading calendar availability for:', this.propertySlug);
+      if (calendarStatus && calendarStatus.data && !calendarStatus.isLoading) {
+        console.log('Using pre-loaded calendar data for:', this.propertySlug);
+        this.processCalendarDataImproved(calendarStatus.data);
+        this.cd.detectChanges();
+        return;
+      }
+      
+      if (calendarStatus && calendarStatus.isLoading) {
+        console.log('Calendar data still loading, showing loading state for:', this.propertySlug);
+        this.calendarDataLoading = true;
+        this.startLoadingAnimation();
+        this.checkCalendarLoadingStatusEnhanced();
+        return;
+      }
+      
+      // Fallback: Only make API call if no pre-loaded data is available
+      console.log('No pre-loaded data available, making API call for:', this.propertySlug);
+      this.calendarDataLoading = true;
+      this.startLoadingAnimation();
+      this.occupied = [];
       
       // Timeout safeguard
       const timeoutId = setTimeout(() => {
         console.warn('Calendar loading timeout');
-        this.spinner.hide();
-        this.isLoadingCalendar = false;
+        this.calendarDataLoading = false;
+        this.stopLoadingAnimation();
         this.cd.detectChanges();
-      }, 5000);
+      }, 10000);
       
       let payload: any = {};
       payload.propertyId = this.propertySlug;
+      payload.days = 60; // Use smaller dataset for fallback calls
       
-      this.apiService.httpPost('/ext/calendarAvailability', payload).subscribe({
+      // Use the improved calendar availability API as fallback only
+      this.apiService.httpPost('/ext/calendarAvailabilityImproved', payload).subscribe({
         next: (res: any) => {
           clearTimeout(timeoutId);
           
           if (res && res.property) {
-            this.processCalendarData(res.property);
+            this.processCalendarDataImproved(res.property);
+          } else {
+            console.warn('No calendar data received, trying old API');
+            this.tryFallbackCalendarAPI(payload);
+            return;
           }
           
           // Update calendar
-          this.spinner.hide();
-          this.isLoadingCalendar = false;
+          this.calendarDataLoading = false;
+          this.stopLoadingAnimation();
           
           try {
             if (this.datePicker && this.datePicker.updateCalendars) {
@@ -459,12 +699,42 @@ export class StayDestinationComponent implements OnDestroy {
         error: (error: any) => {
           clearTimeout(timeoutId);
           console.error('Calendar API error:', error);
-          this.spinner.hide();
-          this.isLoadingCalendar = false;
-          this.cd.detectChanges();
+          
+          // Try fallback to old API
+          console.log('Trying fallback calendar API...');
+          this.tryFallbackCalendarAPI(payload);
         }
       });
     }
+  }
+
+  tryFallbackCalendarAPI(payload: any) {
+    this.apiService.httpPost('/ext/calendarAvailability', payload).subscribe({
+      next: (res: any) => {
+        if (res && res.property) {
+          this.processCalendarData(res.property);
+        }
+        
+        this.calendarDataLoading = false;
+        this.stopLoadingAnimation();
+        
+        try {
+          if (this.datePicker && this.datePicker.updateCalendars) {
+            this.datePicker.updateCalendars();
+          }
+        } catch (error) {
+          console.error('Error updating calendar:', error);
+        }
+        
+        this.cd.detectChanges();
+      },
+      error: (error: any) => {
+        console.error('Fallback calendar API also failed:', error);
+        this.calendarDataLoading = false;
+        this.stopLoadingAnimation();
+        this.cd.detectChanges();
+      }
+    });
   }
 
   processCalendarData(calendarData: any) {
@@ -482,7 +752,22 @@ export class StayDestinationComponent implements OnDestroy {
       // Status 1: Available dates (including check-out dates) - not added to occupied
     }
     
-    console.log(`Processed ${Object.keys(calendarData).length} dates, ${this.occupied.length} unavailable`);
+    console.log(`Processed ${Object.keys(calendarData).length} dates, ${this.occupied.length} unavailable (fallback API)`);
+  }
+
+  processCalendarDataImproved(calendarData: any) {
+    // Clear existing occupied dates
+    this.occupied = [];
+    
+    for (const [date, status] of Object.entries(calendarData)) {
+      if (status === 0) {
+        // Status 0: Not available for check-in
+        this.occupied.push(date);
+      }
+      // Status 1: Available for check-in - not added to occupied
+    }
+    
+    console.log(`Processed ${Object.keys(calendarData).length} dates, ${this.occupied.length} unavailable (improved API)`);
   }
   onClearAllClick(){}
 
@@ -491,6 +776,10 @@ export class StayDestinationComponent implements OnDestroy {
     this.spinner.hide();
     this.occupied = [];
     this.isLoadingCalendar = false;
+    this.calendarDataLoading = false;
+    this.successToastShown = false;
+    this.isCalendarModalOpen = false;
+    this.eventListenerAdded = false;
     this.lastLoadedPropertyId = 0;
     this.selectedAmenities = [];
     this.selectedPropertyType = [];

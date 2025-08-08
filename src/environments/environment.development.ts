@@ -2,11 +2,8 @@ export const environment = {
   environmentLabel: 'dev',
   production: false,
 
-  //apiUrl: 'http://localhost:8080/api',
-  apiUrl: 'https://thestaymaster.com/api',
   // apiUrl: 'http://localhost:8080/api',
-
-  //apiUrl: 'https://thestaymaster.com/api',
+  apiUrl: 'https://thestaymaster.com/api',
   
   RAZORPAY_KEY: 'rzp_test_sSvJx21W6waqWy',
   //RAZORPAY_KEY: 'rzp_live_18LwkPAEfyB4s4',
