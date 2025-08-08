@@ -182,10 +182,32 @@ export class StayDescriptionComponent {
       },
       error: (error: any) => {
         console.log('❌ Calendar API error for:', propertySlug, error);
-        this.calendarLoadingError = 'Error loading calendar data';
+        
+        // Handle specific error types
+        let errorMessage = 'Error loading calendar data';
+        if (error.status === 504 || error.status === 0) {
+          errorMessage = 'Server timeout - calendar data may still be processing';
+          console.log('⏰ Server timeout detected - calendar may still be loading in background');
+          
+          // For timeout errors, try to continue with basic functionality
+          // Don't show error toast since data might still be processing
+          this.calendarLoadingError = '';
+        } else if (error.status >= 500) {
+          errorMessage = 'Server error - please try again later';
+        } else if (error.status === 404) {
+          errorMessage = 'Property not found';
+        } else {
+          errorMessage = error.message || 'Network error loading calendar';
+        }
+        
+        this.calendarLoadingError = errorMessage;
         this.isCalendarLoading = false; // Important: Set loading to false on error too
         this.calendarLoadingComplete = true; // Set completion flag even on error
-        console.error('❌ Calendar loading error:', error);
+        
+        // For non-timeout errors, log the full error
+        if (error.status !== 504 && error.status !== 0) {
+          console.error('❌ Calendar loading error:', error);
+        }
       }
     });
   }
