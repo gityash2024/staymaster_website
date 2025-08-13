@@ -161,10 +161,11 @@
               <div class="section-header">What is Staymaster Select ?</div>
 
               <div class="about-property-desc">
-                StayMaster Select offers premium vacation rentals with enhanced services including 
-                dedicated concierge, housekeeping, chef services, and 24/7 guest support. Experience 
-                luxury accommodations with personalized hospitality that makes your stay unforgettable 
-                and hassle-free.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in repre
               </div>
               <br />
               <div class="section-header">
@@ -175,13 +176,13 @@
                   <div fxFlex class="select-different" fxLayout="row" fxLayoutGap="25px">
                     <img src="../../../assets/images/home-select.png" alt="" />
                     <div class="about-property-desc">
-                      Premium properties with luxury amenities
+                      Lorem ipsum dolor sit amet, consectetur
                     </div>
                   </div>
                   <div fxFlex class="select-different" fxLayout="row" fxLayoutGap="25px">
                     <img src="../../../assets/images/troffee-select.png" alt="" />
                     <div class="about-property-desc">
-                      Award-winning hospitality standards
+                      Lorem ipsum dolor sit amet, consectetur
                     </div>
                   </div>
                 </div>
@@ -189,13 +190,13 @@
                   <div fxFlex class="select-different" fxLayout="row" fxLayoutGap="25px">
                     <img src="../../../assets/images/home-key-select.png" alt="" />
                     <div class="about-property-desc">
-                      Dedicated concierge and guest services
+                      Lorem ipsum dolor sit amet, consectetur
                     </div>
                   </div>
                   <div fxFlex class="select-different" fxLayout="row" fxLayoutGap="25px">
                     <img src="../../../assets/images/batch-select.png" alt="" />
                     <div class="about-property-desc">
-                      Certified quality and safety standards
+                      Lorem ipsum dolor sit amet, consectetur
                     </div>
                   </div>
                 </div>
@@ -276,7 +277,7 @@
               </div>
               <br />
               <div class="about-property-desc">
-                Premium concierge service, personalized trip planning and local experience curation.
+                Lorem ipsum dolor sit amet, Conceirge service, trip designer.
                 Connect with the manager to know more additional services
               </div>
               <button class="sm-btn">Call the Manager</button>
@@ -351,8 +352,7 @@
                 (dateRange)="dateRange($event)"
                 [isSummary]="true"
                 [propertyId]="id"
-                [propertyDetails]="propertyDetails"
-                [calendarLoadingStatus]="getCalendarLoadingStatus()">
+                [propertyDetails]="propertyDetails">
               </app-menu-content>
               <app-menu-content 
                 [viewType]="'guests'" 
@@ -370,7 +370,8 @@
                 <div class="chk">Include Breakfast</div>
               </div>
               <div fxLayout="row" fxLayoutAlign="center center">
-                <button class="reserve-btn btn" (click)="openWhatsAppReservation()">
+                <button class="reserve-btn btn" [disabled]="propertyDetails?.price_per_night ? false : true"
+                  (click)="confirmBooking()">
                   Reserve
                 </button>
               </div>
@@ -398,22 +399,22 @@
                     <div> Rs. {{ propertyDetails.extra_person_charges_per_night * propertyDetails?.number_of_nights | number : "1.0-0" }} </div>
                   </div>
                   <div class="item" fxLayout="row" fxLayoutAlign="space-between start"
-                    *ngIf="propertyDetails?.total_taxes">
+                    *ngIf="getCalculatedTotalTaxes() > 0">
                     <div fxLayout="row" fxLayoutGap="5px">
                       <div class="underline">Taxes</div>
                     </div>
-                    <div> Rs. {{ propertyDetails?.total_taxes | number : "1.0-0" }} </div>
+                    <div> Rs. {{ getCalculatedTotalTaxes() | number : "1.0-0" }} </div>
                   </div>
                   <div class="line"></div>
                   <div class="total" fxLayout="row" fxLayoutAlign="space-between start"
-                    *ngIf="propertyDetails?.totalprice_inclusive_all">
+                    *ngIf="propertyDetails?.price_per_night">
                     <div fxLayout="row" fxLayoutGap="5px">
                       <div class="">Total</div>
                     </div>
                     <div>
                       Rs.
                       {{
-                      propertyDetails?.totalprice_inclusive_all
+                      calculateTotalPrice()
                       | number : "1.0-0"
                       }}
                     </div>
@@ -558,7 +559,21 @@
                       <div class="section-title-rm" (click)="privacyPolicyModal()">
                         Read More
                       </div>
-                
+                      <!--<div class="desc">
+                                                Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do eiusmod
+                                                temp incididunt ut labore et
+                                                <br>
+                                                <br>
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis
+                                                molestias totam
+                                                <br>
+                                                <br>
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis
+                                                molestias
+                                                <br>
+                                                <br>
+                                                <p class="section-title-rm"><u>Read More</u></p>
+                                            </div>-->
                     </div>
                   </div>
                   <div class="section-types">
@@ -594,7 +609,7 @@
 
   <app-dont-warry-section id="faqsSection"></app-dont-warry-section>
   <div class="d-flex justify-content-center align-items-center pb-5" *ngIf="scrolledToFooter">
-    <button class="reserve-btn-text btn" (click)="openWhatsAppReservation()"> Reserve </button>
+    <button class="reserve-btn-text btn" (click)="scrollToFooter()"> Reserve </button>
   </div>
   <ng-container>
     <app-footer></app-footer>
@@ -602,12 +617,9 @@
 </div>
 
 <div class="d-none mobile-pricing-summary">
-  <div class="d-flex justify-content-between pb-2 align-items-center flex-wrap" [ngClass]="{
-        'gap-5' : isLargeScreen,
-        'justify-content-around' : !isLargeScreen,
-    }">
+  <div class="d-flex justify-content-between py-4 align-items-center flex-wrap" [ngClass]="isLargeScreen ? 'gap-5' : 'gap-3'">
     <div class="d-flex flex-column">
-      <div class="d-flex align-items-baseline justify-content-around gap-3 sticky-content flex-wrap">
+      <div class="d-flex align-items-baseline gap-3 sticky-content flex-wrap">
         <app-menu-content 
           class="app-menu-content"
           [isSummary]="true"  
@@ -615,8 +627,7 @@
           [viewType]="'checkInOut'" 
           [isMobile]="true" 
           [checkInDate]="checkInDate" 
-          [checkOutDate]="checkOutDate"
-          [calendarLoadingStatus]="getCalendarLoadingStatus()">
+          [checkOutDate]="checkOutDate">
         </app-menu-content>
         <app-menu-content 
           class="app-menu-content"
@@ -638,19 +649,15 @@
       <div class="type">night</div>
     </div>
   </div>
+  <!-- <div fxLayout="row" fxLayoutAlign="center center">
+    <button class="reserve-btn btn" [disabled]="propertyDetails?.price_per_night ? false : true"
+      (click)="confirmBooking()">
+      Reserve
+    </button>
+  </div> -->
   <div fxLayout="row" fxLayoutAlign="center center">
-    <!-- <button class="reserve-btn btn" [disabled]="propertyDetails?.price_per_night ? false : true"
-      (click)="confirmBooking()"> -->
     <button class="reserve-btn btn" (click)="openWhatsAppReservation()">
       Reserve
     </button>
-  </div>
-  <div class="charged-yet mt-2 text-center">
-    Security Deposit of Rs.
-    {{
-    propertyDetails.security_deposit_percentage
-    | number : "1.0-0"
-    }}
-    to be paid at check in
   </div>
 </div>

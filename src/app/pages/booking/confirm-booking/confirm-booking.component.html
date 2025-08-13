@@ -410,7 +410,7 @@
                                 <div fxLayout="column" fxLayoutGap="6px">
                                     <div class="details-subtitle mt-10" fxLayout="row" fxLayoutAlign="space-between">
                                         <div>Taxes</div>
-                                        <div>Rs. {{bookingDetails?.total_taxes | number:'1.0-0'}}</div>
+                                        <div>Rs. {{getCalculatedTotalTaxes() | number:'1.0-0'}}</div>
                                     </div>
                                 </div>
                                 <div fxLayout="column" fxLayoutGap="6px">
@@ -424,13 +424,12 @@
                             <div class="line"></div>
                             <div class="divider-line mobile-only"></div>
                             <div fxLayout="column" fxLayoutGap="6px">
-                                <div class="details-subtitle mt-10" fxLayout="row" fxLayoutAlign="space-between">
+                                
                                     <div class="gold">Total (INR)</div>
-                                    <div class="gold">Rs. {{ bookingDetails?.totalprice_inclusive_all |
+                                    <div class="gold">Rs. {{ calculateTotalPrice() |
                                         number:'1.0-0' }}
                                     </div>
                                 </div>
-                            </div>
                             <!-- <div class="desc">
                                 Security Deposit of <span class="aminities">Rs. 12,000</span> to be paid separately
                                 while check in

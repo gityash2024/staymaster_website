@@ -52,14 +52,6 @@ export class StayDescriptionComponent {
 
   propertyLoading: boolean = true;
   scrolledToFooter: boolean = false;
-  showShareMenu: boolean = false;
-
-  // Calendar loading state
-  isCalendarLoading: boolean = false;
-  calendarData: any = null;
-  calendarLoadingError: string = '';
-  calendarLoadingComplete: boolean = false; // Add completion flag
-  private calendarCache: Map<string, any> = new Map(); // Cache for calendar data
 
   toggleShareButtons(): void {
     this.showShareButtons = !this.showShareButtons;
@@ -110,13 +102,11 @@ export class StayDescriptionComponent {
         this.propertyLoading = true;
         this.getHotelDetails(params['id']);
         this.id = params['id'];
-        
-        // Start loading calendar data for 1 year in background
-        this.initializeCalendarData(params['id']);
       }
     });
     this.currentDevice = this.config.getDevice();
     this.deviceCheck();
+    
     // const data = this.dataService.getSharedData();
     // if (data) {
     //   this.selectedGuestCount = data.selectedGuest || null;
@@ -126,125 +116,6 @@ export class StayDescriptionComponent {
       // this.checkInDate = data.checkInDate;
       // this.checkOutDate = data.checkOutDate;
     // }
-  }
-
-  /**
-   * Initialize calendar data loading for 200 days in background
-   */
-  private initializeCalendarData(propertySlug: string) {
-    // Check if we already have cached data for this property
-    const cacheKey = `calendar_${propertySlug}`;
-    const cachedData = this.calendarCache.get(cacheKey);
-    
-    if (cachedData) {
-      console.log('Using cached calendar data for:', propertySlug);
-      this.calendarData = cachedData;
-      this.isCalendarLoading = false;
-      this.calendarLoadingComplete = true; // Set completion flag
-      return;
-    }
-
-    // Check if we're already loading data for this property
-    if (this.isCalendarLoading) {
-      console.log('Calendar data already loading for:', propertySlug);
-      return;
-    }
-    
-    this.isCalendarLoading = true;
-    this.calendarLoadingComplete = false; // Reset completion flag
-    this.calendarLoadingError = '';
-    
-    console.log('Starting 200-day calendar data loading for:', propertySlug);
-    
-    const payload = {
-      propertyId: propertySlug,
-      days: 200 // 200 days of data
-    };
-    
-    this.apiService.httpPost('/ext/calendarAvailabilityImproved', payload).subscribe({
-      next: (res: any) => {
-        console.log('✅ Calendar API response received for:', propertySlug);
-        if (res && res.success && res.property) {
-          this.calendarData = res.property;
-          this.calendarCache.set(cacheKey, res.property); // Cache the data
-          this.isCalendarLoading = false; // Important: Set loading to false
-          this.calendarLoadingComplete = true; // Set completion flag
-          console.log('✅ Calendar data loaded and cached successfully:', Object.keys(this.calendarData).length, 'days');
-          
-          // Force broadcast completion to all child components
-          this.broadcastCalendarCompletion();
-        } else {
-          this.calendarLoadingError = 'Failed to load calendar data';
-          this.isCalendarLoading = false;
-          this.calendarLoadingComplete = true; // Set completion flag even on error
-          console.error('❌ Invalid calendar response:', res);
-        }
-      },
-      error: (error: any) => {
-        console.log('❌ Calendar API error for:', propertySlug, error);
-        
-        // Handle specific error types
-        let errorMessage = 'Error loading calendar data';
-        if (error.status === 504 || error.status === 0) {
-          errorMessage = 'Server timeout - calendar data may still be processing';
-          console.log('⏰ Server timeout detected - calendar may still be loading in background');
-          
-          // For timeout errors, try to continue with basic functionality
-          // Don't show error toast since data might still be processing
-          this.calendarLoadingError = '';
-        } else if (error.status >= 500) {
-          errorMessage = 'Server error - please try again later';
-        } else if (error.status === 404) {
-          errorMessage = 'Property not found';
-        } else {
-          errorMessage = error.message || 'Network error loading calendar';
-        }
-        
-        this.calendarLoadingError = errorMessage;
-        this.isCalendarLoading = false; // Important: Set loading to false on error too
-        this.calendarLoadingComplete = true; // Set completion flag even on error
-        
-        // For non-timeout errors, log the full error
-        if (error.status !== 504 && error.status !== 0) {
-          console.error('❌ Calendar loading error:', error);
-        }
-      }
-    });
-  }
-
-  /**
-   * Broadcast calendar completion to force update child components
-   */
-  private broadcastCalendarCompletion() {
-    // Force change detection
-    setTimeout(() => {
-      console.log('🔄 Broadcasting calendar completion to child components');
-      // Trigger any open calendar dialogs to update
-      const event = new CustomEvent('calendarDataReady', { 
-        detail: { 
-          data: this.calendarData,
-          complete: true 
-        } 
-      });
-      window.dispatchEvent(event);
-    }, 100);
-  }
-
-  /**
-   * Get calendar loading status for the date picker component
-   */
-  getCalendarLoadingStatus() {
-    return {
-      isLoading: this.isCalendarLoading,
-      data: this.calendarData,
-      error: this.calendarLoadingError,
-      complete: this.calendarLoadingComplete, // Add completion flag
-      forceStopLoading: () => {
-        this.isCalendarLoading = false;
-        this.calendarLoadingComplete = true;
-        console.log('🛑 Force stopped calendar loading');
-      }
-    };
   }
 
   ngAfterViewInit(): void {
@@ -346,13 +217,6 @@ export class StayDescriptionComponent {
     this.router.navigate([`/stay-description/${this.id}/photo-gallery`]);
   }
 
-//   photoGalleryModal() {
-//     this.dataService.setPhotoGalleryData(this.propertyDetails.medias);
-//     const url = this.router.serializeUrl(
-//         this.router.createUrlTree([`/stay-description/${this.id}/photo-gallery`])
-//     );
-//     window.open(url, '_blank');
-// }
   aboutPropertyModal() {
     var data: any = {
       modalWidth: this.ModalWith,
@@ -411,9 +275,8 @@ export class StayDescriptionComponent {
             this.propertyDetails = res.data;
             console.log("this.propertyDetails", this.propertyDetails)
             this.staySelect = this.propertyDetails.staymaster_select;
-            // for (const date in this.propertyDetails.total_taxes) {
-            this.totalTax += this.propertyDetails.total_taxes;
-            // }
+            // Use calculated GST instead of backend total_taxes
+            this.totalTax = this.getCalculatedTotalTaxes();
             this.filteredAmenities =
               this.propertyDetails.amenitiesWithDescriptions.filter(
                 (amenity: any) => amenity.icon !== null
@@ -475,10 +338,8 @@ export class StayDescriptionComponent {
           if (res.success) {
             this.propertyDetails = res.data;
             this.staySelect = this.propertyDetails.staymaster_select;
-            // for (const date in this.propertyDetails.room_rates_info.tax) {
-            //   this.totalTax += this.propertyDetails.room_rates_info.tax[date];
-            // }
-            this.totalTax += this.propertyDetails.total_taxes;
+            // Use calculated GST instead of backend total_taxes
+            this.totalTax = this.getCalculatedTotalTaxes();
             this.filteredAmenities =
               this.propertyDetails.amenitiesWithDescriptions.filter(
                 (amenity: any) => amenity.icon !== null
@@ -534,6 +395,7 @@ export class StayDescriptionComponent {
   }
 
 
+  showShareMenu = false;
   currentUrl: string = window.location.href;
 
   toggleShareMenu() {
@@ -565,8 +427,8 @@ export class StayDescriptionComponent {
 
     window.open(shareLink, '_blank');
   }
-
   getCollectionStyles(collectionId: number | number[] | null | undefined): { [klass: string]: any } {
+    // console.log('Collection ID:', collectionId);
     if (Array.isArray(collectionId) && collectionId.includes(1)) {
       return { background: '#c4b385', color: '#584139' };
     }
@@ -580,24 +442,24 @@ export class StayDescriptionComponent {
 
   isMasterpiece(collectionId: number | number[] | null | undefined): boolean {
     if (Array.isArray(collectionId)) {
-      return collectionId.includes(1);
+      return collectionId.includes(1); // Check if 'Masterpiece' (ID 1) is in the array
     }
-    return collectionId === 1;
+    return collectionId === 1; // Check if it's a single value
   }
 
   async dateRange(event: any){
-    this.checkInDate = event.checkInDate;
-    this.checkOutDate = event.checkOutDate;
-    this.isMasterpiece(this.propertyDetails.collections);
- 
-    if (this.checkInDate != 'Check in' || this.checkOutDate != 'Check out') {
-      const differenceInDays = moment(this.checkOutDate).diff(moment(this.checkInDate), 'days');
-      if (differenceInDays <= 1)  {
-        this.propertyDetails = {}
-        this.toastr.error('Minimum 2 nights stay is required');
+      this.checkInDate = event.checkInDate;
+      this.checkOutDate = event.checkOutDate;
+      this.isMasterpiece(this.propertyDetails.collections);
+   
+      if (this.checkInDate != 'Check in' || this.checkOutDate != 'Check out') {
+          const differenceInDays = moment(this.checkOutDate).diff(moment(this.checkInDate), 'days');
+          if (differenceInDays <= 1)  {
+            this.propertyDetails = {}
+            this.toastr.error('Minimum 2 nights stay is required');
+          }
+          else await this.changeHotelDetails(this.id);
       }
-      else await this.changeHotelDetails(this.id);
-    }
   }
 
   async updateGuest(event: any){
@@ -621,6 +483,39 @@ export class StayDescriptionComponent {
     return this.propertyDetails?.price_per_night || 0;
   }
 
+  calculateGST(): number {
+    if (!this.propertyDetails?.price_per_night || !this.propertyDetails?.number_of_nights) {
+      return 0;
+    }
+
+    // Calculate base amount (room price + extra guests)
+    const roomTotal = this.calculateFinalPrice() * this.propertyDetails.number_of_nights;
+    const extraGuestTotal = (this.propertyDetails.extra_person_charges_per_night || 0) * this.propertyDetails.number_of_nights;
+    const baseAmount = roomTotal + extraGuestTotal;
+
+    // Apply GST rules based on PRICE PER NIGHT only: 12% for ≤7500, 18% for >7500
+    const gstRate = this.propertyDetails.price_per_night <= 7500 ? 0.12 : 0.18;
+    return baseAmount * gstRate;
+  }
+
+  // Method to get calculated total taxes (GST)
+  getCalculatedTotalTaxes(): number {
+    return this.calculateGST();
+  }
+
+  // Method to calculate total price including new GST
+  calculateTotalPrice(): number {
+    if (!this.propertyDetails?.price_per_night || !this.propertyDetails?.number_of_nights) {
+      return 0;
+    }
+
+    const roomTotal = this.calculateFinalPrice() * this.propertyDetails.number_of_nights;
+    const extraGuestTotal = (this.propertyDetails.extra_person_charges_per_night || 0) * this.propertyDetails.number_of_nights;
+    const gstTotal = this.getCalculatedTotalTaxes();
+    
+    return roomTotal + extraGuestTotal + gstTotal;
+  }
+
   formatDateRange(checkInDate: string, checkOutDate: string): string {
     const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'short' };
   
@@ -641,21 +536,55 @@ export class StayDescriptionComponent {
   adjustWhatsappButton(){
     const pricing = document.querySelector('.mobile-pricing-summary') as HTMLElement;
     const whatsappBtn = document.querySelector('#wa_btn-content') as HTMLElement;
-    if (pricing && whatsappBtn) {
-      const pricingHeight = pricing.offsetHeight;
-      whatsappBtn.style.bottom = pricingHeight + 20 + 'px';
-      whatsappBtn.style.position = 'fixed';
-      whatsappBtn.style.right = '20px';
-    }
+    const pricingHeight = pricing.offsetHeight;
+    whatsappBtn.style.bottom = pricingHeight + 20 + 'px';
+    whatsappBtn.style.position = 'fixed';
+    whatsappBtn.style.right = '20px';
   }
 
   resetWhatsappBtnPosition(){
     const whatsappBtn = document.querySelector('#wa_btn-content') as HTMLElement;
-    if (whatsappBtn) {
-      whatsappBtn.style.bottom = 0 + 'px';
-      whatsappBtn.style.position = 'relative';
-      whatsappBtn.style.right = '0';
-    }
+    whatsappBtn.style.bottom = 0 + 'px';
+    whatsappBtn.style.position = 'relative';
+    whatsappBtn.style.right = '0';
+  }
+
+  openWhatsAppReservation() {
+    // Get property and booking details
+    const propertyName = this.propertyDetails?.internal_name || 'Property';
+    const checkIn = this.checkInDate ? moment(this.checkInDate).format('DD MMM YYYY') : 'Not selected';
+    const checkOut = this.checkOutDate ? moment(this.checkOutDate).format('DD MMM YYYY') : 'Not selected';
+    const guests = this.selectedGuestCount ? 
+      `${this.selectedGuestCount.number_adults} Adults, ${this.selectedGuestCount.number_children} Children` : 
+      'Not selected';
+    const price = this.propertyDetails?.price_per_night ? 
+      `Rs. ${this.propertyDetails.price_per_night} per night` : 
+      'Price not available';
+    const totalPrice = this.propertyDetails?.totalprice_inclusive_all ? 
+      `Rs. ${this.propertyDetails.totalprice_inclusive_all}` : 
+      'Total price not available';
+    const location = this.propertyDetails?.city && this.propertyDetails?.state ? 
+      `${this.propertyDetails.city}, ${this.propertyDetails.state}` : 
+      'Location not available';
+    
+    // Create prefilled message with booking details
+    const message = `Hello, I would like to make a booking for:\n\n` +
+      `Property: ${propertyName}\n` +
+      `Location: ${location}\n` +
+      `Check-in: ${checkIn}\n` +
+      `Check-out: ${checkOut}\n` +
+      `Guests: ${guests}\n` +
+      `Price: ${price}\n` +
+      `Total: ${totalPrice}`;
+    
+    // Get WhatsApp number from the global settings
+    // Using the number from the WhatsApp widget in index.html
+    const whatsAppNumber = '919226934609';
+    
+    // Open WhatsApp with prefilled message
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsAppNumber}&text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
   }
 
   @HostListener('window:scroll', [])
@@ -687,8 +616,10 @@ export class StayDescriptionComponent {
   scrollToFooter() {
     const footer = document.querySelector('app-dont-warry-section') as HTMLElement;
     if (footer) {
+      // const footerPosition = footer.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: 0,
+        // footerPosition - 700
         behavior: 'smooth'
       });
     }
@@ -707,38 +638,5 @@ export class StayDescriptionComponent {
 
   get isLargeScreen(): boolean {
     return window.innerWidth > 600;
-  }
-
-  openWhatsAppReservation() {
-    const propertyName = this.propertyDetails?.internal_name || 'Property';
-    const checkIn = this.checkInDate ? moment(this.checkInDate).format('DD MMM YYYY') : 'Not selected';
-    const checkOut = this.checkOutDate ? moment(this.checkOutDate).format('DD MMM YYYY') : 'Not selected';
-    const guests = this.selectedGuestCount ? 
-      `${this.selectedGuestCount.number_adults} Adults, ${this.selectedGuestCount.number_children} Children` : 
-      'Not selected';
-    const price = this.propertyDetails?.price_per_night ? 
-      `Rs. ${this.propertyDetails.price_per_night} per night` : 
-      'Price not available';
-    const totalPrice = this.propertyDetails?.totalprice_inclusive_all ? 
-      `Rs. ${this.propertyDetails.totalprice_inclusive_all}` : 
-      'Total price not available';
-    const location = this.propertyDetails?.city && this.propertyDetails?.state ? 
-      `${this.propertyDetails.city}, ${this.propertyDetails.state}` : 
-      'Location not available';
-    
-    const message = `Hello, I would like to make a booking for:\n\n` +
-      `Property: ${propertyName}\n` +
-      `Location: ${location}\n` +
-      `Check-in: ${checkIn}\n` +
-      `Check-out: ${checkOut}\n` +
-      `Guests: ${guests}\n` +
-      `Price: ${price}\n` +
-      `Total: ${totalPrice}`;
-    
-    const whatsAppNumber = '919226934609';
-    
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsAppNumber}&text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
   }
 }

@@ -125,10 +125,8 @@ export class ConfirmBookingComponent {
       } this.totalSelectedGuest = this.countSelectedGuest();
       this.checkInDate = tripData.checkInDate
       this.checkOutDate = tripData.checkOutDate
-      // for (const date in this.bookingDetails.room_rates_info.tax) {
-      //   this.totalTax += this.bookingDetails.room_rates_info.tax[date];
-      // }
-      this.totalTax += this.bookingDetails.total_taxes;
+      // Use calculated GST instead of backend total_taxes
+      this.totalTax = this.getCalculatedTotalTaxes();
       this.user = localStorage.getItem('user');
       this.user = JSON.parse(this.user)
       // Pre-fill the user data ignoring the id
@@ -329,7 +327,7 @@ export class ConfirmBookingComponent {
       console.log(this.bookingDetails, "bookingDetails")
       // 1. Create order
       const orderPayload = {
-        amount: this.bookingDetails?.totalprice_inclusive_all * 100, // Convert to paise
+        amount: this.calculateTotalPrice() * 100, // Convert to paise
         currency: 'INR',
         receipt: `BOOK_${Date.now()}`, // Unique receipt ID
         notes: JSON.stringify({
@@ -416,6 +414,39 @@ export class ConfirmBookingComponent {
     if ( this.bookingDetails?.extra_person_charges_per_night && this.bookingDetails?.price_per_night)
         return ( this.bookingDetails?.price_per_night - this.bookingDetails.extra_person_charges_per_night );
     return this.bookingDetails?.price_per_night || 0;
+  }
+
+  calculateGST(): number {
+    if (!this.bookingDetails?.price_per_night || !this.bookingDetails?.number_of_nights) {
+      return 0;
+    }
+
+    // Calculate base amount (room price + extra guests)
+    const roomTotal = this.calculateFinalPrice() * this.bookingDetails.number_of_nights;
+    const extraGuestTotal = (this.bookingDetails.extra_person_charges_per_night || 0) * this.bookingDetails.number_of_nights;
+    const baseAmount = roomTotal + extraGuestTotal;
+
+    // Apply GST rules based on PRICE PER NIGHT only: 12% for ≤7500, 18% for >7500
+    const gstRate = this.bookingDetails.price_per_night <= 7500 ? 0.12 : 0.18;
+    return baseAmount * gstRate;
+  }
+
+  // Method to get calculated total taxes (GST)
+  getCalculatedTotalTaxes(): number {
+    return this.calculateGST();
+  }
+
+  // Method to calculate total price including new GST
+  calculateTotalPrice(): number {
+    if (!this.bookingDetails?.price_per_night || !this.bookingDetails?.number_of_nights) {
+      return 0;
+    }
+
+    const roomTotal = this.calculateFinalPrice() * this.bookingDetails.number_of_nights;
+    const extraGuestTotal = (this.bookingDetails.extra_person_charges_per_night || 0) * this.bookingDetails.number_of_nights;
+    const gstTotal = this.getCalculatedTotalTaxes();
+    
+    return roomTotal + extraGuestTotal + gstTotal;
   }
 
   @HostListener('window:resize', ['$event'])
