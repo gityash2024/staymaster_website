@@ -1,7 +1,7 @@
 export const environment = {
     production: true,
 
-    apiUrl: 'https://staymaster.in/api',
+    apiUrl: 'https://thestaymaster.com/api',
     
     RAZORPAY_KEY: 'rzp_live_18LwkPAEfyB4s4',
     
