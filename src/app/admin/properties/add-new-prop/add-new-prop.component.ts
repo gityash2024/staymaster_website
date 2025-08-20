@@ -467,7 +467,7 @@ export class AddNewPropComponent {
   uploadFile(event: any, index: number) {
     let reader = new FileReader(); // HTML5 FileReader API
     let file = event.target.files[0];
-    if (file.size <= 1024 * 1024) { // Check if file size is less than or equal to 1MB (1MB = 1024 * 1024 bytes)
+    if (file.size <= 3 * 1024 * 1024) { // Check if file size is less than or equal to 3MB (3MB = 3 * 1024 * 1024 bytes)
         reader.readAsDataURL(file);
 
         // When file uploads set it to file formcontrol
@@ -485,8 +485,8 @@ export class AddNewPropComponent {
         // ChangeDetectorRef since file is loading outside the zone
         this.cd.markForCheck();
     } else {
-        // Handle file size exceeding 1MB
-        alert("File size exceeds 1MB");
+        // Handle file size exceeding 3MB
+        alert("File size exceeds 3MB");
         // You can add any other logic or UI update here to notify the user
     }
 }
