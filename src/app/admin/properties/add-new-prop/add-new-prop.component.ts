@@ -467,7 +467,7 @@ export class AddNewPropComponent {
   uploadFile(event: any, index: number) {
     let reader = new FileReader(); // HTML5 FileReader API
     let file = event.target.files[0];
-    if (file.size <= 3 * 1024 * 1024) { // Check if file size is less than or equal to 3MB (3MB = 3 * 1024 * 1024 bytes)
+    if (file.size <= 5 * 1024 * 1024) { // Check if file size is less than or equal to 5MB (5MB = 5 * 1024 * 1024 bytes)
         reader.readAsDataURL(file);
 
         // When file uploads set it to file formcontrol
@@ -485,8 +485,8 @@ export class AddNewPropComponent {
         // ChangeDetectorRef since file is loading outside the zone
         this.cd.markForCheck();
     } else {
-        // Handle file size exceeding 3MB
-        alert("File size exceeds 3MB");
+        // Handle file size exceeding 5MB
+        alert("File size exceeds 5MB");
         // You can add any other logic or UI update here to notify the user
     }
 }
@@ -496,20 +496,27 @@ uploadMenu(event: any) {
   if (event.target.files && event.target.files.length > 0) {
     let reader = new FileReader(); // HTML5 FileReader API
     let file = event.target.files[0];
-    console.log(file);    
-    this.meals_menu_file = file;
-    reader.readAsDataURL(file);
+    
+    // Check file size (5MB limit)
+    if (file.size <= 5 * 1024 * 1024) {
+      console.log(file);    
+      this.meals_menu_file = file;
+      reader.readAsDataURL(file);
 
-    // When file uploads set it to file formcontrol
-    /* reader.onload = () => {
-      this.imageUrl = reader.result;
-      this.myForm.patchValue({
-        menu: file,
-      });
-    }; */
+      // When file uploads set it to file formcontrol
+      /* reader.onload = () => {
+        this.imageUrl = reader.result;
+        this.myForm.patchValue({
+          menu: file,
+        });
+      }; */
 
-    // ChangeDetectorRef since file is loading outside the zone
-    this.cd.markForCheck();
+      // ChangeDetectorRef since file is loading outside the zone
+      this.cd.markForCheck();
+    } else {
+      alert("File size exceeds 5MB");
+      console.error("File size too large:", file.size);
+    }
   } else {
     console.error("No file selected");
   }
@@ -610,7 +617,7 @@ uploadMenu(event: any) {
     const indices = this.myForm.controls['property_features'].value.map((obj: { value: any; },index: number)=> obj.value ? index + 1 : -1).filter((index: number) => index != -1)
     formData.append('property_collections', JSON.stringify(indices)); // array
     // formData.append('property_features', this.myForm.controls['name'].value);
-    formData.append('featured_property', this.myForm.controls['featured_property'].value ? '1':'0'  || "0" );
+    formData.append('featured_property', this.myForm.controls['featured_property'].value ? '1' : '0');
     formData.append('security_deposit_percentage', this.myForm.controls['security_deposit_percentage'].value);    
     
     formData.append('description_summary', this.myForm.controls['summary'].value);

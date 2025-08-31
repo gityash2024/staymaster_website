@@ -1068,7 +1068,7 @@
     }
 
     .right-side-img {
-        min-height: 532px;
+        max-height: 532px;
         border: 2.5px solid #c4b385;
         border-radius: 0px 300px 300px 0px;
         transform: matrix(-1, 0, 0, 1, 0, 0);
