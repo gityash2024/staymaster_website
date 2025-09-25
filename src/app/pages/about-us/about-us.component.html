@@ -605,10 +605,11 @@
           <div class="profiles relative" ngClass.xs="profiles-xs" fxLayout="row wrap" fxLayoutGap="12px"
             fxLayoutAlign.lt-md="center" fxLayoutAlign.lt-sm="space-around">
             <div *ngFor="let team of teamProfile" class="profile">
-              <div class="profile" [ngStyle]="{
+              <div class="profile" [ngClass]="{'zara-zoom': team.name === 'Zara'}" [ngStyle]="{
                 'background-image': 'url(' + team.profileImage + ')',
                 'background-repeat': 'no-repeat',
-                'background-size': 'contain'
+                'background-size': 'cover',
+                'background-position': 'center'
               }">
                 <div class="profile-hover">
                   <div class="name">{{team.name}}</div>
