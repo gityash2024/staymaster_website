@@ -23,7 +23,11 @@ export class AboutUsComponent {
       profileImage: '../../../assets/images/virender.jpg',
       designation: 'Supply'
     },
-   
+    {
+      name: 'Michael',
+      profileImage: '../../../assets/images/michael.jpg',
+      designation: 'Operations'
+    },
     {
       name: 'Pooja',
       profileImage: '../../../assets/images/pooja.jpg',
@@ -35,15 +39,9 @@ export class AboutUsComponent {
       designation: 'Hospitality'
     },
     {
-      name: 'Zara',
-      profileImage: '../../../assets/images/zara.jpg',
-      designation: 'Concierge'
-    },
-   
-    {
-      name: 'Andrea',
-      profileImage: '../../../assets/images/andrea.jpg',
-      designation: 'Distribution'
+      name: 'Lenny',
+      profileImage: '../../../assets/images/lenny.jpg',
+      designation: 'Reservations'
     },
     {
       name: 'Rohit',

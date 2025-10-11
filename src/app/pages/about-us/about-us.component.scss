@@ -507,13 +507,13 @@
     .offer-card-hover {
         display: none;
         // width: 414px;
-        height: 250px;
+        height: 290px;
         background: #008281;
-        border-radius: 6px 6px 0 0; /* Rounded top corners only */
+        border-radius: 6px;
         padding: 34px 24px 24px 24px;
         position: relative;
-        left: 0;
-        width: 100%;
+        left: -2%;
+        width: 104%;
 
         .card-title-hover {
             font-family: "Akkurat";
@@ -538,7 +538,6 @@
             left: 0%;
             width: 100%;
             background: transparent !important;
-            border-radius: 6px 6px 0 0; /* Rounded top corners for mobile too */
         }
     }
 
@@ -1069,7 +1068,7 @@
     }
 
     .right-side-img {
-        max-height: 532px;
+        min-height: 532px;
         border: 2.5px solid #c4b385;
         border-radius: 0px 300px 300px 0px;
         transform: matrix(-1, 0, 0, 1, 0, 0);
@@ -1205,8 +1204,8 @@
     .founder-bg {
         width: 248px;
         height: 343px; // 346px
-        // background-color: #c2b58b;
-        // border-radius: 300px 300px 0px 0px;
+        background-color: #c2b58b;
+        border-radius: 300px 300px 0px 0px;
 
         // background-position: bottom 0px center 0px;
         @media (max-width: 959px) {
@@ -1245,119 +1244,6 @@
     @media (max-width: 991px) {
         padding: 58px 32px 83px !important;
     }
-
-    /* --- New UI/UX styles for founders section --- */
-    .founders-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 60px;
-
-        @media (min-width: 960px) {
-            flex-direction: row;
-            justify-content: space-between;
-        }
-    }
-
-    .founder-block {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-
-        @media (min-width: 600px) {
-            flex-direction: row;
-        }
-    }
-
-    .founder-right {
-        @media (min-width: 600px) {
-            flex-direction: row-reverse;
-        }
-    }
-
-    .founder-image-wrap {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .founder-photo {
-        width: 280px;
-        height: 280px;
-        border-radius: 50%;
-        object-fit: cover;
-        top: 0;
-        position: relative;
-
-        @media (max-width: 991px) {
-            width: 200px;
-            height: 200px;
-        }
-    }
-
-    .linkedin-icon {
-        position: absolute;
-        bottom: 0;
-        transform: translateY(50%);
-        background: #ffffff;
-        border-radius: 50%;
-        width: 56px;
-        height: 56px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        img {
-            width: 24px;
-            height: 24px;
-        }
-
-        @media (max-width: 991px) {
-            width: 44px;
-            height: 44px;
-        }
-    }
-
-    .founder-text {
-        max-width: 420px;
-        color: #f9f5f3;
-    }
-
-    .founder-name {
-        font-family: "Caudex";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 48px;
-        line-height: 120%;
-        color: #f9f5f3;
-
-        @media (max-width: 991px) {
-            font-size: 32px;
-        }
-    }
-
-    .founder-divider {
-        width: 100%;
-        height: 2px;
-        background: #f9f5f3;
-        margin: 24px 0;
-    }
-
-    .founder-desc {
-        font-family: "Akkurat";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 24px;
-        color: #f9f5f3;
-
-        @media (max-width: 991px) {
-            font-size: 16px;
-            line-height: 22px;
-        }
-    }
-    /* --- End of new UI/UX styles --- */
 }
 
 .comment {
@@ -1511,13 +1397,6 @@
         .profile:hover .profile-hover {
             display: block;
         }
-        
-        .zara-zoom {
-            background-size: 120% !important; /* Zoom in by 10% */
-            background-position: center !important; /* Keep it centered */
-            transition: background-size 0.3s ease; /* Smooth transition for the zoom */
-        }
-        
         .mobile-view-profile{
             display: none;
             font-family: Akkurat;

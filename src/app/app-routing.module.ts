@@ -6,12 +6,16 @@ import { LAYOUT_ROUTES } from './routes/layout.routes';
 import { ADMIN_ROUTES } from './routes/admin.routes';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { BlogDetailComponent } from './pages/blog-detail/blog-detail.component'; // Import BlogDetailComponent
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    children: LAYOUT_ROUTES
+    children: [
+      ...LAYOUT_ROUTES,
+      { path: 'blog/:id', component: BlogDetailComponent } // New route for blog detail
+    ]
   },
   {
     path: 'adminlogin',

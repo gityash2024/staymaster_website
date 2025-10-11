@@ -106,7 +106,6 @@ export class StayDescriptionComponent {
     });
     this.currentDevice = this.config.getDevice();
     this.deviceCheck();
-    
     // const data = this.dataService.getSharedData();
     // if (data) {
     //   this.selectedGuestCount = data.selectedGuest || null;
@@ -217,6 +216,13 @@ export class StayDescriptionComponent {
     this.router.navigate([`/stay-description/${this.id}/photo-gallery`]);
   }
 
+//   photoGalleryModal() {
+//     this.dataService.setPhotoGalleryData(this.propertyDetails.medias);
+//     const url = this.router.serializeUrl(
+//         this.router.createUrlTree([`/stay-description/${this.id}/photo-gallery`])
+//     );
+//     window.open(url, '_blank');
+// }
   aboutPropertyModal() {
     var data: any = {
       modalWidth: this.ModalWith,
@@ -275,8 +281,9 @@ export class StayDescriptionComponent {
             this.propertyDetails = res.data;
             console.log("this.propertyDetails", this.propertyDetails)
             this.staySelect = this.propertyDetails.staymaster_select;
-            // Use calculated GST instead of backend total_taxes
-            this.totalTax = this.getCalculatedTotalTaxes();
+            // for (const date in this.propertyDetails.total_taxes) {
+            this.totalTax += this.propertyDetails.total_taxes;
+            // }
             this.filteredAmenities =
               this.propertyDetails.amenitiesWithDescriptions.filter(
                 (amenity: any) => amenity.icon !== null
@@ -338,8 +345,10 @@ export class StayDescriptionComponent {
           if (res.success) {
             this.propertyDetails = res.data;
             this.staySelect = this.propertyDetails.staymaster_select;
-            // Use calculated GST instead of backend total_taxes
-            this.totalTax = this.getCalculatedTotalTaxes();
+            // for (const date in this.propertyDetails.room_rates_info.tax) {
+            //   this.totalTax += this.propertyDetails.room_rates_info.tax[date];
+            // }
+            this.totalTax += this.propertyDetails.total_taxes;
             this.filteredAmenities =
               this.propertyDetails.amenitiesWithDescriptions.filter(
                 (amenity: any) => amenity.icon !== null
@@ -483,39 +492,6 @@ export class StayDescriptionComponent {
     return this.propertyDetails?.price_per_night || 0;
   }
 
-  calculateGST(): number {
-    if (!this.propertyDetails?.price_per_night || !this.propertyDetails?.number_of_nights) {
-      return 0;
-    }
-
-    // Calculate base amount (room price + extra guests)
-    const roomTotal = this.calculateFinalPrice() * this.propertyDetails.number_of_nights;
-    const extraGuestTotal = (this.propertyDetails.extra_person_charges_per_night || 0) * this.propertyDetails.number_of_nights;
-    const baseAmount = roomTotal + extraGuestTotal;
-
-    // Apply GST rules based on PRICE PER NIGHT only: 12% for ≤7500, 18% for >7500
-    const gstRate = this.propertyDetails.price_per_night <= 7500 ? 0.12 : 0.18;
-    return baseAmount * gstRate;
-  }
-
-  // Method to get calculated total taxes (GST)
-  getCalculatedTotalTaxes(): number {
-    return this.calculateGST();
-  }
-
-  // Method to calculate total price including new GST
-  calculateTotalPrice(): number {
-    if (!this.propertyDetails?.price_per_night || !this.propertyDetails?.number_of_nights) {
-      return 0;
-    }
-
-    const roomTotal = this.calculateFinalPrice() * this.propertyDetails.number_of_nights;
-    const extraGuestTotal = (this.propertyDetails.extra_person_charges_per_night || 0) * this.propertyDetails.number_of_nights;
-    const gstTotal = this.getCalculatedTotalTaxes();
-    
-    return roomTotal + extraGuestTotal + gstTotal;
-  }
-
   formatDateRange(checkInDate: string, checkOutDate: string): string {
     const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'short' };
   
@@ -547,44 +523,6 @@ export class StayDescriptionComponent {
     whatsappBtn.style.bottom = 0 + 'px';
     whatsappBtn.style.position = 'relative';
     whatsappBtn.style.right = '0';
-  }
-
-  openWhatsAppReservation() {
-    // Get property and booking details
-    const propertyName = this.propertyDetails?.internal_name || 'Property';
-    const checkIn = this.checkInDate ? moment(this.checkInDate).format('DD MMM YYYY') : 'Not selected';
-    const checkOut = this.checkOutDate ? moment(this.checkOutDate).format('DD MMM YYYY') : 'Not selected';
-    const guests = this.selectedGuestCount ? 
-      `${this.selectedGuestCount.number_adults} Adults, ${this.selectedGuestCount.number_children} Children` : 
-      'Not selected';
-    const price = this.propertyDetails?.price_per_night ? 
-      `Rs. ${this.propertyDetails.price_per_night} per night` : 
-      'Price not available';
-    const totalPrice = this.propertyDetails?.totalprice_inclusive_all ? 
-      `Rs. ${this.propertyDetails.totalprice_inclusive_all}` : 
-      'Total price not available';
-    const location = this.propertyDetails?.city && this.propertyDetails?.state ? 
-      `${this.propertyDetails.city}, ${this.propertyDetails.state}` : 
-      'Location not available';
-    
-    // Create prefilled message with booking details
-    const message = `Hello, I would like to make a booking for:\n\n` +
-      `Property: ${propertyName}\n` +
-      `Location: ${location}\n` +
-      `Check-in: ${checkIn}\n` +
-      `Check-out: ${checkOut}\n` +
-      `Guests: ${guests}\n` +
-      `Price: ${price}\n` +
-      `Total: ${totalPrice}`;
-    
-    // Get WhatsApp number from the global settings
-    // Using the number from the WhatsApp widget in index.html
-    const whatsAppNumber = '919226934609';
-    
-    // Open WhatsApp with prefilled message
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsAppNumber}&text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
   }
 
   @HostListener('window:scroll', [])
