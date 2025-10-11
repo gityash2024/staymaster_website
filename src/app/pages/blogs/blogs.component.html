@@ -23,13 +23,13 @@
       </div>
     </nav>
 
-    <div class="featured">
+    <div class="featured" *ngIf="featuredPost">
      
-      <div class="featured-content" [style.background-image]="'url(' + featuredPost.image + ')'">
-        <p class="date">{{ featuredPost.date }}</p>
+      <div class="featured-content" [style.background-image]="'url(' + featuredPost.featured_image + ')'">
+        <p class="date">{{ featuredPost.created_at | date: 'dd MMM yyyy' }}</p>
         <h2 class="featured-title">{{ featuredPost.title }}</h2>
-        <p class="featured-excerpt">{{ featuredPost.excerpt }}</p>
-        <p class="post-excerpt" style="color: #ffffff; font-weight: 600;" >Read More →</p>
+        <p class="featured-excerpt" [innerHTML]="(featuredPost.content | slice:0:150) + '...'"></p> <!-- Display content, maybe truncate -->
+        <p class="post-excerpt" style="color: #ffffff; font-weight: 600;" [routerLink]="['/blog', featuredPost.id]">Read More →</p>
       </div>
     </div>
   </div>
@@ -37,16 +37,17 @@
 
 <section class="posts-section">
   <div class="posts container" #postsContainer>
-    <div class="post-card" *ngFor="let post of posts">
+    <div class="post-card" *ngFor="let blog of blogs"> <!-- Changed posts to blogs -->
       <div
         class="post-img"
-        [style.background-image]="'url(' + post.image + ')'"
+        [style.background-image]="'url(' + blog.featured_image + ')'"
       ></div>
       <div class="post-body">
-        <p class="date">{{ post.date }}</p>
-        <h3 class="post-title">{{ post.title }}</h3>
-        <p class="post-excerpt">{{ post.excerpt }}</p>
-        <button class="read-more">Read More <span class="arrow">&#8594;</span></button>
+        <p class="date">{{ blog.created_at | date: 'dd MMM yyyy' }}</p> <!-- Use created_at -->
+        <h3 class="post-title">{{ blog.title }}</h3>
+        <p class="post-excerpt" *ngIf="blog.written_by"><span style="color: #008281;">Author:</span> {{ blog.written_by }}</p>
+        <p class="post-excerpt" [innerHTML]="(blog.content | slice:0:100) + '...'"></p> <!-- Use content, maybe truncate -->
+        <button class="read-more" [routerLink]="['/blog', blog.id]">Read More <span class="arrow">&#8594;</span></button>
       </div>
     </div>
   </div>
@@ -55,8 +56,8 @@
   <div class="dots">
     <span
       class="dot"
-      *ngFor="let post of posts; let i = index"
-      [class.active]="i === currentSlide"
+      *ngFor="let i of [].constructor(numPages); let pageIndex = index"
+      [class.active]="pageIndex === currentSlide"
     ></span>
   </div>
 

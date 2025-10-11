@@ -1,0 +1,42 @@
+<section class="blog-detail-hero">
+  <app-header [headerName]="'menus'"></app-header>
+</section>
+
+<section class="blog-content-section">
+  <div class="container">
+    <div *ngIf="loading" class="text-center py-5">Loading blog...</div>
+    <div *ngIf="error" class="text-center py-5 text-red-500">{{ error }}</div>
+
+    <div *ngIf="blog && !loading">
+      <div class="featured-image mb-8" *ngIf="blog.featured_image">
+        <img [src]="blog.featured_image" [alt]="blog.title" style="width: 100%; height: 50vh; object-fit: cover;" class="rounded-lg shadow-md">
+      </div>
+      <div class="blog-title-date-container">
+        <h1 class="hero-title">{{ blog.title }}</h1>
+        <div class="date-author-group">
+          <p class="hero-date">{{ blog.created_at | date: 'dd MMM yyyy' }}</p>
+        </div>
+      </div>
+      <p class="hero-desc"><span style="color: #009688;">Author:</span> {{ blog.written_by }}</p>
+      <p class="hero-desc">Category: {{ blog.category }}</p>
+
+      <div class="blog-main-content mb-8" [innerHTML]="blog.content"></div>
+
+      <div *ngIf="blog.qa_section && blog.qa_section.length > 0" class="qa-section mt-10">
+        <h2 class="text-2xl font-semibold mb-4 text-center">FAQ</h2>
+        <div *ngFor="let qa of blog.qa_section" class="mb-6 p-4 border rounded-lg bg-gray-50">
+          <h3 class="text-lg font-medium text-gray-800 mb-2">Q: {{ qa.question }}</h3>
+          <p class="text-gray-700">A: {{ qa.answer }}</p>
+        </div>
+      </div>
+
+      <div class="blog-meta mt-8 text-sm text-gray-600">
+        
+        <p>Keywords: {{ blog.keywords }}</p>
+        <p>Meta Tags: {{ blog.meta_tags }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
