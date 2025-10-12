@@ -1,42 +1,138 @@
-<section class="blog-detail-hero">
-  <app-header [headerName]="'menus'"></app-header>
-</section>
+<!-- Header Section -->
+<app-header [headerName]="'menus'"></app-header>
 
-<section class="blog-content-section">
-  <div class="container">
-    <div *ngIf="loading" class="text-center py-5">Loading blog...</div>
-    <div *ngIf="error" class="text-center py-5 text-red-500">{{ error }}</div>
-
-    <div *ngIf="blog && !loading">
-      <div class="featured-image mb-8" *ngIf="blog.featured_image">
-        <img [src]="blog.featured_image" [alt]="blog.title" style="width: 100%; height: 50vh; object-fit: cover;" class="rounded-lg shadow-md">
+<!-- Hero Section with Featured Image -->
+<section class="blog-hero" *ngIf="blog && !loading">
+  <div class="hero-image" *ngIf="blog.featured_image">
+    <img [src]="blog.featured_image" [alt]="blog.title" class="hero-img">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <div class="container">
+      <div class="breadcrumb">
+        <a routerLink="/blogs" class="breadcrumb-link">Blogs</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{{ blog.category }}</span>
       </div>
-      <div class="blog-title-date-container">
-        <h1 class="hero-title">{{ blog.title }}</h1>
-        <div class="date-author-group">
-          <p class="hero-date">{{ blog.created_at | date: 'dd MMM yyyy' }}</p>
+      <h1 class="blog-title">{{ blog.title }}</h1>
+      <div class="blog-meta-info">
+        <div class="meta-item">
+          <i class="icon-calendar"></i>
+          <span>{{ blog.created_at | date: 'MMM dd, yyyy' }}</span>
         </div>
-      </div>
-      <p class="hero-desc"><span style="color: #009688;">Author:</span> {{ blog.written_by }}</p>
-      <p class="hero-desc">Category: {{ blog.category }}</p>
-
-      <div class="blog-main-content mb-8" [innerHTML]="blog.content"></div>
-
-      <div *ngIf="blog.qa_section && blog.qa_section.length > 0" class="qa-section mt-10">
-        <h2 class="text-2xl font-semibold mb-4 text-center">FAQ</h2>
-        <div *ngFor="let qa of blog.qa_section" class="mb-6 p-4 border rounded-lg bg-gray-50">
-          <h3 class="text-lg font-medium text-gray-800 mb-2">Q: {{ qa.question }}</h3>
-          <p class="text-gray-700">A: {{ qa.answer }}</p>
+        <div class="meta-item" *ngIf="blog.written_by">
+          <i class="icon-author"></i>
+          <span>{{ blog.written_by }}</span>
         </div>
-      </div>
-
-      <div class="blog-meta mt-8 text-sm text-gray-600">
-        
-        <p>Keywords: {{ blog.keywords }}</p>
-        <p>Meta Tags: {{ blog.meta_tags }}</p>
+        <div class="meta-item">
+          <i class="icon-category"></i>
+          <span>{{ blog.category }}</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Loading State -->
+<div *ngIf="loading" class="loading-container">
+  <div class="loading-spinner"></div>
+  <p>Loading blog...</p>
+</div>
+
+<!-- Error State -->
+<div *ngIf="error" class="error-container">
+  <div class="error-icon">⚠️</div>
+  <h3>Oops! Something went wrong</h3>
+  <p>{{ error }}</p>
+  <button class="btn-primary" routerLink="/blogs">Back to Blogs</button>
+</div>
+
+<!-- Main Content -->
+<section class="blog-content" *ngIf="blog && !loading">
+  <div class="container">
+    <div class="content-wrapper">
+      <!-- Main Article Content -->
+      <article class="article-content">
+        <div class="content-body" [innerHTML]="blog.content"></div>
+        
+        <!-- FAQ Section -->
+        <div *ngIf="blog.qa_section && blog.qa_section.length > 0" class="faq-section">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            <div *ngFor="let qa of blog.qa_section; let i = index" class="faq-item">
+              <div class="faq-question" (click)="toggleFaq(i)">
+                <h3>{{ qa.question }}</h3>
+                <span class="faq-icon" [class.expanded]="expandedFaqs[i]">+</span>
+              </div>
+              <div class="faq-answer" [class.expanded]="expandedFaqs[i]">
+                <p>{{ qa.answer }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tags Section -->
+        <div class="tags-section" *ngIf="blog.keywords">
+          <h3 class="tags-title">Tags</h3>
+          <div class="tags-list">
+            <span *ngFor="let tag of getTags(blog.keywords)" class="tag">{{ tag }}</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <!-- Author Card -->
+        <div class="author-card" *ngIf="blog.written_by">
+          <div class="author-avatar">
+            <i class="icon-user"></i>
+          </div>
+          <div class="author-info">
+            <h4>{{ blog.written_by }}</h4>
+            <p>Blog Author</p>
+          </div>
+        </div>
+
+        <!-- Related Articles -->
+        <div class="related-articles">
+          <h3>Related Articles</h3>
+          <div class="related-list">
+            <a href="#" class="related-item" *ngFor="let related of relatedBlogs">
+              <div class="related-image" [style.background-image]="'url(' + related.featured_image + ')'"></div>
+              <div class="related-content">
+                <h4>{{ related.title }}</h4>
+                <p>{{ related.created_at | date: 'MMM dd, yyyy' }}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Social Share -->
+        <div class="social-share">
+          <h3>Share this article</h3>
+          <div class="share-buttons">
+            <button class="share-btn facebook" (click)="shareOnFacebook()">
+              <i class="icon-facebook"></i>
+            </button>
+            <button class="share-btn twitter" (click)="shareOnTwitter()">
+              <i class="icon-twitter"></i>
+            </button>
+            <button class="share-btn linkedin" (click)="shareOnLinkedIn()">
+              <i class="icon-linkedin"></i>
+            </button>
+            <button class="share-btn copy" (click)="copyLink()">
+              <i class="icon-link"></i>
+            </button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" (click)="scrollToTop()" [class.visible]="showBackToTop">
+  <i class="icon-arrow-up"></i>
+</button>
 
 <app-footer></app-footer>

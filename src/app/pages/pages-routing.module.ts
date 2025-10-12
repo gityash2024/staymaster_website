@@ -24,6 +24,7 @@ import { NewHomeComponent } from './new-home/new-home.component';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { ConciergeDescriptionComponent } from '../user/conceirge-services-list/concierge-description/concierge-description.component';
 import { BlogsComponent } from './blogs/blogs.component';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 const routes: Routes = [
   {
     path: '',
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'blogs',
     component: BlogsComponent
+  },
+  {
+    path: 'blog/:id',
+    component: BlogDetailComponent
   },
   {
     path: 'hometwo',
