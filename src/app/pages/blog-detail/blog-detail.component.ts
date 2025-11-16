@@ -99,13 +99,6 @@ export class BlogDetailComponent implements OnInit {
     window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
   }
 
-  copyLink(): void {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      // You could add a toast notification here
-      console.log('Link copied to clipboard');
-    });
-  }
-
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
