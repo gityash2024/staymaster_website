@@ -107,31 +107,10 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnDestroy { // Imp
     });
   }
 
-  formatBlogContent(content: string): string {
-    // Remove consecutive <br> tags
-    content = content.replace(/(<br\s*\/?>){2,}/gi, '<br>');
-    
-    // Remove empty paragraphs
-    content = content.replace(/<p>\s*<\/p>/gi, '');
-    
-    // Clean up the excerpt
-    content = content
-      .replace(/<\/?[^>]+(>|$)/g, '') // Remove HTML tags
-      .replace(/\s+/g, ' ') // Normalize whitespace
-      .trim(); // Remove leading/trailing whitespace
-    
-    return content;
-  }
-
   fetchBlogs(): void {
     this.http.get<BlogPost[]>(`${environment.apiUrl}/blogs`).subscribe({ // Assuming /blogs endpoint
       next: (data) => {
-        // Format the content for each blog
-        this.blogs = data.map(blog => ({
-          ...blog,
-          content: this.formatBlogContent(blog.content)
-        }));
-        
+        this.blogs = data;
         if (this.blogs.length > 0) {
           this.featuredPost = this.blogs[0]; // Set the first blog as featured
         }
@@ -170,4 +149,3 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnDestroy { // Imp
     this.selectedCategory = category;
   }
 }
-

@@ -320,33 +320,6 @@ app-header {
         font-size: 16px;
         line-height: 1.4;
         color: #584139;
-
-        &.blog-content {
-          max-width: 100%;
-          overflow-wrap: break-word;
-          word-wrap: break-word;
-          word-break: break-word;
-
-          p {
-            margin-bottom: 0.5rem;
-            max-width: 100%;
-          }
-
-          img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0.5rem auto;
-            border-radius: 8px;
-          }
-
-          h1, h2, h3, h4, h5, h6 {
-            max-width: 100%;
-            word-wrap: break-word;
-            margin: 0.5rem 0;
-            line-height: 1.3;
-          }
-        }
       }
     }
   }

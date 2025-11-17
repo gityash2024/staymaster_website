@@ -12,46 +12,20 @@
                     <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutGap="40px" fxFlex="93">
                         <div fxFlex="100" fxFlex.gt-xs="50" fxLayout="column" fxLayoutGap="30px">
                             <a class="title mb-44" [routerLink]="'/about'" (click)="onNoClick()">About</a>
-                            <!--<a class="title" [routerLink]="'/invest-old'" (click)="onNoClick()">Invest</a>-->
 
                             <div class="title">Menu</div>
-                            <div fxLayout="column" fxLayoutGap="24px" *ngIf="!userLoggedIn">
+                            <div fxLayout="column" fxLayoutGap="24px">
                                 <a class="sub-menu" (click)="loginModal()">Login / Sign Up</a>
                                 <a class="sub-menu" [routerLink]="'/blogs'" (click)="onNoClick()">Blogs</a>
                                 <a class="sub-menu" [routerLink]="'/conceirge-service'" (click)="onNoClick()">Conceirge</a>
-                                <!--<a class="sub-menu" (click)="onNoClick()">Blogs</a>-->
                                 <a class="sub-menu" [routerLink]="'/contact-us'" (click)="onNoClick()">Contact Us</a>
-                                <a class="sub-menu" (click)="onNoClick()">Support and Help</a>
-                            </div>
-                            <div fxLayout="column" fxLayoutGap="24px" *ngIf="userLoggedIn">
-                                <a class="sub-menu" [routerLink]="'/trips'" (click)="onNoClick()">Trips</a>
-                                <a class="sub-menu" [routerLink]="'/conceirge-service'" (click)="onNoClick()">Conceirge
-                                    Service </a>
-                                <!--<a class="sub-menu" (click)="onNoClick()">Wishlist</a>-->
-                                <a class="sub-menu" (click)="onNoClick()">Conceirge</a>
-                                <!--<a class="sub-menu" (click)="onNoClick()">Messages</a>
-                                <a class="sub-menu" [routerLink]="'/notifications'"
-                                    (click)="onNoClick()">Notifications</a>-->
-                                <a class="sub-menu" [routerLink]="'/profile'" (click)="onNoClick()">Profile</a>
-                                <div class="devider-line"></div>
-                                <a class="sub-menu" (click)="logOut()">Log Out</a>
+                                <a class="sub-menu" [routerLink]="'/contact-us'" (click)="onNoClick()">Support and Help</a>
                             </div>
                         </div>
                         <div fxFlex="100" fxFlex.gt-xs="50" fxLayout="column" fxLayoutGap="24px">
                             <a class="title mb-44" [routerLink]="'/host'" (click)="onNoClick()">Host</a>
-                            <!-- <a class="sub-menu" (click)="onNoClick()">Login / Sign Up</a> -->
                             <a class="title mb-30" [routerLink]="'/stay/all'" (click)="onNoClick()">Stay</a>
-                            <a class="sub-menu" (click)="onNoClick()">Stays in Goa</a>
-                            <!-- <a class="sub-menu" (click)="onNoClick()">Stays in Maharashtra</a>
-                            <a class="sub-menu" (click)="onNoClick()">Stays in Uttarakhand</a> -->
-                            <!-- <div class="devider-line"></div> -->
-                            <!--<a class="sub-menu" (click)="onNoClick()">Blogs</a>
-                            <a class="sub-menu" (click)="onNoClick()">Contact Us</a>
-                            <a class="sub-menu" (click)="onNoClick()">Support and Help</a>
-                            <a class="sub-menu" (click)="onNoClick()">Profile</a>-
-                            <br>
-                            <br>
-                            <br>
+                            <a class="sub-menu" [routerLink]="'/stay/all'" [queryParams]="{destination: 1}" (click)="onNoClick()">Stays in Goa</a>
                         </div>
                     </div>
                     <!-- </div> -->

@@ -1,7 +1,9 @@
 export const environment = {
     production: true,
 
-    apiUrl: 'https://backend.thestaymaster.in/api',
+    // apiUrl: 'https://backend.thestaymaster.com/api',
+  apiUrl: 'https://thestaymaster.com/api',
+
   // apiUrl: 'http://localhost:8080/api',
 
     
