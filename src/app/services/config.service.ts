@@ -6,10 +6,10 @@ import { environment } from 'src/environments/environment';
 export class ConfigService {
 
   public currentDevice: string = "";
-  url = "https://thestaymaster.com/api/v1/"; // prod
+  url = "https://backend.thestaymaster.in/api/v1/"; // prod
   //localUrl = "http://3.109.76.188/api/";
   //localUrl = "http://localhost:8080/api";
-  localUrl = "https://thestaymaster.com/api/";
+  localUrl = "https://backend.thestaymaster.in/api/";
   //localUrl = "https://thestaymaster.com/api/";
   constructor() { }
 

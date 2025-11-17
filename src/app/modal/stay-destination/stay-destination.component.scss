@@ -502,6 +502,10 @@ input[type="checkbox"] {
     background-color: #f7f7f7 !important;
     color: #717171 !important;
     position: relative;
+
+    &.ng-star-inserted {
+      visibility: hidden !important;
+    }
     
     &::after {
       content: '';
@@ -525,6 +529,10 @@ input[type="checkbox"] {
     background-color: #ffffff !important;
     color: #dddddd !important;
     text-decoration: line-through;
+
+    &.ng-star-inserted {
+      visibility: hidden !important;
+    }
     
     &:hover {
       background-color: #ffffff !important;

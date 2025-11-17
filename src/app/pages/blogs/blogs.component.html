@@ -46,7 +46,7 @@
         <p class="date">{{ blog.created_at | date: 'dd MMM yyyy' }}</p> <!-- Use created_at -->
         <h3 class="post-title">{{ blog.title }}</h3>
         <p class="post-excerpt" *ngIf="blog.written_by"><span style="color: #008281;">Author:</span> {{ blog.written_by }}</p>
-        <p class="post-excerpt" [innerHTML]="(blog.content | slice:0:100) + '...'"></p> <!-- Use content, maybe truncate -->
+        <p class="post-excerpt blog-content" [innerHTML]="(blog.content | slice:0:100) + '...'"></p> <!-- Use content, maybe truncate -->
         <button class="read-more" [routerLink]="['/blog', blog.id]">Read More <span class="arrow">&#8594;</span></button>
       </div>
     </div>

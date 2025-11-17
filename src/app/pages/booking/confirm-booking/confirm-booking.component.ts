@@ -426,8 +426,8 @@ export class ConfirmBookingComponent {
     const extraGuestTotal = (this.bookingDetails.extra_person_charges_per_night || 0) * this.bookingDetails.number_of_nights;
     const baseAmount = roomTotal + extraGuestTotal;
 
-    // Apply GST rules based on PRICE PER NIGHT only: 5% for ≤7500, 18% for >7500
-    const gstRate = this.bookingDetails.price_per_night <= 7500 ? 0.05 : 0.18;
+    // Apply GST rules based on PRICE PER NIGHT only: 12% for ≤7500, 18% for >7500
+    const gstRate = this.bookingDetails.price_per_night <= 7500 ? 0.12 : 0.18;
     return baseAmount * gstRate;
   }
 

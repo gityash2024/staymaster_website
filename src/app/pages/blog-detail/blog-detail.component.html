@@ -1,5 +1,5 @@
 <!-- Header Section -->
-<app-header [headerName]="'transparant'"></app-header>
+<app-header [headerName]="'menus'"></app-header>
 
 <!-- Hero Section with Featured Image -->
 <section class="blog-hero" *ngIf="blog && !loading">
@@ -53,7 +53,7 @@
     <div class="content-wrapper">
       <!-- Main Article Content -->
       <article class="article-content">
-        <div class="content-body" [innerHTML]="blog.content"></div>
+        <div class="content-body blog-content" [innerHTML]="blog.content"></div>
         
         <!-- FAQ Section -->
         <div *ngIf="blog.qa_section && blog.qa_section.length > 0" class="faq-section">
@@ -85,9 +85,7 @@
         <!-- Author Card -->
         <div class="author-card" *ngIf="blog.written_by">
           <div class="author-avatar">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-            </svg>
+            <i class="icon-user"></i>
           </div>
           <div class="author-info">
             <h4>{{ blog.written_by }}</h4>
@@ -96,10 +94,10 @@
         </div>
 
         <!-- Related Articles -->
-        <div *ngIf="relatedBlogs.length > 0" class="related-articles">
+        <div class="related-articles">
           <h3>Related Articles</h3>
           <div class="related-list">
-            <a [routerLink]="['/blog', related.id]" class="related-item" *ngFor="let related of relatedBlogs">
+            <a href="#" class="related-item" *ngFor="let related of relatedBlogs">
               <div class="related-image" [style.background-image]="'url(' + related.featured_image + ')'"></div>
               <div class="related-content">
                 <h4>{{ related.title }}</h4>
@@ -113,14 +111,17 @@
         <div class="social-share">
           <h3>Share this article</h3>
           <div class="share-buttons">
-            <button class="share-btn facebook" (click)="shareOnFacebook()" aria-label="Share on Facebook">
-              <img src="../../../assets/images/facebook-icon.svg" alt="Facebook" />
+            <button class="share-btn facebook" (click)="shareOnFacebook()">
+              <i class="icon-facebook"></i>
             </button>
-            <button class="share-btn twitter" (click)="shareOnTwitter()" aria-label="Share on Twitter">
-              <img src="../../../assets/images/twitter-icon.svg" alt="Twitter" />
+            <button class="share-btn twitter" (click)="shareOnTwitter()">
+              <i class="icon-twitter"></i>
             </button>
-            <button class="share-btn linkedin" (click)="shareOnLinkedIn()" aria-label="Share on LinkedIn">
-              <img src="../../../assets/images/linkedin-icon.svg" alt="LinkedIn" />
+            <button class="share-btn linkedin" (click)="shareOnLinkedIn()">
+              <i class="icon-linkedin"></i>
+            </button>
+            <button class="share-btn copy" (click)="copyLink()">
+              <i class="icon-link"></i>
             </button>
           </div>
         </div>

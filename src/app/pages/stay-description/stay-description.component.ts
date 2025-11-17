@@ -493,8 +493,8 @@ export class StayDescriptionComponent {
     const extraGuestTotal = (this.propertyDetails.extra_person_charges_per_night || 0) * this.propertyDetails.number_of_nights;
     const baseAmount = roomTotal + extraGuestTotal;
 
-    // Apply GST rules based on PRICE PER NIGHT only: 5% for ≤7500, 18% for >7500
-    const gstRate = this.propertyDetails.price_per_night <= 7500 ? 0.05 : 0.18;
+    // Apply GST rules based on PRICE PER NIGHT only: 12% for ≤7500, 18% for >7500
+    const gstRate = this.propertyDetails.price_per_night <= 7500 ? 0.12 : 0.18;
     return baseAmount * gstRate;
   }
 
