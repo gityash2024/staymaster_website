@@ -27,9 +27,13 @@ $transition: all 0.3s ease;
   min-height: 100vh;
   position: relative;
 
-  // Global fix for all images in dynamically inserted HTML
+  // Global fix for all images in dynamically inserted HTML - scoped to blog content only
   ::ng-deep {
-    img {
+    // Only target images within blog content, not footer
+    .blog-hero img,
+    .blog-content img,
+    .article-content img,
+    .content-body img {
       max-width: 100% !important;
       width: 100% !important;
       height: auto !important;
@@ -38,23 +42,34 @@ $transition: all 0.3s ease;
       object-position: center;
     }
 
-    // Fix for any containers with fixed widths
-    [style*="width"] {
+    // Fix for any containers with fixed widths within blog content
+    .blog-content [style*="width"],
+    .article-content [style*="width"],
+    .content-body [style*="width"] {
       max-width: 100% !important;
       box-sizing: border-box;
     }
 
-    // Ensure tables and other elements don't overflow
-    table,
-    pre,
-    code {
+    // Ensure tables and other elements don't overflow within blog content
+    .blog-content table,
+    .article-content table,
+    .content-body table,
+    .blog-content pre,
+    .article-content pre,
+    .content-body pre,
+    .blog-content code,
+    .article-content code,
+    .content-body code {
       max-width: 100% !important;
       overflow-x: auto;
       box-sizing: border-box;
     }
 
     @media (max-width: 768px) {
-      img {
+      .blog-hero img,
+      .blog-content img,
+      .article-content img,
+      .content-body img {
         max-width: 100% !important;
         width: 100% !important;
         height: auto !important;
@@ -64,14 +79,19 @@ $transition: all 0.3s ease;
         padding-right: 0 !important;
       }
 
-      [style*="width"] {
+      .blog-content [style*="width"],
+      .article-content [style*="width"],
+      .content-body [style*="width"] {
         max-width: 100% !important;
         width: 100% !important;
       }
     }
 
     @media (max-width: 480px) {
-      img {
+      .blog-hero img,
+      .blog-content img,
+      .article-content img,
+      .content-body img {
         max-width: 100% !important;
         width: 100% !important;
         height: auto !important;
@@ -81,7 +101,9 @@ $transition: all 0.3s ease;
         padding-right: 0 !important;
       }
 
-      [style*="width"] {
+      .blog-content [style*="width"],
+      .article-content [style*="width"],
+      .content-body [style*="width"] {
         max-width: 100% !important;
         width: 100% !important;
       }
@@ -176,12 +198,43 @@ $transition: all 0.3s ease;
   }
 }
 
-// Ensure footer is also responsive
+// Ensure footer is also responsive and icons maintain correct sizes
 app-footer {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
+
+  // Ensure footer social media icons maintain their correct sizes
+  ::ng-deep {
+    .social-media-icons {
+      img,
+      .img {
+        width: 28px !important;
+        height: 28px !important;
+        max-width: 28px !important;
+        max-height: 28px !important;
+        box-sizing: border-box;
+      }
+    }
+
+    .social-media-icons-xs {
+      img {
+        width: 28px !important;
+        height: 28px !important;
+        max-width: 28px !important;
+        max-height: 28px !important;
+        box-sizing: border-box;
+
+        @media (max-width: 599px) {
+          width: 42px !important;
+          height: 42px !important;
+          max-width: 42px !important;
+          max-height: 42px !important;
+        }
+      }
+    }
+  }
 }
 
 // Ensure header is responsive on blog detail page - transparent overlay
@@ -299,10 +352,18 @@ app-header {
   width: 100%;
   overflow: hidden;
   min-height: 60vh;
+  max-height: 80vh; // Prevent excessive height on desktop
   display: flex;
   flex-direction: column;
   padding-top: 0; // Start from top to show image behind header
   z-index: 1;
+  
+  // Desktop specific - better aspect ratio control
+  @media (min-width: 769px) {
+    min-height: 60vh;
+    max-height: 70vh;
+    // Don't force aspect ratio - let image maintain its natural ratio
+  }
   
   // Ensure hero doesn't block header clicks
   &::before {
@@ -344,16 +405,39 @@ app-header {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: center center;
       display: block;
-      max-width: 100%;
+      // Prevent image stretching by maintaining aspect ratio
+      image-rendering: auto;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      // Ensure smooth rendering
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+
+      // Desktop specific - ensure image doesn't stretch and displays clearly
+      @media (min-width: 769px) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        // Maintain natural aspect ratio - don't force dimensions
+        min-width: 0;
+        min-height: 0;
+        // Better image quality on desktop
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        // Prevent any scaling that could cause stretching
+        transform: scale(1) translateZ(0);
+        -webkit-transform: scale(1) translateZ(0);
+      }
 
       @media (max-width: 768px) {
         width: 100%;
         max-width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center;
+        object-position: center center;
       }
 
       @media (max-width: 480px) {
@@ -361,7 +445,7 @@ app-header {
         max-width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center;
+        object-position: center center;
       }
     }
 
@@ -629,7 +713,7 @@ app-header {
 
 // Main Content Layout
 .blog-content {
-  padding: 40px 0;
+  padding: 20px 0;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -1087,7 +1171,7 @@ app-header {
   @media (max-width: 768px) {
     padding: 25px;
     border-radius: 8px;
-    margin: 40px 0;
+    margin: 20px 0;
   }
 
   @media (max-width: 480px) {
@@ -1263,7 +1347,7 @@ app-header {
 
 // Tags Section
 .tags-section {
-  margin: 40px 0;
+  margin: 20px 0;
   padding: 30px;
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   border-radius: 12px;
@@ -1699,7 +1783,7 @@ app-header {
   }
 
   @media (max-width: 480px) {
-    bottom: 15px;
+    bottom: 90px;
     right: 15px;
     width: 42px;
     height: 42px;
