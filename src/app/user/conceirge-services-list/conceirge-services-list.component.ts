@@ -33,9 +33,7 @@ export class ConceirgeServicesListComponent {
         'Gym Access': 'Gym_access.png',
         'In- Villa Salon Session': 'In_villa_Salon_services.png',
         'Sound Healing': 'Sound_healing.png',
-        'Meeting Setup': 'Meeting_set_up.png',
-        'Barbeque Setup': 'Meeting_set_up_2.png',
-        'Personalised Culinary Experience': 'Meeting_set_up.png'
+        'Meeting Setup': 'Meeting_set_up.png'
     };
 
     constructor(
@@ -61,7 +59,7 @@ export class ConceirgeServicesListComponent {
 
         // 2. Otherwise, build filename by replacing non-alphanumerics with an underscore
         const fileName = name
-            .replace(/[''`]/g, '')        // remove apostrophes/backticks
+            .replace(/[’'`]/g, '')        // remove apostrophes/backticks
             .replace(/[^a-zA-Z0-9]/g, '_') // replace non-alphanumeric with underscore
             .replace(/_+/g, '_')           // collapse consecutive underscores
             .trim();
@@ -74,6 +72,6 @@ export class ConceirgeServicesListComponent {
      */
     handleImgError(evt: Event): void {
         const imgElement = evt.target as HTMLImageElement;
-        imgElement.src = 'assets/images/Meeting_set_up_2.png';
+        imgElement.src = 'assets/images/lalithmalhaar-gadi.png';
     }
 }

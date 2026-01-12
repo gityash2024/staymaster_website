@@ -253,12 +253,6 @@
   }
 }
 
-/* Apply footer background image only when the extra class is present */
-.footer-image {
-  background: url("../../../assets/images/footer_bg.png") no-repeat center center;
-  background-size: cover;
-}
-
 .footer-menu {
   display: flex;
   flex-wrap: wrap;

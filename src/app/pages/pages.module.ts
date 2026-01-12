@@ -55,6 +55,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { ConciergeDescriptionComponent } from '../user/conceirge-services-list/concierge-description/concierge-description.component';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { BlogsComponent } from './blogs/blogs.component';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component'; // Import BlogDetailComponent
 
 
 @NgModule({
@@ -92,7 +93,8 @@ import { BlogsComponent } from './blogs/blogs.component';
     AboutPropertyModalComponent,
     PhotoGalleryComponent,
     ConciergeDescriptionComponent,
-    BlogsComponent
+    BlogsComponent,
+    BlogDetailComponent // Declare BlogDetailComponent
   ],
   imports: [
     CommonModule,

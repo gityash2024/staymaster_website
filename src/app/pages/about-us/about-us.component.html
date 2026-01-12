@@ -84,7 +84,6 @@
               <div class="card-info-hover">
                 Our cluster of apartments to expansive villas are the perfect venues for hosting events, corporate
                 retreats, or large gatherings. We can handle all arrangements; you can focus on celebrating in style.
-                
               </div>
             </div>
           </div>
@@ -534,39 +533,41 @@
       <div class="side-img- our-founders-bg">
         <div class="container " ngClass.xs="container-xs" fxLayout="column" fxLayoutGap="20px">
           <div class="page-header">Our Founders</div>
-          <div class="founders-wrapper" fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="60px">
-            <!-- Founder – Ankur -->
-            <div class="founder-block" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="center center" fxLayoutGap="40px" fxFlex="50">
-              <div class="founder-text" fxFlex="50">
+          <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="40px">
+            <div class="founder-card" fxLayout="row" fxLayout.gt-xs="row" fxLayoutGap="28px" fxFlex="50">
+              <div fxLayoutAlign="end start" class="founder-bg" ngClass.xs="founder-bg-xs" fxFlex.lt-md="30">
+                <img src="../../../assets/images/ankur_mathur.png" alt="" class="founder-photo"
+                  ngClass.xs="founder-photo-xs">
+              </div>
+              <div class="founder-info" fxLayout="column" fxLayoutGap="0px" fxLayoutAlign="end start" fxFlex.lt-md="70">
                 <div class="founder-name">Ankur Mathur</div>
-                <div class="founder-divider"></div>
-                <div class="founder-desc">
+                <div class="founder-designation">Co-Founder</div>
+                <div class="about-founder">
                   With his bounty of experience in property acquisition, real estate consulting and sales growth
                   marketing with Airbnb, Ankur's the force behind improving customer-centric hospitality.
                 </div>
-              </div>
-              <div class="founder-image-wrap" fxFlex="50">
-                <img src="../../../assets/images/ankur_mathur.png" alt="Ankur Mathur" class="founder-photo">
-                <div class="linkedin-icon cursor-pointer" (click)="openSocialMedia('https://www.linkedin.com/in/ankurmathur7/')">
-                  <img src="../../../assets/images/linkedin-icon.svg" alt="LinkedIn">
+                <div class="founder-social-media">
+                  <img src="../../../assets/images/linkedin-icon.svg" alt=""
+                    (click)="openSocialMedia('https://www.linkedin.com/in/ankurmathur7/')">
                 </div>
               </div>
             </div>
-
-            <!-- Founder – Rishi -->
-            <div class="founder-block founder-right" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="center center" fxLayoutGap="40px" fxFlex="50">
-              <div class="founder-image-wrap" fxFlex="50">
-                <img src="../../../assets/images/rishi_modi.png" alt="Rishi Modi" class="founder-photo">
-                <div class="linkedin-icon cursor-pointer" (click)="openSocialMedia('https://www.linkedin.com/in/rishi-modi-40099a15/')">
-                  <img src="../../../assets/images/linkedin-icon.svg" alt="LinkedIn">
-                </div>
+            <!--  -->
+            <div class="founder-card" fxLayout="row" fxLayout.gt-xs="row" fxLayoutGap="28px" fxFlex="50">
+              <div fxLayoutAlign="end start" class="founder-bg" ngClass.xs="founder-bg-xs" fxFlex.lt-md="30">
+                <img src="../../../assets/images/rishi_modi.png" alt="" class="founder-photo"
+                  ngClass.xs="founder-photo-xs">
               </div>
-              <div class="founder-text" fxFlex="50">
+              <div class="founder-info" fxLayout="column" fxLayoutGap="0px" fxLayoutAlign="end start" fxFlex.lt-md="70">
                 <div class="founder-name">Rishi Modi</div>
-                <div class="founder-divider"></div>
-                <div class="founder-desc">
+                <div class="founder-designation">Co-Founder</div>
+                <div class="about-founder">
                   His knack of outreach, understanding of Indian market potential and stellar business relationships
                   bind the strategy to grow into a premier vacation rental in the country.
+                </div>
+                <div class="founder-social-media">
+                  <img src="../../../assets/images/linkedin-icon.svg" alt=""
+                    (click)="openSocialMedia('https://www.linkedin.com/in/rishi-modi-40099a15/')">
                 </div>
               </div>
             </div>
@@ -605,11 +606,10 @@
           <div class="profiles relative" ngClass.xs="profiles-xs" fxLayout="row wrap" fxLayoutGap="12px"
             fxLayoutAlign.lt-md="center" fxLayoutAlign.lt-sm="space-around">
             <div *ngFor="let team of teamProfile" class="profile">
-              <div class="profile" [ngClass]="{'zara-zoom': team.name === 'Zara'}" [ngStyle]="{
+              <div class="profile" [ngStyle]="{
                 'background-image': 'url(' + team.profileImage + ')',
                 'background-repeat': 'no-repeat',
-                'background-size': 'cover',
-                'background-position': 'center'
+                'background-size': 'contain'
               }">
                 <div class="profile-hover">
                   <div class="name">{{team.name}}</div>
@@ -690,7 +690,6 @@
         </div>
       </div>
     </div>
-    <!-- <img src="../../../assets/images/about_us_corousel.jpg" alt="Stay Live Belong Banner" style="width: 100%; height: auto;"> -->
   </div>
   <!--  -->
 </ng-container>
